@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { CtaBand } from "@/components/cta-band";
 import { CeilingsBlock } from "@/components/ceilings-block";
 import { FaqList } from "@/components/faq-list";
 import { Frame } from "@/components/frame";
@@ -9,6 +10,7 @@ import { LeadForm } from "@/components/lead-form";
 import { SourcesList } from "@/components/sources-list";
 import { HOME_FAQS, METHOD_NOTE } from "@/content/faqs";
 import { Amount } from "@/components/amount";
+import { ProcessSteps, TrustStrip } from "@/components/trust-strip";
 import { chf, FIGURES, YEAR_SPAN, YEAR_SPAN_WORDS } from "@/lib/figures";
 import { IMAGES } from "@/lib/media";
 import { canonical, SITE } from "@/lib/site";
@@ -53,7 +55,7 @@ const REASONS = [
 export default function HomePage() {
   return (
     <div>
-      <section className="relative min-h-[92vh] overflow-hidden text-primary-foreground">
+      <section data-testid="conversion-accueil" className="relative min-h-[92vh] overflow-hidden text-primary-foreground">
         <Image
           src={IMAGES.hero.src}
           alt={IMAGES.hero.alt}
@@ -67,30 +69,36 @@ export default function HomePage() {
           <div>
             <p className="kicker">Suisse romande · Genève · frontaliers</p>
             <h1 className="font-heading mt-4 max-w-xl text-[2.6rem] leading-[1.05] md:text-6xl">
-              Comparateur 3ème pilier {YEAR_SPAN}
+              Un comparatif 3e pilier, sans honoraires
             </h1>
             <p className="mt-6 max-w-lg text-base leading-relaxed text-primary-foreground/88 md:text-lg">
-              Comparez 3a et 3b, banque et assurance, sans honoraires et sans engagement. Les
-              plafonds ci-dessous sont ceux de l’OFAS pour 2026 et, pour 2027, les montants encore
-              en vigueur (art. 7 OPP 3) — pas une estimation.
+              Banque ou assurance, 3a ou 3b : un conseiller partenaire diplômé AFA lit votre
+              situation. Les plafonds ci-dessous sont ceux de l’OFAS pour 2026 — et, pour 2027, les
+              montants encore en vigueur. Pas une estimation, pas un Typeform.
             </p>
+            <TrustStrip tone="hero" />
             <CeilingsBlock tone="hero" />
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Link
-                href="/formulaire-3eme-pilier/"
-                className="inline-flex h-12 items-center bg-accent px-6 text-[0.72rem] uppercase tracking-[0.2em] text-accent-foreground hover:bg-accent/90"
-              >
-                Demander un comparatif
-              </Link>
+            <p className="mt-6">
               <Link
                 href="/deductions-fiscales-3eme-pilier/"
-                className="inline-flex h-12 items-center border border-primary-foreground/35 px-6 text-[0.72rem] uppercase tracking-[0.2em] text-primary-foreground hover:bg-primary-foreground/10"
+                className="text-sm text-primary-foreground/80 underline decoration-accent underline-offset-4 hover:text-primary-foreground"
               >
-                Voir les plafonds {YEAR_SPAN}
+                Détail des plafonds {YEAR_SPAN}
               </Link>
-            </div>
+            </p>
           </div>
           <LeadForm intent="comparateur" tone="overlay" />
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-4 py-16 md:px-6 md:py-20">
+        <p className="kicker">Processus</p>
+        <h2 className="font-heading mt-3 max-w-2xl text-4xl">Visiteur, puis prospect — rien d’automatique</h2>
+        <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground">
+          La demande est enregistrée. Un humain rappelle. Nous n’envoyons pas d’e-mail magique.
+        </p>
+        <div className="mt-10">
+          <ProcessSteps />
         </div>
       </section>
 
@@ -207,6 +215,10 @@ export default function HomePage() {
           ))}
         </div>
       </section>
+
+      <div className="mx-auto max-w-6xl px-4 md:px-6">
+        <CtaBand />
+      </div>
 
       <div className="mx-auto max-w-3xl px-4 py-20 md:px-6">
         <FaqList items={HOME_FAQS} />

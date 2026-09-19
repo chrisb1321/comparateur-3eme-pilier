@@ -631,18 +631,18 @@ export const PAGES: EditorialDoc[] = [
     slug: "formulaire-3eme-pilier",
     wpId: 1248,
     title: "Formulaire comparatif 3e pilier",
-    metaTitle: "Comparatif 3e pilier : formulaire sans Typeform",
+    metaTitle: "Comparatif 3e pilier : 5 champs, sans Typeform",
     description:
-      "Demandez un comparatif 3a/3b en HTML, sans Typeform. Sans honoraires, sans engagement. Réponse par téléphone ou e-mail.",
+      "Demandez un comparatif 3a/3b en HTML. Sans honoraires, plafonds OFAS 2026, rappel sous deux jours ouvrés. Pas de Typeform.",
     published: "2021-11-02",
     updated: UPDATED,
     intro:
-      "Remplace les anciens tunnels Typeform. Décrivez votre situation : nous transmettons la demande à un conseiller partenaire. Maximum d’offres utiles, pas un catalogue de 40 polices.",
+      "Un seul formulaire. Pas de Typeform, pas d’honoraires. Un conseiller partenaire diplômé AFA rappelle sous deux jours ouvrés. La demande est enregistrée : aucun e-mail automatique n’est envoyé.",
     related: ["nous-contacter", "page-remerciement", "choisir-son-3eme-pilier"],
     blocks: [
       {
         type: "p",
-        text: "Champs essentiels : canton, statut, affiliation LPP, objectif (fiscal, retraite, famille, logement), budget annuel, coordonnées. Un champ libre pour le contexte (frontalier, TOU, enfant, hypothèque).",
+        text: "Champs : prénom, nom, e-mail, téléphone, canton, situation. Une précision facultative (frontalier, TOU, logement). Consentement pour le rappel et la transmission au partenaire.",
       },
     ],
   },
@@ -657,7 +657,7 @@ export const PAGES: EditorialDoc[] = [
     published: "2021-11-02",
     updated: UPDATED,
     intro:
-      "Une minute pour décrire le besoin, vos coordonnées, puis validation. Nous privilégions le téléphone, plus rapide qu’un fil de mails. Le service reste sans honoraires : vous choisissez ensuite de poursuivre ou non.",
+      "Quatre champs et votre demande. Prochaine étape : un rappel sous deux jours ouvrés, de préférence par téléphone. Le service reste sans honoraires. Pas d’e-mail automatique.",
     related: ["formulaire-3eme-pilier", "a-propos", "page-de-confidentialitee"],
     blocks: [
       {
@@ -746,11 +746,11 @@ export const PAGES: EditorialDoc[] = [
     wpId: 1301,
     title: "Merci pour votre demande",
     metaTitle: "Demande bien reçue — Comparateur 3ème pilier",
-    description: "Votre demande de comparatif ou de contact a bien été enregistrée.",
+    description: "Votre demande est enregistrée. Un conseiller rappelle sous deux jours ouvrés. Pas d’e-mail automatique.",
     published: "2023-05-05",
     updated: UPDATED,
     intro:
-      "Merci. Un conseiller revient vers vous, de préférence par téléphone. En attendant, vous pouvez lire les plafonds 2026–2027 ou la différence 3a / 3b.",
+      "Merci. La demande est dans le journal des leads. Un humain rappelle, de préférence par téléphone. En attendant : plafonds 2026–2027 ou la différence 3a / 3b.",
     related: ["deductions-fiscales-3eme-pilier", "3eme-pilier-a-ou-b"],
     blocks: [
       {

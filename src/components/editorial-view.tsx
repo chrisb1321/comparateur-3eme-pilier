@@ -8,6 +8,7 @@ import { JsonLd } from "@/components/json-ld";
 import { LeadForm } from "@/components/lead-form";
 import { MdxBody } from "@/components/mdx-body";
 import { SourcesList } from "@/components/sources-list";
+import { ProcessSteps } from "@/components/trust-strip";
 import { getPosts, getRelated } from "@/content";
 import type { EditorialDoc } from "@/content/types";
 import { coverFor, IMAGES } from "@/lib/media";
@@ -42,37 +43,68 @@ export async function EditorialView({ doc }: { doc: EditorialDoc }) {
 
   if (isThanks) {
     return (
-      <article>
-        <div className="relative min-h-[52vh] overflow-hidden">
+      <article data-testid="page-merci">
+        <div className="relative min-h-[48vh] overflow-hidden">
           <Frame
             image={IMAGES.merci}
             fill
-            className="absolute inset-0 min-h-[52vh] rounded-none"
+            className="absolute inset-0 min-h-[48vh] rounded-none"
             sizes="100vw"
             rounded={false}
             priority
           />
           <div className="absolute inset-0 bg-primary/55" />
-          <div className="relative mx-auto flex min-h-[52vh] max-w-3xl flex-col justify-end px-4 py-16 text-primary-foreground md:px-6">
-            <p className="kicker">Demande reçue</p>
+          <div className="relative mx-auto flex min-h-[48vh] max-w-3xl flex-col justify-end px-4 py-16 text-primary-foreground md:px-6">
+            <p className="kicker">Demande enregistrée</p>
             <h1 className="font-heading mt-3 text-4xl md:text-6xl">{doc.title}</h1>
           </div>
         </div>
         <div className="mx-auto max-w-2xl px-4 py-16 md:px-6">
           <p className="text-lg leading-relaxed">{doc.intro}</p>
-          <div className="mt-8">
+          <ol className="mt-10 space-y-6 border-t border-accent/30 pt-8">
+            <li>
+              <p className="font-figures text-xs tracking-[0.2em] text-accent">01</p>
+              <h2 className="font-heading mt-1 text-2xl">Nous avons le dossier</h2>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                La demande est écrite dans le journal des leads. Ce n’est pas un e-mail automatique :
+                personne n’a encore reçu de message de confirmation.
+              </p>
+            </li>
+            <li>
+              <p className="font-figures text-xs tracking-[0.2em] text-accent">02</p>
+              <h2 className="font-heading mt-1 text-2xl">Un humain rappelle</h2>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                Sous deux jours ouvrés, de préférence par téléphone. Si rien ne vient, écrivez à{" "}
+                <a className="text-primary underline decoration-accent underline-offset-4" href={`mailto:${SITE.email}`}>
+                  {SITE.email}
+                </a>{" "}
+                en rappelant votre numéro.
+              </p>
+            </li>
+            <li>
+              <p className="font-figures text-xs tracking-[0.2em] text-accent">03</p>
+              <h2 className="font-heading mt-1 text-2xl">Vous n’êtes pas engagé</h2>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                Le comparatif reste sans honoraires. Vous choisissez de poursuivre ou non.
+              </p>
+            </li>
+          </ol>
+          <div className="mt-10">
             <Blocks blocks={doc.blocks} />
           </div>
           {related.length ? (
-            <ul className="mt-10 space-y-2">
-              {related.map((item) => (
-                <li key={item.slug}>
-                  <Link href={`/${item.slug}/`} className="text-primary underline decoration-accent underline-offset-4">
-                    {item.title}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+            <div className="mt-12">
+              <p className="kicker">En attendant le rappel</p>
+              <ul className="mt-4 space-y-2">
+                {related.map((item) => (
+                  <li key={item.slug}>
+                    <Link href={`/${item.slug}/`} className="text-primary underline decoration-accent underline-offset-4">
+                      {item.title}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
           ) : null}
         </div>
       </article>
@@ -135,7 +167,8 @@ export async function EditorialView({ doc }: { doc: EditorialDoc }) {
           </div>
         ) : null}
         {showComparateur ? (
-          <div className="mt-12">
+          <div className="mt-12 space-y-10">
+            <ProcessSteps />
             <LeadForm intent="comparateur" />
           </div>
         ) : null}

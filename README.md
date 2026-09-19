@@ -25,7 +25,7 @@ npm start
 
 ## Leads
 
-Les demandes sont append dans `data/leads.jsonl` (ignoré par git). Optionnel : `LEAD_WEBHOOK_URL` (POST JSON) dans `.env.local`.
+Les demandes sont append dans `data/leads.jsonl` (ignoré par git). Optionnel : `LEAD_WEBHOOK_URL` (POST JSON) dans `.env.local`. **Pas d’e-mail automatique** tant que le webhook n’est pas branché (voir `docs` du store : conversion-et-bascule.md).
 
 ## URL livrées
 

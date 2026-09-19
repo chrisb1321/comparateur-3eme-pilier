@@ -9,6 +9,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { cn } from "@/lib/utils";
+import { TrustStrip } from "@/components/trust-strip";
 
 const fieldClass = "h-12 rounded-none border-input bg-background/80 text-base md:text-sm";
 
@@ -26,6 +27,7 @@ export function LeadForm({
   return (
     <form
       action={action}
+      data-testid={isContact ? "form-contact" : "form-comparateur"}
       className={cn(
         "space-y-4 p-6 md:p-7",
         tone === "overlay"
@@ -34,18 +36,19 @@ export function LeadForm({
       )}
       noValidate
     >
-      <header className="space-y-1">
-        <p className="kicker">{isContact ? "Écrire" : "Comparatif 2026–2027"}</p>
+      <header className="space-y-2">
+        <p className="kicker">{isContact ? "Écrire" : "Comparatif gratuit"}</p>
         <h2 className="font-heading text-2xl text-primary">
-          {isContact ? "Une question, un entretien" : "Décrivez votre situation"}
+          {isContact ? "Une question, un rappel" : "Recevoir un comparatif"}
         </h2>
         {idle ? (
           <p className="text-sm leading-relaxed text-muted-foreground">
             {isContact
-              ? "Tous les champs sauf le message sont utiles. Nous rappelons de préférence par téléphone."
-              : "Formulaire vide : commencez par le canton et un numéro joignable. Sans honoraires."}
+              ? "Quatre champs. Prochaine étape : un rappel sous deux jours ouvrés, de préférence par téléphone."
+              : "Cinq champs. Un conseiller partenaire diplômé AFA lit la situation — sans honoraires, sans Typeform."}
           </p>
         ) : null}
+        {isContact ? null : <TrustStrip />}
       </header>
       <input type="hidden" name="intent" value={intent} />
       <div className="hidden" aria-hidden="true">
@@ -70,90 +73,62 @@ export function LeadForm({
           <Input id={`${intent}-phone`} name="phone" type="tel" required className={fieldClass} autoComplete="tel" placeholder="+41 …" />
         </Field>
       </div>
-      <div className="grid gap-4 sm:grid-cols-2">
-        <Field label={isContact ? "Canton (facultatif)" : "Canton / résidence"} htmlFor={`${intent}-canton`}>
-          <select
-            id={`${intent}-canton`}
-            name="canton"
-            required={!isContact}
-            className={cn(fieldClass, "w-full px-2.5")}
-            defaultValue=""
-          >
-            <option value="" disabled>
-              Choisir
-            </option>
-            {CANTONS.map((canton) => (
-              <option key={canton} value={canton}>
-                {canton}
-              </option>
-            ))}
-          </select>
-        </Field>
-        <Field label="Situation" htmlFor={`${intent}-status`}>
-          <select
-            id={`${intent}-status`}
-            name="status"
-            className={cn(fieldClass, "w-full px-2.5")}
-            defaultValue="salarie"
-          >
-            <option value="salarie">Salarié·e</option>
-            <option value="independant">Indépendant·e</option>
-            <option value="frontalier">Frontalier·ère</option>
-            <option value="autre">Autre</option>
-          </select>
-        </Field>
-      </div>
       {!isContact ? (
-        <>
-          <div className="grid gap-4 sm:grid-cols-2">
-            <Field label="Affiliation 2e pilier (LPP)" htmlFor={`${intent}-lpp`}>
-              <select
-                id={`${intent}-lpp`}
-                name="lpp"
-                className={cn(fieldClass, "w-full px-2.5")}
-                defaultValue="oui"
-              >
-                <option value="oui">Oui</option>
-                <option value="non">Non</option>
-                <option value="incertain">Je ne sais pas</option>
-              </select>
-            </Field>
-            <Field label="Objectif principal" htmlFor={`${intent}-goal`}>
-              <select
-                id={`${intent}-goal`}
-                name="goal"
-                className={cn(fieldClass, "w-full px-2.5")}
-                defaultValue="fiscal"
-              >
-                <option value="fiscal">Déduction fiscale 2026–2027</option>
-                <option value="retraite">Compléter la retraite</option>
-                <option value="famille">Protéger la famille</option>
-                <option value="logement">Logement / hypothèque</option>
-                <option value="frontalier">Situation frontalière</option>
-              </select>
-            </Field>
-          </div>
-          <Field label="Budget annuel estimé (CHF)" htmlFor={`${intent}-budget`}>
-            <Input id={`${intent}-budget`} name="budget" inputMode="decimal" className={fieldClass} placeholder="ex. 7258" />
+        <div className="grid gap-4 sm:grid-cols-2">
+          <Field label="Canton / résidence" htmlFor={`${intent}-canton`}>
+            <select
+              id={`${intent}-canton`}
+              name="canton"
+              required
+              className={cn(fieldClass, "w-full px-2.5")}
+              defaultValue=""
+            >
+              <option value="" disabled>
+                Choisir
+              </option>
+              {CANTONS.map((canton) => (
+                <option key={canton} value={canton}>
+                  {canton}
+                </option>
+              ))}
+            </select>
           </Field>
-        </>
+          <Field label="Situation" htmlFor={`${intent}-situation`}>
+            <select
+              id={`${intent}-situation`}
+              name="situation"
+              className={cn(fieldClass, "w-full px-2.5")}
+              defaultValue="salarie-lpp"
+            >
+              <option value="salarie-lpp">Salarié·e avec 2e pilier</option>
+              <option value="sans-lpp">Sans 2e pilier</option>
+              <option value="independant">Indépendant·e</option>
+              <option value="frontalier">Frontalier·ère</option>
+              <option value="autre">Autre / je ne sais pas</option>
+            </select>
+          </Field>
+        </div>
       ) : null}
-      <Field label={isContact ? "Votre demande" : "Précisions (facultatif)"} htmlFor={`${intent}-message`}>
+      <Field label={isContact ? "Votre demande" : "Précision (facultatif)"} htmlFor={`${intent}-message`}>
         <Textarea
           id={`${intent}-message`}
           name="message"
-          rows={4}
-          className="min-h-24 rounded-none text-base md:text-sm"
-          placeholder={isContact ? "Décrivez votre besoin en quelques lignes." : "Ex. frontalier Genève, TOU, deux enfants…"}
+          rows={isContact ? 4 : 3}
+          required={isContact}
+          className="min-h-20 rounded-none text-base md:text-sm"
+          placeholder={
+            isContact
+              ? "Décrivez le besoin. Nous rappelons ; pas d’e-mail automatique."
+              : "Ex. frontalier Genève, TOU, logement…"
+          }
         />
       </Field>
       <label className="flex items-start gap-3 text-sm leading-relaxed">
         <input type="checkbox" name="consent" value="oui" required className="mt-1 size-4 accent-primary" />
         <span>
-          J’accepte que mes données soient utilisées pour me recontacter et transmises au partenaire
-          chargé d’établir le comparatif, conformément à la{" "}
+          J’accepte d’être recontacté et que la demande soit transmise au partenaire du comparatif.{" "}
           <Link href="/page-de-confidentialitee/" className="underline decoration-accent underline-offset-4">
-            politique de confidentialité
+            Confidentialité
           </Link>
           .
         </span>
@@ -168,18 +143,20 @@ export function LeadForm({
       ) : null}
       {pending ? (
         <p className="text-sm text-muted-foreground" aria-live="polite">
-          Envoi en cours — ne fermez pas la page.
+          Enregistrement de la demande — ne fermez pas la page.
         </p>
       ) : null}
       <Button
         type="submit"
         disabled={pending}
-        className="h-12 w-full rounded-none px-6 text-[0.72rem] uppercase tracking-[0.2em] sm:w-auto"
+        className="h-12 w-full rounded-none px-6 text-[0.72rem] uppercase tracking-[0.2em]"
       >
-        {pending ? "Envoi…" : isContact ? "Envoyer la demande" : "Recevoir mon comparatif"}
+        {pending ? "Envoi…" : isContact ? "Demander un rappel" : "Recevoir mon comparatif"}
       </Button>
-      <p className="text-xs text-muted-foreground">
-        Sans honoraires, sans engagement. Réponse de préférence par téléphone.
+      <p className="text-xs leading-relaxed text-muted-foreground">
+        {isContact
+          ? "Pas d’e-mail automatique : la demande est enregistrée, puis un humain rappelle."
+          : "Prochaine étape : rappel sous deux jours ouvrés. Vous n’êtes pas engagé."}
       </p>
     </form>
   );

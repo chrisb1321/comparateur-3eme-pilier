@@ -40,6 +40,13 @@ export function MobileNav() {
             </Link>
           ))}
           <Link
+            href="/formulaire-3eme-pilier/"
+            onClick={() => setOpen(false)}
+            className="mt-4 flex h-12 items-center justify-center bg-accent text-[0.72rem] uppercase tracking-[0.2em] text-accent-foreground"
+          >
+            Demander un comparatif
+          </Link>
+          <Link
             href="/nous-contacter/"
             onClick={() => setOpen(false)}
             className="border-b border-accent/20 py-3 font-heading text-xl"

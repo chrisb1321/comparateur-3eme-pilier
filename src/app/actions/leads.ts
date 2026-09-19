@@ -22,10 +22,7 @@ export async function submitLead(_prev: LeadState, form: FormData): Promise<Lead
   const email = str(form, "email");
   const phone = str(form, "phone");
   const canton = str(form, "canton");
-  const status = str(form, "status");
-  const lpp = str(form, "lpp");
-  const goal = str(form, "goal");
-  const budget = str(form, "budget");
+  const situation = str(form, "situation");
   const message = str(form, "message");
   const consent = str(form, "consent");
 
@@ -41,6 +38,9 @@ export async function submitLead(_prev: LeadState, form: FormData): Promise<Lead
   if (intent === "comparateur" && !canton) {
     return { error: "Choisissez un canton ou « frontalier »." };
   }
+  if (intent === "contact" && message.length < 8) {
+    return { error: "Décrivez votre demande en quelques mots." };
+  }
   if (consent !== "oui") {
     return { error: "Le consentement est nécessaire pour transmettre votre demande." };
   }
@@ -53,11 +53,13 @@ export async function submitLead(_prev: LeadState, form: FormData): Promise<Lead
     email,
     phone,
     canton,
-    status,
-    lpp,
-    goal,
-    budget,
+    situation,
     message,
+    notify: {
+      jsonl: true,
+      webhook: Boolean(process.env.LEAD_WEBHOOK_URL),
+      email: false,
+    },
   };
 
   try {
@@ -82,6 +84,6 @@ export async function submitLead(_prev: LeadState, form: FormData): Promise<Lead
     }
   }
 
-  console.info("lead", { intent, email, canton });
+  console.info("lead", { intent, email, canton, webhook: Boolean(hook) });
   redirect("/page-remerciement/");
 }

@@ -3,6 +3,7 @@ import { Cormorant_Garamond, IBM_Plex_Sans, Source_Sans_3 } from "next/font/goog
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { SiteJsonLd } from "@/components/site-json-ld";
+import { StickyCta } from "@/components/sticky-cta";
 import { YEAR_SPAN } from "@/lib/figures";
 import { SITE, canonical } from "@/lib/site";
 import { IMAGES } from "@/lib/media";
@@ -52,7 +53,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="fr-CH" className={`${sans.variable} ${serif.variable} ${figures.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col bg-background text-foreground">
+      <body className="min-h-full flex flex-col bg-background text-foreground pb-16 md:pb-0">
         <a
           href="#contenu"
           className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:bg-primary focus:px-3 focus:py-2 focus:text-primary-foreground"
@@ -64,6 +65,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           {children}
         </main>
         <SiteFooter />
+        <StickyCta />
         <SiteJsonLd />
       </body>
     </html>
