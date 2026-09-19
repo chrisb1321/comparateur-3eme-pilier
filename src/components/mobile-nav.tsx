@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import { MenuIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -13,8 +14,9 @@ import {
 import { NAV } from "@/lib/nav";
 
 export function MobileNav() {
+  const [open, setOpen] = useState(false);
   return (
-    <Sheet>
+    <Sheet open={open} onOpenChange={setOpen}>
       <SheetTrigger
         render={
           <Button variant="outline" size="icon" className="rounded-none lg:hidden" aria-label="Ouvrir le menu" />
@@ -28,14 +30,23 @@ export function MobileNav() {
         </SheetHeader>
         <nav className="mt-6 flex flex-col gap-1 px-4" aria-label="Mobile">
           {NAV.map((item) => (
-            <Link key={item.href} href={item.href} className="border-b border-accent/20 py-3 font-heading text-xl">
+            <Link
+              key={item.href}
+              href={item.href}
+              onClick={() => setOpen(false)}
+              className="border-b border-accent/20 py-3 font-heading text-xl"
+            >
               {item.label}
             </Link>
           ))}
-          <Link href="/nous-contacter/" className="border-b border-accent/20 py-3 font-heading text-xl">
+          <Link
+            href="/nous-contacter/"
+            onClick={() => setOpen(false)}
+            className="border-b border-accent/20 py-3 font-heading text-xl"
+          >
             Nous contacter
           </Link>
-          <Link href="/a-propos/" className="py-3 font-heading text-xl">
+          <Link href="/a-propos/" onClick={() => setOpen(false)} className="py-3 font-heading text-xl">
             À propos
           </Link>
         </nav>

@@ -196,7 +196,7 @@ function Field({
 }) {
   return (
     <div className="space-y-1.5">
-      <Label htmlFor={htmlFor} className="text-[0.72rem] uppercase tracking-[0.14em] text-muted-foreground">
+      <Label htmlFor={htmlFor} className="text-[0.7rem] uppercase tracking-[0.1em] text-muted-foreground">
         {label}
       </Label>
       {children}
