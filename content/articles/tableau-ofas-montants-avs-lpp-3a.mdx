@@ -29,32 +29,32 @@ Le fichier s’appelle à peu près toujours la même chose : *Montants valables
 
 | Paramètre | Montant |
 | --- | --- |
-| Rente minimale de vieillesse | <Amount value={1260} /> |
-| Rente maximale de vieillesse | <Amount value={2520} /> |
-| Somme maximale des deux rentes d’un couple marié | <Amount value={3780} /> |
+| Rente minimale de vieillesse | <Amount value="1260" /> |
+| Rente maximale de vieillesse | <Amount value="2520" /> |
+| Somme maximale des deux rentes d’un couple marié | <Amount value="3780" /> |
 
 **LPP** (aucun changement malgré la 13e rente) :
 
 | Paramètre | Montant |
 | --- | --- |
-| Salaire minimal annuel (seuil d’entrée) | <Amount value={22680} /> |
-| Déduction de coordination | <Amount value={26460} /> |
-| Limite supérieure du salaire annuel | <Amount value={90720} /> |
-| Salaire coordonné minimal | <Amount value={3780} /> |
-| Salaire coordonné maximal | <Amount value={64260} /> |
+| Salaire minimal annuel (seuil d’entrée) | <Amount value="22680" /> |
+| Déduction de coordination | <Amount value="26460" /> |
+| Limite supérieure du salaire annuel | <Amount value="90720" /> |
+| Salaire coordonné minimal | <Amount value="3780" /> |
+| Salaire coordonné maximal | <Amount value="64260" /> |
 
 **Pilier 3a** :
 
 | Situation | Maximum 2026 |
 | --- | --- |
-| Avec affiliation au 2e pilier | <Amount value={7258} /> |
-| Sans affiliation (20 % du revenu, max.) | <Amount value={36288} /> |
+| Avec affiliation au 2e pilier | <Amount value="7258" /> |
+| Sans affiliation (20 % du revenu, max.) | <Amount value="36288" /> |
 
 Ces 3a 2026 sont identiques à 2025. Source : le PDF lui-même (« aucune modification des montants par rapport au 1er janvier 2025 »).
 
 ## Le lien mécanique
 
-Le seuil LPP est les trois quarts de la rente AVS maximale annuelle. La petite cotisation 3a vaut 8 % de la limite supérieure LPP : 8 % de <Amount value={90720} /> = <Amount value={7258} />. La grande cotisation, 40 % de la même limite, donne <Amount value={36288} />.
+Le seuil LPP est les trois quarts de la rente AVS maximale annuelle. La petite cotisation 3a vaut 8 % de la limite supérieure LPP : 8 % de <Amount value="90720" /> = <Amount value="7258" />. La grande cotisation, 40 % de la même limite, donne <Amount value="36288" />.
 
 Donc : **pas d’adaptation AVS → pas de nouveau plafond 3a**. C’est pour cela que 2025 et 2026 sont jumeaux, et que 2027 restera le même couple de chiffres tant que le Conseil fédéral ne relève pas les rentes.
 
@@ -71,7 +71,7 @@ Les montants de l’année suivante sont en général décidés à l’automne. 
 
 ## 2027, état au 19 septembre 2026
 
-Pas de PDF. L’art. 7 OPP 3 continue d’écrire <Amount value={7258} /> / <Amount value={36288} /> dès 2025. Nous affichons donc **les deux années** sur le site, avec cette réserve, plutôt qu’un silence ou une estimation.
+Pas de PDF. L’art. 7 OPP 3 continue d’écrire <Amount value="7258" /> / <Amount value="36288" /> dès 2025. Nous affichons donc **les deux années** sur le site, avec cette réserve, plutôt qu’un silence ou une estimation.
 
 Quand le tableau 1.1.2027 sortira, la [page des plafonds](/plafonds-3a-2026-2027/) et les [déductions](/deductions-fiscales-3eme-pilier/) seront alignées le jour même — pas avant.
 

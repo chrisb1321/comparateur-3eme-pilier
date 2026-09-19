@@ -61,7 +61,7 @@ faqs:
 
 ${slot.brief}
 
-Rédiger ici le copy français (YMYL). Chiffres : \`<Amount value={7258} />\`.
+Rédiger ici le copy français (YMYL). Chiffres : \`<Amount value="7258" />\`.
 
 Sources obligatoires : OFAS (art. 7 OPP 3, PDF montants) et/ou AFC circulaire n° 18.
 

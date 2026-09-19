@@ -6,8 +6,9 @@ export function Amount({
   value,
   className,
 }: {
-  value: number;
+  value: number | string;
   className?: string;
 }) {
-  return <span className={cn("font-figures tabular-nums lining-nums", className)}>{chf(value)}</span>;
+  const n = typeof value === "number" ? value : Number(String(value).replace(/[^\d.-]/g, ""));
+  return <span className={cn("font-figures tabular-nums lining-nums", className)}>{chf(n)}</span>;
 }
