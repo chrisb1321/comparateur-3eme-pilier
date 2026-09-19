@@ -26,4 +26,10 @@ export type EditorialDoc = {
   faqs?: FaqItem[];
   related?: string[];
   category?: string;
+  body?: string;
+  cover?: string;
+  series?: boolean;
+  weekId?: string;
+  draft?: boolean;
 };
+

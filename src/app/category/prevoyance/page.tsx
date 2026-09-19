@@ -10,7 +10,7 @@ import { canonical } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Catégorie prévoyance",
   description:
-    "Tous les articles de la catégorie prévoyance : 3a, 3b, LPP, frontaliers, TOU. URL WordPress conservée.",
+    "Tous les articles de la catégorie prévoyance : série 2026–2027 et archives. URL WordPress conservée.",
   alternates: { canonical: canonical("/category/prevoyance/") },
 };
 
@@ -28,13 +28,13 @@ export default function CategoryPage() {
       </div>
       <div className="mx-auto max-w-3xl px-4 py-12 md:px-6">
         <p className="text-lg leading-relaxed">
-          Les dix articles historiques du site, mis à jour pour 2026–2027. Même slug, même catégorie
-          WordPress <code>/category/prevoyance/</code>.
+          Les articles de la catégorie prévoyance : série 3×/semaine et archives WordPress.
+          Même slug, même catégorie <code>/category/prevoyance/</code>.
         </p>
         <ul className="mt-10 space-y-8">
           {posts.map((post) => (
             <li key={post.slug} className="grid gap-4 border-t border-accent/25 pt-6 sm:grid-cols-[9rem_1fr]">
-              <Frame image={coverFor(post.slug)} className="aspect-[4/3]" sizes="180px" />
+                <Frame image={coverFor(post.slug, post.cover)} className="aspect-[4/3]" sizes="180px" />
               <div>
                 <Link href={`/${post.slug}/`} className="font-heading text-2xl text-primary hover:underline">
                   {post.title}

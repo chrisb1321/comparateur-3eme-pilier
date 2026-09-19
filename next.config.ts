@@ -5,6 +5,7 @@ const nextConfig: NextConfig = {
   trailingSlash: true,
   reactStrictMode: true,
   poweredByHeader: false,
+  serverExternalPackages: ["gray-matter"],
   async redirects() {
     return PATH_REDIRECTS;
   },

@@ -164,10 +164,15 @@ const SLUG_COVER: Record<string, keyof typeof IMAGES> = {
   "quand-commencer-le-3eme-pilier": "alpes",
   "pourquoi-souscrire-au-3eme-pilier": "couple",
   "constituer-une-epargne-enfant": "enfant",
-  "choisir-les-beneficiaires": "couple",
+  "plafonds-3a-2026-2027": "lpp",
+  "rachat-lacunes-3a-2026": "pillar3a",
+  "tableau-ofas-montants-avs-lpp-3a": "avs",
 };
 
-export function coverFor(slug: string): SiteImage {
+export function coverFor(slug: string, cover?: string): SiteImage {
+  if (cover && cover in IMAGES) {
+    return IMAGES[cover as keyof typeof IMAGES];
+  }
   const key = SLUG_COVER[slug] ?? "hero";
   return IMAGES[key];
 }

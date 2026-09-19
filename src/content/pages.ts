@@ -784,13 +784,13 @@ export const PAGES: EditorialDoc[] = [
     slug: "actualite-3eme-pilier",
     wpId: 2653,
     title: "Actualités du 3e pilier",
-    metaTitle: "Actualités 3e pilier — articles prévoyance",
+    metaTitle: "Actualités 3e pilier 2026–2027 — 3 articles par semaine",
     description:
-      "Tous les articles : plafonds, frontaliers, banque ou assurance, TOU, bénéficiaires. Hub recréé (l’ancien WordPress n’affichait plus la liste).",
+      "Série éditoriale : trois articles par semaine (plafonds OFAS, cantons, frontaliers, 3a/3b). Plus les archives WordPress, mêmes slugs.",
     published: "2023-11-05",
     updated: UPDATED,
     intro:
-      "Le hub WordPress était presque vide. Ici, tous les articles republient leurs slugs d’origine, mis à jour pour 2026–2027.",
+      "Cadence confirmée : trois textes par semaine, pas un article par jour. Semaine 1 livrée (plafonds 2026–2027, rachat de lacunes, lecture du tableau OFAS). Les guides historiques restent à leurs URL d’origine.",
     related: ["category/prevoyance"],
     blocks: [],
   },

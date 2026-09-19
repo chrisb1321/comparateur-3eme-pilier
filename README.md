@@ -41,3 +41,13 @@ Plafonds 3a (art. 7 OPP 3) : CHF 7’258 (avec 2e pilier) et CHF 36’288 (sans 
 - **2027** : au 19 septembre 2026, pas de tableau OFAS publié. Les mêmes plafonds restent ceux de l’ordonnance en vigueur (« dès 2025 »). Aucune hausse n’est inventée.
 
 Sources citées en pied de page (OFAS, AFC, AVS/AI).
+
+## Série SEO (3 articles / semaine)
+
+Pas de CMS. Fichiers MDX dans `content/articles/`. Hub : `/actualite-3eme-pilier/`.
+
+```bash
+npm run seo:week
+```
+
+Crée 3 brouillons (`draft: true`) pour la prochaine semaine du calendrier `content/editorial-calendar.json`. Rédiger, relire les sources, passer `draft: false`, ouvrir une **PR brouillon**. Prompt agent : `content/articles/AGENT-SEMAINE.md`. Cadence : lundi / mercredi / vendredi, pas quotidien.
