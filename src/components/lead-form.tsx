@@ -35,7 +35,7 @@ export function LeadForm({
       noValidate
     >
       <header className="space-y-1">
-        <p className="kicker">{isContact ? "Écrire" : "Comparatif 2026"}</p>
+        <p className="kicker">{isContact ? "Écrire" : "Comparatif 2026–2027"}</p>
         <h2 className="font-heading text-2xl text-primary">
           {isContact ? "Une question, un entretien" : "Décrivez votre situation"}
         </h2>
@@ -125,7 +125,7 @@ export function LeadForm({
                 className={cn(fieldClass, "w-full px-2.5")}
                 defaultValue="fiscal"
               >
-                <option value="fiscal">Déduction fiscale 2026</option>
+                <option value="fiscal">Déduction fiscale 2026–2027</option>
                 <option value="retraite">Compléter la retraite</option>
                 <option value="famille">Protéger la famille</option>
                 <option value="logement">Logement / hypothèque</option>

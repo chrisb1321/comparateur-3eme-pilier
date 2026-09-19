@@ -1,19 +1,19 @@
-import { chf, FIGURES } from "@/lib/figures";
+import { chf, FIGURES, pillar3aTableRows, YEAR_SPAN, YEAR_SPAN_WORDS, CEILING_NOTE } from "@/lib/figures";
 import type { EditorialDoc } from "./types";
 
 const UPDATED = "2026-09-19";
 const METHOD_INLINE =
-  "Méthode : textes officiels OFAS (OPP 3, montants 2026) et AFC, notices cantonales pour le 3b. Nous ne copions pas un palmarès publicitaire. Dernière revue : 19 septembre 2026.";
+  "Méthode : textes officiels OFAS (OPP 3, tableau 2026) et AFC, notices cantonales pour le 3b. Pour 2027, nous citons l’ordonnance encore en vigueur — pas un plafond inventé. Nous ne copions pas un palmarès publicitaire. Dernière revue : 19 septembre 2026.";
 
 export const PAGES: EditorialDoc[] = [
   {
     kind: "page",
     slug: "3eme-pilier-a-ou-b",
     wpId: 2060,
-    title: "3e pilier A ou B : comment choisir en 2026",
-    metaTitle: "3e pilier A ou B (2026) : fiscalité, retraits, bénéficiaires",
+    title: `3e pilier A ou B : comment choisir en ${YEAR_SPAN}`,
+    metaTitle: `3e pilier A ou B (${YEAR_SPAN}) : fiscalité, retraits, bénéficiaires`,
     description:
-      "Différences 3a / 3b en 2026 : plafonds OFAS, retraits, bénéficiaires, Genève et Fribourg. Comparatif gratuit, sans honoraires.",
+      `Différences 3a / 3b en ${YEAR_SPAN_WORDS} : plafonds OFAS / OPP 3, retraits, bénéficiaires, Genève et Fribourg. Comparatif gratuit, sans honoraires.`,
     published: "2021-11-04",
     updated: UPDATED,
     intro:
@@ -45,12 +45,12 @@ export const PAGES: EditorialDoc[] = [
       },
       {
         type: "h2",
-        text: "Déduction fiscale 2026",
+        text: `Déduction fiscale ${YEAR_SPAN}`,
       },
       {
         type: "table",
-        caption: "Plafonds 3a 2026 (OFAS, art. 7 OPP 3) — valables Confédération, cantons et communes.",
-        headers: ["Situation", "Maximum 2026"],
+        caption: `Plafonds 3a ${YEAR_SPAN_WORDS} (OFAS / art. 7 OPP 3) — valables Confédération, cantons et communes. ${CEILING_NOTE}`,
+        headers: ["Situation", `Maximum ${YEAR_SPAN}`],
         rows: [
           [`Salarié ou indépendant affilié au 2e pilier (« petite cotisation »)`, chf(FIGURES.pillar3aWithLpp)],
           [
@@ -98,7 +98,7 @@ export const PAGES: EditorialDoc[] = [
       {
         type: "callout",
         title: "Chiffres 2023–2024 encore cités ailleurs",
-        text: `Les anciens plafonds 7’056 / 35’280 (2023–2024) ou 34’416 (jusqu’en 2022) ne s’appliquent plus. En 2026 : ${chf(FIGURES.pillar3aWithLpp)} / ${chf(FIGURES.pillar3aWithoutLpp)}. Source OFAS.`,
+        text: `Les anciens plafonds 7’056 / 35’280 (2023–2024) ou 34’416 (jusqu’en 2022) ne s’appliquent plus. En ${YEAR_SPAN_WORDS} : ${chf(FIGURES.pillar3aWithLpp)} / ${chf(FIGURES.pillar3aWithoutLpp)}. ${CEILING_NOTE}`,
       },
     ],
   },
@@ -107,9 +107,9 @@ export const PAGES: EditorialDoc[] = [
     slug: "3eme-pilier-b-prevoyance-libre",
     wpId: 2099,
     title: "3e pilier B — prévoyance libre",
-    metaTitle: "3e pilier B 2026 : prévoyance libre, Genève, Fribourg",
+    metaTitle: `3e pilier B ${YEAR_SPAN} : prévoyance libre, Genève, Fribourg`,
     description:
-      "Le 3b n’est pas un second 3a. Souplesse des retraits et des bénéficiaires, déduction limitée à certains cantons. Mode d’emploi 2026.",
+      `Le 3b n’est pas un second 3a. Souplesse des retraits et des bénéficiaires, déduction limitée à certains cantons. Mode d’emploi ${YEAR_SPAN}.`,
     published: "2021-11-06",
     updated: UPDATED,
     intro:
@@ -146,13 +146,13 @@ export const PAGES: EditorialDoc[] = [
     slug: "3eme-pilier-banque-assurance",
     wpId: 1160,
     title: "3e pilier en banque ou en assurance",
-    metaTitle: "3e pilier banque ou assurance (2026) : frais, garanties, horizon",
+    metaTitle: `3e pilier banque ou assurance (${YEAR_SPAN}) : frais, garanties, horizon`,
     description:
       "Même déduction 3a, supports différents. Banque : flexibilité. Assurance : garanties, décès, libération des primes. Comment départager.",
     published: "2021-10-31",
     updated: UPDATED,
     intro:
-      "La déduction 3a 2026 est identique que l’argent soit versé à une fondation bancaire ou à un assureur. Ce qui change : les frais, les garanties, la discipline d’épargne et ce qui reste si vous arrêtez au bout de trois ans.",
+      `La déduction 3a ${YEAR_SPAN_WORDS} est identique que l’argent soit versé à une fondation bancaire ou à un assureur. Ce qui change : les frais, les garanties, la discipline d’épargne et ce qui reste si vous arrêtez au bout de trois ans.`,
     related: [
       "choisir-entre-3eme-pilier-bancaire-ou-en-assurance",
       "liberation-du-paiement-des-primes",
@@ -220,7 +220,7 @@ export const PAGES: EditorialDoc[] = [
     slug: "choisir-son-3eme-pilier",
     wpId: 6635,
     title: "Comment choisir son 3e pilier",
-    metaTitle: "Choisir son 3e pilier en 2026 : méthode, pas un palmarès",
+    metaTitle: `Choisir son 3e pilier en ${YEAR_SPAN} : méthode, pas un palmarès`,
     description:
       "Grille de choix 3a/3b, banque/assurance, montant, canton et famille. Comparatif indépendant, sans honoraires.",
     published: "2023-06-01",
@@ -258,13 +258,13 @@ export const PAGES: EditorialDoc[] = [
     kind: "page",
     slug: "deductions-fiscales-3eme-pilier",
     wpId: 1918,
-    title: "Déductions fiscales du 3e pilier en 2026",
-    metaTitle: "Déductions 3e pilier 2026 : plafonds OFAS 7’258 / 36’288",
+    title: `Déductions fiscales du 3e pilier en ${YEAR_SPAN}`,
+    metaTitle: `Déductions 3e pilier ${YEAR_SPAN} : plafonds OFAS 7’258 / 36’288`,
     description:
-      "Plafonds 3a 2026 officiels OFAS, rachat dès 2026, 3b Genève/Fribourg, imposition au retrait. Sources AFC et OFAS.",
+      `Plafonds 3a ${YEAR_SPAN_WORDS} (OFAS 2026, OPP 3 encore en vigueur pour 2027), rachat dès 2026, 3b Genève/Fribourg, imposition au retrait. Sources AFC et OFAS.`,
     published: "2021-11-12",
     updated: UPDATED,
-    intro: `La Confédération encourage le 3a par la déduction du revenu (impôt fédéral, cantonal et communal). En 2026, les plafonds sont ${chf(FIGURES.pillar3aWithLpp)} (avec 2e pilier) et ${chf(FIGURES.pillar3aWithoutLpp)} (sans 2e pilier, 20 % du revenu d’activité). Source : OFAS, art. 7 OPP 3.`,
+    intro: `La Confédération encourage le 3a par la déduction du revenu (impôt fédéral, cantonal et communal). En ${YEAR_SPAN_WORDS}, les plafonds sont ${chf(FIGURES.pillar3aWithLpp)} (avec 2e pilier) et ${chf(FIGURES.pillar3aWithoutLpp)} (sans 2e pilier, 20 % du revenu d’activité). ${CEILING_NOTE}`,
     related: ["quel-montant-deductible-3eme-pilier-2022", "3eme-pilier-a-impot-retrait", "3eme-pilier-a-ou-b"],
     faqs: [
       {
@@ -274,25 +274,20 @@ export const PAGES: EditorialDoc[] = [
       },
     ],
     blocks: [
-      { type: "h2", text: "Plafonds 3a 2026" },
+      { type: "h2", text: `Plafonds 3a ${YEAR_SPAN}` },
       {
         type: "table",
         headers: ["Année", "Avec 2e pilier", "Sans 2e pilier (max.)"],
-        rows: [
-          ["2026", chf(FIGURES.pillar3aWithLpp), chf(FIGURES.pillar3aWithoutLpp)],
-          ["2025", chf(FIGURES.pillar3aWithLpp), chf(FIGURES.pillar3aWithoutLpp)],
-          ["2023–2024", "CHF 7’056", "CHF 35’280"],
-          ["Jusqu’en 2022", "CHF 6’883", "CHF 34’416"],
-        ],
-        caption: "Série OFAS. Les montants 2025 et 2026 sont identiques.",
+        rows: pillar3aTableRows(),
+        caption: `Série OFAS / OPP 3. ${CEILING_NOTE}`,
       },
       {
         type: "h2",
-        text: "Rachat 3a (nouveauté 2026)",
+        text: "Rachat 3a (depuis 2026)",
       },
       {
         type: "p",
-        text: `Les lacunes depuis 2025 peuvent être rachetées à partir de 2026, dans la limite de la petite cotisation (${chf(FIGURES.buybackMax)}), en plus du versement ordinaire de l’année, si vous aviez un revenu AVS l’année de la lacune et l’année du rachat, et que le maximum ordinaire de l’année en cours est déjà versé. Source OFAS, « Rachats dans le pilier 3a ».`,
+        text: `Les lacunes depuis 2025 peuvent être rachetées à partir de 2026 (y compris en 2027), dans la limite de la petite cotisation (${chf(FIGURES.buybackMax)}), en plus du versement ordinaire de l’année, si vous aviez un revenu AVS l’année de la lacune et l’année du rachat, et que le maximum ordinaire de l’année en cours est déjà versé. Source OFAS, « Rachats dans le pilier 3a ».`,
       },
       {
         type: "h2",
@@ -317,9 +312,9 @@ export const PAGES: EditorialDoc[] = [
     slug: "frontalier-suisse",
     wpId: 4711,
     title: "3e pilier pour frontalier en Suisse",
-    metaTitle: "3e pilier frontalier 2026 : AVS, TOU, départ de Suisse",
+    metaTitle: `3e pilier frontalier ${YEAR_SPAN} : AVS, TOU, départ de Suisse`,
     description:
-      "Frontaliers : accès au 3a si revenu soumis à l’AVS, fiscalité selon le canton, TOU, retrait en cas de départ. Comparatif 2026.",
+      `Frontaliers : accès au 3a si revenu soumis à l’AVS, fiscalité selon le canton, TOU, retrait en cas de départ. Comparatif ${YEAR_SPAN}.`,
     published: "2021-11-04",
     updated: UPDATED,
     intro:
@@ -354,9 +349,9 @@ export const PAGES: EditorialDoc[] = [
     kind: "page",
     slug: "3eme-pilier-geneve",
     title: "3e pilier à Genève",
-    metaTitle: "3e pilier Genève 2026 : 3a, 3b, ICC et frontaliers",
+    metaTitle: `3e pilier Genève ${YEAR_SPAN} : 3a, 3b, ICC et frontaliers`,
     description:
-      "Landing Genève : plafonds 3a 2026, enveloppe LIPP des primes d’assurance-vie, frontaliers. Remplace l’ancienne URL qui menait à une image.",
+      `Landing Genève : plafonds 3a ${YEAR_SPAN_WORDS}, enveloppe LIPP des primes d’assurance-vie, frontaliers. Remplace l’ancienne URL qui menait à une image.`,
     published: "2022-07-01",
     updated: UPDATED,
     intro:
@@ -366,7 +361,7 @@ export const PAGES: EditorialDoc[] = [
       { type: "h2", text: "3a : les mêmes plafonds qu’ailleurs" },
       {
         type: "p",
-        text: `À Genève comme dans les autres cantons, le 3a 2026 déduit jusqu’à ${chf(FIGURES.pillar3aWithLpp)} (avec LPP) ou ${chf(FIGURES.pillar3aWithoutLpp)} (sans LPP, 20 % du revenu). L’économie d’impôt dépend du barème ICC + IFD, pas d’un « bonus genevois » sur le plafond fédéral.`,
+        text: `À Genève comme dans les autres cantons, le 3a ${YEAR_SPAN_WORDS} déduit jusqu’à ${chf(FIGURES.pillar3aWithLpp)} (avec LPP) ou ${chf(FIGURES.pillar3aWithoutLpp)} (sans LPP, 20 % du revenu). L’économie d’impôt dépend du barème ICC + IFD, pas d’un « bonus genevois » sur le plafond fédéral. ${CEILING_NOTE}`,
       },
       { type: "h2", text: "3b et LIPP" },
       {
@@ -390,7 +385,7 @@ export const PAGES: EditorialDoc[] = [
     slug: "assurance-vie-en-suisse",
     wpId: 3182,
     title: "Assurance-vie en Suisse",
-    metaTitle: "Assurance-vie en Suisse (2026) : 3a, 3b, mixte, risque pur",
+    metaTitle: `Assurance-vie en Suisse (${YEAR_SPAN}) : 3a, 3b, mixte, risque pur`,
     description:
       "Assurance-vie suisse : rôle dans le 3a et le 3b, capital décès, épargne, fiscalité. Landing historique à conserver.",
     published: "2022-03-18",
@@ -496,11 +491,11 @@ export const PAGES: EditorialDoc[] = [
       {
         type: "ol",
         items: [
-          `Estimer la rente AVS (2026 : ${chf(FIGURES.avsMinMonthly)} à ${chf(FIGURES.avsMaxMonthly)} par mois pour une rente complète, 13 versements avec la 13e rente dès décembre 2026).`,
+          `Estimer la rente AVS (tableau OFAS 2026 : ${chf(FIGURES.avsMinMonthly)} à ${chf(FIGURES.avsMaxMonthly)} par mois pour une rente complète ; 13e rente dès décembre 2026. Tableau 2027 non publié au 19.09.2026).`,
           "Lire le certificat LPP : salaire assuré, avoir, projection à l’âge de référence, rentes d’invalidité et de survivants.",
           "Lister les 3a déjà ouverts (plusieurs comptes sont possibles, le plafond est global).",
           "Chiffrer le besoin décès / invalidité net des prestations sociales.",
-          "Ensuite seulement : banque ou assurance, 3a ou 3b, montant 2026.",
+          `Ensuite seulement : banque ou assurance, 3a ou 3b, montant ${YEAR_SPAN}.`,
         ],
       },
     ],
@@ -530,12 +525,12 @@ export const PAGES: EditorialDoc[] = [
     slug: "1er-pilier-avs-ai-apg",
     wpId: 1986,
     title: "1er pilier AVS / AI / APG",
-    metaTitle: "1er pilier 2026 : rentes AVS, 13e rente, âge de référence",
+    metaTitle: `1er pilier ${YEAR_SPAN} : rentes AVS, 13e rente, âge de référence`,
     description:
-      "AVS 2026 : rentes min./max., 13e rente en décembre, âge de référence 65 ans. Base du comparatif 3e pilier.",
+      "AVS 2026 : rentes min./max. (tableau OFAS 1.1.2026). 2027 : tableau non publié au 19.09.2026. 13e rente dès décembre 2026, âge de référence 65 ans.",
     published: "2021-11-12",
     updated: UPDATED,
-    intro: `Le 1er pilier (AVS/AI/APG) est l’assurance sociale de base. En 2026, une rente de vieillesse complète se situe entre ${chf(FIGURES.avsMinMonthly)} et ${chf(FIGURES.avsMaxMonthly)} par mois. La somme des deux rentes d’un couple marié est plafonnée à ${chf(FIGURES.avsCoupleMaxMonthly)}. Source : OFAS, montants au 1.1.2026.`,
+    intro: `Le 1er pilier (AVS/AI/APG) est l’assurance sociale de base. Selon le tableau OFAS au 1er janvier 2026, une rente de vieillesse complète se situe entre ${chf(FIGURES.avsMinMonthly)} et ${chf(FIGURES.avsMaxMonthly)} par mois. La somme des deux rentes d’un couple marié est plafonnée à ${chf(FIGURES.avsCoupleMaxMonthly)}. Au 19 septembre 2026, le tableau OFAS 2027 n’est pas publié : ces montants restent ceux en vigueur jusqu’à une éventuelle décision du Conseil fédéral (annonce usuelle en octobre).`,
     related: ["2eme-pilier-lpp", "analyse-de-prevoyance"],
     blocks: [
       {
@@ -557,7 +552,7 @@ export const PAGES: EditorialDoc[] = [
       {
         type: "callout",
         title: "Ancien slogan du site",
-        text: "Les textes WordPress citaient encore « 65 ans / 64 ans ». C’est périmé pour 2026. Nous indiquons l’âge de référence et la transition AVS 21.",
+        text: "Les textes WordPress citaient encore « 65 ans / 64 ans ». C’est périmé pour 2026–2027. Nous indiquons l’âge de référence et la transition AVS 21.",
       },
     ],
   },
@@ -566,12 +561,12 @@ export const PAGES: EditorialDoc[] = [
     slug: "2eme-pilier-lpp",
     wpId: 2010,
     title: "2e pilier LPP",
-    metaTitle: "2e pilier LPP 2026 : seuil 22’680, coordination 26’460",
+    metaTitle: `2e pilier LPP ${YEAR_SPAN} : seuil 22’680, coordination 26’460`,
     description:
-      "LPP 2026 : seuil d’entrée, déduction de coordination, salaire coordonné. Lien avec le plafond 3a.",
+      "LPP 2026 (tableau OFAS 1.1.2026) : seuil d’entrée, déduction de coordination, salaire coordonné. 2027 : mêmes montants encore en vigueur, tableau OFAS non publié au 19.09.2026. Lien avec le plafond 3a.",
     published: "2021-11-12",
     updated: UPDATED,
-    intro: `Le 2e pilier (LPP) capitalise un avoir salarial. En 2026, le seuil d’entrée obligatoire est ${chf(FIGURES.lppEntry)} de salaire annuel, la déduction de coordination ${chf(FIGURES.lppCoordination)}, la limite supérieure ${chf(FIGURES.lppSalaryCap)}. Source : OFAS, montants au 1.1.2026.`,
+    intro: `Le 2e pilier (LPP) capitalise un avoir salarial. Selon le tableau OFAS au 1er janvier 2026, le seuil d’entrée obligatoire est ${chf(FIGURES.lppEntry)} de salaire annuel, la déduction de coordination ${chf(FIGURES.lppCoordination)}, la limite supérieure ${chf(FIGURES.lppSalaryCap)}. Au 19 septembre 2026, le tableau 2027 n’est pas publié : ces montants restent ceux en vigueur.`,
     related: ["a-quoi-sert-le-deuxieme-pilier", "libre-passage-lpp", "compte-de-libre-passage-lpp"],
     blocks: [
       {
@@ -580,7 +575,7 @@ export const PAGES: EditorialDoc[] = [
       },
       {
         type: "table",
-        headers: ["Paramètre LPP 2026", "Montant"],
+        headers: ["Paramètre LPP (tableau OFAS 2026 ; 2027 non publié)", "Montant"],
         rows: [
           ["Salaire minimal annuel (seuil)", chf(FIGURES.lppEntry)],
           ["Déduction de coordination", chf(FIGURES.lppCoordination)],
@@ -598,7 +593,7 @@ export const PAGES: EditorialDoc[] = [
     title: "Libre passage LPP",
     metaTitle: "Libre passage LPP : changement d’employeur, compte, police",
     description:
-      "Quand l’avoir de 2e pilier sort de la caisse : compte ou police de libre passage, délais, 3e pilier. Guide 2026.",
+      "Quand l’avoir de 2e pilier sort de la caisse : compte ou police de libre passage, délais, 3e pilier. Guide 2026–2027.",
     published: "2023-11-05",
     updated: UPDATED,
     intro:
@@ -755,7 +750,7 @@ export const PAGES: EditorialDoc[] = [
     published: "2023-05-05",
     updated: UPDATED,
     intro:
-      "Merci. Un conseiller revient vers vous, de préférence par téléphone. En attendant, vous pouvez lire les plafonds 2026 ou la différence 3a / 3b.",
+      "Merci. Un conseiller revient vers vous, de préférence par téléphone. En attendant, vous pouvez lire les plafonds 2026–2027 ou la différence 3a / 3b.",
     related: ["deductions-fiscales-3eme-pilier", "3eme-pilier-a-ou-b"],
     blocks: [
       {
@@ -795,7 +790,7 @@ export const PAGES: EditorialDoc[] = [
     published: "2023-11-05",
     updated: UPDATED,
     intro:
-      "Le hub WordPress était presque vide. Ici, tous les articles republient leurs slugs d’origine, mis à jour pour 2026.",
+      "Le hub WordPress était presque vide. Ici, tous les articles republient leurs slugs d’origine, mis à jour pour 2026–2027.",
     related: ["category/prevoyance"],
     blocks: [],
   },
@@ -864,7 +859,7 @@ export const PAGES: EditorialDoc[] = [
       { type: "h2", text: "Revue" },
       {
         type: "p",
-        text: "Dernière revue des plafonds et des rentes : 19 septembre 2026. Prochaine vérification naturelle : communiqué OFAS des montants de l’année suivante (généralement l’automne).",
+        text: "Dernière revue des plafonds et des rentes : 19 septembre 2026. Prochaine vérification naturelle : communiqué OFAS des montants au 1er janvier 2027 (généralement l’automne).",
       },
     ],
   },

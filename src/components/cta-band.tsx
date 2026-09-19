@@ -3,7 +3,7 @@ import { IMAGES } from "@/lib/media";
 import { Frame } from "@/components/frame";
 
 export function CtaBand({
-  title = "Recevez un comparatif 3e pilier 2026",
+  title = "Recevez un comparatif 3e pilier 2026–2027",
   text = "Sans honoraires, sans engagement. Formulaire HTML natif — plus de Typeform.",
 }: {
   title?: string;

@@ -49,7 +49,7 @@ export function Blocks({ blocks }: { blocks: Block[] }) {
           case "table":
             return (
               <figure key={index} className="my-6 overflow-x-auto">
-                <table className="w-full min-w-[28rem] border-collapse text-left text-sm">
+                <table className="w-full min-w-[28rem] border-collapse font-figures text-left text-sm">
                   <thead>
                     <tr className="border-b border-border bg-muted/60">
                       {block.headers.map((header) => (

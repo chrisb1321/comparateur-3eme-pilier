@@ -28,7 +28,7 @@ export default function CategoryPage() {
       </div>
       <div className="mx-auto max-w-3xl px-4 py-12 md:px-6">
         <p className="text-lg leading-relaxed">
-          Les dix articles historiques du site, mis à jour pour 2026. Même slug, même catégorie
+          Les dix articles historiques du site, mis à jour pour 2026–2027. Même slug, même catégorie
           WordPress <code>/category/prevoyance/</code>.
         </p>
         <ul className="mt-10 space-y-8">

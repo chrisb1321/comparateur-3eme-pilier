@@ -33,6 +33,11 @@ Toutes les pages et articles listés dans le contexte projet, plus `/mentions-le
 
 Table 301 : voir `src/lib/redirects.ts` et `src/middleware.ts` (`?p=` / `?page_id=`).
 
-## Contenu fiscal 2026
+## Contenu fiscal 2026–2027
 
-Plafonds 3a OFAS / OPP 3 art. 7 : CHF 7’258 (avec 2e pilier) et CHF 36’288 (sans 2e pilier, 20 % du revenu). Sources citées en pied de page (OFAS, AFC, AVS/AI).
+Plafonds 3a (art. 7 OPP 3) : CHF 7’258 (avec 2e pilier) et CHF 36’288 (sans 2e pilier, 20 % du revenu).
+
+- **2026** : tableau officiel OFAS « Montants valables au 1er janvier 2026 » (PDF, 6.11.2025).
+- **2027** : au 19 septembre 2026, pas de tableau OFAS publié. Les mêmes plafonds restent ceux de l’ordonnance en vigueur (« dès 2025 »). Aucune hausse n’est inventée.
+
+Sources citées en pied de page (OFAS, AFC, AVS/AI).

@@ -7,7 +7,7 @@ export const SITE = {
   language: "fr",
   email: "info@comparateur-3eme-pilier.ch",
   description:
-    "Comparez les offres de 3e pilier 3a et 3b en Suisse romande. Plafonds 2026, banque ou assurance, frontaliers. Comparatif gratuit, sans honoraires.",
+    "Comparez les offres de 3e pilier 3a et 3b en Suisse romande. Plafonds 2026 et 2027 (OFAS / OPP 3), banque ou assurance, frontaliers. Comparatif gratuit, sans honoraires.",
   updated: "2026-09-19",
   foundingDate: "2021-10-04",
 } as const;

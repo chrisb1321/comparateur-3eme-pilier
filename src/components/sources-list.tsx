@@ -20,8 +20,9 @@ export function SourcesList() {
         ))}
       </ul>
       <p className="mt-4 text-xs text-muted-foreground">
-        Revue éditoriale du 19 septembre 2026. Les montants cantonaux 3b peuvent changer d’une
-        notice fiscale à l’autre : vérifiez l’année en cours. Ceci n’est pas un conseil
+        Revue éditoriale du 19 septembre 2026. Plafonds 3a 2026 : tableau OFAS. 2027 : art. 7 OPP 3
+        encore en vigueur (pas de tableau OFAS 2027 à cette date). Les montants cantonaux 3b peuvent
+        changer d’une notice fiscale à l’autre : vérifiez l’année en cours. Ceci n’est pas un conseil
         personnalisé.
       </p>
     </section>

@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Source_Sans_3 } from "next/font/google";
+import { Cormorant_Garamond, IBM_Plex_Sans, Source_Sans_3 } from "next/font/google";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { SiteJsonLd } from "@/components/site-json-ld";
+import { YEAR_SPAN } from "@/lib/figures";
 import { SITE, canonical } from "@/lib/site";
 import { IMAGES } from "@/lib/media";
 import "./globals.css";
@@ -21,10 +22,17 @@ const serif = Cormorant_Garamond({
   display: "swap",
 });
 
+const figures = IBM_Plex_Sans({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-ibm-plex",
+  display: "swap",
+});
+
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.canonicalHost),
   title: {
-    default: "Comparateur 3ème pilier 2026 — plafonds 7’258 / 36’288",
+    default: `Comparateur 3ème pilier ${YEAR_SPAN} — plafonds 7’258 / 36’288`,
     template: `%s | ${SITE.name}`,
   },
   description: SITE.description,
@@ -34,7 +42,7 @@ export const metadata: Metadata = {
     locale: "fr_CH",
     url: canonical("/"),
     siteName: SITE.name,
-    title: "Comparateur 3ème pilier 2026",
+    title: `Comparateur 3ème pilier ${YEAR_SPAN}`,
     description: SITE.description,
     images: [{ url: IMAGES.hero.src, width: IMAGES.hero.width, height: IMAGES.hero.height, alt: IMAGES.hero.alt }],
   },
@@ -43,7 +51,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="fr-CH" className={`${sans.variable} ${serif.variable} h-full antialiased`}>
+    <html lang="fr-CH" className={`${sans.variable} ${serif.variable} ${figures.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col bg-background text-foreground">
         <a
           href="#contenu"

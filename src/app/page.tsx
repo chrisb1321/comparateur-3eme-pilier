@@ -1,20 +1,22 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { CeilingsBlock } from "@/components/ceilings-block";
 import { FaqList } from "@/components/faq-list";
 import { Frame } from "@/components/frame";
 import { JsonLd } from "@/components/json-ld";
 import { LeadForm } from "@/components/lead-form";
 import { SourcesList } from "@/components/sources-list";
 import { HOME_FAQS, METHOD_NOTE } from "@/content/faqs";
-import { chf, FIGURES } from "@/lib/figures";
+import { Amount } from "@/components/amount";
+import { chf, FIGURES, YEAR_SPAN, YEAR_SPAN_WORDS } from "@/lib/figures";
 import { IMAGES } from "@/lib/media";
 import { canonical, SITE } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Comparateur 3ème pilier 2026 : comparez et déduisez",
+  title: `Comparateur 3ème pilier ${YEAR_SPAN} : comparez et déduisez`,
   description:
-    "Comparez les 3e piliers 3a et 3b en Suisse. Plafonds 2026 OFAS : CHF 7’258 / 36’288. Comparatif gratuit, sans honoraires, sans Typeform.",
+    `Comparez les 3e piliers 3a et 3b en Suisse. Plafonds ${YEAR_SPAN_WORDS} (OFAS / OPP 3) : CHF 7’258 / 36’288. Comparatif gratuit, sans honoraires, sans Typeform.`,
   alternates: { canonical: canonical("/") },
 };
 
@@ -35,7 +37,7 @@ const PILLARS = [
     href: "/3eme-pilier-a-ou-b/",
     title: "3e pilier 3a / 3b",
     image: IMAGES.mixte,
-    text: `Prévoyance individuelle. Plafond 3a 2026 : ${chf(FIGURES.pillar3aWithLpp)} ou ${chf(FIGURES.pillar3aWithoutLpp)}.`,
+    text: `Prévoyance individuelle. Plafond 3a ${YEAR_SPAN_WORDS} : ${chf(FIGURES.pillar3aWithLpp)} ou ${chf(FIGURES.pillar3aWithoutLpp)}.`,
   },
 ];
 
@@ -65,27 +67,14 @@ export default function HomePage() {
           <div>
             <p className="kicker">Suisse romande · Genève · frontaliers</p>
             <h1 className="font-heading mt-4 max-w-xl text-[2.6rem] leading-[1.05] md:text-6xl">
-              Comparateur 3ème pilier 2026
+              Comparateur 3ème pilier {YEAR_SPAN}
             </h1>
             <p className="mt-6 max-w-lg text-base leading-relaxed text-primary-foreground/88 md:text-lg">
               Comparez 3a et 3b, banque et assurance, sans honoraires et sans engagement. Les
-              plafonds de cette page sont ceux de l’OFAS — plus les chiffres 2024 encore en ligne
-              sur le WordPress.
+              plafonds ci-dessous sont ceux de l’OFAS pour 2026 et, pour 2027, les montants encore
+              en vigueur (art. 7 OPP 3) — pas une estimation.
             </p>
-            <dl className="mt-10 grid max-w-md grid-cols-2 gap-px bg-accent/40">
-              <div className="bg-primary/55 px-4 py-5 backdrop-blur-sm">
-                <dt className="text-[0.62rem] uppercase tracking-[0.2em] text-accent">Avec 2e pilier</dt>
-                <dd className="font-heading mt-2 text-3xl">{chf(FIGURES.pillar3aWithLpp)}</dd>
-              </div>
-              <div className="bg-primary/55 px-4 py-5 backdrop-blur-sm">
-                <dt className="text-[0.62rem] uppercase tracking-[0.2em] text-accent">Sans 2e pilier</dt>
-                <dd className="font-heading mt-2 text-3xl">{chf(FIGURES.pillar3aWithoutLpp)}</dd>
-              </div>
-            </dl>
-            <p className="mt-4 max-w-md text-xs text-primary-foreground/70">
-              Art. 7 OPP 3 · OFAS · valable année fiscale 2026. Grande cotisation : 20 % du revenu
-              d’activité, dans cette limite.
-            </p>
+            <CeilingsBlock tone="hero" />
             <div className="mt-8 flex flex-wrap gap-3">
               <Link
                 href="/formulaire-3eme-pilier/"
@@ -97,7 +86,7 @@ export default function HomePage() {
                 href="/deductions-fiscales-3eme-pilier/"
                 className="inline-flex h-12 items-center border border-primary-foreground/35 px-6 text-[0.72rem] uppercase tracking-[0.2em] text-primary-foreground hover:bg-primary-foreground/10"
               >
-                Voir les plafonds 2026
+                Voir les plafonds {YEAR_SPAN}
               </Link>
             </div>
           </div>
@@ -112,7 +101,7 @@ export default function HomePage() {
           Le système de retraite suisse combine répartition (AVS), capitalisation (LPP) et
           prévoyance individuelle (3e pilier). L’âge de référence AVS est 65 ans ; les femmes de la
           génération transitoire AVS 21 suivent un relèvement progressif. Les textes WordPress
-          citaient encore « 64 ans pour les femmes » : c’est périmé pour 2026.
+          citaient encore « 64 ans pour les femmes » : c’est périmé pour {YEAR_SPAN_WORDS}.
         </p>
         <div className="mt-12 grid gap-6 md:grid-cols-3">
           {PILLARS.map((pillar) => (
@@ -147,7 +136,7 @@ export default function HomePage() {
                 key={reason}
                 className="flex gap-4 border-b border-accent/20 py-5 text-base"
               >
-                <span className="font-heading w-10 text-2xl text-accent">
+                <span className="font-figures w-10 text-2xl text-accent">
                   {String(index + 1).padStart(2, "0")}
                 </span>
                 {reason}
@@ -165,7 +154,7 @@ export default function HomePage() {
             <Frame image={IMAGES.pillar3a} className="aspect-[4/3]" caption="3a — prévoyance liée" />
             <h3 className="font-heading mt-5 text-3xl">3a lié (OPP 3)</h3>
             <p className="mt-3 text-base leading-relaxed">
-              Déductible dans tous les cantons, jusqu’aux plafonds 2026. Capital bloqué sauf motifs
+              Déductible dans tous les cantons, jusqu’aux plafonds {YEAR_SPAN_WORDS}. Capital bloqué sauf motifs
               légaux. Ordre des bénéficiaires fixé. Existe en banque et en assurance.
             </p>
             <Link href="/3eme-pilier-a-ou-b/" className="mt-4 inline-block text-sm tracking-wide text-primary underline decoration-accent underline-offset-4">
@@ -196,7 +185,7 @@ export default function HomePage() {
             </p>
             <p className="mt-6 text-sm text-muted-foreground">
               <strong>Rachat 3a dès 2026.</strong> Les lacunes depuis 2025 peuvent être rachetées,
-              dans la limite de {chf(FIGURES.buybackMax)}, en plus de la cotisation ordinaire, sous
+              dans la limite de <Amount value={FIGURES.buybackMax} />, en plus de la cotisation ordinaire, sous
               conditions OFAS.
             </p>
           </aside>
@@ -232,15 +221,40 @@ export default function HomePage() {
         <SourcesList />
       </div>
       <JsonLd
-        data={{
-          "@context": "https://schema.org",
-          "@type": "FAQPage",
-          mainEntity: HOME_FAQS.map((faq) => ({
-            "@type": "Question",
-            name: faq.question,
-            acceptedAnswer: { "@type": "Answer", text: faq.answer },
-          })),
-        }}
+        data={[
+          {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: HOME_FAQS.map((faq) => ({
+              "@type": "Question",
+              name: faq.question,
+              acceptedAnswer: { "@type": "Answer", text: faq.answer },
+            })),
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "Dataset",
+            name: `Plafonds 3e pilier 3a ${YEAR_SPAN} (Suisse)`,
+            description: `Déductions maximales du pilier 3a selon l’art. 7 OPP 3. 2026 : tableau OFAS du 1.1.2026. 2027 : mêmes montants encore en vigueur ; tableau OFAS non publié au 19.09.2026.`,
+            creator: { "@type": "Organization", name: SITE.name },
+            license: "https://www.bsv.admin.ch/fr/le-troisieme-pilier",
+            temporalCoverage: "2025/2027",
+            variableMeasured: [
+              {
+                "@type": "PropertyValue",
+                name: "Petite cotisation 3a 2026 et 2027 (avec 2e pilier)",
+                value: FIGURES.pillar3aWithLpp,
+                unitText: "CHF",
+              },
+              {
+                "@type": "PropertyValue",
+                name: "Grande cotisation 3a 2026 et 2027 (sans 2e pilier, max.)",
+                value: FIGURES.pillar3aWithoutLpp,
+                unitText: "CHF",
+              },
+            ],
+          },
+        ]}
       />
     </div>
   );

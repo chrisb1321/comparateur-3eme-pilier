@@ -1,4 +1,4 @@
-import { chf, FIGURES } from "@/lib/figures";
+import { chf, FIGURES, pillar3aTableRows, YEAR_SPAN, YEAR_SPAN_WORDS, CEILING_NOTE } from "@/lib/figures";
 import type { EditorialDoc } from "./types";
 
 const UPDATED = "2026-09-19";
@@ -9,14 +9,14 @@ export const POSTS: EditorialDoc[] = [
     slug: "choisir-entre-3eme-pilier-bancaire-ou-en-assurance",
     wpId: 2707,
     title: "Choisir entre 3e pilier bancaire ou en assurance",
-    metaTitle: "Banque ou assurance pour son 3e pilier ? (2026)",
+    metaTitle: `Banque ou assurance pour son 3e pilier ? (${YEAR_SPAN})`,
     description:
-      "Même fiscalité 3a, supports différents. Horizon court : banque. Garanties et discipline : assurance. Article mis à jour 2026.",
+      `Même fiscalité 3a, supports différents. Horizon court : banque. Garanties et discipline : assurance. Article mis à jour ${YEAR_SPAN}.`,
     published: "2023-09-06",
     updated: UPDATED,
     category: "prevoyance",
     intro:
-      "Le 3a se souscrit auprès d’une fondation bancaire ou d’un assureur. La déduction 2026 ne change pas. Ce qui change, c’est ce qu’il reste si vous arrêtez, et ce qui est versé si vous disparaissez.",
+      `Le 3a se souscrit auprès d’une fondation bancaire ou d’un assureur. La déduction ${YEAR_SPAN_WORDS} ne change pas. Ce qui change, c’est ce qu’il reste si vous arrêtez, et ce qui est versé si vous disparaissez.`,
     related: ["3eme-pilier-banque-assurance", "liberation-du-paiement-des-primes"],
     blocks: [
       {
@@ -42,7 +42,7 @@ export const POSTS: EditorialDoc[] = [
     title: "La taxation ordinaire ultérieure (TOU)",
     metaTitle: "TOU et 3e pilier : frontaliers et impôt à la source",
     description:
-      "Quand l’impôt à la source devient une taxation ordinaire, la déduction 3a peut enfin apparaître. Points de vigilance 2026.",
+      `Quand l’impôt à la source devient une taxation ordinaire, la déduction 3a peut enfin apparaître. Points de vigilance ${YEAR_SPAN}.`,
     published: "2022-10-24",
     updated: UPDATED,
     category: "prevoyance",
@@ -68,7 +68,7 @@ export const POSTS: EditorialDoc[] = [
     title: "L’impôt lors du retrait d’un 3e pilier A",
     metaTitle: "Impôt au retrait du 3a : capital, canton, échelonnement",
     description:
-      "Le 3a est déductible à l’entrée et imposé à la sortie, séparément du reste du revenu. Logique 2026, sans HTML cassé.",
+      `Le 3a est déductible à l’entrée et imposé à la sortie, séparément du reste du revenu. Logique ${YEAR_SPAN}, sans HTML cassé.`,
     published: "2022-10-16",
     updated: UPDATED,
     category: "prevoyance",
@@ -90,29 +90,25 @@ export const POSTS: EditorialDoc[] = [
     kind: "post",
     slug: "quel-montant-deductible-3eme-pilier-2022",
     wpId: 3089,
-    title: "Le montant du 3e pilier : de 2022 à 2026",
-    metaTitle: "Plafond 3a 2022, 2024 et 2026 : série OFAS",
+    title: "Le montant du 3e pilier : de 2022 à 2027",
+    metaTitle: "Plafond 3a 2022, 2026 et 2027 : série OFAS / OPP 3",
     description:
-      "L’article historique « montant 2022 » est conservé et mis à jour : 6’883 alors, 7’258 en 2026. Source OFAS.",
+      "L’article historique « montant 2022 » est conservé et mis à jour : 6’883 alors, 7’258 en 2026 et 2027 (ordonnance en vigueur). Source OFAS.",
     published: "2021-12-12",
     updated: UPDATED,
     category: "prevoyance",
-    intro: `En 2022, la petite cotisation 3a était de CHF 6’883 et la grande de CHF 34’416. En 2026 : ${chf(FIGURES.pillar3aWithLpp)} et ${chf(FIGURES.pillar3aWithoutLpp)}. Nous gardons ce slug, très indexé, en corrigeant les chiffres.`,
+    intro: `En 2022, la petite cotisation 3a était de CHF 6’883 et la grande de CHF 34’416. En ${YEAR_SPAN_WORDS} : ${chf(FIGURES.pillar3aWithLpp)} et ${chf(FIGURES.pillar3aWithoutLpp)}. ${CEILING_NOTE} Nous gardons ce slug, très indexé, en corrigeant les chiffres.`,
     related: ["deductions-fiscales-3eme-pilier"],
     blocks: [
       {
         type: "table",
-        caption: "Art. 7 OPP 3, série OFAS.",
+        caption: `Art. 7 OPP 3, série OFAS. ${CEILING_NOTE}`,
         headers: ["Période", "Avec 2e pilier", "Sans 2e pilier (max.)"],
-        rows: [
-          ["Jusqu’en 2022", "CHF 6’883", "CHF 34’416"],
-          ["2023–2024", "CHF 7’056", "CHF 35’280"],
-          ["Dès 2025 (dont 2026)", chf(FIGURES.pillar3aWithLpp), chf(FIGURES.pillar3aWithoutLpp)],
-        ],
+        rows: pillar3aTableRows(),
       },
       {
         type: "p",
-        text: `Nouveau en 2026 : rachat possible d’une lacune 2025, jusqu’à ${chf(FIGURES.buybackMax)}, sous conditions. Détail sur la page déductions fiscales.`,
+        text: `Nouveau dès 2026 (toujours valable en 2027) : rachat possible d’une lacune depuis 2025, jusqu’à ${chf(FIGURES.buybackMax)}, sous conditions. Détail sur la page déductions fiscales.`,
       },
     ],
   },
@@ -123,11 +119,11 @@ export const POSTS: EditorialDoc[] = [
     title: "À quoi sert le deuxième pilier ?",
     metaTitle: "À quoi sert le 2e pilier LPP ?",
     description:
-      "Le 2e pilier complète l’AVS par capitalisation. Seuil 2026, coordination, lien avec le plafond 3a.",
+      `Le 2e pilier complète l’AVS par capitalisation. Seuil ${YEAR_SPAN} (tableau OFAS 2026 ; 2027 non publié), coordination, lien avec le plafond 3a.`,
     published: "2021-12-07",
     updated: UPDATED,
     category: "prevoyance",
-    intro: `Le 2e pilier (LPP) est alimenté par l’employeur et le salarié. En 2026, l’affiliation obligatoire commence à ${chf(FIGURES.lppEntry)} de salaire annuel chez le même employeur.`,
+    intro: `Le 2e pilier (LPP) est alimenté par l’employeur et le salarié. Selon le tableau OFAS 2026, l’affiliation obligatoire commence à ${chf(FIGURES.lppEntry)} de salaire annuel chez le même employeur. Tableau 2027 non publié au 19.09.2026.`,
     related: ["2eme-pilier-lpp", "libre-passage-lpp"],
     blocks: [
       {
@@ -141,7 +137,7 @@ export const POSTS: EditorialDoc[] = [
     slug: "ouvrir-un-3eme-pilier-pour-un-frontalier",
     wpId: 2822,
     title: "Ouvrir un 3e pilier pour un frontalier",
-    metaTitle: "Frontalier : ouvrir un 3a en 2026",
+    metaTitle: `Frontalier : ouvrir un 3a en ${YEAR_SPAN}`,
     description:
       "Revenu AVS suisse, impôt à la source, TOU, départ. Article frère de la landing frontalier.",
     published: "2021-12-07",
@@ -153,7 +149,7 @@ export const POSTS: EditorialDoc[] = [
     blocks: [
       {
         type: "p",
-        text: "Pièges : croire qu’un achat immobilier en France débloque le 3a (EPL = logement pour propres besoins, cadre suisse), signer une police de 20 ans sans scénario de départ, oublier l’attestation pour la TOU. La landing /frontalier-suisse/ détaille le cadre 2026.",
+        text: "Pièges : croire qu’un achat immobilier en France débloque le 3a (EPL = logement pour propres besoins, cadre suisse), signer une police de 20 ans sans scénario de départ, oublier l’attestation pour la TOU. La landing /frontalier-suisse/ détaille le cadre 2026–2027.",
       },
     ],
   },
@@ -164,7 +160,7 @@ export const POSTS: EditorialDoc[] = [
     title: "Quand commencer son 3e pilier ?",
     metaTitle: "Quand commencer le 3e pilier ? Dès un revenu AVS",
     description:
-      "Chaque année civile sans 3a est une déduction perdue — avec une nuance 2026 : le rachat des lacunes depuis 2025.",
+      "Chaque année civile sans 3a est une déduction perdue — avec une nuance depuis 2026 : le rachat des lacunes depuis 2025.",
     published: "2021-12-06",
     updated: UPDATED,
     category: "prevoyance",
@@ -183,7 +179,7 @@ export const POSTS: EditorialDoc[] = [
     slug: "pourquoi-souscrire-au-3eme-pilier",
     wpId: 2758,
     title: "Pourquoi souscrire au 3e pilier ?",
-    metaTitle: "Pourquoi un 3e pilier en 2026 ?",
+    metaTitle: `Pourquoi un 3e pilier en ${YEAR_SPAN} ?`,
     description:
       "Trou de retraite, impôt, famille, logement. Les vraies raisons, sans slogan 2024 recyclé.",
     published: "2021-12-06",
