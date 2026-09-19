@@ -2,10 +2,9 @@ import { SOURCES } from "@/lib/figures";
 
 export function SourcesList() {
   return (
-    <section className="mt-12 border-t border-border pt-6">
-      <h2 className="text-sm font-semibold uppercase tracking-wide text-muted-foreground">
-        Sources officielles
-      </h2>
+    <section className="mt-12 border-t border-accent/25 pt-8">
+      <p className="kicker">Sources officielles</p>
+      <h2 className="sr-only">Sources officielles</h2>
       <ul className="mt-3 space-y-2 text-sm">
         {SOURCES.map((source) => (
           <li key={source.id}>

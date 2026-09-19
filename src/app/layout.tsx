@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
-import { Source_Sans_3, Source_Serif_4 } from "next/font/google";
+import { Cormorant_Garamond, Source_Sans_3 } from "next/font/google";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { SiteJsonLd } from "@/components/site-json-ld";
 import { SITE, canonical } from "@/lib/site";
+import { IMAGES } from "@/lib/media";
 import "./globals.css";
 
 const sans = Source_Sans_3({
@@ -12,9 +13,11 @@ const sans = Source_Sans_3({
   display: "swap",
 });
 
-const serif = Source_Serif_4({
+const serif = Cormorant_Garamond({
   subsets: ["latin"],
-  variable: "--font-source-serif",
+  weight: ["400", "500", "600"],
+  style: ["normal", "italic"],
+  variable: "--font-cormorant",
   display: "swap",
 });
 
@@ -33,6 +36,7 @@ export const metadata: Metadata = {
     siteName: SITE.name,
     title: "Comparateur 3ème pilier 2026",
     description: SITE.description,
+    images: [{ url: IMAGES.hero.src, width: IMAGES.hero.width, height: IMAGES.hero.height, alt: IMAGES.hero.alt }],
   },
   robots: { index: true, follow: true },
 };
@@ -43,7 +47,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className="min-h-full flex flex-col bg-background text-foreground">
         <a
           href="#contenu"
-          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-primary focus:px-3 focus:py-2 focus:text-primary-foreground"
+          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:bg-primary focus:px-3 focus:py-2 focus:text-primary-foreground"
         >
           Aller au contenu
         </a>

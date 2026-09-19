@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { buttonVariants } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
+import { IMAGES } from "@/lib/media";
+import { Frame } from "@/components/frame";
 
 export function CtaBand({
   title = "Recevez un comparatif 3e pilier 2026",
@@ -10,18 +10,23 @@ export function CtaBand({
   text?: string;
 }) {
   return (
-    <section className="mt-12 rounded-2xl bg-primary px-6 py-8 text-primary-foreground md:px-10">
-      <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-center">
+    <section className="relative mt-16 overflow-hidden">
+      <Frame
+        image={IMAGES.alpes}
+        fill
+        className="absolute inset-0 min-h-[16rem] rounded-none"
+        sizes="100vw"
+        rounded={false}
+      />
+      <div className="absolute inset-0 bg-primary/78" />
+      <div className="relative flex flex-col items-start justify-between gap-6 px-6 py-12 text-primary-foreground md:flex-row md:items-center md:px-10">
         <div>
-          <h2 className="font-heading text-2xl tracking-tight">{title}</h2>
+          <h2 className="font-heading text-3xl tracking-tight">{title}</h2>
           <p className="mt-2 max-w-xl text-sm text-primary-foreground/85">{text}</p>
         </div>
         <Link
           href="/formulaire-3eme-pilier/"
-          className={cn(
-            buttonVariants({ variant: "default" }),
-            "h-11 px-5 bg-accent text-accent-foreground hover:bg-accent/90",
-          )}
+          className="inline-flex h-12 shrink-0 items-center bg-accent px-6 text-[0.72rem] uppercase tracking-[0.2em] text-accent-foreground hover:bg-accent/90"
         >
           Comparer maintenant
         </Link>

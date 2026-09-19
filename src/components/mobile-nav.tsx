@@ -17,25 +17,25 @@ export function MobileNav() {
     <Sheet>
       <SheetTrigger
         render={
-          <Button variant="outline" size="icon" className="lg:hidden" aria-label="Ouvrir le menu" />
+          <Button variant="outline" size="icon" className="rounded-none lg:hidden" aria-label="Ouvrir le menu" />
         }
       >
         <MenuIcon />
       </SheetTrigger>
-      <SheetContent side="right" className="w-80">
+      <SheetContent side="right" className="w-80 rounded-none">
         <SheetHeader>
-          <SheetTitle>Menu</SheetTitle>
+          <SheetTitle className="font-heading text-2xl">Menu</SheetTitle>
         </SheetHeader>
-        <nav className="mt-6 flex flex-col gap-3 px-4" aria-label="Mobile">
+        <nav className="mt-6 flex flex-col gap-1 px-4" aria-label="Mobile">
           {NAV.map((item) => (
-            <Link key={item.href} href={item.href} className="text-base py-1">
+            <Link key={item.href} href={item.href} className="border-b border-accent/20 py-3 font-heading text-xl">
               {item.label}
             </Link>
           ))}
-          <Link href="/nous-contacter/" className="text-base py-1">
+          <Link href="/nous-contacter/" className="border-b border-accent/20 py-3 font-heading text-xl">
             Nous contacter
           </Link>
-          <Link href="/a-propos/" className="text-base py-1">
+          <Link href="/a-propos/" className="py-3 font-heading text-xl">
             À propos
           </Link>
         </nav>

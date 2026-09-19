@@ -1,5 +1,7 @@
 import Link from "next/link";
 import { SITE } from "@/lib/site";
+import { IMAGES } from "@/lib/media";
+import { Frame } from "@/components/frame";
 
 const GROUPS = [
   {
@@ -45,42 +47,55 @@ const GROUPS = [
 
 export function SiteFooter() {
   return (
-    <footer className="mt-auto border-t border-border bg-muted/40">
-      <div className="mx-auto grid max-w-6xl gap-8 px-4 py-12 sm:grid-cols-2 lg:grid-cols-4">
-        {GROUPS.map((group) => (
-          <div key={group.title}>
-            <p className="text-sm font-semibold">{group.title}</p>
-            <ul className="mt-3 space-y-2">
-              {group.links.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-sm text-muted-foreground hover:text-primary"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+    <footer className="mt-auto bg-primary text-primary-foreground">
+      <div className="mx-auto grid max-w-6xl gap-10 px-4 py-16 md:grid-cols-[1.2fr_2fr] md:px-6">
+        <div>
+          <p className="font-heading text-3xl">Comparateur</p>
+          <p className="mt-1 text-[0.68rem] uppercase tracking-[0.28em] text-accent">
+            3ème pilier · Genève · Léman
+          </p>
+          <p className="mt-5 max-w-sm text-sm leading-relaxed text-primary-foreground/75">
+            Information générale pour la Suisse romande. Pas un mandat LSFin. Revue éditoriale du{" "}
+            {SITE.updated}.
+          </p>
+          <div className="mt-6 hidden max-w-xs md:block">
+            <Frame image={IMAGES.laiton} sizes="280px" rounded={false} />
           </div>
-        ))}
-      </div>
-      <div className="border-t border-border">
-        <div className="mx-auto flex max-w-6xl flex-col gap-2 px-4 py-6 text-xs text-muted-foreground md:flex-row md:items-center md:justify-between">
-          <p>
-            © {new Date().getFullYear()} {SITE.name} — information générale, pas un conseil
-            personnalisé. Revue du {SITE.updated}.
-          </p>
-          <p>
-            <Link href="/page-de-confidentialitee/" className="hover:text-primary">
-              Confidentialité
-            </Link>
-            {" · "}
-            <a href={`mailto:${SITE.email}`} className="hover:text-primary">
-              {SITE.email}
-            </a>
-          </p>
         </div>
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          {GROUPS.map((group) => (
+            <div key={group.title}>
+              <p className="text-[0.68rem] uppercase tracking-[0.22em] text-accent">{group.title}</p>
+              <ul className="mt-4 space-y-2">
+                {group.links.map((link) => (
+                  <li key={link.href}>
+                    <Link
+                      href={link.href}
+                      className="text-sm text-primary-foreground/75 transition-colors hover:text-accent"
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div className="hairline opacity-60" />
+      <div className="mx-auto flex max-w-6xl flex-col gap-2 px-4 py-6 text-xs text-primary-foreground/60 md:flex-row md:items-center md:justify-between md:px-6">
+        <p>
+          © {new Date().getFullYear()} {SITE.name}
+        </p>
+        <p>
+          <Link href="/page-de-confidentialitee/" className="hover:text-accent">
+            Confidentialité
+          </Link>
+          {" · "}
+          <a href={`mailto:${SITE.email}`} className="hover:text-accent">
+            {SITE.email}
+          </a>
+        </p>
       </div>
     </footer>
   );

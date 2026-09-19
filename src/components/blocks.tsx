@@ -15,7 +15,7 @@ export function Blocks({ blocks }: { blocks: Block[] }) {
             return (
               <h2
                 key={index}
-                className="font-heading mt-10 text-2xl tracking-tight text-foreground"
+                className="font-heading mt-12 text-3xl tracking-tight text-foreground"
               >
                 {block.text}
               </h2>
@@ -82,7 +82,7 @@ export function Blocks({ blocks }: { blocks: Block[] }) {
             return (
               <aside
                 key={index}
-                className="rounded-xl border border-primary/15 bg-primary/5 px-4 py-3"
+                className="border border-accent/30 bg-card px-4 py-4"
               >
                 <p className="text-sm font-semibold text-primary">{block.title}</p>
                 <p className="mt-1 text-sm leading-relaxed text-foreground/90">{block.text}</p>
