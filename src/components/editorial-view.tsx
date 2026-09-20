@@ -12,6 +12,13 @@ import { ProcessSteps } from "@/components/trust-strip";
 import { getPosts, getRelated } from "@/content";
 import type { EditorialDoc } from "@/content/types";
 import { coverFor, IMAGES } from "@/lib/media";
+import {
+  articleLd,
+  breadcrumbLd,
+  collectionPageLd,
+  faqPageLd,
+  webPageLd,
+} from "@/lib/schema";
 import { canonical, SITE } from "@/lib/site";
 
 export function docMetadata(doc: EditorialDoc): Metadata {
@@ -21,14 +28,22 @@ export function docMetadata(doc: EditorialDoc): Metadata {
     title: doc.metaTitle,
     description: doc.description,
     alternates: { canonical: url },
+    authors: [{ name: SITE.name, url: canonical("/a-propos/") }],
     openGraph: {
       title: doc.metaTitle,
       description: doc.description,
       url,
       locale: "fr_CH",
-      type: "article",
+      type: doc.kind === "post" ? "article" : "website",
       siteName: SITE.name,
+      publishedTime: doc.published,
+      modifiedTime: doc.updated,
       images: [{ url: cover.src, width: cover.width, height: cover.height, alt: cover.alt }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: doc.metaTitle,
+      description: doc.description,
     },
   };
 }
@@ -134,7 +149,9 @@ export async function EditorialView({ doc }: { doc: EditorialDoc }) {
         </div>
       </div>
       <div className="mx-auto max-w-3xl px-4 py-12 md:px-6 md:py-16">
-        <p className="font-heading text-2xl italic leading-snug text-foreground/90">{doc.intro}</p>
+          <p id="reponse-directe" className="font-heading text-2xl italic leading-snug text-foreground/90">
+            {doc.intro}
+          </p>
         <div className="hairline my-10" />
         {doc.body ? <MdxBody source={doc.body} /> : <Blocks blocks={doc.blocks} />}
         {posts.length ? (
@@ -142,8 +159,8 @@ export async function EditorialView({ doc }: { doc: EditorialDoc }) {
             <p className="kicker">Cadence</p>
             <p className="mt-2 max-w-2xl text-sm leading-relaxed text-muted-foreground">
               Trois articles par semaine (lundi, mercredi, vendredi) — plafonds OFAS, cantons, frontaliers,
-              3a/3b, banque ou assurance. Pas un flux quotidien. Les guides WordPress restent à leurs
-              slugs d’origine.
+              3a/3b, banque ou assurance. Semaines 1 à 4 en ligne. Pas un flux quotidien. Les guides
+              WordPress restent à leurs slugs d’origine.
             </p>
             <ul className="mt-8 space-y-8">
               {posts.map((post) => (
@@ -203,42 +220,18 @@ export async function EditorialView({ doc }: { doc: EditorialDoc }) {
 }
 
 function ArticleJsonLd({ doc }: { doc: EditorialDoc }) {
-  const data: Record<string, unknown>[] = [];
+  const cover = coverFor(doc.slug, doc.cover);
+  const data: Record<string, unknown>[] = [breadcrumbLd(doc)];
   if (doc.kind === "post") {
-    data.push({
-      "@context": "https://schema.org",
-      "@type": "Article",
-      headline: doc.title,
-      description: doc.description,
-      datePublished: doc.published,
-      dateModified: doc.updated,
-      inLanguage: "fr-CH",
-      author: { "@type": "Organization", name: SITE.name },
-      publisher: { "@type": "Organization", name: SITE.name },
-      mainEntityOfPage: canonical(`/${doc.slug}/`),
-    });
-  }
-  if (doc.slug === "actualite-3eme-pilier") {
-    data.push({
-      "@context": "https://schema.org",
-      "@type": "CollectionPage",
-      name: doc.title,
-      description: doc.description,
-      url: canonical("/actualite-3eme-pilier/"),
-    });
+    data.push(articleLd(doc, cover));
+  } else if (doc.slug === "actualite-3eme-pilier") {
+    data.push(collectionPageLd(doc, getPosts().map((post) => ({ slug: post.slug, title: post.title }))));
+  } else {
+    data.push(webPageLd(doc, cover));
   }
   if (doc.faqs?.length) {
-    data.push({
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      mainEntity: doc.faqs.map((faq) => ({
-        "@type": "Question",
-        name: faq.question,
-        acceptedAnswer: { "@type": "Answer", text: faq.answer },
-      })),
-    });
+    data.push(faqPageLd(doc.faqs));
   }
-  if (!data.length) return null;
   return <JsonLd data={data} />;
 }
 

@@ -1,7 +1,7 @@
 import { chf, FIGURES, pillar3aTableRows, YEAR_SPAN, YEAR_SPAN_WORDS, CEILING_NOTE } from "@/lib/figures";
 import type { EditorialDoc } from "./types";
 
-const UPDATED = "2026-09-19";
+const UPDATED = "2026-09-20";
 
 export const POSTS: EditorialDoc[] = [
   {
@@ -17,7 +17,17 @@ export const POSTS: EditorialDoc[] = [
     category: "prevoyance",
     intro:
       `Le 3a se souscrit auprès d’une fondation bancaire ou d’un assureur. La déduction ${YEAR_SPAN_WORDS} ne change pas. Ce qui change, c’est ce qu’il reste si vous arrêtez, et ce qui est versé si vous disparaissez.`,
-    related: ["3eme-pilier-banque-assurance", "liberation-du-paiement-des-primes"],
+    related: [
+      "3eme-pilier-banque-assurance",
+      "frais-3a-banque-assurance",
+      "liberation-du-paiement-des-primes",
+    ],
+    faqs: [
+      {
+        question: "La déduction 3a est-elle plus haute en assurance ?",
+        answer: `Non. En ${YEAR_SPAN_WORDS} le plafond OFAS est ${chf(FIGURES.pillar3aWithLpp)} / ${chf(FIGURES.pillar3aWithoutLpp)}, quel que soit le prestataire. Ce qui change : frais, valeur de rachat, capital décès.`,
+      },
+    ],
     blocks: [
       {
         type: "p",
@@ -40,15 +50,22 @@ export const POSTS: EditorialDoc[] = [
     slug: "taxation-ordinaire-ulterieure",
     wpId: 5881,
     title: "La taxation ordinaire ultérieure (TOU)",
-    metaTitle: "TOU et 3e pilier : frontaliers et impôt à la source",
+    metaTitle: `TOU et 3e pilier ${YEAR_SPAN} : frontaliers et impôt à la source`,
     description:
-      `Quand l’impôt à la source devient une taxation ordinaire, la déduction 3a peut enfin apparaître. Points de vigilance ${YEAR_SPAN}.`,
+      `Quand l’impôt à la source devient une taxation ordinaire, la déduction 3a peut enfin apparaître. Points de vigilance ${YEAR_SPAN}, circulaire AFC n° 18.`,
     published: "2022-10-24",
     updated: UPDATED,
     category: "prevoyance",
     intro:
       "La TOU remplace, dans les cas prévus par le canton, le barème à la source par une taxation comparable à celle d’un résident. C’est souvent là que le 3a devient visible sur la déclaration.",
-    related: ["frontalier-suisse", "ouvrir-un-3eme-pilier-pour-un-frontalier"],
+    related: ["frontalier-suisse", "tou-impot-source-3a", "ouvrir-un-3eme-pilier-pour-un-frontalier"],
+    faqs: [
+      {
+        question: "La TOU est-elle automatique pour un frontalier ?",
+        answer:
+          "Non. Elle dépend du canton, du revenu et du patrimoine suisse. Sans attestation 3a datée, une TOU n’a rien à déduire. Complément : /tou-impot-source-3a/.",
+      },
+    ],
     blocks: [
       {
         type: "p",
@@ -66,7 +83,7 @@ export const POSTS: EditorialDoc[] = [
     slug: "3eme-pilier-a-impot-retrait",
     wpId: 5875,
     title: "L’impôt lors du retrait d’un 3e pilier A",
-    metaTitle: "Impôt au retrait du 3a : capital, canton, échelonnement",
+    metaTitle: `Impôt au retrait du 3a ${YEAR_SPAN} : capital, canton, échelonnement`,
     description:
       `Le 3a est déductible à l’entrée et imposé à la sortie, séparément du reste du revenu. Logique ${YEAR_SPAN}, sans HTML cassé.`,
     published: "2022-10-16",
@@ -74,7 +91,14 @@ export const POSTS: EditorialDoc[] = [
     category: "prevoyance",
     intro:
       "Pendant la durée, le 3a n’est pas dans la fortune imposable. Au versement, le capital est imposé à part, à un taux réduit qui dépend du canton, du montant et de votre situation de famille. Ce n’est pas « net d’impôt ».",
-    related: ["deductions-fiscales-3eme-pilier", "quel-montant-deductible-3eme-pilier-2022"],
+    related: ["deductions-fiscales-3eme-pilier", "quel-montant-deductible-3eme-pilier-2022", "depart-suisse-retrait-3a"],
+    faqs: [
+      {
+        question: "Le capital 3a est-il net d’impôt à la sortie ?",
+        answer:
+          "Non. Pendant la durée, le 3a n’est pas dans la fortune imposable. Au versement, le capital est imposé à part, à un taux réduit qui dépend du canton, du montant et de la situation de famille.",
+      },
+    ],
     blocks: [
       {
         type: "p",
@@ -98,7 +122,13 @@ export const POSTS: EditorialDoc[] = [
     updated: UPDATED,
     category: "prevoyance",
     intro: `En 2022, la petite cotisation 3a était de CHF 6’883 et la grande de CHF 34’416. En ${YEAR_SPAN_WORDS} : ${chf(FIGURES.pillar3aWithLpp)} et ${chf(FIGURES.pillar3aWithoutLpp)}. ${CEILING_NOTE} Nous gardons ce slug, très indexé, en corrigeant les chiffres.`,
-    related: ["deductions-fiscales-3eme-pilier"],
+    related: ["deductions-fiscales-3eme-pilier", "plafonds-3a-2026-2027", "rachat-lacunes-3a-2026"],
+    faqs: [
+      {
+        question: "Pourquoi ce slug parle-t-il encore de 2022 ?",
+        answer: `Parce que l’URL WordPress est indexée. Le corps est mis à jour : ${chf(FIGURES.pillar3aWithLpp)} / ${chf(FIGURES.pillar3aWithoutLpp)} en ${YEAR_SPAN_WORDS} (OFAS / OPP 3). Les 6’883 / 34’416 CHF sont l’histoire, pas le droit actuel.`,
+      },
+    ],
     blocks: [
       {
         type: "table",
@@ -117,14 +147,14 @@ export const POSTS: EditorialDoc[] = [
     slug: "a-quoi-sert-le-deuxieme-pilier",
     wpId: 2829,
     title: "À quoi sert le deuxième pilier ?",
-    metaTitle: "À quoi sert le 2e pilier LPP ?",
+    metaTitle: `À quoi sert le 2e pilier LPP ${YEAR_SPAN} ?`,
     description:
       `Le 2e pilier complète l’AVS par capitalisation. Seuil ${YEAR_SPAN} (tableau OFAS 2026 ; 2027 non publié), coordination, lien avec le plafond 3a.`,
     published: "2021-12-07",
     updated: UPDATED,
     category: "prevoyance",
     intro: `Le 2e pilier (LPP) est alimenté par l’employeur et le salarié. Selon le tableau OFAS 2026, l’affiliation obligatoire commence à ${chf(FIGURES.lppEntry)} de salaire annuel chez le même employeur. Tableau 2027 non publié au 19.09.2026.`,
-    related: ["2eme-pilier-lpp", "libre-passage-lpp"],
+    related: ["2eme-pilier-lpp", "libre-passage-lpp", "tableau-ofas-montants-avs-lpp-3a"],
     blocks: [
       {
         type: "p",
@@ -145,7 +175,14 @@ export const POSTS: EditorialDoc[] = [
     category: "prevoyance",
     intro:
       "Oui, un frontalier soumis à l’AVS suisse peut ouvrir un 3a. Le 3b reste possible plus largement, avec une fiscalité à juger dans l’État de résidence autant qu’en Suisse.",
-    related: ["frontalier-suisse", "taxation-ordinaire-ulterieure"],
+    related: ["frontalier-suisse", "frontalier-avs-3a-conditions", "taxation-ordinaire-ulterieure"],
+    faqs: [
+      {
+        question: "Un frontalier sans AVS suisse peut-il ouvrir un 3a ?",
+        answer:
+          "En principe non. L’accès 3a suit l’assujettissement AVS (circulaire AFC n° 18). Le 3b peut rester ouvert. Détail : /frontalier-avs-3a-conditions/.",
+      },
+    ],
     blocks: [
       {
         type: "p",
@@ -158,7 +195,7 @@ export const POSTS: EditorialDoc[] = [
     slug: "quand-commencer-le-3eme-pilier",
     wpId: 2782,
     title: "Quand commencer son 3e pilier ?",
-    metaTitle: "Quand commencer le 3e pilier ? Dès un revenu AVS",
+    metaTitle: `Quand commencer le 3e pilier ${YEAR_SPAN} ? Dès un revenu AVS`,
     description:
       "Chaque année civile sans 3a est une déduction perdue — avec une nuance depuis 2026 : le rachat des lacunes depuis 2025.",
     published: "2021-12-06",
@@ -166,7 +203,7 @@ export const POSTS: EditorialDoc[] = [
     category: "prevoyance",
     intro:
       "On peut alimenter un 3a dès qu’on a un revenu d’activité soumis à l’AVS. Plus tôt n’est pas toujours « le maximum légal » : c’est d’abord un montant que vous tiendrez.",
-    related: ["pourquoi-souscrire-au-3eme-pilier", "deductions-fiscales-3eme-pilier"],
+    related: ["pourquoi-souscrire-au-3eme-pilier", "deductions-fiscales-3eme-pilier", "rachat-lacunes-3a-2026"],
     blocks: [
       {
         type: "p",
@@ -206,7 +243,7 @@ export const POSTS: EditorialDoc[] = [
     slug: "constituer-une-epargne-enfant",
     wpId: 2738,
     title: "Constituer une épargne enfant",
-    metaTitle: "Épargne enfant : 3b, compte, protection du parent",
+    metaTitle: `Épargne enfant ${YEAR_SPAN} : 3b, compte, protection du parent`,
     description:
       "Pas de 3a sans revenu AVS. Comment épargner pour un enfant sans bloquer le budget du ménage.",
     published: "2021-12-06",
@@ -227,7 +264,7 @@ export const POSTS: EditorialDoc[] = [
     slug: "choisir-les-beneficiaires",
     wpId: 2719,
     title: "Choisir les bénéficiaires du 3e pilier en cas de décès",
-    metaTitle: "Bénéficiaires du 3a et du 3b en cas de décès",
+    metaTitle: `Bénéficiaires du 3a et du 3b ${YEAR_SPAN} en cas de décès`,
     description:
       "Ordre légal du 3a vs liberté du 3b. Conjoint, concubin, enfants, associé.",
     published: "2021-12-06",

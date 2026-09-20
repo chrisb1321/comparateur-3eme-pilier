@@ -31,6 +31,7 @@ const GROUPS = [
       { href: "/epargne-enfant/", label: "Épargne enfant" },
       { href: "/assurance-vie-en-suisse/", label: "Assurance-vie" },
       { href: "/actualite-3eme-pilier/", label: "Actualités" },
+      { href: "/methode-sources-ofas-afc/", label: "Méthode OFAS / AFC" },
     ],
   },
   {
@@ -91,6 +92,10 @@ export function SiteFooter() {
           <Link href="/page-de-confidentialitee/" className="hover:text-accent">
             Confidentialité
           </Link>
+          {" · "}
+          <a href="/llms.txt" className="hover:text-accent">
+            llms.txt
+          </a>
           {" · "}
           <a href={`mailto:${SITE.email}`} className="hover:text-accent">
             {SITE.email}

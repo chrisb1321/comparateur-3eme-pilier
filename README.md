@@ -51,3 +51,12 @@ npm run seo:week
 ```
 
 Crée 3 brouillons (`draft: true`) pour la prochaine semaine du calendrier `content/editorial-calendar.json`. Rédiger, relire les sources, passer `draft: false`, ouvrir une **PR brouillon**. Prompt agent : `content/articles/AGENT-SEMAINE.md`. Cadence : lundi / mercredi / vendredi, pas quotidien.
+
+Semaines 1 à 4 (12 articles) sont publiées. AEO/GEO : FAQ HTML + `FAQPage` sur les pages d’argent, schémas Organization / WebSite / Article, `public/llms.txt`, maillage hub ↔ guides.
+
+## Indexation
+
+- Sitemap : `/sitemap.xml` (pages d’argent en weekly / priorité 0.9)
+- Robots : `/robots.txt` (crawlers IA autorisés)
+- `llms.txt` : `/llms.txt`
+

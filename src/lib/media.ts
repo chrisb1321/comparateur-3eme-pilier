@@ -167,6 +167,15 @@ const SLUG_COVER: Record<string, keyof typeof IMAGES> = {
   "plafonds-3a-2026-2027": "lpp",
   "rachat-lacunes-3a-2026": "pillar3a",
   "tableau-ofas-montants-avs-lpp-3a": "avs",
+  "3a-impot-cantonal-geneve-2026": "geneve",
+  "3b-deduction-fribourg": "vaud",
+  "3eme-pilier-canton-vaud": "vaud",
+  "frontalier-avs-3a-conditions": "frontalier",
+  "tou-impot-source-3a": "frontalier",
+  "depart-suisse-retrait-3a": "alpes",
+  "combiner-3a-et-3b-2026": "mixte",
+  "frais-3a-banque-assurance": "banque",
+  "methode-sources-ofas-afc": "conseiller",
 };
 
 export function coverFor(slug: string, cover?: string): SiteImage {

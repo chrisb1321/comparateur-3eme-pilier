@@ -28,9 +28,21 @@ export function getPages(): EditorialDoc[] {
 }
 
 export function getRelated(doc: EditorialDoc): EditorialDoc[] {
-  return (doc.related ?? [])
-    .map((slug) => getBySlug(slug.split("/").filter(Boolean).pop() as string))
-    .filter((item): item is EditorialDoc => Boolean(item));
+  const slugs = [...(doc.related ?? [])];
+  if (doc.series && !slugs.includes("actualite-3eme-pilier")) {
+    slugs.push("actualite-3eme-pilier");
+  }
+  const seen = new Set<string>();
+  const related: EditorialDoc[] = [];
+  for (const raw of slugs) {
+    const slug = raw.split("/").filter(Boolean).pop() as string;
+    if (!slug || slug === doc.slug || seen.has(slug)) continue;
+    const item = getBySlug(slug);
+    if (!item) continue;
+    seen.add(slug);
+    related.push(item);
+  }
+  return related;
 }
 
 export { PAGES, POSTS };

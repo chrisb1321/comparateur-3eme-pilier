@@ -37,7 +37,6 @@ export const metadata: Metadata = {
     template: `%s | ${SITE.name}`,
   },
   description: SITE.description,
-  alternates: { canonical: canonical("/") },
   openGraph: {
     type: "website",
     locale: "fr_CH",
