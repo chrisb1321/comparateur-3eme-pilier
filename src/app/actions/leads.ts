@@ -1,40 +1,21 @@
 "use server";
 
-import { mkdir, appendFile } from "node:fs/promises";
-import path from "node:path";
 import { redirect } from "next/navigation";
 import {
+  crmIngestConfigured,
   deliveryQuery,
   notifyCrm,
   notifyEmail,
   type LeadDelivery,
   type LeadPayload,
 } from "@/lib/lead-delivery";
+import { appendJournalLine } from "@/lib/lead-journal";
 
 export type LeadState = { error?: string } | null;
 
 function str(form: FormData, key: string): string {
   const value = form.get(key);
   return typeof value === "string" ? value.trim() : "";
-}
-
-function journalDir(): string {
-  if (process.env.VERCEL || process.env.AWS_LAMBDA_FUNCTION_NAME) {
-    return "/tmp";
-  }
-  return path.join(process.cwd(), "data");
-}
-
-async function appendJournal(line: string): Promise<boolean> {
-  try {
-    const dir = journalDir();
-    await mkdir(dir, { recursive: true });
-    await appendFile(path.join(dir, "leads.jsonl"), `${line}\n`, "utf8");
-    return true;
-  } catch (error) {
-    console.error("lead-store", error);
-    return false;
-  }
 }
 
 export async function submitLead(_prev: LeadState, form: FormData): Promise<LeadState> {
@@ -83,14 +64,46 @@ export async function submitLead(_prev: LeadState, form: FormData): Promise<Lead
     message,
   };
 
-  const journal = await appendJournal(JSON.stringify(payload));
-  const [crm, mailed] = await Promise.all([notifyCrm(payload), notifyEmail(payload)]);
-  const delivery: LeadDelivery = { journal, crm, email: mailed };
+  const journal = await appendJournalLine(payload);
+  const crmResult = await notifyCrm(payload);
+  const mailed = await notifyEmail(payload);
+  const delivery: LeadDelivery = { journal, crm: crmResult.ok, email: mailed };
 
-  await appendJournal(
-    JSON.stringify({ receivedAt: new Date().toISOString(), event: "delivery", intent, notify: delivery }),
-  );
+  if (journal) {
+    await appendJournalLine({
+      receivedAt: new Date().toISOString(),
+      event: "delivery",
+      intent,
+      notify: delivery,
+      ingest: {
+        crmConfigured: crmResult.configured,
+        crmAttempts: crmResult.attempts,
+        crmReason: crmResult.ok ? undefined : crmResult.reason,
+      },
+    });
+  }
 
-  console.info("lead", { intent, journal, crm, email: mailed });
+  console.info("lead-submit", {
+    intent,
+    journal,
+    crm: crmResult.ok,
+    crmConfigured: crmResult.configured,
+    crmAttempts: crmResult.attempts,
+    email: mailed,
+  });
+
+  if (!journal && !crmResult.ok) {
+    if (!crmIngestConfigured()) {
+      return {
+        error:
+          "Le service de transmission n’est pas configuré sur ce serveur. Écrivez-nous à info@comparateur-3eme-pilier.ch avec votre numéro.",
+      };
+    }
+    return {
+      error:
+        "La transmission a échoué. Réessayez dans quelques minutes ou écrivez-nous à info@comparateur-3eme-pilier.ch.",
+    };
+  }
+
   redirect(deliveryQuery(delivery));
 }

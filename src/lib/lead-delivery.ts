@@ -16,12 +16,28 @@ export type LeadDelivery = {
   email: boolean;
 };
 
+export type CrmIngestResult = {
+  ok: boolean;
+  configured: boolean;
+  attempts: number;
+  status?: number;
+  action?: string;
+  reason?: "missing_token" | "http_error" | "bad_body" | "network" | "timeout";
+};
+
 /** Backend live de commission-sfa.vercel.app (projet public, clé anon dans le bundle). */
 export const CRM_SUPABASE_DEFAULT = "https://xgzjlkrbqpvjrfdmiuxq.supabase.co";
 export const CRM_SITE_LEAD_FUNCTION = "public-site-lead";
 
+const CRM_MAX_ATTEMPTS = 3;
+const CRM_RETRY_DELAY_MS = 600;
+
 function env(name: string): string {
   return (process.env[name] ?? "").trim();
+}
+
+export function crmIngestConfigured(): boolean {
+  return Boolean(env("CRM_INGEST_TOKEN"));
 }
 
 export function deliveryQuery(delivery: LeadDelivery): string {
@@ -88,18 +104,17 @@ export function crmAccepted(
   return status >= 200 && status < 300 && body?.ok === true;
 }
 
-export async function notifyCrm(lead: LeadPayload): Promise<boolean> {
-  const token = env("CRM_INGEST_TOKEN");
-  if (!token) {
-    console.error("lead-crm: CRM_INGEST_TOKEN manquant — pas d’écriture dans Commission SFA.");
-    return false;
-  }
-  const base = (env("CRM_SUPABASE_URL") || CRM_SUPABASE_DEFAULT).replace(/\/$/, "");
-  const functionName = env("CRM_INGEST_FUNCTION") || CRM_SITE_LEAD_FUNCTION;
-  const row = toProspectRow(lead);
+function sleep(ms: number): Promise<void> {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
 
+async function postCrmOnce(
+  url: string,
+  token: string,
+  row: Record<string, unknown>,
+): Promise<{ status: number; json: { ok?: boolean; action?: string } | null; reason?: CrmIngestResult["reason"] }> {
   try {
-    const response = await fetch(`${base}/functions/v1/${functionName}`, {
+    const response = await fetch(url, {
       method: "POST",
       headers: {
         Authorization: `Bearer ${token}`,
@@ -116,15 +131,81 @@ export async function notifyCrm(lead: LeadPayload): Promise<boolean> {
       json = null;
     }
     if (!crmAccepted(response.status, json)) {
-      console.error("lead-crm-function", functionName, response.status, text.slice(0, 240));
-      return false;
+      return { status: response.status, json, reason: "bad_body" };
     }
-    console.info("lead-crm-function", functionName, response.status, json?.action ?? "ok");
-    return true;
+    return { status: response.status, json };
   } catch (error) {
-    console.error("lead-crm", error);
-    return false;
+    const name = error instanceof Error ? error.name : "";
+    const reason: CrmIngestResult["reason"] =
+      name === "TimeoutError" || name === "AbortError" ? "timeout" : "network";
+    return { status: 0, json: null, reason };
   }
+}
+
+export async function notifyCrm(lead: LeadPayload): Promise<CrmIngestResult> {
+  const token = env("CRM_INGEST_TOKEN");
+  if (!token) {
+    console.error("lead-ingest", {
+      channel: "crm",
+      configured: false,
+      reason: "missing_token",
+      hint: "Définir CRM_INGEST_TOKEN sur Vercel Production",
+    });
+    return { ok: false, configured: false, attempts: 0, reason: "missing_token" };
+  }
+
+  const base = (env("CRM_SUPABASE_URL") || CRM_SUPABASE_DEFAULT).replace(/\/$/, "");
+  const functionName = env("CRM_INGEST_FUNCTION") || CRM_SITE_LEAD_FUNCTION;
+  const url = `${base}/functions/v1/${functionName}`;
+  const row = toProspectRow(lead);
+
+  let lastStatus = 0;
+  let lastAction: string | undefined;
+  let lastReason: CrmIngestResult["reason"] = "http_error";
+
+  for (let attempt = 1; attempt <= CRM_MAX_ATTEMPTS; attempt++) {
+    const result = await postCrmOnce(url, token, row);
+    lastStatus = result.status;
+    lastAction = result.json?.action;
+    lastReason = result.reason ?? (result.status >= 500 ? "http_error" : "bad_body");
+
+    if (crmAccepted(result.status, result.json)) {
+      console.info("lead-ingest", {
+        channel: "crm",
+        configured: true,
+        attempt,
+        status: result.status,
+        action: lastAction ?? "ok",
+      });
+      return { ok: true, configured: true, attempts: attempt, status: result.status, action: lastAction };
+    }
+
+    const retryable =
+      result.reason === "network" ||
+      result.reason === "timeout" ||
+      result.status === 0 ||
+      result.status >= 500;
+
+    console.error("lead-ingest", {
+      channel: "crm",
+      configured: true,
+      attempt,
+      status: result.status || "fetch_failed",
+      reason: lastReason,
+      retryable,
+    });
+
+    if (!retryable || attempt === CRM_MAX_ATTEMPTS) break;
+    await sleep(CRM_RETRY_DELAY_MS * attempt);
+  }
+
+  return {
+    ok: false,
+    configured: true,
+    attempts: CRM_MAX_ATTEMPTS,
+    status: lastStatus,
+    reason: lastReason,
+  };
 }
 
 function dossierText(lead: LeadPayload): string {
@@ -140,13 +221,13 @@ function dossierText(lead: LeadPayload): string {
   ].join("\n");
 }
 
-/** Secondaire. Le CRM Commission SFA est le chemin principal. */
+/** Secondaire. L’ingest Commission SFA est le chemin principal. */
 export async function notifyEmail(lead: LeadPayload): Promise<boolean> {
   const to = env("LEAD_NOTIFY_EMAIL");
   if (!to) return false;
   const from = env("LEAD_FROM_EMAIL");
   if (!from) {
-    console.error("lead-email: LEAD_FROM_EMAIL manquant.");
+    console.error("lead-ingest", { channel: "email", configured: false, reason: "missing_from" });
     return false;
   }
   const fromName = env("LEAD_FROM_NAME") || "Comparateur 3ème pilier";
@@ -168,18 +249,19 @@ export async function notifyEmail(lead: LeadPayload): Promise<boolean> {
         signal: AbortSignal.timeout(8000),
       });
       if (!response.ok) {
-        console.error("lead-resend-status", response.status);
+        console.error("lead-ingest", { channel: "email", provider: "resend", status: response.status });
         return false;
       }
+      console.info("lead-ingest", { channel: "email", provider: "resend", ok: true });
       return true;
     } catch (error) {
-      console.error("lead-resend", error);
+      console.error("lead-ingest", { channel: "email", provider: "resend", error: String(error) });
       return false;
     }
   }
   const host = env("SMTP_HOST");
   if (!host) {
-    console.error("lead-email: ni RESEND_API_KEY ni SMTP_HOST.");
+    console.error("lead-ingest", { channel: "email", configured: false, reason: "no_provider" });
     return false;
   }
   try {
@@ -193,9 +275,10 @@ export async function notifyEmail(lead: LeadPayload): Promise<boolean> {
       auth: user ? { user, pass: env("SMTP_PASS") } : undefined,
     });
     await transporter.sendMail({ from: `${fromName} <${from}>`, to, subject, text, html });
+    console.info("lead-ingest", { channel: "email", provider: "smtp", ok: true });
     return true;
   } catch (error) {
-    console.error("lead-smtp", error);
+    console.error("lead-ingest", { channel: "email", provider: "smtp", error: String(error) });
     return false;
   }
 }

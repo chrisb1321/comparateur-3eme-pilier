@@ -886,13 +886,13 @@ export const PAGES: EditorialDoc[] = [
     slug: "actualite-3eme-pilier",
     wpId: 2653,
     title: "Actualités du 3e pilier",
-    metaTitle: "Actualités 3e pilier 2026–2027 — 3 articles par semaine, semaines 1–4",
+    metaTitle: "Actualités 3e pilier 2026–2027 — 3 articles par semaine, semaines 1–5",
     description:
-      "Série éditoriale : trois articles par semaine (plafonds OFAS, cantons, frontaliers, 3a/3b, méthode). Semaines 1 à 4 publiées. Archives WordPress, mêmes slugs.",
+      "Série éditoriale : trois articles par semaine (plafonds OFAS, cantons, frontaliers, 3a/3b, versement, retraite). Semaines 1 à 5 publiées. Archives WordPress, mêmes slugs.",
     published: "2023-11-05",
     updated: UPDATED,
     intro:
-      "Cadence confirmée : trois textes par semaine, pas un article par jour. Semaines 1 à 4 livrées (OFAS, cantons, frontaliers, supports et méthode). Les guides historiques restent à leurs URL d’origine.",
+      "Cadence confirmée : trois textes par semaine, pas un article par jour. Semaines 1 à 5 livrées (OFAS, cantons, frontaliers, supports, versement et retraite). Les guides historiques restent à leurs URL d’origine.",
     related: [
       "plafonds-3a-2026-2027",
       "3a-impot-cantonal-geneve-2026",
