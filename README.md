@@ -25,9 +25,9 @@ npm start
 
 ## Leads
 
-Chemin principal : **Commission SFA**, Edge Function `public-site-lead` (`CRM_INGEST_FUNCTION`). Copier `.env.example` vers `.env.local` et coller `CRM_INGEST_TOKEN` (même valeur que `SITE_LEAD_INGEST_SECRET` sur l’Edge — **pas** la `service_role`). Sans ce jeton, l’ingest refuse ; une copie reste dans `/tmp/comparateur-3eme-pilier-leads.jsonl` (configurable via `LEAD_JOURNAL_PATH`).
+Chemin principal : **Commission SFA**, Edge Function `lead-intake`. Le navigateur appelle uniquement la server action ; le serveur Next transmet avec `SFA_LEAD_INTAKE_URL` + `SFA_LEAD_INTAKE_SECRET` (même valeur que `LEAD_INTAKE_SECRET` côté CRM — **jamais** dans le bundle). Sans secret, l’ingest refuse ; une copie reste dans `/tmp/comparateur-3eme-pilier-leads.jsonl` (configurable via `LEAD_JOURNAL_PATH`).
 
-La page merci n’affirme une transmission au conseiller que si l’Edge a répondu 2xx `{ ok: true }`. Retries (3 tentatives), logs sans secrets. Pas de Typeform. Pas de confirmation magique dans la boîte du visiteur.
+La page merci n’affirme une transmission au conseiller que si lead-intake a répondu 201/200 `{ ok: true }`. Retries (3 tentatives), logs sans secrets. Attribution UTM/gclid capturée en session. Pas de Typeform. Pas de confirmation magique dans la boîte du visiteur.
 
 Détail : store `docs/conversion-et-bascule.md`.
 

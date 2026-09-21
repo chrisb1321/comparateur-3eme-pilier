@@ -9,6 +9,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { cn } from "@/lib/utils";
+import { AttributionFields } from "@/components/attribution-fields";
 import { TrustStrip } from "@/components/trust-strip";
 
 const fieldClass = "h-12 rounded-none border-input bg-background/80 text-base md:text-sm";
@@ -51,6 +52,7 @@ export function LeadForm({
         {isContact ? null : <TrustStrip />}
       </header>
       <input type="hidden" name="intent" value={intent} />
+      <AttributionFields />
       <div className="hidden" aria-hidden="true">
         <label>
           Site web
