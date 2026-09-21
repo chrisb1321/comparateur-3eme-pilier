@@ -79,44 +79,37 @@ export async function EditorialView({
           />
           <div className="absolute inset-0 bg-primary/55" />
           <div className="relative mx-auto flex min-h-[48vh] max-w-3xl flex-col justify-end px-4 py-16 text-primary-foreground md:px-6">
-            <p className="kicker">{crmOk ? "Dossier transmis" : "Demande enregistrée"}</p>
+            <p className="kicker">{crmOk ? "Demande reçue" : "Merci"}</p>
             <h1 className="font-heading mt-3 text-4xl md:text-6xl">{doc.title}</h1>
           </div>
         </div>
         <div className="mx-auto max-w-2xl px-4 py-16 md:px-6">
           <p className="text-lg leading-relaxed" data-testid="lead-crm-status" data-crm={crmOk ? "ok" : "no"}>
             {crmOk
-              ? "Votre demande est arrivée dans notre suivi interne (Commission SFA). Un conseiller rappelle sous deux jours ouvrés, de préférence par téléphone."
+              ? "Votre demande est bien arrivée. Nous revenons vers vous sous deux jours ouvrés, sans engagement."
               : journalOk
-                ? "La demande est écrite dans le journal du site. Elle n’a pas été acceptée par le CRM interne : aucun conseiller n’est alerté automatiquement. Écrivez-nous si vous n’avez pas de nouvelles."
-                : "Nous n’avons pas de confirmation d’enregistrement. Écrivez à l’adresse ci-dessous en rappelant votre numéro."}
+                ? "Merci. Nous n’avons pas pu transmettre la demande à l’équipe. Écrivez-nous à l’adresse ci-dessous en indiquant votre numéro."
+                : "Nous n’avons pas de confirmation d’enregistrement. Écrivez à l’adresse ci-dessous en indiquant votre numéro."}
           </p>
           <ol className="mt-10 space-y-6 border-t border-accent/30 pt-8">
             <li>
               <p className="font-figures text-xs tracking-[0.2em] text-accent">01</p>
-              <h2 className="font-heading mt-1 text-2xl">{crmOk ? "Le CRM a le dossier" : "Pas encore dans le CRM"}</h2>
+              <h2 className="font-heading mt-1 text-2xl">{crmOk ? "C’est bien reçu" : "À renvoyer par e-mail"}</h2>
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
                 {crmOk
-                  ? "Le prospect figure dans Commission SFA. Aucun e-mail de confirmation n’est envoyé dans votre boîte."
-                  : "Nous n’affirmons pas qu’un e-mail a été envoyé, ni qu’un conseiller voit déjà la fiche. Une copie locale existe seulement si l’enregistrement a réussi."}
+                  ? "Aucun e-mail automatique n’est envoyé dans votre boîte. La suite se fait par téléphone ou message de notre part."
+                  : "Le formulaire n’a pas atteint l’équipe. Utilisez l’adresse ci-dessous : ce n’est pas un accusé de réception."}
               </p>
             </li>
             <li>
               <p className="font-figures text-xs tracking-[0.2em] text-accent">02</p>
-              <h2 className="font-heading mt-1 text-2xl">Un humain rappelle</h2>
+              <h2 className="font-heading mt-1 text-2xl">Sans honoraires</h2>
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                Sous deux jours ouvrés, de préférence par téléphone — une fois le dossier dans le CRM. Si rien ne vient, écrivez à{" "}
+                Le comparatif reste sans engagement. Pour toute question :{" "}
                 <a className="text-primary underline decoration-accent underline-offset-4" href={`mailto:${SITE.email}`}>
                   {SITE.email}
-                </a>{" "}
-                en rappelant votre numéro.
-              </p>
-            </li>
-            <li>
-              <p className="font-figures text-xs tracking-[0.2em] text-accent">03</p>
-              <h2 className="font-heading mt-1 text-2xl">Vous n’êtes pas engagé</h2>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                Le comparatif reste sans honoraires. Vous choisissez de poursuivre ou non.
+                </a>
+                .
               </p>
             </li>
           </ol>
@@ -125,7 +118,7 @@ export async function EditorialView({
           </div>
           {related.length ? (
             <div className="mt-12">
-              <p className="kicker">En attendant le rappel</p>
+              <p className="kicker">À lire</p>
               <ul className="mt-4 space-y-2">
                 {related.map((item) => (
                   <li key={item.slug}>
