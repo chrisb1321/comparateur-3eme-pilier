@@ -11,6 +11,7 @@ import { SourcesList } from "@/components/sources-list";
 import { ProcessSteps } from "@/components/trust-strip";
 import { getPosts, getRelated } from "@/content";
 import type { EditorialDoc } from "@/content/types";
+import type { LeadDelivery } from "@/lib/lead-delivery";
 import { coverFor, IMAGES } from "@/lib/media";
 import {
   articleLd,
@@ -48,7 +49,13 @@ export function docMetadata(doc: EditorialDoc): Metadata {
   };
 }
 
-export async function EditorialView({ doc }: { doc: EditorialDoc }) {
+export async function EditorialView({
+  doc,
+  delivery,
+}: {
+  doc: EditorialDoc;
+  delivery?: LeadDelivery;
+}) {
   const related = getRelated(doc);
   const posts = doc.slug === "actualite-3eme-pilier" ? getPosts() : [];
   const showComparateur = doc.slug === "formulaire-3eme-pilier";
@@ -57,6 +64,8 @@ export async function EditorialView({ doc }: { doc: EditorialDoc }) {
   const cover = coverFor(doc.slug, doc.cover);
 
   if (isThanks) {
+    const crmOk = Boolean(delivery?.crm);
+    const journalOk = Boolean(delivery?.journal);
     return (
       <article data-testid="page-merci">
         <div className="relative min-h-[48vh] overflow-hidden">
@@ -70,26 +79,33 @@ export async function EditorialView({ doc }: { doc: EditorialDoc }) {
           />
           <div className="absolute inset-0 bg-primary/55" />
           <div className="relative mx-auto flex min-h-[48vh] max-w-3xl flex-col justify-end px-4 py-16 text-primary-foreground md:px-6">
-            <p className="kicker">Demande enregistrée</p>
+            <p className="kicker">{crmOk ? "Dossier transmis" : "Demande enregistrée"}</p>
             <h1 className="font-heading mt-3 text-4xl md:text-6xl">{doc.title}</h1>
           </div>
         </div>
         <div className="mx-auto max-w-2xl px-4 py-16 md:px-6">
-          <p className="text-lg leading-relaxed">{doc.intro}</p>
+          <p className="text-lg leading-relaxed" data-testid="lead-crm-status" data-crm={crmOk ? "ok" : "no"}>
+            {crmOk
+              ? "Votre demande est arrivée dans notre suivi interne (Commission SFA). Un conseiller rappelle sous deux jours ouvrés, de préférence par téléphone."
+              : journalOk
+                ? "La demande est écrite dans le journal du site. Elle n’a pas été acceptée par le CRM interne : aucun conseiller n’est alerté automatiquement. Écrivez-nous si vous n’avez pas de nouvelles."
+                : "Nous n’avons pas de confirmation d’enregistrement. Écrivez à l’adresse ci-dessous en rappelant votre numéro."}
+          </p>
           <ol className="mt-10 space-y-6 border-t border-accent/30 pt-8">
             <li>
               <p className="font-figures text-xs tracking-[0.2em] text-accent">01</p>
-              <h2 className="font-heading mt-1 text-2xl">Nous avons le dossier</h2>
+              <h2 className="font-heading mt-1 text-2xl">{crmOk ? "Le CRM a le dossier" : "Pas encore dans le CRM"}</h2>
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                La demande est écrite dans le journal des leads. Ce n’est pas un e-mail automatique :
-                personne n’a encore reçu de message de confirmation.
+                {crmOk
+                  ? "Le prospect figure dans Commission SFA. Aucun e-mail de confirmation n’est envoyé dans votre boîte."
+                  : "Nous n’affirmons pas qu’un e-mail a été envoyé, ni qu’un conseiller voit déjà la fiche. Une copie locale existe seulement si l’enregistrement a réussi."}
               </p>
             </li>
             <li>
               <p className="font-figures text-xs tracking-[0.2em] text-accent">02</p>
               <h2 className="font-heading mt-1 text-2xl">Un humain rappelle</h2>
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                Sous deux jours ouvrés, de préférence par téléphone. Si rien ne vient, écrivez à{" "}
+                Sous deux jours ouvrés, de préférence par téléphone — une fois le dossier dans le CRM. Si rien ne vient, écrivez à{" "}
                 <a className="text-primary underline decoration-accent underline-offset-4" href={`mailto:${SITE.email}`}>
                   {SITE.email}
                 </a>{" "}

@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import { EditorialView, docMetadata } from "@/components/editorial-view";
 import { getAllSlugs, getBySlug } from "@/content";
+import { parseDelivery } from "@/lib/lead-delivery";
 
 type Params = { slug: string };
 
@@ -17,9 +18,17 @@ export async function generateMetadata({ params }: { params: Promise<Params> }) 
   return docMetadata(doc);
 }
 
-export default async function SlugPage({ params }: { params: Promise<Params> }) {
+export default async function SlugPage({
+  params,
+  searchParams,
+}: {
+  params: Promise<Params>;
+  searchParams: Promise<Record<string, string | string[] | undefined>>;
+}) {
   const { slug } = await params;
   const doc = getBySlug(slug);
   if (!doc) notFound();
-  return <EditorialView doc={doc} />;
+  const query = await searchParams;
+  const delivery = slug === "page-remerciement" ? parseDelivery(query) : undefined;
+  return <EditorialView doc={doc} delivery={delivery} />;
 }

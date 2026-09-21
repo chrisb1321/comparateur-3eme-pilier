@@ -118,7 +118,7 @@ export function LeadForm({
           className="min-h-20 rounded-none text-base md:text-sm"
           placeholder={
             isContact
-              ? "Décrivez le besoin. Nous rappelons ; pas d’e-mail automatique."
+              ? "Décrivez le besoin. Nous rappelons ; pas de confirmation dans votre boîte."
               : "Ex. frontalier Genève, TOU, logement…"
           }
         />
@@ -155,8 +155,8 @@ export function LeadForm({
       </Button>
       <p className="text-xs leading-relaxed text-muted-foreground">
         {isContact
-          ? "Pas d’e-mail automatique : la demande est enregistrée, puis un humain rappelle."
-          : "Prochaine étape : rappel sous deux jours ouvrés. Vous n’êtes pas engagé."}
+          ? "Pas de confirmation dans votre boîte. Un humain rappelle si le dossier arrive au CRM."
+          : "Rappel sous deux jours ouvrés une fois le dossier dans le suivi interne. Vous n’êtes pas engagé."}
       </p>
     </form>
   );

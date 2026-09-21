@@ -25,7 +25,11 @@ npm start
 
 ## Leads
 
-Les demandes sont append dans `data/leads.jsonl` (ignoré par git). Optionnel : `LEAD_WEBHOOK_URL` (POST JSON) dans `.env.local`. **Pas d’e-mail automatique** tant que le webhook n’est pas branché (voir `docs` du store : conversion-et-bascule.md).
+Chemin principal : **Commission SFA** (`POST {CRM_SUPABASE_URL}/rest/v1/prospects`). Copier `.env.example` vers `.env.local` et coller `CRM_INGEST_TOKEN` (service_role Supabase du projet `xgzjlkrbqpvjrfdmiuxq`). Sans ce jeton, le CRM refuse (RLS) ; une copie reste dans `data/leads.jsonl`.
+
+La page merci n’affirme un dossier CRM que si l’API a répondu 2xx. Pas de Typeform. Pas de confirmation magique dans la boîte du visiteur.
+
+Détail : store `docs/conversion-et-bascule.md`.
 
 ## URL livrées
 

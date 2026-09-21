@@ -739,7 +739,7 @@ export const PAGES: EditorialDoc[] = [
     published: "2021-11-02",
     updated: UPDATED,
     intro:
-      "Un seul formulaire. Pas de Typeform, pas d’honoraires. Un conseiller partenaire diplômé AFA rappelle sous deux jours ouvrés. La demande est enregistrée : aucun e-mail automatique n’est envoyé.",
+      "Un seul formulaire. Pas de Typeform, pas d’honoraires. Un conseiller partenaire diplômé AFA rappelle sous deux jours ouvrés. Pas de confirmation automatique dans votre boîte.",
     related: ["nous-contacter", "page-remerciement", "choisir-son-3eme-pilier"],
     blocks: [
       {
@@ -759,7 +759,7 @@ export const PAGES: EditorialDoc[] = [
     published: "2021-11-02",
     updated: UPDATED,
     intro:
-      "Quatre champs et votre demande. Prochaine étape : un rappel sous deux jours ouvrés, de préférence par téléphone. Le service reste sans honoraires. Pas d’e-mail automatique.",
+      "Quatre champs et votre demande. Prochaine étape : un rappel sous deux jours ouvrés si le CRM a le dossier. Pas de confirmation dans votre boîte.",
     related: ["formulaire-3eme-pilier", "a-propos", "page-de-confidentialitee"],
     blocks: [
       {
@@ -848,11 +848,11 @@ export const PAGES: EditorialDoc[] = [
     wpId: 1301,
     title: "Merci pour votre demande",
     metaTitle: "Demande bien reçue — Comparateur 3ème pilier",
-    description: "Votre demande est enregistrée. Un conseiller rappelle sous deux jours ouvrés. Pas d’e-mail automatique.",
+    description: "Votre demande est enregistrée. Un conseiller rappelle sous deux jours ouvrés si le CRM a accepté le dossier.",
     published: "2023-05-05",
     updated: UPDATED,
     intro:
-      "Merci. La demande est dans le journal des leads. Un humain rappelle, de préférence par téléphone. En attendant : plafonds 2026–2027 ou la différence 3a / 3b.",
+      "Merci. Le texte ci-dessous dit seulement ce qui s’est vraiment passé (CRM ou journal local). En attendant : plafonds 2026–2027 ou la différence 3a / 3b.",
     related: ["deductions-fiscales-3eme-pilier", "3eme-pilier-a-ou-b"],
     blocks: [
       {
