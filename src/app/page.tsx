@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { CtaBand } from "@/components/cta-band";
+import { CeilingSimulator } from "@/components/ceiling-simulator";
 import { CeilingsBlock } from "@/components/ceilings-block";
 import { FaqList } from "@/components/faq-list";
 import { Frame } from "@/components/frame";
@@ -92,13 +93,15 @@ export default function HomePage() {
       </section>
 
       <section className="mx-auto max-w-6xl px-4 py-16 md:px-6 md:py-20">
-        <p className="kicker">Processus</p>
-        <h2 className="font-heading mt-3 max-w-2xl text-4xl">Visiteur, puis prospect — rien d’automatique</h2>
+        <p className="kicker">Parcours</p>
+        <h2 className="font-heading mt-3 max-w-2xl text-4xl">Lire, estimer, puis demander le comparatif</h2>
         <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground">
-          La demande est enregistrée. Un humain rappelle. Nous n’envoyons pas d’e-mail magique.
+          Trois étapes : comprendre votre plafond 3a, remplir le formulaire, recevoir un rappel sous deux jours ouvrés.
+          Pas d’e-mail automatique, pas de Typeform.
         </p>
-        <div className="mt-10">
+        <div className="mt-10 grid gap-10 lg:grid-cols-[1fr_1.1fr]">
           <ProcessSteps />
+          <CeilingSimulator />
         </div>
       </section>
 
