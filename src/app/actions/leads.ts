@@ -18,6 +18,25 @@ function str(form: FormData, key: string): string {
   return typeof value === "string" ? value.trim() : "";
 }
 
+function journalDir(): string {
+  if (process.env.VERCEL || process.env.AWS_LAMBDA_FUNCTION_NAME) {
+    return "/tmp";
+  }
+  return path.join(process.cwd(), "data");
+}
+
+async function appendJournal(line: string): Promise<boolean> {
+  try {
+    const dir = journalDir();
+    await mkdir(dir, { recursive: true });
+    await appendFile(path.join(dir, "leads.jsonl"), `${line}\n`, "utf8");
+    return true;
+  } catch (error) {
+    console.error("lead-store", error);
+    return false;
+  }
+}
+
 export async function submitLead(_prev: LeadState, form: FormData): Promise<LeadState> {
   if (str(form, "website")) {
     redirect("/page-remerciement/?journal=0&crm=0&email=0");
@@ -64,29 +83,13 @@ export async function submitLead(_prev: LeadState, form: FormData): Promise<Lead
     message,
   };
 
-  let journal = false;
-  try {
-    const dir = path.join(process.cwd(), "data");
-    await mkdir(dir, { recursive: true });
-    await appendFile(path.join(dir, "leads.jsonl"), `${JSON.stringify(payload)}\n`, "utf8");
-    journal = true;
-  } catch (error) {
-    console.error("lead-store", error);
-    return { error: "L’enregistrement a échoué. Écrivez-nous à info@comparateur-3eme-pilier.ch." };
-  }
-
+  const journal = await appendJournal(JSON.stringify(payload));
   const [crm, mailed] = await Promise.all([notifyCrm(payload), notifyEmail(payload)]);
   const delivery: LeadDelivery = { journal, crm, email: mailed };
 
-  try {
-    await appendFile(
-      path.join(process.cwd(), "data", "leads.jsonl"),
-      `${JSON.stringify({ receivedAt: new Date().toISOString(), event: "delivery", intent, notify: delivery })}\n`,
-      "utf8",
-    );
-  } catch (error) {
-    console.error("lead-store-delivery", error);
-  }
+  await appendJournal(
+    JSON.stringify({ receivedAt: new Date().toISOString(), event: "delivery", intent, notify: delivery }),
+  );
 
   console.info("lead", { intent, journal, crm, email: mailed });
   redirect(deliveryQuery(delivery));
