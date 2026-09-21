@@ -2,10 +2,11 @@
 
 import { redirect } from "next/navigation";
 import {
-  crmIngestConfigured,
   deliveryQuery,
+  leadIntakeConfigured,
   notifyCrm,
   notifyEmail,
+  parseAttributionFromForm,
   type LeadDelivery,
   type LeadPayload,
 } from "@/lib/lead-delivery";
@@ -62,6 +63,7 @@ export async function submitLead(_prev: LeadState, form: FormData): Promise<Lead
     canton,
     situation,
     message,
+    attribution: parseAttributionFromForm(form),
   };
 
   const journal = await appendJournalLine(payload);
@@ -93,7 +95,7 @@ export async function submitLead(_prev: LeadState, form: FormData): Promise<Lead
   });
 
   if (!journal && !crmResult.ok) {
-    if (!crmIngestConfigured()) {
+    if (!leadIntakeConfigured()) {
       return {
         error:
           "Le service de transmission n’est pas configuré sur ce serveur. Écrivez-nous à info@comparateur-3eme-pilier.ch avec votre numéro.",

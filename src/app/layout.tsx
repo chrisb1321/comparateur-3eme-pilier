@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, IBM_Plex_Sans, Source_Sans_3 } from "next/font/google";
+import { AttributionBoot } from "@/components/attribution-boot";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { SiteJsonLd } from "@/components/site-json-ld";
@@ -59,6 +60,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         >
           Aller au contenu
         </a>
+        <AttributionBoot />
         <SiteHeader />
         <main id="contenu" className="flex-1">
           {children}

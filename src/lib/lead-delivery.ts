@@ -1,3 +1,15 @@
+import {
+  attributionToIntakeFields,
+  defaultAttribution,
+  parseAttributionFromForm,
+  type AttributionSnapshot,
+} from "@/lib/attribution";
+import {
+  LEAD_INTAKE_DEFAULT_URL,
+  PRODUIT_INTERESSE,
+  SOURCE_FORMULAIRE,
+} from "@/lib/lead-intake-config";
+
 export type LeadPayload = {
   receivedAt: string;
   intent: string;
@@ -8,6 +20,7 @@ export type LeadPayload = {
   canton: string;
   situation: string;
   message: string;
+  attribution?: AttributionSnapshot;
 };
 
 export type LeadDelivery = {
@@ -22,23 +35,34 @@ export type CrmIngestResult = {
   attempts: number;
   status?: number;
   action?: string;
-  reason?: "missing_token" | "http_error" | "bad_body" | "network" | "timeout";
+  reason?: "missing_secret" | "http_error" | "bad_body" | "network" | "timeout";
 };
-
-/** Backend live de commission-sfa.vercel.app (projet public, clé anon dans le bundle). */
-export const CRM_SUPABASE_DEFAULT = "https://xgzjlkrbqpvjrfdmiuxq.supabase.co";
-export const CRM_SITE_LEAD_FUNCTION = "public-site-lead";
 
 const CRM_MAX_ATTEMPTS = 3;
 const CRM_RETRY_DELAY_MS = 600;
+
+const SITUATION_LABELS: Record<string, string> = {
+  "salarie-lpp": "Salarié·e avec 2e pilier",
+  "sans-lpp": "Sans 2e pilier",
+  independant: "Indépendant·e",
+  frontalier: "Frontalier·ère",
+  autre: "Autre / je ne sais pas",
+};
 
 function env(name: string): string {
   return (process.env[name] ?? "").trim();
 }
 
-export function crmIngestConfigured(): boolean {
-  return Boolean(env("CRM_INGEST_TOKEN"));
+function resolveLeadIntakeUrl(): string {
+  return env("SFA_LEAD_INTAKE_URL") || LEAD_INTAKE_DEFAULT_URL;
 }
+
+export function leadIntakeConfigured(): boolean {
+  return Boolean(env("SFA_LEAD_INTAKE_SECRET"));
+}
+
+/** @deprecated Préférer leadIntakeConfigured */
+export const crmIngestConfigured = leadIntakeConfigured;
 
 export function deliveryQuery(delivery: LeadDelivery): string {
   const params = new URLSearchParams({
@@ -63,37 +87,26 @@ export function parseDelivery(search: {
   };
 }
 
-export function toProspectRow(lead: LeadPayload): Record<string, unknown> {
-  const comparateur = lead.intent === "comparateur";
-  const notes = [
-    `Source : comparateur-3eme-pilier.ch (${lead.intent})`,
-    lead.canton ? `Canton : ${lead.canton}` : null,
-    lead.situation ? `Situation : ${lead.situation}` : null,
-    lead.message ? `Message : ${lead.message}` : null,
-  ]
-    .filter(Boolean)
-    .join("\n");
+export function toLeadIntakeBody(lead: LeadPayload): Record<string, unknown> {
+  const attr = lead.attribution ?? defaultAttribution();
+  const situationLabel = lead.situation
+    ? SITUATION_LABELS[lead.situation] ?? lead.situation
+    : undefined;
 
-  const row: Record<string, unknown> = {
-    nom: lead.lastName,
+  return {
     prenom: lead.firstName,
-    email: lead.email,
+    nom: lead.lastName,
+    email: lead.email.toLowerCase(),
     telephone: lead.phone,
-    produit_interesse: "3eme_pilier",
-    source_formulaire: comparateur ? "comparateur-3emepilier" : "site_web",
-    notes,
-    statut: "nouveau",
-    activity_log: [
-      {
-        timestamp: lead.receivedAt,
-        action: comparateur ? "Lead comparateur 3e pilier" : "Lead contact site",
-        details: "Ingest depuis comparateur-3eme-pilier.ch",
-      },
-    ],
+    produit_interesse: PRODUIT_INTERESSE,
+    source_formulaire: SOURCE_FORMULAIRE,
+    source: `comparateur-3eme-pilier.ch (${lead.intent})`,
+    canton: lead.canton || undefined,
+    situation: lead.situation || undefined,
+    situation_professionnelle: situationLabel,
+    remarque: lead.message || undefined,
+    ...attributionToIntakeFields(attr),
   };
-  const advisor = env("CRM_DEFAULT_ADVISOR_ID");
-  if (advisor) row.advisor_id = advisor;
-  return row;
 }
 
 /** 201 insert ou 200 update, uniquement si `{ ok: true }`. */
@@ -108,19 +121,23 @@ function sleep(ms: number): Promise<void> {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
-async function postCrmOnce(
+async function postLeadIntakeOnce(
   url: string,
-  token: string,
-  row: Record<string, unknown>,
-): Promise<{ status: number; json: { ok?: boolean; action?: string } | null; reason?: CrmIngestResult["reason"] }> {
+  secret: string,
+  body: Record<string, unknown>,
+): Promise<{
+  status: number;
+  json: { ok?: boolean; action?: string } | null;
+  reason?: CrmIngestResult["reason"];
+}> {
   try {
     const response = await fetch(url, {
       method: "POST",
       headers: {
-        Authorization: `Bearer ${token}`,
         "Content-Type": "application/json",
+        "x-intake-secret": secret,
       },
-      body: JSON.stringify(row),
+      body: JSON.stringify(body),
       signal: AbortSignal.timeout(8000),
     });
     const text = await response.text().catch(() => "");
@@ -131,7 +148,9 @@ async function postCrmOnce(
       json = null;
     }
     if (!crmAccepted(response.status, json)) {
-      return { status: response.status, json, reason: "bad_body" };
+      const reason: CrmIngestResult["reason"] =
+        response.status === 401 ? "http_error" : response.status >= 500 ? "http_error" : "bad_body";
+      return { status: response.status, json, reason };
     }
     return { status: response.status, json };
   } catch (error) {
@@ -143,28 +162,26 @@ async function postCrmOnce(
 }
 
 export async function notifyCrm(lead: LeadPayload): Promise<CrmIngestResult> {
-  const token = env("CRM_INGEST_TOKEN");
-  if (!token) {
+  const secret = env("SFA_LEAD_INTAKE_SECRET");
+  if (!secret) {
     console.error("lead-ingest", {
       channel: "crm",
       configured: false,
-      reason: "missing_token",
-      hint: "Définir CRM_INGEST_TOKEN sur Vercel Production",
+      reason: "missing_secret",
+      hint: "Définir SFA_LEAD_INTAKE_SECRET sur Vercel Production",
     });
-    return { ok: false, configured: false, attempts: 0, reason: "missing_token" };
+    return { ok: false, configured: false, attempts: 0, reason: "missing_secret" };
   }
 
-  const base = (env("CRM_SUPABASE_URL") || CRM_SUPABASE_DEFAULT).replace(/\/$/, "");
-  const functionName = env("CRM_INGEST_FUNCTION") || CRM_SITE_LEAD_FUNCTION;
-  const url = `${base}/functions/v1/${functionName}`;
-  const row = toProspectRow(lead);
+  const url = resolveLeadIntakeUrl();
+  const body = toLeadIntakeBody(lead);
 
   let lastStatus = 0;
   let lastAction: string | undefined;
   let lastReason: CrmIngestResult["reason"] = "http_error";
 
   for (let attempt = 1; attempt <= CRM_MAX_ATTEMPTS; attempt++) {
-    const result = await postCrmOnce(url, token, row);
+    const result = await postLeadIntakeOnce(url, secret, body);
     lastStatus = result.status;
     lastAction = result.json?.action;
     lastReason = result.reason ?? (result.status >= 500 ? "http_error" : "bad_body");
@@ -172,12 +189,19 @@ export async function notifyCrm(lead: LeadPayload): Promise<CrmIngestResult> {
     if (crmAccepted(result.status, result.json)) {
       console.info("lead-ingest", {
         channel: "crm",
+        endpoint: "lead-intake",
         configured: true,
         attempt,
         status: result.status,
         action: lastAction ?? "ok",
       });
-      return { ok: true, configured: true, attempts: attempt, status: result.status, action: lastAction };
+      return {
+        ok: true,
+        configured: true,
+        attempts: attempt,
+        status: result.status,
+        action: lastAction,
+      };
     }
 
     const retryable =
@@ -188,6 +212,7 @@ export async function notifyCrm(lead: LeadPayload): Promise<CrmIngestResult> {
 
     console.error("lead-ingest", {
       channel: "crm",
+      endpoint: "lead-intake",
       configured: true,
       attempt,
       status: result.status || "fetch_failed",
@@ -207,6 +232,8 @@ export async function notifyCrm(lead: LeadPayload): Promise<CrmIngestResult> {
     reason: lastReason,
   };
 }
+
+export { parseAttributionFromForm };
 
 function dossierText(lead: LeadPayload): string {
   return [
