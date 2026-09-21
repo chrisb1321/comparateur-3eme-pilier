@@ -25,9 +25,9 @@ npm start
 
 ## Leads
 
-Chemin principal : **Commission SFA**, Edge Function `public-site-lead` (`CRM_INGEST_FUNCTION`). Copier `.env.example` vers `.env.local` et coller `CRM_INGEST_TOKEN` (même valeur que `SITE_LEAD_INGEST_SECRET` sur l’Edge — **pas** la `service_role`). Sans ce jeton, le CRM refuse ; une copie reste dans `data/leads.jsonl`.
+Chemin principal : **Commission SFA**, Edge Function `public-site-lead` (`CRM_INGEST_FUNCTION`). Copier `.env.example` vers `.env.local` et coller `CRM_INGEST_TOKEN` (même valeur que `SITE_LEAD_INGEST_SECRET` sur l’Edge — **pas** la `service_role`). Sans ce jeton, l’ingest refuse ; une copie reste dans `/tmp/comparateur-3eme-pilier-leads.jsonl` (configurable via `LEAD_JOURNAL_PATH`).
 
-La page merci n’affirme un dossier CRM que si l’Edge a répondu 2xx `{ ok: true }`. Pas de Typeform. Pas de confirmation magique dans la boîte du visiteur.
+La page merci n’affirme une transmission au conseiller que si l’Edge a répondu 2xx `{ ok: true }`. Retries (3 tentatives), logs sans secrets. Pas de Typeform. Pas de confirmation magique dans la boîte du visiteur.
 
 Détail : store `docs/conversion-et-bascule.md`.
 
@@ -56,7 +56,7 @@ npm run seo:week
 
 Crée 3 brouillons (`draft: true`) pour la prochaine semaine du calendrier `content/editorial-calendar.json`. Rédiger, relire les sources, passer `draft: false`, ouvrir une **PR brouillon**. Prompt agent : `content/articles/AGENT-SEMAINE.md`. Cadence : lundi / mercredi / vendredi, pas quotidien.
 
-Semaines 1 à 4 (12 articles) sont publiées. AEO/GEO : FAQ HTML + `FAQPage` sur les pages d’argent, schémas Organization / WebSite / Article, `public/llms.txt`, maillage hub ↔ guides.
+Semaines 1 à 5 (15 articles) sont publiées. AEO/GEO : FAQ HTML + `FAQPage` sur les pages d’argent, schémas Organization / WebSite / Article, `public/llms.txt`, maillage hub ↔ guides.
 
 ## Indexation
 

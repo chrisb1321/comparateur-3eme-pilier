@@ -1,15 +1,15 @@
 "use server";
 
-import { mkdir, appendFile } from "node:fs/promises";
-import path from "node:path";
 import { redirect } from "next/navigation";
 import {
+  crmIngestConfigured,
   deliveryQuery,
   notifyCrm,
   notifyEmail,
   type LeadDelivery,
   type LeadPayload,
 } from "@/lib/lead-delivery";
+import { appendJournalLine } from "@/lib/lead-journal";
 
 export type LeadState = { error?: string } | null;
 
@@ -64,30 +64,46 @@ export async function submitLead(_prev: LeadState, form: FormData): Promise<Lead
     message,
   };
 
-  let journal = false;
-  try {
-    const dir = path.join(process.cwd(), "data");
-    await mkdir(dir, { recursive: true });
-    await appendFile(path.join(dir, "leads.jsonl"), `${JSON.stringify(payload)}\n`, "utf8");
-    journal = true;
-  } catch (error) {
-    console.error("lead-store", error);
-    return { error: "L’enregistrement a échoué. Écrivez-nous à info@comparateur-3eme-pilier.ch." };
+  const journal = await appendJournalLine(payload);
+  const crmResult = await notifyCrm(payload);
+  const mailed = await notifyEmail(payload);
+  const delivery: LeadDelivery = { journal, crm: crmResult.ok, email: mailed };
+
+  if (journal) {
+    await appendJournalLine({
+      receivedAt: new Date().toISOString(),
+      event: "delivery",
+      intent,
+      notify: delivery,
+      ingest: {
+        crmConfigured: crmResult.configured,
+        crmAttempts: crmResult.attempts,
+        crmReason: crmResult.ok ? undefined : crmResult.reason,
+      },
+    });
   }
 
-  const [crm, mailed] = await Promise.all([notifyCrm(payload), notifyEmail(payload)]);
-  const delivery: LeadDelivery = { journal, crm, email: mailed };
+  console.info("lead-submit", {
+    intent,
+    journal,
+    crm: crmResult.ok,
+    crmConfigured: crmResult.configured,
+    crmAttempts: crmResult.attempts,
+    email: mailed,
+  });
 
-  try {
-    await appendFile(
-      path.join(process.cwd(), "data", "leads.jsonl"),
-      `${JSON.stringify({ receivedAt: new Date().toISOString(), event: "delivery", intent, notify: delivery })}\n`,
-      "utf8",
-    );
-  } catch (error) {
-    console.error("lead-store-delivery", error);
+  if (!journal && !crmResult.ok) {
+    if (!crmIngestConfigured()) {
+      return {
+        error:
+          "Le service de transmission n’est pas configuré sur ce serveur. Écrivez-nous à info@comparateur-3eme-pilier.ch avec votre numéro.",
+      };
+    }
+    return {
+      error:
+        "La transmission a échoué. Réessayez dans quelques minutes ou écrivez-nous à info@comparateur-3eme-pilier.ch.",
+    };
   }
 
-  console.info("lead", { intent, journal, crm, email: mailed });
   redirect(deliveryQuery(delivery));
 }

@@ -155,8 +155,8 @@ export function LeadForm({
       </Button>
       <p className="text-xs leading-relaxed text-muted-foreground">
         {isContact
-          ? "Pas de confirmation dans votre boîte. Un humain rappelle si le dossier arrive au CRM."
-          : "Rappel sous deux jours ouvrés une fois le dossier dans le suivi interne. Vous n’êtes pas engagé."}
+          ? "Pas de confirmation dans votre boîte. Un humain rappelle si le dossier est transmis."
+          : "Rappel sous deux jours ouvrés une fois le dossier transmis au conseiller. Vous n’êtes pas engagé."}
       </p>
     </form>
   );

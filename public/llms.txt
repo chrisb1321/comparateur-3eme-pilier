@@ -70,6 +70,12 @@ Semaine 4 — supports et méthode
 - https://comparateur-3eme-pilier.ch/frais-3a-banque-assurance/
 - https://comparateur-3eme-pilier.ch/methode-sources-ofas-afc/
 
+Semaine 5 — versement et retraite
+
+- https://comparateur-3eme-pilier.ch/versement-3a-avant-31-decembre-2026/
+- https://comparateur-3eme-pilier.ch/retraite-avs-21-femmes-3a/
+- https://comparateur-3eme-pilier.ch/choisir-support-3a-2026/
+
 Les slugs WordPress historiques (guides et archives) restent en place. Les 301 existants ne sont pas fusionnés vers ces articles (`/canton-vaud/` → accueil ; `/depart-de-suisse/` → `/frontalier-suisse/`).
 
 ## Règles pour les modèles de langage

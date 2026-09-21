@@ -116,6 +116,34 @@
           "brief": "E-E-A-T, revue d’automne, pas de palmarès, pas de Typeform."
         }
       ]
+    },
+    {
+      "id": "2026-w43",
+      "label": "Semaine 5 — Versement et retraite",
+      "status": "shipped",
+      "slots": [
+        {
+          "date": "2026-10-20",
+          "slug": "versement-3a-avant-31-decembre-2026",
+          "title": "Versement 3a avant le 31 décembre 2026",
+          "cover": "pillar3a",
+          "brief": "Date de valeur, crédit au 31.12, conséquences sur la déduction 2026 vs 2027. OFAS."
+        },
+        {
+          "date": "2026-10-22",
+          "slug": "retraite-avs-21-femmes-3a",
+          "title": "AVS 21 et 3e pilier : ce qui change pour les femmes",
+          "cover": "avs",
+          "brief": "Relèvement progressif de l’âge de référence. Impact sur l’horizon 3a, pas sur les plafonds 2026–2027."
+        },
+        {
+          "date": "2026-10-24",
+          "slug": "choisir-support-3a-2026",
+          "title": "Choisir son support 3a en 2026–2027",
+          "cover": "banque",
+          "brief": "Banque ou assurance : même plafond, contrat différent. Complète /3eme-pilier-banque-assurance/."
+        }
+      ]
     }
   ]
 }
