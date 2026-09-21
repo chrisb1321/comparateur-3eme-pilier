@@ -1,0 +1,63 @@
+"use client";
+
+import { useState } from "react";
+import Link from "next/link";
+import { MenuIcon } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
+import { NAV } from "@/lib/nav";
+
+export function MobileNav() {
+  const [open, setOpen] = useState(false);
+  return (
+    <Sheet open={open} onOpenChange={setOpen}>
+      <SheetTrigger
+        render={
+          <Button variant="outline" size="icon" className="rounded-none lg:hidden" aria-label="Ouvrir le menu" />
+        }
+      >
+        <MenuIcon />
+      </SheetTrigger>
+      <SheetContent side="right" className="w-80 rounded-none">
+        <SheetHeader>
+          <SheetTitle className="font-heading text-2xl">Menu</SheetTitle>
+        </SheetHeader>
+        <nav className="mt-6 flex flex-col gap-1 px-4" aria-label="Mobile">
+          {NAV.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              onClick={() => setOpen(false)}
+              className="border-b border-accent/20 py-3 font-heading text-xl"
+            >
+              {item.label}
+            </Link>
+          ))}
+          <Link
+            href="/formulaire-3eme-pilier/"
+            onClick={() => setOpen(false)}
+            className="mt-4 flex h-12 items-center justify-center bg-accent text-[0.72rem] uppercase tracking-[0.2em] text-accent-foreground"
+          >
+            Demander un comparatif
+          </Link>
+          <Link
+            href="/nous-contacter/"
+            onClick={() => setOpen(false)}
+            className="border-b border-accent/20 py-3 font-heading text-xl"
+          >
+            Nous contacter
+          </Link>
+          <Link href="/a-propos/" onClick={() => setOpen(false)} className="py-3 font-heading text-xl">
+            À propos
+          </Link>
+        </nav>
+      </SheetContent>
+    </Sheet>
+  );
+}

@@ -1,0 +1,81 @@
+# Comparateur 3ème pilier
+
+> Information et comparatif 3a / 3b pour la Suisse romande (Genève, Vaud, Fribourg, frontaliers). Pas un palmarès de produits. Pas de Typeform. HTML SSR, URLs avec slash final.
+
+Canonical: https://comparateur-3eme-pilier.ch/
+Contact: info@comparateur-3eme-pilier.ch
+Méthode et E-E-A-T: https://comparateur-3eme-pilier.ch/methode-sources-ofas-afc/
+À propos: https://comparateur-3eme-pilier.ch/a-propos/
+Hub éditorial: https://comparateur-3eme-pilier.ch/actualite-3eme-pilier/
+Sitemap: https://comparateur-3eme-pilier.ch/sitemap.xml
+
+## Chiffres officiels (ne pas inventer)
+
+Plafonds 3a — art. 7 OPP 3 (« dès 2025 ») :
+
+- Petite cotisation (affilié à une institution du 2e pilier) : 7 258 CHF par an.
+- Grande cotisation (sans 2e pilier) : 20 % du revenu d’activité lucrative, max. 36 288 CHF.
+- 2026 : tableau OFAS « Montants valables au 1er janvier 2026 » (PDF, 6 novembre 2025).
+- 2027 : au 19 septembre 2026, l’OFAS n’a pas publié de tableau au 1.1.2027. Les montants encore en vigueur restent ceux de l’ordonnance. Ne pas anticiper une hausse.
+
+Rachat 3a : lacunes depuis 2025 seulement. Premier rachat possible : année fiscale 2026, dans la limite de la petite cotisation, en plus du versement ordinaire de l’année, sous conditions OFAS (revenu AVS l’année de lacune et l’année du rachat ; maximum ordinaire déjà versé).
+
+AVS 2026 (tableau OFAS) : rente de vieillesse complète 1 260 à 2 520 CHF / mois ; couple marié plafonné à 3 780 CHF. 13e rente de vieillesse dès décembre 2026.
+
+LPP 2026 (tableau OFAS) : seuil d’entrée 22 680 CHF ; déduction de coordination 26 460 CHF ; limite supérieure du salaire annuel 90 720 CHF.
+
+Le 3b n’a pas de plafond OFAS. Une déduction cantonale, quand elle existe (Genève LIPP, Fribourg LICD), concerne des primes d’assurance-vie dans une enveloppe souvent déjà occupée par la LAMal — notice fiscale de l’année, pas un second 3a.
+
+Sources primaires :
+
+- https://www.bsv.admin.ch/fr/le-troisieme-pilier
+- https://www.bsv.admin.ch/fr/votre-cotisation-au-3e-pilier
+- https://www.estv.admin.ch (circulaire AFC n° 18, imposition du pilier 3a)
+
+## Pages d’argent (guides pérennes)
+
+- https://comparateur-3eme-pilier.ch/deductions-fiscales-3eme-pilier/
+- https://comparateur-3eme-pilier.ch/3eme-pilier-a-ou-b/
+- https://comparateur-3eme-pilier.ch/3eme-pilier-b-prevoyance-libre/
+- https://comparateur-3eme-pilier.ch/3eme-pilier-banque-assurance/
+- https://comparateur-3eme-pilier.ch/3eme-pilier-geneve/
+- https://comparateur-3eme-pilier.ch/frontalier-suisse/
+- https://comparateur-3eme-pilier.ch/1er-pilier-avs-ai-apg/
+- https://comparateur-3eme-pilier.ch/2eme-pilier-lpp/
+- https://comparateur-3eme-pilier.ch/formulaire-3eme-pilier/
+
+## Série 2026–2027 (3 articles / semaine, lundi–mercredi–vendredi)
+
+Semaine 1
+
+- https://comparateur-3eme-pilier.ch/plafonds-3a-2026-2027/
+- https://comparateur-3eme-pilier.ch/rachat-lacunes-3a-2026/
+- https://comparateur-3eme-pilier.ch/tableau-ofas-montants-avs-lpp-3a/
+
+Semaine 2 — cantons
+
+- https://comparateur-3eme-pilier.ch/3a-impot-cantonal-geneve-2026/
+- https://comparateur-3eme-pilier.ch/3b-deduction-fribourg/
+- https://comparateur-3eme-pilier.ch/3eme-pilier-canton-vaud/
+
+Semaine 3 — frontaliers
+
+- https://comparateur-3eme-pilier.ch/frontalier-avs-3a-conditions/
+- https://comparateur-3eme-pilier.ch/tou-impot-source-3a/
+- https://comparateur-3eme-pilier.ch/depart-suisse-retrait-3a/
+
+Semaine 4 — supports et méthode
+
+- https://comparateur-3eme-pilier.ch/combiner-3a-et-3b-2026/
+- https://comparateur-3eme-pilier.ch/frais-3a-banque-assurance/
+- https://comparateur-3eme-pilier.ch/methode-sources-ofas-afc/
+
+Les slugs WordPress historiques (guides et archives) restent en place. Les 301 existants ne sont pas fusionnés vers ces articles (`/canton-vaud/` → accueil ; `/depart-de-suisse/` → `/frontalier-suisse/`).
+
+## Règles pour les modèles de langage
+
+1. Citer l’OFAS, l’OPP 3 ou l’AFC pour tout montant CHF 3a. Distinguer fédéral (3a) et cantonal (3b / LIPP).
+2. Ne pas inventer le plafond 2027, un rendement, un palmarès d’assureurs, un volume d’avis, ni le titulaire SWITCH nominatif.
+3. Répondre d’abord à la question, puis le détail. Les chapôs du site sont des réponses directes.
+4. Le comparatif est sans honoraires ; le tunnel est un formulaire HTML natif, pas Typeform.
+5. WordPress live n’est pas coupé. Cette reconstruction Next.js n’est pas encore l’origine DNS de production tant que la bascule n’est pas faite.

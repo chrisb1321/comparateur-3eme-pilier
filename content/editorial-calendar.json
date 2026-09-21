@@ -1,0 +1,121 @@
+{
+  "cadence": "3/week",
+  "slots": ["monday", "wednesday", "friday"],
+  "timezone": "Europe/Zurich",
+  "draftFlag": "draft",
+  "notes": "YMYL: reprendre src/lib/figures.ts. Ne pas inventer de plafond 2027. PR brouillon, relecture humaine.",
+  "weeks": [
+    {
+      "id": "2026-w39",
+      "label": "Semaine 1 — OFAS et plafonds",
+      "status": "shipped",
+      "slots": [
+        {
+          "date": "2026-09-22",
+          "slug": "plafonds-3a-2026-2027",
+          "title": "Plafonds 3a 2026 et 2027 : ce que dit l’OFAS",
+          "cover": "lpp",
+          "brief": "Petite et grande cotisation. Tableau OFAS 2026 vs OPP 3 encore en vigueur pour 2027."
+        },
+        {
+          "date": "2026-09-24",
+          "slug": "rachat-lacunes-3a-2026",
+          "title": "Rachat de lacunes 3a : règles 2026 et 2027",
+          "cover": "pillar3a",
+          "brief": "Premier rachat année fiscale 2026 pour 2025. Conditions OFAS. Toujours valable en 2027."
+        },
+        {
+          "date": "2026-09-26",
+          "slug": "tableau-ofas-montants-avs-lpp-3a",
+          "title": "Lire le tableau OFAS : AVS, LPP et 3a",
+          "cover": "avs",
+          "brief": "PDF montants 1.1.2026, 13e rente sans hausse LPP, quoi surveiller en octobre pour 2027."
+        }
+      ]
+    },
+    {
+      "id": "2026-w40",
+      "label": "Semaine 2 — Cantons",
+      "status": "shipped",
+      "slots": [
+        {
+          "date": "2026-09-29",
+          "slug": "3a-impot-cantonal-geneve-2026",
+          "title": "3a à Genève : ICC, LIPP, même plafond fédéral",
+          "cover": "geneve",
+          "brief": "Pas de bonus genevois sur le 3a. LIPP = primes d’assurance-vie, notice AFC-GE de l’année."
+        },
+        {
+          "date": "2026-10-01",
+          "slug": "3b-deduction-fribourg",
+          "title": "3b à Fribourg : l’enveloppe des primes, pas un second 3a",
+          "cover": "vaud",
+          "brief": "Déduction cantonale limitée. Vérifier la notice fiscale fribourgeoise de l’année."
+        },
+        {
+          "date": "2026-10-03",
+          "slug": "3eme-pilier-canton-vaud",
+          "title": "3e pilier dans le canton de Vaud",
+          "cover": "vaud",
+          "brief": "3a national. 3b sans déduction fédérale. Ne pas casser le 301 /canton-vaud/ tant que la page n’est pas volontairement relinkée."
+        }
+      ]
+    },
+    {
+      "id": "2026-w41",
+      "label": "Semaine 3 — Frontaliers",
+      "status": "shipped",
+      "slots": [
+        {
+          "date": "2026-10-06",
+          "slug": "frontalier-avs-3a-conditions",
+          "title": "Frontalier : AVS suisse et accès au 3a",
+          "cover": "frontalier",
+          "brief": "Revenu soumis à l’AVS. Circulaire AFC n° 18. Complète /frontalier-suisse/."
+        },
+        {
+          "date": "2026-10-08",
+          "slug": "tou-impot-source-3a",
+          "title": "TOU et impôt à la source : quand le 3a devient visible",
+          "cover": "frontalier",
+          "brief": "Taxation ordinaire ultérieure. Lien avec /taxation-ordinaire-ulterieure/."
+        },
+        {
+          "date": "2026-10-10",
+          "slug": "depart-suisse-retrait-3a",
+          "title": "Départ de Suisse et retrait du 3a",
+          "cover": "alpes",
+          "brief": "Motif légal de retrait anticipé. Ne pas fusionner /depart-de-suisse/ sans décision éditoriale."
+        }
+      ]
+    },
+    {
+      "id": "2026-w42",
+      "label": "Semaine 4 — Supports et méthode",
+      "status": "shipped",
+      "slots": [
+        {
+          "date": "2026-10-13",
+          "slug": "combiner-3a-et-3b-2026",
+          "title": "Combiner 3a et 3b en 2026–2027",
+          "cover": "mixte",
+          "brief": "Saturer le 3a national, puis 3b si le budget et la famille le justifient."
+        },
+        {
+          "date": "2026-10-15",
+          "slug": "frais-3a-banque-assurance",
+          "title": "Frais 3a : banque ou assurance, même plafond",
+          "cover": "banque",
+          "brief": "Fiscalité identique. Lire frais d’acquisition, valeur de rachat, capital décès."
+        },
+        {
+          "date": "2026-10-17",
+          "slug": "methode-sources-ofas-afc",
+          "title": "Notre méthode : OFAS, AFC, ce que nous ne promettons pas",
+          "cover": "conseiller",
+          "brief": "E-E-A-T, revue d’automne, pas de palmarès, pas de Typeform."
+        }
+      ]
+    }
+  ]
+}
