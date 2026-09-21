@@ -18,7 +18,6 @@ export type LeadDelivery = {
 
 /** Backend live de commission-sfa.vercel.app (projet public, clé anon dans le bundle). */
 export const CRM_SUPABASE_DEFAULT = "https://xgzjlkrbqpvjrfdmiuxq.supabase.co";
-export const CRM_PROSPECTS_PATH = "/rest/v1/prospects";
 export const CRM_SITE_LEAD_FUNCTION = "public-site-lead";
 
 function env(name: string): string {
@@ -81,6 +80,14 @@ export function toProspectRow(lead: LeadPayload): Record<string, unknown> {
   return row;
 }
 
+/** 201 insert ou 200 update, uniquement si `{ ok: true }`. */
+export function crmAccepted(
+  status: number,
+  body: { ok?: boolean } | null,
+): boolean {
+  return status >= 200 && status < 300 && body?.ok === true;
+}
+
 export async function notifyCrm(lead: LeadPayload): Promise<boolean> {
   const token = env("CRM_INGEST_TOKEN");
   if (!token) {
@@ -88,42 +95,31 @@ export async function notifyCrm(lead: LeadPayload): Promise<boolean> {
     return false;
   }
   const base = (env("CRM_SUPABASE_URL") || CRM_SUPABASE_DEFAULT).replace(/\/$/, "");
-  const apikey = env("CRM_ANON_KEY") || token;
-  const functionName = env("CRM_INGEST_FUNCTION");
+  const functionName = env("CRM_INGEST_FUNCTION") || CRM_SITE_LEAD_FUNCTION;
   const row = toProspectRow(lead);
-  const headers = {
-    apikey,
-    Authorization: `Bearer ${token}`,
-    "Content-Type": "application/json",
-    Prefer: "return=representation",
-  };
 
   try {
-    if (functionName) {
-      const response = await fetch(`${base}/functions/v1/${functionName}`, {
-        method: "POST",
-        headers,
-        body: JSON.stringify({ source: "comparateur-3eme-pilier.ch", ...lead, prospect: row }),
-        signal: AbortSignal.timeout(8000),
-      });
-      if (!response.ok) {
-        console.error("lead-crm-function", functionName, response.status, await response.text().catch(() => ""));
-        return false;
-      }
-      const json = (await response.json().catch(() => null)) as { success?: boolean } | null;
-      return json?.success !== false;
-    }
-
-    const response = await fetch(`${base}${CRM_PROSPECTS_PATH}`, {
+    const response = await fetch(`${base}/functions/v1/${functionName}`, {
       method: "POST",
-      headers,
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
       body: JSON.stringify(row),
       signal: AbortSignal.timeout(8000),
     });
-    if (!response.ok) {
-      console.error("lead-crm-prospects", response.status, await response.text().catch(() => ""));
+    const text = await response.text().catch(() => "");
+    let json: { ok?: boolean; action?: string } | null = null;
+    try {
+      json = text ? (JSON.parse(text) as { ok?: boolean; action?: string }) : null;
+    } catch {
+      json = null;
+    }
+    if (!crmAccepted(response.status, json)) {
+      console.error("lead-crm-function", functionName, response.status, text.slice(0, 240));
       return false;
     }
+    console.info("lead-crm-function", functionName, response.status, json?.action ?? "ok");
     return true;
   } catch (error) {
     console.error("lead-crm", error);

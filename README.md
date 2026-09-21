@@ -25,9 +25,9 @@ npm start
 
 ## Leads
 
-Chemin principal : **Commission SFA** (`POST {CRM_SUPABASE_URL}/rest/v1/prospects`). Copier `.env.example` vers `.env.local` et coller `CRM_INGEST_TOKEN` (service_role Supabase du projet `xgzjlkrbqpvjrfdmiuxq`). Sans ce jeton, le CRM refuse (RLS) ; une copie reste dans `data/leads.jsonl`.
+Chemin principal : **Commission SFA**, Edge Function `public-site-lead` (`CRM_INGEST_FUNCTION`). Copier `.env.example` vers `.env.local` et coller `CRM_INGEST_TOKEN` (même valeur que `SITE_LEAD_INGEST_SECRET` sur l’Edge — **pas** la `service_role`). Sans ce jeton, le CRM refuse ; une copie reste dans `data/leads.jsonl`.
 
-La page merci n’affirme un dossier CRM que si l’API a répondu 2xx. Pas de Typeform. Pas de confirmation magique dans la boîte du visiteur.
+La page merci n’affirme un dossier CRM que si l’Edge a répondu 2xx `{ ok: true }`. Pas de Typeform. Pas de confirmation magique dans la boîte du visiteur.
 
 Détail : store `docs/conversion-et-bascule.md`.
 
