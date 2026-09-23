@@ -88,6 +88,11 @@ export const PATH_REDIRECTS: Redirect[] = [
     statusCode: 301,
   },
   {
+    source: "/rachat-lpp-vers-3a-2026",
+    destination: "/rachat-2e-pilier-avec-3a/",
+    statusCode: 301,
+  },
+  {
     source: "/blog",
     destination: "/actualite-3eme-pilier/",
     statusCode: 301,
