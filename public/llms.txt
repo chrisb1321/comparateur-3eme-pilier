@@ -76,6 +76,11 @@ Semaine 5 — versement et retraite
 - https://comparateur-3eme-pilier.ch/retraite-avs-21-femmes-3a/
 - https://comparateur-3eme-pilier.ch/choisir-support-3a-2026/
 
+Semaine 6 — retrait et LPP
+
+- https://comparateur-3eme-pilier.ch/retrait-3a-vs-3b-2026/
+- https://comparateur-3eme-pilier.ch/rachat-lpp-vers-3a-2026/
+
 Les slugs WordPress historiques (guides et archives) restent en place. Les 301 existants ne sont pas fusionnés vers ces articles (`/canton-vaud/` → accueil ; `/depart-de-suisse/` → `/frontalier-suisse/`).
 
 ## Règles pour les modèles de langage

@@ -176,7 +176,7 @@ export async function EditorialView({
             <p className="kicker">Cadence</p>
             <p className="mt-2 max-w-2xl text-sm leading-relaxed text-muted-foreground">
               Trois articles par semaine (lundi, mercredi, vendredi) — plafonds OFAS, cantons, frontaliers,
-              3a/3b, banque ou assurance, versement et retraite. Semaines 1 à 5 en ligne. Pas un flux
+              3a/3b, banque ou assurance, versement, retraite et rachat LPP. Semaines 1 à 6 en ligne. Pas un flux
               quotidien. Les guides WordPress restent à leurs slugs d’origine.
             </p>
             <ul className="mt-8 space-y-8">
