@@ -144,6 +144,27 @@
           "brief": "Banque ou assurance : même plafond, contrat différent. Complète /3eme-pilier-banque-assurance/."
         }
       ]
+    },
+    {
+      "id": "2026-w44",
+      "label": "Semaine 6 — Retrait et LPP",
+      "status": "shipped",
+      "slots": [
+        {
+          "date": "2026-10-27",
+          "slug": "retrait-3a-vs-3b-2026",
+          "title": "Retrait 3a vs 3b : fiscalité, liquidité et motifs",
+          "cover": "mixte",
+          "brief": "Verrou OPP 3 vs souplesse 3b. Impôt à la sortie AFC. Pas de barème cantonal inventé."
+        },
+        {
+          "date": "2026-10-29",
+          "slug": "rachat-lpp-vers-3a-2026",
+          "title": "Rachat LPP vers le 3a : motif légal et fiscalité",
+          "cover": "lpp",
+          "brief": "Motif anticipé OFAS. Distinction avec rachat lacune 3a. Plafonds ordinaires inchangés."
+        }
+      ]
     }
   ]
 }
