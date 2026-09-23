@@ -24,7 +24,7 @@ export const ORGANIZATION_LD = {
     "OPP 3",
     "Prévoyance Suisse",
     "OFAS",
-    "AFC circulaire n° 18",
+    "AFC circulaire 18a",
   ],
   publishingPrinciples: canonical("/methode-sources-ofas-afc/"),
   ethicsPolicy: canonical("/a-propos/"),

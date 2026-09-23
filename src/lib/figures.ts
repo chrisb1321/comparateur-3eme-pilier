@@ -112,16 +112,22 @@ export const SOURCES = [
     note: "Maximum 7’258 francs (affilié 2e pilier) ou 20 % du revenu, max. 36’288 francs (sans 2e pilier). Crédit au 31 décembre pour l’année fiscale.",
   },
   {
-    id: "afc-circ-18",
-    label: "AFC — Circulaire n° 18 (imposition du pilier 3a)",
-    href: "https://www.estv.admin.ch",
-    note: "Personnes autorisées, déductibilité fédérale et cantonale des cotisations 3a, imposition du capital au retrait.",
+    id: "afc-circ-18a",
+    label: "AFC — Circulaire 18a (imposition du pilier 3a, dès 2026)",
+    href: "https://www.estv.admin.ch/dam/fr/sd-web/yQgKmvu80LEr/dbst-ks-2025-1-018a-dv-fr.pdf",
+    note: "Sections 6.2 (échelonnement), 6.3 (transfert 3a → 2e pilier), 6.4 (exclusions EPL) et 7. Imposition du capital au retrait, virement direct 3a → LPP.",
   },
   {
-    id: "avs-13",
-    label: "Centre d’information AVS/AI — 13e rente AVS",
-    href: "https://www.ahv-iv.ch/fr/Assurances-sociales/Assurance-vieillesse-et-survivants-AVS/13e-rente-AVS",
-    note: "Premier versement de la 13e rente de vieillesse en décembre 2026.",
+    id: "afc-3b",
+    label: "AFC — Assurances de capitaux susceptibles de rachat du pilier 3b",
+    href: "https://www.estv.admin.ch/fr/assurances-de-capitaux-susceptibles-de-rachat-du-pilier-3b",
+    note: "Fiscalité des assurances 3b au cas par cas ; ne pas assimiler toutes les formes de prévoyance libre.",
+  },
+  {
+    id: "ofas-beneficiaires",
+    label: "OFAS — Adaptation de l’OPP 3 (bénéficiaires, dès 1.6.2027)",
+    href: "https://www.bsv.admin.ch/fr/newnsb/fFBgrSAIiYiGRg9YfWRfM",
+    note: "Élargissement des possibilités de désignation des bénéficiaires 3a à partir du 1er juin 2027.",
   },
 ] as const;
 

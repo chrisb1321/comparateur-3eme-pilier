@@ -151,18 +151,18 @@
       "status": "shipped",
       "slots": [
         {
-          "date": "2026-10-27",
+          "date": "2026-09-23",
           "slug": "retrait-3a-vs-3b-2026",
-          "title": "Retrait 3a vs 3b : fiscalité, liquidité et motifs",
+          "title": "Retirer un 3a ou un 3b : délais, impôts et souplesse",
           "cover": "mixte",
-          "brief": "Verrou OPP 3 vs souplesse 3b. Impôt à la sortie AFC. Pas de barème cantonal inventé."
+          "brief": "Verrou OPP 3 vs souplesse 3b. Fiscalité 3b nuancée. Circulaire AFC 18a. Bénéficiaires juin 2027."
         },
         {
-          "date": "2026-10-29",
-          "slug": "rachat-lpp-vers-3a-2026",
-          "title": "Rachat LPP vers le 3a : motif légal et fiscalité",
+          "date": "2026-09-23",
+          "slug": "rachat-2e-pilier-avec-3a",
+          "title": "Peut-on financer un rachat du 2e pilier avec son 3a ?",
           "cover": "lpp",
-          "brief": "Motif anticipé OFAS. Distinction avec rachat lacune 3a. Plafonds ordinaires inchangés."
+          "brief": "Transfert 3a → LPP (pas l’inverse). Circulaire AFC 18a §6.3. Distinction rachat lacune 3a."
         }
       ]
     }
