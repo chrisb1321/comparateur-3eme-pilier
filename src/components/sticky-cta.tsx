@@ -19,11 +19,11 @@ export function StickyCta() {
   return (
     <div
       data-testid="sticky-cta"
-      className="fixed inset-x-0 bottom-0 z-40 border-t border-accent/40 bg-background/95 p-3 backdrop-blur-md md:hidden"
+      className="fixed inset-x-0 bottom-0 z-40 border-t border-white/10 bg-[#174462] p-3 md:hidden"
     >
       <Link
         href="/formulaire-3eme-pilier/"
-        className="flex h-12 items-center justify-center bg-accent text-[0.72rem] uppercase tracking-[0.2em] text-accent-foreground"
+        className="btn-pill w-full"
       >
         Demander un comparatif
       </Link>

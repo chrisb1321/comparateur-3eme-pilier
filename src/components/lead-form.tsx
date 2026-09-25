@@ -12,7 +12,8 @@ import { cn } from "@/lib/utils";
 import { AttributionFields } from "@/components/attribution-fields";
 import { TrustStrip } from "@/components/trust-strip";
 
-const fieldClass = "h-12 rounded-none border-input bg-background/80 text-base md:text-sm";
+const fieldClass =
+  "h-[46px] rounded-[10px] border-[#C9D8E2] bg-[#F7FAFC] px-3.5 text-base text-[#10324A] shadow-none focus-visible:border-[#23597C] focus-visible:ring-2 focus-visible:ring-[#23597C]/40 md:text-base";
 
 export function LeadForm({
   intent = "comparateur",
@@ -30,16 +31,20 @@ export function LeadForm({
       action={action}
       data-testid={isContact ? "form-contact" : "form-comparateur"}
       className={cn(
-        "space-y-4 p-6 md:p-7",
-        tone === "overlay"
-          ? "paper-card border border-accent/30"
-          : "border border-accent/25 bg-card/90",
+        "flex flex-col gap-[18px] rounded-[22px] bg-white p-7 text-[#10324A] shadow-[0_30px_60px_-24px_rgba(3,22,38,0.55)]",
+        tone === "overlay" ? "" : "border border-[#DCE6ED]",
       )}
       noValidate
     >
       <header className="space-y-2">
-        <p className="kicker">{isContact ? "Écrire" : "Comparatif gratuit"}</p>
-        <h2 className="font-heading text-2xl text-primary">
+        <div className="flex items-center justify-between gap-3">
+          <p className="kicker mb-0">{isContact ? "Écrire" : "Comparatif gratuit"}</p>
+          <span className="text-[13px] text-[#4A6275]">Une étape</span>
+        </div>
+        <div className="flex gap-1.5" aria-hidden="true">
+          <i className="h-1 flex-1 rounded-sm bg-[#23597C]" />
+        </div>
+        <h2 className="font-heading text-2xl font-semibold text-[#10324A]">
           {isContact ? "Une question, un rappel" : "Recevoir un comparatif"}
         </h2>
         {idle ? (
@@ -117,7 +122,7 @@ export function LeadForm({
           name="message"
           rows={isContact ? 4 : 3}
           required={isContact}
-          className="min-h-20 rounded-none text-base md:text-sm"
+          className="min-h-20 rounded-[10px] border-[#C9D8E2] bg-[#F7FAFC] text-base text-[#10324A] focus-visible:border-[#23597C] focus-visible:ring-2 focus-visible:ring-[#23597C]/40 md:text-base"
           placeholder={
             isContact
               ? "Décrivez le besoin. Nous rappelons ; pas de confirmation dans votre boîte."
@@ -138,7 +143,7 @@ export function LeadForm({
       {state?.error ? (
         <p
           role="alert"
-          className="border border-destructive/30 bg-destructive/8 px-3 py-3 text-sm text-destructive"
+          className="rounded-xl border border-destructive/30 bg-destructive/8 px-3 py-3 text-sm text-destructive"
         >
           {state.error}
         </p>
@@ -151,7 +156,7 @@ export function LeadForm({
       <Button
         type="submit"
         disabled={pending}
-        className="h-12 w-full rounded-none px-6 text-[0.72rem] uppercase tracking-[0.2em]"
+        className="h-[52px] w-full rounded-xl border-0 bg-gradient-to-r from-[#BFF3EA] to-[#4FDCC7] px-6 text-base font-semibold tracking-normal text-[#062B40] normal-case hover:brightness-95"
       >
         {pending ? "Envoi…" : isContact ? "Demander un rappel" : "Recevoir mon comparatif"}
       </Button>
@@ -175,7 +180,7 @@ function Field({
 }) {
   return (
     <div className="space-y-1.5">
-      <Label htmlFor={htmlFor} className="text-[0.7rem] uppercase tracking-[0.1em] text-muted-foreground">
+      <Label htmlFor={htmlFor} className="text-[13px] font-semibold tracking-normal text-[#23597C] normal-case">
         {label}
       </Label>
       {children}

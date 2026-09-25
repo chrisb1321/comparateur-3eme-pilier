@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, IBM_Plex_Sans, Source_Sans_3 } from "next/font/google";
+import { Instrument_Sans } from "next/font/google";
 import { AttributionBoot } from "@/components/attribution-boot";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
@@ -10,24 +10,11 @@ import { SITE, canonical } from "@/lib/site";
 import { IMAGES } from "@/lib/media";
 import "./globals.css";
 
-const sans = Source_Sans_3({
-  subsets: ["latin"],
-  variable: "--font-source-sans",
-  display: "swap",
-});
-
-const serif = Cormorant_Garamond({
-  subsets: ["latin"],
-  weight: ["400", "500", "600"],
-  style: ["normal", "italic"],
-  variable: "--font-cormorant",
-  display: "swap",
-});
-
-const figures = IBM_Plex_Sans({
+const sans = Instrument_Sans({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
-  variable: "--font-ibm-plex",
+  style: ["normal", "italic"],
+  variable: "--font-instrument",
   display: "swap",
 });
 
@@ -52,8 +39,8 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="fr-CH" className={`${sans.variable} ${serif.variable} ${figures.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col bg-background text-foreground pb-16 md:pb-0">
+    <html lang="fr-CH" className={`${sans.variable} h-full antialiased`}>
+      <body className="flex min-h-full flex-col bg-background pt-[96px] pb-20 text-foreground min-[1101px]:pt-[124px] md:pb-0">
         <a
           href="#contenu"
           className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:bg-primary focus:px-3 focus:py-2 focus:text-primary-foreground"

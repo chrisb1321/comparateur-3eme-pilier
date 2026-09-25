@@ -19,24 +19,18 @@ export function TrustStrip({
     <ul
       className={
         hero
-          ? "mt-6 flex flex-wrap gap-x-4 gap-y-2 text-[0.7rem] uppercase tracking-[0.14em] text-primary-foreground/75"
-          : "flex flex-wrap gap-x-4 gap-y-2 text-[0.7rem] uppercase tracking-[0.14em] text-muted-foreground"
+          ? "mt-2 flex flex-wrap gap-2 text-[13px] font-semibold text-white/85"
+          : "flex flex-wrap gap-2 text-[13px] font-semibold"
       }
     >
       {ITEMS.map((item) => (
-        <li key={item} className="flex items-center gap-2">
-          <span className={hero ? "text-accent" : "text-primary"} aria-hidden>
-            ·
-          </span>
+        <li key={item} className={hero ? "rounded-full bg-white/10 px-3 py-1" : "rounded-full bg-[#E8F7F4] px-3 py-1 text-[#1F5E55]"}>
           {item}
         </li>
       ))}
-      <li className="flex items-center gap-2">
-        <span className={hero ? "text-accent" : "text-primary"} aria-hidden>
-          ·
-        </span>
+      <li className={hero ? "rounded-full bg-white/10 px-3 py-1" : "rounded-full bg-[#E8F7F4] px-3 py-1 text-[#1F5E55]"}>
         <Amount value={FIGURES.pillar3aWithLpp} />
-        <span aria-hidden>/</span>
+        <span aria-hidden> / </span>
         <Amount value={FIGURES.pillar3aWithoutLpp} />
       </li>
     </ul>
@@ -62,12 +56,25 @@ export function ProcessSteps() {
     },
   ];
   return (
-    <ol className="grid gap-6 md:grid-cols-3">
-      {steps.map((step) => (
-        <li key={step.n} className="border-t border-accent/35 pt-4">
-          <p className="font-figures text-sm tracking-[0.2em] text-accent">{step.n}</p>
-          <h3 className="font-heading mt-2 text-2xl">{step.title}</h3>
-          <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{step.text}</p>
+    <ol className="grid gap-4 md:grid-cols-3">
+      {steps.map((step, index) => (
+        <li
+          key={step.n}
+          className={`flex min-h-0 flex-col gap-3 rounded-[20px] border p-8 max-[1100px]:p-6 ${
+            index === 2 ? "border-[#174462] bg-[#174462] text-white" : "border-[#DCE6ED] bg-white text-[#10324A]"
+          }`}
+        >
+          <div className="mb-2 flex items-center justify-between">
+            <p className={`text-sm ${index === 2 ? "text-white/70" : "text-[#6B8293]"}`}>{step.n}</p>
+            <span className={`flex size-14 items-center justify-center rounded-[14px] text-lg font-semibold ${index === 2 ? "bg-[rgba(191,243,234,0.14)] text-[#7FE3D3]" : "bg-[#EAF4F8] text-[#174462]"}`}>
+              {index + 1}
+            </span>
+          </div>
+          <p className={`text-xs font-semibold tracking-[0.12em] uppercase ${index === 2 ? "text-[#7FE3D3]" : "text-[#23597C]"}`}>
+            Étape
+          </p>
+          <h3 className={`text-[28px] font-semibold max-[1100px]:text-2xl ${index === 2 ? "text-white" : "text-[#10324A]"}`}>{step.title}</h3>
+          <p className={`text-base leading-relaxed ${index === 2 ? "text-white/85" : "text-[#4A6275]"}`}>{step.text}</p>
         </li>
       ))}
     </ol>

@@ -60,8 +60,8 @@ export function CeilingSimulator({ tone = "paper" }: { tone?: "paper" | "hero" }
     <section
       data-testid="simulateur-plafonds"
       className={cn(
-        "overflow-hidden",
-        hero ? "border border-accent/45 bg-primary/55 backdrop-blur-sm" : "border border-accent/25 bg-card",
+        "overflow-hidden rounded-[22px]",
+        hero ? "border border-white/18 bg-white/6" : "border border-[#DCE6ED] bg-white",
       )}
     >
       <div className="px-4 pt-4">
@@ -82,14 +82,14 @@ export function CeilingSimulator({ tone = "paper" }: { tone?: "paper" | "hero" }
             type="button"
             onClick={() => setSituation(opt.value)}
             className={cn(
-              "border px-3 py-3 text-left transition-colors",
+              "rounded-xl border px-4 py-3 text-left transition-colors",
               situation === opt.value
                 ? hero
-                  ? "border-accent bg-accent/20 text-primary-foreground"
-                  : "border-primary bg-primary/5"
+                  ? "border-[#5FE0CC] bg-[#E8F7F4]/15 text-primary-foreground"
+                  : "border-[#23597C] bg-[#E8F7F4]"
                 : hero
-                  ? "border-accent/25 text-primary-foreground/85 hover:border-accent/50"
-                  : "border-border hover:border-accent/40",
+                  ? "border-white/20 text-primary-foreground/85 hover:border-white/40"
+                  : "border-[#DCE6ED] bg-[#F7FAFC] hover:border-[#9FB4C3]",
             )}
           >
             <span className="block text-sm font-medium">{opt.label}</span>
@@ -121,10 +121,8 @@ export function CeilingSimulator({ tone = "paper" }: { tone?: "paper" | "hero" }
         <Link
           href="/formulaire-3eme-pilier/"
           className={cn(
-            "mt-5 inline-flex h-11 items-center px-5 text-[0.7rem] uppercase tracking-[0.18em]",
-            hero
-              ? "bg-accent text-accent-foreground hover:bg-accent/90"
-              : "bg-primary text-primary-foreground hover:bg-primary/90",
+            "btn-pill mt-5",
+            hero && "bg-gradient-to-r from-[#BFF3EA] to-[#4FDCC7] text-[#062B40]",
           )}
         >
           Demander un comparatif

@@ -15,14 +15,14 @@ export function CeilingsBlock({
     <figure
       data-testid="chiffres-alignes"
       className={cn(
-        "mt-10 max-w-lg overflow-hidden",
-        hero ? "border border-accent/45 bg-primary/55 backdrop-blur-sm" : "border border-accent/25 bg-card",
+        "overflow-hidden rounded-[20px]",
+        hero ? "border border-white/18 bg-white/6 text-white" : "border border-[#DCE6ED] bg-white",
       )}
     >
       <figcaption
         className={cn(
-          "px-4 pt-4 text-[0.62rem] uppercase tracking-[0.2em]",
-          hero ? "text-accent" : "text-muted-foreground",
+          "px-5 pt-5 text-[13px] font-semibold tracking-[0.14em] uppercase",
+          hero ? "text-[#7FE3D3]" : "text-[#23597C]",
         )}
       >
         Plafonds 3a · art. 7 OPP 3

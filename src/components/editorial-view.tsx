@@ -62,26 +62,16 @@ export async function EditorialView({
   const showComparateur = doc.slug === "formulaire-3eme-pilier";
   const showContact = doc.slug === "nous-contacter";
   const isThanks = doc.slug === "page-remerciement";
-  const cover = coverFor(doc.slug, doc.cover);
 
   if (isThanks) {
     const transmitted = Boolean(delivery?.crm);
     const journalOk = Boolean(delivery?.journal);
     return (
       <article data-testid="page-merci">
-        <div className="relative min-h-[48vh] overflow-hidden">
-          <Frame
-            image={IMAGES.merci}
-            fill
-            className="absolute inset-0 min-h-[48vh] rounded-none"
-            sizes="100vw"
-            rounded={false}
-            priority
-          />
-          <div className="absolute inset-0 bg-primary/55" />
-          <div className="relative mx-auto flex min-h-[48vh] max-w-3xl flex-col justify-end px-4 py-16 text-primary-foreground md:px-6">
+        <div className="page-hero on-navy">
+          <div className="page-hero-in">
             <p className="kicker">{transmitted ? "Dossier transmis" : "Demande enregistrée"}</p>
-            <h1 className="font-heading mt-3 text-4xl md:text-6xl">{doc.title}</h1>
+            <h1 className="font-heading">{doc.title}</h1>
           </div>
         </div>
         <div className="mx-auto max-w-2xl px-4 py-16 md:px-6">
@@ -92,30 +82,30 @@ export async function EditorialView({
                 ? "La demande est enregistrée sur le site, mais elle n’a pas pu être transmise au suivi conseiller. Aucun rappel automatique n’est déclenché. Écrivez-nous si vous n’avez pas de nouvelles."
                 : "Nous n’avons pas de confirmation d’enregistrement. Écrivez à l’adresse ci-dessous en rappelant votre numéro."}
           </p>
-          <ol className="mt-10 space-y-6 border-t border-accent/30 pt-8">
-            <li>
-              <p className="font-figures text-xs tracking-[0.2em] text-accent">01</p>
-              <h2 className="font-heading mt-1 text-2xl">{transmitted ? "Le dossier est chez le conseiller" : "Transmission en attente"}</h2>
+          <ol className="mt-10 grid gap-4">
+            <li className="surface-card p-6">
+              <p className="text-sm font-semibold tracking-[0.12em] text-[#23597C] uppercase">01</p>
+              <h2 className="mt-1 text-2xl font-semibold">{transmitted ? "Le dossier est chez le conseiller" : "Transmission en attente"}</h2>
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
                 {transmitted
                   ? "Votre fiche est dans le suivi interne. Aucun e-mail de confirmation n’est envoyé dans votre boîte."
                   : "Nous n’affirmons pas qu’un e-mail a été envoyé, ni qu’un conseiller voit déjà la fiche. Une copie locale existe seulement si l’enregistrement a réussi."}
               </p>
             </li>
-            <li>
-              <p className="font-figures text-xs tracking-[0.2em] text-accent">02</p>
-              <h2 className="font-heading mt-1 text-2xl">Un humain rappelle</h2>
+            <li className="surface-card p-6">
+              <p className="text-sm font-semibold tracking-[0.12em] text-[#23597C] uppercase">02</p>
+              <h2 className="mt-1 text-2xl font-semibold">Un humain rappelle</h2>
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
                 Sous deux jours ouvrés, de préférence par téléphone — une fois le dossier transmis. Si rien ne vient, écrivez à{" "}
-                <a className="text-primary underline decoration-accent underline-offset-4" href={`mailto:${SITE.email}`}>
+                <a className="font-semibold text-[#174462] underline underline-offset-4" href={`mailto:${SITE.email}`}>
                   {SITE.email}
                 </a>{" "}
                 en rappelant votre numéro.
               </p>
             </li>
-            <li>
-              <p className="font-figures text-xs tracking-[0.2em] text-accent">03</p>
-              <h2 className="font-heading mt-1 text-2xl">Vous n’êtes pas engagé</h2>
+            <li className="surface-card p-6">
+              <p className="text-sm font-semibold tracking-[0.12em] text-[#23597C] uppercase">03</p>
+              <h2 className="mt-1 text-2xl font-semibold">Vous n’êtes pas engagé</h2>
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
                 Le comparatif reste sans honoraires. Vous choisissez de poursuivre ou non.
               </p>
@@ -130,7 +120,7 @@ export async function EditorialView({
               <ul className="mt-4 space-y-2">
                 {related.map((item) => (
                   <li key={item.slug}>
-                    <Link href={`/${item.slug}/`} className="text-primary underline decoration-accent underline-offset-4">
+                    <Link href={`/${item.slug}/`} className="font-semibold text-[#174462] underline underline-offset-4">
                       {item.title}
                     </Link>
                   </li>
@@ -145,31 +135,22 @@ export async function EditorialView({
 
   return (
     <article>
-      <div className="relative min-h-[42vh] overflow-hidden">
-        <Frame
-          image={cover}
-          fill
-          className="absolute inset-0 min-h-[42vh] rounded-none"
-          sizes="100vw"
-          rounded={false}
-          priority
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/40 to-primary/20" />
-        <div className="relative mx-auto flex min-h-[42vh] max-w-3xl flex-col justify-end px-4 py-12 text-primary-foreground md:px-6">
+      <div className="page-hero on-navy">
+        <div className="page-hero-in">
           <p className="kicker">
             {doc.kind === "post" ? (doc.series ? "Série 3×/semaine · prévoyance" : "Article · prévoyance") : "Guide"}
           </p>
-          <h1 className="font-heading mt-3 text-4xl leading-tight md:text-5xl">{doc.title}</h1>
-          <p className="mt-4 text-sm text-primary-foreground/75">
+          <h1 className="font-heading">{doc.title}</h1>
+          <p className="page-hero-meta">
             Publié le {formatDate(doc.published)} · mis à jour le {formatDate(doc.updated)}
           </p>
         </div>
       </div>
-      <div className="mx-auto max-w-3xl px-4 py-12 md:px-6 md:py-16">
-          <p id="reponse-directe" className="font-heading text-2xl italic leading-snug text-foreground/90">
+      <div className={`mx-auto px-4 py-14 md:px-6 md:py-16 ${showComparateur || showContact ? "max-w-[1100px]" : "max-w-3xl"}`}>
+          <p id="reponse-directe" className="text-[22px] leading-snug font-medium text-[#10324A]">
             {doc.intro}
           </p>
-        <div className="hairline my-10" />
+        <div className="my-10 h-px bg-[#DCE6ED]" />
         {doc.body ? <MdxBody source={doc.body} /> : <Blocks blocks={doc.blocks} />}
         {posts.length ? (
           <div data-testid="hub-actualites" className="mt-12">
@@ -181,13 +162,13 @@ export async function EditorialView({
             </p>
             <ul className="mt-8 space-y-8">
               {posts.map((post) => (
-                <li key={post.slug} className="grid gap-4 border-t border-accent/20 pt-6 sm:grid-cols-[8rem_1fr]">
+                <li key={post.slug} className="surface-card grid gap-4 overflow-hidden p-4 sm:grid-cols-[8rem_1fr]">
                   <Frame image={coverFor(post.slug, post.cover)} className="aspect-[4/3]" sizes="160px" />
                   <div>
-                    <p className="text-[0.62rem] uppercase tracking-[0.18em] text-accent">
+                    <p className="text-xs font-semibold tracking-[0.14em] text-[#23597C] uppercase">
                       {post.series ? "Série 2026–2027" : "Archive"}
                     </p>
-                    <Link href={`/${post.slug}/`} className="font-heading text-2xl text-primary hover:underline">
+                    <Link href={`/${post.slug}/`} className="text-2xl font-semibold text-[#174462] hover:text-[#23597C]">
                       {post.title}
                     </Link>
                     <p className="mt-1 text-xs uppercase tracking-[0.16em] text-muted-foreground">
@@ -220,9 +201,9 @@ export async function EditorialView({
             <ul className="mt-4 grid gap-6 sm:grid-cols-2">
               {related.map((item) => (
                 <li key={item.slug}>
-                  <Link href={`/${item.slug}/`} className="group block">
-                    <Frame image={coverFor(item.slug, item.cover)} className="aspect-[16/10]" />
-                    <span className="mt-2 block font-heading text-xl group-hover:text-primary">{item.title}</span>
+                  <Link href={`/${item.slug}/`} className="surface-card group block overflow-hidden">
+                    <Frame image={coverFor(item.slug, item.cover)} className="aspect-[16/10] rounded-none" rounded={false} />
+                    <span className="block p-4 text-xl font-semibold group-hover:text-[#23597C]">{item.title}</span>
                   </Link>
                 </li>
               ))}
