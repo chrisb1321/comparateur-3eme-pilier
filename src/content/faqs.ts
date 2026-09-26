@@ -1,8 +1,5 @@
 import type { FaqItem } from "./types";
 
-const OFAS_AMOUNTS_2026 =
-  "https://www.bsv.admin.ch/dam/fr/sd-web/sAgdISSXenMT/f_Betr%C3%A4ge%202026.pdf";
-
 export const HOME_FAQS: FaqItem[] = [
   {
     question: "Le comparatif est-il gratuit ?",
@@ -20,7 +17,8 @@ export const HOME_FAQS: FaqItem[] = [
   },
   {
     question: "Quel est le plafond 3a en 2026 ?",
-    answer: `7’258 CHF avec un 2e pilier. Sans affiliation au 2e pilier, 20 % du revenu d’activité jusqu’à 36’288 CHF. Source OFAS, montants 2026 : ${OFAS_AMOUNTS_2026}`,
+    answer:
+      "7’258 CHF avec un 2e pilier. Sans affiliation au 2e pilier, 20 % du revenu d’activité jusqu’à 36’288 CHF.",
   },
   {
     question: "J’ai déjà un 3e pilier. Puis-je quand même comparer ?",
