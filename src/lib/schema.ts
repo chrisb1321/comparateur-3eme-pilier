@@ -1,5 +1,6 @@
 import type { EditorialDoc, FaqItem } from "@/content/types";
 import { SOURCES, YEAR_SPAN } from "@/lib/figures";
+import { calendarDay } from "@/lib/publication";
 import { canonical, SITE } from "@/lib/site";
 import type { SiteImage } from "@/lib/media";
 
@@ -26,7 +27,7 @@ export const ORGANIZATION_LD = {
     "OFAS",
     "AFC circulaire 18a",
   ],
-  publishingPrinciples: canonical("/methode-sources-ofas-afc/"),
+  publishingPrinciples: canonical("/a-propos/"),
   ethicsPolicy: canonical("/a-propos/"),
   contactPoint: {
     "@type": "ContactPoint",
@@ -58,7 +59,7 @@ export const AUTHOR_LD = {
   name: "Rédaction Comparateur 3ème pilier",
   url: canonical("/a-propos/"),
   parentOrganization: { "@id": ORG_ID },
-  publishingPrinciples: canonical("/methode-sources-ofas-afc/"),
+  publishingPrinciples: canonical("/a-propos/"),
 };
 
 const CITATIONS = SOURCES.map((source) => ({
@@ -104,8 +105,8 @@ export function articleLd(doc: EditorialDoc, cover: SiteImage): Record<string, u
     "@type": "Article",
     headline: doc.title,
     description: doc.description,
-    datePublished: doc.published,
-    dateModified: doc.updated,
+    datePublished: calendarDay(doc.published),
+    dateModified: calendarDay(doc.updated),
     inLanguage: "fr-CH",
     isAccessibleForFree: true,
     url,
@@ -133,8 +134,8 @@ export function webPageLd(doc: EditorialDoc, cover: SiteImage): Record<string, u
     name: doc.metaTitle,
     headline: doc.title,
     description: doc.description,
-    datePublished: doc.published,
-    dateModified: doc.updated,
+    datePublished: calendarDay(doc.published),
+    dateModified: calendarDay(doc.updated),
     inLanguage: "fr-CH",
     isAccessibleForFree: true,
     url,

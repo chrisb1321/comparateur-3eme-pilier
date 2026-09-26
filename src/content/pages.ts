@@ -3,7 +3,7 @@ import type { EditorialDoc } from "./types";
 
 const UPDATED = "2026-09-20";
 const METHOD_INLINE =
-  "Méthode : textes officiels OFAS (OPP 3, tableau 2026) et AFC, notices cantonales pour le 3b. Pour 2027, nous citons l’ordonnance encore en vigueur — pas un plafond inventé. Nous ne copions pas un palmarès publicitaire. Dernière revue : 19 septembre 2026.";
+  "Méthode : textes officiels OFAS (tableau 2026) et AFC, notices cantonales pour le 3b. Plafonds 2026 : CHF 7’258 / 36’288. Montants 2027 à confirmer par l’OFAS. Dernière revue : 19 septembre 2026.";
 
 export const PAGES: EditorialDoc[] = [
   {
@@ -55,7 +55,7 @@ export const PAGES: EditorialDoc[] = [
       },
       {
         type: "table",
-        caption: `Plafonds 3a ${YEAR_SPAN_WORDS} (OFAS / art. 7 OPP 3) — valables Confédération, cantons et communes. ${CEILING_NOTE}`,
+        caption: `Plafonds 3a 2026 (OFAS / art. 7 OPP 3) — valables Confédération, cantons et communes. ${CEILING_NOTE}.`,
         headers: ["Situation", `Maximum ${YEAR_SPAN}`],
         rows: [
           [`Salarié ou indépendant affilié au 2e pilier (« petite cotisation »)`, chf(FIGURES.pillar3aWithLpp)],
@@ -104,7 +104,7 @@ export const PAGES: EditorialDoc[] = [
       {
         type: "callout",
         title: "Chiffres 2023–2024 encore cités ailleurs",
-        text: `Les anciens plafonds 7’056 / 35’280 (2023–2024) ou 34’416 (jusqu’en 2022) ne s’appliquent plus. En ${YEAR_SPAN_WORDS} : ${chf(FIGURES.pillar3aWithLpp)} / ${chf(FIGURES.pillar3aWithoutLpp)}. ${CEILING_NOTE}`,
+        text: `Les anciens plafonds 7’056 / 35’280 (2023–2024) ou 34’416 (jusqu’en 2022) ne s’appliquent plus. En 2026 : ${chf(FIGURES.pillar3aWithLpp)} / ${chf(FIGURES.pillar3aWithoutLpp)}. ${CEILING_NOTE}.`,
       },
     ],
   },
@@ -118,7 +118,7 @@ export const PAGES: EditorialDoc[] = [
       `Le 3b n’est pas un second 3a. Souplesse des retraits et des bénéficiaires, déduction limitée à certains cantons. Mode d’emploi ${YEAR_SPAN}.`,
     published: "2021-11-06",
     updated: UPDATED,
-    intro: `Le 3b est-il un second plafond OFAS ? Non. En ${YEAR_SPAN_WORDS} le 3a déduit ${chf(FIGURES.pillar3aWithLpp)} ou ${chf(FIGURES.pillar3aWithoutLpp)} (art. 7 OPP 3). Le 3b n’a pas de maximum fédéral : il sert la souplesse, et, dans certains cantons seulement, une enveloppe de primes d’assurance-vie.`,
+    intro: `Le 3b est-il un second plafond OFAS ? Non. En 2026 le 3a déduit ${chf(FIGURES.pillar3aWithLpp)} ou ${chf(FIGURES.pillar3aWithoutLpp)} (art. 7 OPP 3). ${CEILING_NOTE}. Le 3b n’a pas de maximum fédéral : il sert la souplesse, et, dans certains cantons seulement, une enveloppe de primes d’assurance-vie.`,
     related: [
       "3eme-pilier-a-ou-b",
       "3eme-pilier-geneve",
@@ -129,7 +129,7 @@ export const PAGES: EditorialDoc[] = [
     faqs: [
       {
         question: "Le 3b a-t-il un plafond OFAS ?",
-        answer: `Non. L’OFAS fixe uniquement le 3a (${chf(FIGURES.pillar3aWithLpp)} / ${chf(FIGURES.pillar3aWithoutLpp)} en ${YEAR_SPAN_WORDS}). Une déduction 3b, si elle existe, est cantonale et concerne en pratique des primes d’assurance-vie.`,
+        answer: `Non. L’OFAS fixe le 3a pour 2026 (${chf(FIGURES.pillar3aWithLpp)} / ${chf(FIGURES.pillar3aWithoutLpp)}). ${CEILING_NOTE}. Une déduction 3b, si elle existe, est cantonale et concerne en pratique des primes d’assurance-vie.`,
       },
       {
         question: "Un compte bancaire 3b déduit-il à Genève ou Fribourg ?",
@@ -174,7 +174,7 @@ export const PAGES: EditorialDoc[] = [
     published: "2021-10-31",
     updated: UPDATED,
     intro:
-      `La déduction 3a ${YEAR_SPAN_WORDS} est identique que l’argent soit versé à une fondation bancaire ou à un assureur. Ce qui change : les frais, les garanties, la discipline d’épargne et ce qui reste si vous arrêtez au bout de trois ans.`,
+      "La déduction 3a 2026 est identique que l’argent soit versé à une fondation bancaire ou à un assureur. Plafonds 2026 : CHF 7’258 / 36’288. Montants 2027 à confirmer par l’OFAS. Ce qui change : les frais, les garanties, la discipline d’épargne et ce qui reste si vous arrêtez au bout de trois ans.",
     related: [
       "choisir-entre-3eme-pilier-bancaire-ou-en-assurance",
       "liberation-du-paiement-des-primes",
@@ -189,7 +189,8 @@ export const PAGES: EditorialDoc[] = [
       },
       {
         question: "L’assurance 3a déduit-elle davantage que la banque ?",
-        answer: `Non. En ${YEAR_SPAN_WORDS} le plafond OFAS est ${chf(FIGURES.pillar3aWithLpp)} / ${chf(FIGURES.pillar3aWithoutLpp)}, prestataire indifférent. Détail des frais : /frais-3a-banque-assurance/.`,
+        answer:
+          "Non. Plafonds 2026 : CHF 7’258 / 36’288. Montants 2027 à confirmer par l’OFAS. Le plafond 2026 ne dépend pas du prestataire.",
       },
     ],
     blocks: [
@@ -273,7 +274,7 @@ export const PAGES: EditorialDoc[] = [
       },
       {
         type: "p",
-        text: "Nous demandons votre situation, puis un partenaire conseil (diplôme AFA annoncé sur le site historique) sélectionne un nombre limité d’offres. Le service reste sans honoraires pour vous : vous n’êtes pas obligé de souscrire. Un entretien d’environ 30 minutes peut suivre pour lire les garanties, pas pour « signer le jour même ».",
+        text: "Décrivez votre projet. Un conseiller vous rappelle sous deux jours ouvrés pour examiner les solutions accessibles dans le cadre du service, leurs frais et leurs garanties. Ce n’est pas l’ensemble du marché suisse. Comparatif gratuit et sans engagement.",
       },
       {
         type: "p",
@@ -288,10 +289,10 @@ export const PAGES: EditorialDoc[] = [
     title: `Déductions fiscales du 3e pilier en ${YEAR_SPAN}`,
     metaTitle: `Déductions 3e pilier ${YEAR_SPAN} : plafonds OFAS 7’258 / 36’288`,
     description:
-      `Plafonds 3a ${YEAR_SPAN_WORDS} (OFAS 2026, OPP 3 encore en vigueur pour 2027), rachat dès 2026, 3b Genève/Fribourg, imposition au retrait. Sources AFC et OFAS.`,
+      "Plafonds 3a 2026 : CHF 7’258 / 36’288. Montants 2027 à confirmer par l’OFAS. Rachat dès 2026, 3b Genève/Fribourg, imposition au retrait. Sources AFC et OFAS.",
     published: "2021-11-12",
     updated: UPDATED,
-    intro: `Quel est le plafond 3a déductible en ${YEAR_SPAN_WORDS} ? ${chf(FIGURES.pillar3aWithLpp)} si vous êtes affilié au 2e pilier, ${chf(FIGURES.pillar3aWithoutLpp)} (20 % du revenu d’activité, max.) sinon. Source : tableau OFAS du 1.1.2026 et art. 7 OPP 3 encore en vigueur pour 2027. ${CEILING_NOTE}`,
+    intro: `Quel est le plafond 3a déductible en 2026 ? ${chf(FIGURES.pillar3aWithLpp)} si vous êtes affilié au 2e pilier, ${chf(FIGURES.pillar3aWithoutLpp)} (20 % du revenu d’activité, max.) sinon. Source : tableau OFAS du 1.1.2026. ${CEILING_NOTE}.`,
     related: [
       "quel-montant-deductible-3eme-pilier-2022",
       "3eme-pilier-a-impot-retrait",
@@ -308,7 +309,7 @@ export const PAGES: EditorialDoc[] = [
       },
       {
         question: `Les plafonds 3a 2027 sont-ils déjà connus ?`,
-        answer: `Au 19 septembre 2026, non. L’OFAS n’a pas publié de tableau au 1er janvier 2027. Les montants encore en vigueur restent ${chf(FIGURES.pillar3aWithLpp)} / ${chf(FIGURES.pillar3aWithoutLpp)} (art. 7 OPP 3, dès 2025). Nous n’inventons pas de hausse.`,
+        answer: "Non. Plafonds 2026 : CHF 7’258 / 36’288. Montants 2027 à confirmer par l’OFAS.",
       },
       {
         question: "Le 3b double-t-il cette déduction ?",
@@ -330,7 +331,7 @@ export const PAGES: EditorialDoc[] = [
       },
       {
         type: "p",
-        text: `Les lacunes depuis 2025 peuvent être rachetées à partir de 2026 (y compris en 2027), dans la limite de la petite cotisation (${chf(FIGURES.buybackMax)}), en plus du versement ordinaire de l’année, si vous aviez un revenu AVS l’année de la lacune et l’année du rachat, et que le maximum ordinaire de l’année en cours est déjà versé. Source OFAS, « Rachats dans le pilier 3a ».`,
+        text: `Les lacunes depuis 2025 peuvent être rachetées à partir de 2026, dans la limite de la petite cotisation 2026 (${chf(FIGURES.buybackMax)}), en plus du versement ordinaire de l’année, si vous aviez un revenu AVS l’année de la lacune et l’année du rachat, et que le maximum ordinaire de l’année en cours est déjà versé. Le montant de rachat applicable en 2027 est à confirmer par l’OFAS. Source OFAS, « Rachats dans le pilier 3a ».`,
       },
       {
         type: "h2",
@@ -406,10 +407,10 @@ export const PAGES: EditorialDoc[] = [
     title: "3e pilier à Genève",
     metaTitle: `3e pilier Genève ${YEAR_SPAN} : 3a, 3b, ICC et frontaliers`,
     description:
-      `Landing Genève : plafonds 3a ${YEAR_SPAN_WORDS}, enveloppe LIPP des primes d’assurance-vie, frontaliers. Remplace l’ancienne URL qui menait à une image.`,
+      "Landing Genève : plafonds 3a 2026, enveloppe LIPP des primes d’assurance-vie, frontaliers. Plafonds 2026 : CHF 7’258 / 36’288. Montants 2027 à confirmer par l’OFAS.",
     published: "2022-07-01",
     updated: UPDATED,
-    intro: `Le plafond 3a à Genève est-il plus élevé qu’ailleurs ? Non. En ${YEAR_SPAN_WORDS} c’est le maximum fédéral OFAS / OPP 3 : ${chf(FIGURES.pillar3aWithLpp)} avec 2e pilier, ${chf(FIGURES.pillar3aWithoutLpp)} sans. L’ICC change l’économie d’impôt, pas le droit de verser. La LIPP vise des primes d’assurance-vie, pas un « bonus 3b ».`,
+    intro: `Le plafond 3a à Genève est-il plus élevé qu’ailleurs ? Non. En 2026 c’est le maximum fédéral OFAS / OPP 3 : ${chf(FIGURES.pillar3aWithLpp)} avec 2e pilier, ${chf(FIGURES.pillar3aWithoutLpp)} sans. ${CEILING_NOTE}. L’ICC change l’économie d’impôt, pas le droit de verser. La LIPP vise des primes d’assurance-vie, pas un « bonus 3b ».`,
     related: [
       "3a-impot-cantonal-geneve-2026",
       "frontalier-suisse",
@@ -436,7 +437,7 @@ export const PAGES: EditorialDoc[] = [
       { type: "h2", text: "3a : les mêmes plafonds qu’ailleurs" },
       {
         type: "p",
-        text: `À Genève comme dans les autres cantons, le 3a ${YEAR_SPAN_WORDS} déduit jusqu’à ${chf(FIGURES.pillar3aWithLpp)} (avec LPP) ou ${chf(FIGURES.pillar3aWithoutLpp)} (sans LPP, 20 % du revenu). L’économie d’impôt dépend du barème ICC + IFD, pas d’un « bonus genevois » sur le plafond fédéral. ${CEILING_NOTE}`,
+        text: `À Genève comme dans les autres cantons, le 3a 2026 déduit jusqu’à ${chf(FIGURES.pillar3aWithLpp)} (avec LPP) ou ${chf(FIGURES.pillar3aWithoutLpp)} (sans LPP, 20 % du revenu). L’économie d’impôt dépend du barème ICC + IFD, pas d’un « bonus genevois » sur le plafond fédéral. ${CEILING_NOTE}.`,
       },
       { type: "h2", text: "3b et LIPP" },
       {
@@ -610,7 +611,7 @@ export const PAGES: EditorialDoc[] = [
     faqs: [
       {
         question: "La 13e rente AVS relève-t-elle le plafond 3a ?",
-        answer: `Non. La 13e rente (premier versement décembre 2026) est une prestation AVS. Le plafond 3a ${YEAR_SPAN_WORDS} reste ${chf(FIGURES.pillar3aWithLpp)} / ${chf(FIGURES.pillar3aWithoutLpp)} (art. 7 OPP 3). Une hausse 3a n’interviendrait que si le Conseil fédéral adapte les rentes et que l’OFAS publie un nouveau tableau.`,
+        answer: `Non. La 13e rente (premier versement décembre 2026) est une prestation AVS. ${CEILING_NOTE}.`,
       },
       {
         question: "Les rentes AVS 2027 sont-elles déjà publiées ?",
@@ -638,7 +639,7 @@ export const PAGES: EditorialDoc[] = [
       {
         type: "callout",
         title: "Ancien slogan du site",
-        text: "Les textes WordPress citaient encore « 65 ans / 64 ans ». C’est périmé pour 2026–2027. Nous indiquons l’âge de référence et la transition AVS 21.",
+        text: "L’âge de référence AVS est 65 ans. Les femmes de la génération transitoire AVS 21 suivent un relèvement progressif. L’ancienne mention « 64 ans pour les femmes », sans cette transition, ne décrit plus la règle.",
       },
     ],
   },
@@ -733,13 +734,13 @@ export const PAGES: EditorialDoc[] = [
     slug: "formulaire-3eme-pilier",
     wpId: 1248,
     title: "Formulaire comparatif 3e pilier",
-    metaTitle: `Comparatif 3e pilier ${YEAR_SPAN} : 5 champs, sans Typeform`,
+    metaTitle: "Comparatif 3e pilier : demander un comparatif gratuit",
     description:
-      `Demandez un comparatif 3a/3b en HTML. Sans honoraires, plafonds OFAS ${YEAR_SPAN} (7’258 / 36’288), rappel sous deux jours ouvrés. Pas de Typeform.`,
+      "Décrivez votre projet en deux minutes. Un conseiller vous rappelle sous deux jours ouvrés. Comparatif gratuit et sans engagement. Aucun e-mail de confirmation n’est envoyé.",
     published: "2021-11-02",
     updated: UPDATED,
     intro:
-      "Un seul formulaire. Pas de Typeform, pas d’honoraires. Un conseiller partenaire diplômé AFA rappelle sous deux jours ouvrés. Pas de confirmation automatique dans votre boîte.",
+      "3a ou 3b, banque ou assurance : décrivez votre projet. Un conseiller vous rappelle sous deux jours ouvrés pour examiner les solutions accessibles, leurs frais et leurs garanties. Comparatif gratuit et sans engagement. Aucun e-mail de confirmation n’est envoyé.",
     related: ["nous-contacter", "page-remerciement", "choisir-son-3eme-pilier"],
     blocks: [
       {
@@ -759,7 +760,7 @@ export const PAGES: EditorialDoc[] = [
     published: "2021-11-02",
     updated: UPDATED,
     intro:
-      "Quatre champs et votre demande. Prochaine étape : un rappel sous deux jours ouvrés si le CRM a le dossier. Pas de confirmation dans votre boîte.",
+      "Quatre champs et votre demande. Un conseiller vous rappelle sous deux jours ouvrés si la demande est enregistrée. Aucun e-mail de confirmation n’est envoyé.",
     related: ["formulaire-3eme-pilier", "a-propos", "page-de-confidentialitee"],
     blocks: [
       {
@@ -772,7 +773,7 @@ export const PAGES: EditorialDoc[] = [
       },
       {
         type: "p",
-        text: `Écrivez-nous aussi à ${"info@comparateur-3eme-pilier.ch"}. Pas d’iframe obligatoire, pas de Typeform.`,
+        text: "Écrivez-nous aussi à info@comparateur-3eme-pilier.ch.",
       },
     ],
   },
@@ -783,62 +784,45 @@ export const PAGES: EditorialDoc[] = [
     title: "Politique de confidentialité",
     metaTitle: "Confidentialité — comparateur-3eme-pilier.ch",
     description:
-      "Politique de confidentialité (LPD). Le slug historique page-de-confidentialitee est conservé. Alias 301 depuis l’orthographe correcte.",
+      "Données recueillies par les formulaires de comparateur-3eme-pilier.ch. Contact : info@comparateur-3eme-pilier.ch.",
     published: "2021-10-30",
     updated: UPDATED,
     intro:
-      "Cette page reste à l’URL historique /page-de-confidentialitee/ (faute d’orthographe conservée pour les backlinks). L’orthographe correcte /page-de-confidentialite/ redirige ici en 301.",
+      "Cette page décrit les données que les formulaires de comparateur-3eme-pilier.ch enregistrent vraiment. Contact : info@comparateur-3eme-pilier.ch.",
     related: ["mentions-legales", "nous-contacter"],
     blocks: [
-      { type: "h2", text: "1. Responsable" },
+      { type: "h2", text: "1. Contact" },
       {
         type: "p",
-        text: "Le site comparateur-3eme-pilier.ch collecte des données de contact lorsque vous utilisez les formulaires. Contact : info@comparateur-3eme-pilier.ch. L’éditeur historique du WordPress n’est pas un titre de propriété SWITCH : voir mentions légales.",
+        text: "Site : comparateur-3eme-pilier.ch. Nom d’usage : Comparateur 3ème pilier. Contact : info@comparateur-3eme-pilier.ch.",
       },
       { type: "h2", text: "2. Données collectées" },
       {
         type: "p",
-        text: "Identité, civilité, e-mail, téléphone, canton, situation professionnelle, éléments de prévoyance que vous saisissez, message, date et heure, métadonnées techniques minimales (par exemple adresse IP dans les journaux serveur). Pas de champ carte bancaire.",
+        text: "Formulaire de comparatif : prénom, nom, e-mail, téléphone, canton ou résidence, situation (salarié avec 2e pilier, sans 2e pilier, indépendant, frontalier, autre), précision facultative, case de consentement, date et heure de la demande.",
       },
-      { type: "h2", text: "3. Finalités" },
-      {
-        type: "ul",
-        items: [
-          "Répondre à une demande de contact ou de comparatif.",
-          "Transmettre le dossier à un partenaire conseil pour établir des offres (au plus quelques offres, pas une revente de fichier).",
-          "Tenir une preuve de consentement et un journal des leads.",
-          "Améliorer le site (statistiques agrégées, si un outil d’audience est activé).",
-        ],
-      },
-      { type: "h2", text: "4. Bases (LPD)" },
       {
         type: "p",
-        text: "Loi fédérale sur la protection des données. Traitement pour l’exécution de votre demande et notre intérêt à gérer le service. Le consentement est demandé pour la transmission au partenaire et pour un éventuel suivi commercial. Vous pouvez le refuser en n’envoyant pas le formulaire.",
+        text: "Formulaire de contact : prénom, nom, e-mail, téléphone, message, case de consentement, date et heure de la demande.",
       },
-      { type: "h2", text: "5. Destinataires" },
       {
         type: "p",
-        text: "Équipe du site, hébergeur, et le partenaire chargé de produire le comparatif. Nous ne revendons pas les données. Les offres sont gratuites pour l’utilisateur : le partenaire ne doit pas exiger d’honoraires en échange de la remise des offres.",
+        text: "Si l’adresse de la page contient ces paramètres, ils sont joints à la demande : page d’arrivée, utm_source, utm_medium, utm_campaign, utm_term, utm_content, gclid. Ils sont gardés dans le navigateur pour la session, puis envoyés avec le formulaire.",
       },
-      { type: "h2", text: "6. Conservation" },
+      { type: "h2", text: "3. Finalité" },
       {
         type: "p",
-        text: "Les demandes sont conservées le temps du traitement puis archivées de façon limitée pour les obligations comptables et de preuve (en pratique jusqu’à 10 ans pour les pièces ayant une portée juridique, sinon suppression plus tôt).",
+        text: "Enregistrer la demande et permettre un rappel sous deux jours ouvrés. Le formulaire n’envoie pas d’e-mail de confirmation à la personne qui l’a rempli.",
       },
-      { type: "h2", text: "7. Droits" },
+      { type: "h2", text: "4. Destinataire" },
       {
         type: "p",
-        text: "Accès, rectification, destruction, remise, opposition. Exercice : info@comparateur-3eme-pilier.ch ou le formulaire de contact. Autorité : Préposé fédéral à la protection des données (PFPDT).",
+        text: "La demande est transmise au service qui traite les comparatifs de ce site, comme l’indique la case de consentement. Contact pour exercer un droit : info@comparateur-3eme-pilier.ch.",
       },
-      { type: "h2", text: "8. Cookies et mesures" },
+      { type: "h2", text: "5. Droits" },
       {
         type: "p",
-        text: "Le site reconstruit n’embarque pas Google Analytics ni GTM par défaut. Si un outil d’audience est ajouté plus tard, cette page sera mise à jour. Les cookies strictement nécessaires au fonctionnement (session) peuvent être posés.",
-      },
-      { type: "h2", text: "9. Sécurité" },
-      {
-        type: "p",
-        text: "Transport HTTPS, accès restreint aux journaux de leads, champs anti-robot. Aucune sécurité n’est absolue.",
+        text: "Pour une demande d’accès, de rectification ou de suppression : info@comparateur-3eme-pilier.ch. Autorité : Préposé fédéral à la protection des données et à la transparence (PFPDT).",
       },
     ],
   },
@@ -848,11 +832,12 @@ export const PAGES: EditorialDoc[] = [
     wpId: 1301,
     title: "Merci pour votre demande",
     metaTitle: "Demande bien reçue — Comparateur 3ème pilier",
-    description: "Votre demande est enregistrée. Un conseiller rappelle sous deux jours ouvrés si le dossier a été transmis.",
+    description:
+      "Votre demande est enregistrée. Un conseiller vous rappelle sous deux jours ouvrés. Aucun e-mail de confirmation n’est envoyé.",
     published: "2023-05-05",
     updated: UPDATED,
     intro:
-      "Merci. Le texte ci-dessous dit seulement ce qui s’est vraiment passé (transmission ou journal local). En attendant : plafonds 2026–2027 ou la différence 3a / 3b.",
+      "Votre demande est enregistrée. Un conseiller vous rappelle sous deux jours ouvrés. Aucun e-mail de confirmation n’est envoyé.",
     related: ["deductions-fiscales-3eme-pilier", "3eme-pilier-a-ou-b"],
     blocks: [
       {
@@ -886,18 +871,18 @@ export const PAGES: EditorialDoc[] = [
     slug: "actualite-3eme-pilier",
     wpId: 2653,
     title: "Actualités du 3e pilier",
-    metaTitle: "Actualités 3e pilier 2026–2027 — 3 articles par semaine, semaines 1–5",
+    metaTitle: "Actualités 3e pilier — articles publiés au 26 septembre 2026",
     description:
-      "Série éditoriale : trois articles par semaine (plafonds OFAS, cantons, frontaliers, 3a/3b, versement, retraite). Semaines 1 à 5 publiées. Archives WordPress, mêmes slugs.",
+      "Articles publiés au 26 septembre 2026 : plafonds 2026, rachat de lacunes, tableau OFAS, retrait 3a et lien avec le 2e pilier.",
     published: "2023-11-05",
     updated: UPDATED,
     intro:
-      "Cadence confirmée : trois textes par semaine, pas un article par jour. Semaines 1 à 5 livrées (OFAS, cantons, frontaliers, supports, versement et retraite). Les guides historiques restent à leurs URL d’origine.",
+      "Cette liste ne montre que les articles dont la date est le 26 septembre 2026 ou avant. Les textes datés plus tard ne sont pas publiés ici.",
     related: [
       "plafonds-3a-2026-2027",
-      "3a-impot-cantonal-geneve-2026",
-      "frontalier-avs-3a-conditions",
-      "methode-sources-ofas-afc",
+      "rachat-lacunes-3a-2026",
+      "tableau-ofas-montants-avs-lpp-3a",
+      "retrait-3a-vs-3b-2026",
     ],
     blocks: [],
   },
@@ -905,34 +890,24 @@ export const PAGES: EditorialDoc[] = [
     kind: "page",
     slug: "mentions-legales",
     title: "Mentions légales",
-    metaTitle: `Mentions légales ${YEAR_SPAN} — Comparateur 3ème pilier`,
+    metaTitle: "Mentions légales — Comparateur 3ème pilier",
     description:
-      "Mentions légales du site comparateur-3eme-pilier.ch. Page créée à la reconstruction (404 sur le WordPress live).",
+      "Mentions du site comparateur-3eme-pilier.ch. Contact : info@comparateur-3eme-pilier.ch.",
     published: UPDATED,
     updated: UPDATED,
     intro:
-      "Cette page n’existait pas sur le WordPress (404). Elle est créée pour l’E-E-A-T et les obligations d’information. Les éléments d’identité SWITCH nominatifs ne sont pas publics : nous n’inventons pas un titulaire.",
+      "Site : comparateur-3eme-pilier.ch. Nom d’usage : Comparateur 3ème pilier. Contact : info@comparateur-3eme-pilier.ch.",
     related: ["page-de-confidentialitee", "a-propos"],
     blocks: [
       { type: "h2", text: "Éditeur" },
       {
         type: "p",
-        text: "Site : comparateur-3eme-pilier.ch. Nom d’usage : Comparateur 3ème pilier. Contact : info@comparateur-3eme-pilier.ch. Domaine enregistré le 4 octobre 2021 auprès d’Infomaniak Network SA (RDAP SWITCH, statut actif).",
-      },
-      { type: "h2", text: "Hébergement de cette version" },
-      {
-        type: "p",
-        text: "Application Next.js. L’origine WordPress historique reste en ligne tant que la bascule DNS n’est pas faite. Ne pas considérer cette instance de prévisualisation comme l’origine de production Infomaniak / Cloudflare.",
+        text: "Site : comparateur-3eme-pilier.ch. Nom d’usage : Comparateur 3ème pilier. Contact : info@comparateur-3eme-pilier.ch.",
       },
       { type: "h2", text: "Nature du service" },
       {
         type: "p",
-        text: "Mise en relation et comparatif d’offres de prévoyance individuelle. Information générale, pas un conseil en placement personnalisé au sens d’un mandat LSFin signé sur ce site. Un partenaire diplômé AFA peut prendre le relais après le formulaire.",
-      },
-      { type: "h2", text: "Propriété intellectuelle" },
-      {
-        type: "p",
-        text: "Les textes de cette reconstruction sont originaux (2026). Les URL et l’intention des landings WordPress sont reprises pour la continuité SEO.",
+        text: "Le site publie une information générale sur le 3e pilier et recueille une demande de comparatif. Un conseiller rappelle sous deux jours ouvrés pour examiner les solutions accessibles dans le cadre du service, leurs frais et leurs garanties. Ce n’est pas l’ensemble du marché suisse. Le comparatif est gratuit et sans engagement.",
       },
     ],
   },
@@ -940,33 +915,38 @@ export const PAGES: EditorialDoc[] = [
     kind: "page",
     slug: "a-propos",
     title: "À propos",
-    metaTitle: `À propos ${YEAR_SPAN} — méthode OFAS / AFC, pas un palmarès`,
+    metaTitle: "À propos — Comparateur 3ème pilier",
     description:
-      `Qui édite le comparateur, méthode éditoriale OFAS/AFC, dates de revue ${YEAR_SPAN}, limites du service. Page E-E-A-T créée en 2026.`,
+      "Le site comparateur-3eme-pilier.ch informe sur le 3e pilier et recueille des demandes de comparatif. Contact : info@comparateur-3eme-pilier.ch.",
     published: UPDATED,
     updated: UPDATED,
     intro:
-      "Qui écrit les plafonds de ce site ? La rédaction du Comparateur 3ème pilier, à partir des textes OFAS et AFC — pas d’un palmarès. Le site informe et génère des demandes de comparatif pour la Suisse romande. Il n’est pas un agrégateur de tarifs en temps réel.",
-    related: ["methode-sources-ofas-afc", "analyse-de-prevoyance", "mentions-legales", "actualite-3eme-pilier"],
+      "Le site comparateur-3eme-pilier.ch informe sur le 3e pilier à partir des textes OFAS et AFC, et recueille des demandes de comparatif. Contact : info@comparateur-3eme-pilier.ch.",
+    related: ["deductions-fiscales-3eme-pilier", "analyse-de-prevoyance", "mentions-legales", "actualite-3eme-pilier"],
     blocks: [
       { type: "h2", text: "Méthode" },
       {
         type: "p",
         text: METHOD_INLINE,
       },
-      { type: "h2", text: "Ce que nous ne faisons pas" },
+      { type: "h2", text: "Ce que le service examine" },
+      {
+        type: "p",
+        text: "Un conseiller examine les solutions accessibles dans le cadre du service : frais, souplesse des versements, valeur de rachat, garanties décès ou incapacité, horizon. Ce n’est pas l’ensemble du marché suisse.",
+      },
+      { type: "h2", text: "Limites" },
       {
         type: "ul",
         items: [
-          "Remplacer votre fiduciaire ou votre caisse de pension.",
-          "Garantir un rendement.",
-          "Prétendre être le titulaire SWITCH tant que le RDAP n’est pas nominatif public.",
+          "Le site ne remplace pas un fiduciaire ni une caisse de pension.",
+          "Le site ne garantit pas un rendement.",
+          "Plafonds 2026 : CHF 7’258 / 36’288. Montants 2027 à confirmer par l’OFAS.",
         ],
       },
       { type: "h2", text: "Revue" },
       {
         type: "p",
-        text: "Dernière revue des plafonds et des rentes : 19 septembre 2026. Prochaine vérification naturelle : communiqué OFAS des montants au 1er janvier 2027 (généralement l’automne).",
+        text: "Dernière revue des plafonds 2026 : 19 septembre 2026. Plafonds 2026 : CHF 7’258 / 36’288. Montants 2027 à confirmer par l’OFAS.",
       },
     ],
   },

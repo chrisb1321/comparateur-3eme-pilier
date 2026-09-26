@@ -67,7 +67,7 @@ export const FIGURES = {
 } as const;
 
 export const CEILING_NOTE =
-  "2026 : tableau OFAS du 1er janvier 2026. 2027 : mêmes plafonds encore en vigueur (art. 7 OPP 3, « dès 2025 ») ; le tableau OFAS des montants au 1.1.2027 n’était pas publié au 19 septembre 2026 (annonce usuelle en octobre).";
+  "Plafonds 2026 : CHF 7’258 / 36’288. Montants 2027 à confirmer par l’OFAS";
 
 export const PILLAR_3A_HISTORY = [
   {
@@ -97,7 +97,7 @@ export const SOURCES = [
     id: "ofas-3a",
     label: "OFAS — Le troisième pilier (art. 7 OPP 3)",
     href: "https://www.bsv.admin.ch/fr/le-troisieme-pilier",
-    note: "Petite cotisation CHF 7’258 et grande cotisation CHF 36’288 dès 2025, encore en vigueur pour 2026 et, au 19.09.2026, pour 2027. Rachats 3a dès l’année fiscale 2026 (lacune 2025).",
+    note: "Petite cotisation CHF 7’258 et grande cotisation CHF 36’288, tableau OFAS au 1.1.2026. Montants 2027 à confirmer par l’OFAS. Rachats 3a dès l’année fiscale 2026 (lacune 2025).",
   },
   {
     id: "ofas-amounts-2026",
@@ -140,5 +140,9 @@ export function chf(n: number): string {
 }
 
 export function pillar3aTableRows(): string[][] {
-  return PILLAR_3A_HISTORY.map((row) => [row.period, chf(row.withLpp), chf(row.withoutLpp)]);
+  return PILLAR_3A_HISTORY.map((row) =>
+    row.period === "2027"
+      ? ["2027", "À confirmer par l’OFAS", "À confirmer par l’OFAS"]
+      : [row.period, chf(row.withLpp), chf(row.withoutLpp)],
+  );
 }

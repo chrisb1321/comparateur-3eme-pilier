@@ -51,7 +51,7 @@ export function SiteHeader() {
     >
       <div className="flex h-9 items-center justify-center gap-2 bg-[#3FD9C4] px-4 text-center text-sm font-medium text-[#062B40] max-[1100px]:h-8 max-[1100px]:text-[13px]">
         <b className="font-semibold">Comparatif gratuit</b>
-        <span className="max-[1100px]:hidden">· sans honoraires · plafonds OFAS 2026–2027</span>
+        <span className="max-[1100px]:hidden">· sans engagement · plafonds 2026 : CHF 7’258 / 36’288</span>
       </div>
       <nav
         className="mx-auto flex h-[88px] w-full max-w-[1440px] items-center justify-between gap-8 px-12 max-[1100px]:h-16 max-[1100px]:px-4"

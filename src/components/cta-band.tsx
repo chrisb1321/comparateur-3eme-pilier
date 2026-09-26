@@ -1,8 +1,8 @@
 import Link from "next/link";
 
 export function CtaBand({
-  title = "Recevoir un comparatif 3e pilier",
-  text = "Sans honoraires, sans engagement, plafonds OFAS 2026. Un seul formulaire — plus de Typeform.",
+  title = "Demander mon comparatif gratuit",
+  text = "Comparatif gratuit et sans engagement. Plafonds 2026 : CHF 7’258 / 36’288. Montants 2027 à confirmer par l’OFAS.",
 }: {
   title?: string;
   text?: string;
@@ -16,7 +16,7 @@ export function CtaBand({
           <p className="mt-3 max-w-xl text-base text-white/85">{text}</p>
         </div>
         <Link href="/formulaire-3eme-pilier/" className="btn-pill shrink-0">
-          Demander un comparatif
+          Demander mon comparatif gratuit
         </Link>
       </div>
     </section>

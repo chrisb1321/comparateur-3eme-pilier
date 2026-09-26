@@ -1,7 +1,13 @@
+import { isPublicPostDate } from "@/lib/publication";
 import { PAGES } from "./pages";
 import { POSTS } from "./posts";
 import { loadMdxArticles } from "./mdx-articles";
 import type { EditorialDoc } from "./types";
+
+function isListed(doc: EditorialDoc): boolean {
+  if (doc.kind !== "post") return true;
+  return isPublicPostDate(doc.published);
+}
 
 function allDocs(): EditorialDoc[] {
   return [...PAGES, ...POSTS, ...loadMdxArticles()];
@@ -16,7 +22,9 @@ export function getAllSlugs(): string[] {
 }
 
 export function getPosts(): EditorialDoc[] {
-  return [...POSTS, ...loadMdxArticles()].sort((a, b) => (a.published < b.published ? 1 : -1));
+  return [...POSTS, ...loadMdxArticles()]
+    .filter(isListed)
+    .sort((a, b) => (a.published < b.published ? 1 : -1));
 }
 
 export function getSeriesPosts(): EditorialDoc[] {
@@ -38,7 +46,7 @@ export function getRelated(doc: EditorialDoc): EditorialDoc[] {
     const slug = raw.split("/").filter(Boolean).pop() as string;
     if (!slug || slug === doc.slug || seen.has(slug)) continue;
     const item = getBySlug(slug);
-    if (!item) continue;
+    if (!item || !isListed(item)) continue;
     seen.add(slug);
     related.push(item);
   }

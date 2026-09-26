@@ -1,4 +1,4 @@
-import { chf, FIGURES, pillar3aTableRows, YEAR_SPAN, YEAR_SPAN_WORDS, CEILING_NOTE } from "@/lib/figures";
+import { chf, FIGURES, pillar3aTableRows, YEAR_SPAN, CEILING_NOTE } from "@/lib/figures";
 import type { EditorialDoc } from "./types";
 
 const UPDATED = "2026-09-20";
@@ -16,7 +16,7 @@ export const POSTS: EditorialDoc[] = [
     updated: UPDATED,
     category: "prevoyance",
     intro:
-      `Le 3a se souscrit auprès d’une fondation bancaire ou d’un assureur. La déduction ${YEAR_SPAN_WORDS} ne change pas. Ce qui change, c’est ce qu’il reste si vous arrêtez, et ce qui est versé si vous disparaissez.`,
+      "Le 3a se souscrit auprès d’une fondation bancaire ou d’un assureur. La déduction 2026 ne change pas selon le support. Ce qui change, c’est ce qu’il reste si vous arrêtez, et ce qui est versé si vous disparaissez.",
     related: [
       "3eme-pilier-banque-assurance",
       "frais-3a-banque-assurance",
@@ -25,7 +25,7 @@ export const POSTS: EditorialDoc[] = [
     faqs: [
       {
         question: "La déduction 3a est-elle plus haute en assurance ?",
-        answer: `Non. En ${YEAR_SPAN_WORDS} le plafond OFAS est ${chf(FIGURES.pillar3aWithLpp)} / ${chf(FIGURES.pillar3aWithoutLpp)}, quel que soit le prestataire. Ce qui change : frais, valeur de rachat, capital décès.`,
+        answer: `Non. Plafonds 2026 : CHF 7’258 / 36’288. Montants 2027 à confirmer par l’OFAS. Le plafond 2026 ne dépend pas du prestataire. Ce qui change : frais, valeur de rachat, capital décès.`,
       },
     ],
     blocks: [
@@ -106,7 +106,7 @@ export const POSTS: EditorialDoc[] = [
       },
       {
         type: "p",
-        text: "L’ancienne page WordPress avait fuité un commentaire HTML dans un extrait Google. Cette version est du HTML propre, sans builder.",
+        text: "Le capital 3a est imposé à la sortie, à part du revenu. Le taux dépend du canton, du montant et de la situation de famille.",
       },
     ],
   },
@@ -115,18 +115,18 @@ export const POSTS: EditorialDoc[] = [
     slug: "quel-montant-deductible-3eme-pilier-2022",
     wpId: 3089,
     title: "Le montant du 3e pilier : de 2022 à 2027",
-    metaTitle: "Plafond 3a 2022, 2026 et 2027 : série OFAS / OPP 3",
+    metaTitle: "Plafond 3a de 2022 au tableau OFAS 2026",
     description:
-      "L’article historique « montant 2022 » est conservé et mis à jour : 6’883 alors, 7’258 en 2026 et 2027 (ordonnance en vigueur). Source OFAS.",
+      "L’article historique « montant 2022 » est conservé : 6’883 alors. Plafonds 2026 : CHF 7’258 / 36’288. Montants 2027 à confirmer par l’OFAS.",
     published: "2021-12-12",
     updated: UPDATED,
     category: "prevoyance",
-    intro: `En 2022, la petite cotisation 3a était de CHF 6’883 et la grande de CHF 34’416. En ${YEAR_SPAN_WORDS} : ${chf(FIGURES.pillar3aWithLpp)} et ${chf(FIGURES.pillar3aWithoutLpp)}. ${CEILING_NOTE} Nous gardons ce slug, très indexé, en corrigeant les chiffres.`,
+    intro: `En 2022, la petite cotisation 3a était de CHF 6’883 et la grande de CHF 34’416. En 2026 : ${chf(FIGURES.pillar3aWithLpp)} et ${chf(FIGURES.pillar3aWithoutLpp)}. ${CEILING_NOTE}. Nous gardons ce slug, très indexé, en corrigeant les chiffres.`,
     related: ["deductions-fiscales-3eme-pilier", "plafonds-3a-2026-2027", "rachat-lacunes-3a-2026"],
     faqs: [
       {
         question: "Pourquoi ce slug parle-t-il encore de 2022 ?",
-        answer: `Parce que l’URL WordPress est indexée. Le corps est mis à jour : ${chf(FIGURES.pillar3aWithLpp)} / ${chf(FIGURES.pillar3aWithoutLpp)} en ${YEAR_SPAN_WORDS} (OFAS / OPP 3). Les 6’883 / 34’416 CHF sont l’histoire, pas le droit actuel.`,
+        answer: `Parce que cette adresse est déjà connue. Le corps indique les plafonds 2026 : ${chf(FIGURES.pillar3aWithLpp)} / ${chf(FIGURES.pillar3aWithoutLpp)} (tableau OFAS). Montants 2027 à confirmer par l’OFAS. Les 6’883 / 34’416 CHF sont l’histoire, pas le droit actuel.`,
       },
     ],
     blocks: [
@@ -138,7 +138,7 @@ export const POSTS: EditorialDoc[] = [
       },
       {
         type: "p",
-        text: `Nouveau dès 2026 (toujours valable en 2027) : rachat possible d’une lacune depuis 2025, jusqu’à ${chf(FIGURES.buybackMax)}, sous conditions. Détail sur la page déductions fiscales.`,
+        text: `Dès 2026 : rachat possible d’une lacune depuis 2025, jusqu’à ${chf(FIGURES.buybackMax)} pour un rachat effectué en 2026, sous conditions. Le montant applicable en 2027 est à confirmer par l’OFAS. Détail sur la page déductions fiscales.`,
       },
     ],
   },
@@ -207,7 +207,7 @@ export const POSTS: EditorialDoc[] = [
     blocks: [
       {
         type: "p",
-        text: `Les textes WordPress affirmaient qu’on ne pouvait jamais racheter une année manquante. C’était vrai jusqu’aux lacunes 2024. Dès 2026, un rachat de lacune 2025 est possible (petite cotisation, ${chf(FIGURES.buybackMax)}), sous conditions OFAS. Les années antérieures à 2025 restent perdues. Ne tardez pas pour autant : le rachat n’est pas un droit automatique.`,
+        text: `D’anciens textes affirmaient qu’on ne pouvait jamais racheter une année manquante. C’était vrai jusqu’aux lacunes 2024. Dès 2026, un rachat de lacune 2025 est possible (petite cotisation 2026, ${chf(FIGURES.buybackMax)}), sous conditions OFAS. Les années antérieures à 2025 restent perdues. Le rachat n’est pas un droit automatique.`,
       },
     ],
   },

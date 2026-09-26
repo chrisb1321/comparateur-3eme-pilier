@@ -44,7 +44,7 @@ export function MobileNav() {
             onClick={() => setOpen(false)}
             className="mt-4 flex h-12 items-center justify-center bg-accent text-[0.72rem] uppercase tracking-[0.2em] text-accent-foreground"
           >
-            Demander un comparatif
+            Demander mon comparatif gratuit
           </Link>
           <Link
             href="/nous-contacter/"

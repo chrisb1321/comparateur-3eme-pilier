@@ -41,13 +41,13 @@ function ceilingFor(situation: Situation): { amount: number; label: string; deta
     return {
       amount: FIGURES.pillar3aWithoutLpp,
       label: "Grande cotisation (max.)",
-      detail: `20 % du revenu d’activité, plafonné à ${chf(FIGURES.pillar3aWithoutLpp)} en 2026 et 2027.`,
+      detail: `20 % du revenu d’activité, plafonné en 2026 à ${chf(FIGURES.pillar3aWithoutLpp)}. ${CEILING_NOTE}.`,
     };
   }
   return {
     amount: FIGURES.pillar3aWithLpp,
     label: "Petite cotisation",
-    detail: `Plafond fixe OFAS : ${chf(FIGURES.pillar3aWithLpp)} en 2026 et 2027 (art. 7 OPP 3).`,
+    detail: `Plafond fixe OFAS 2026 : ${chf(FIGURES.pillar3aWithLpp)} (art. 7 OPP 3). ${CEILING_NOTE}.`,
   };
 }
 
@@ -72,7 +72,7 @@ export function CeilingSimulator({ tone = "paper" }: { tone?: "paper" | "hero" }
           Quel plafond pour votre situation ?
         </h2>
         <p className={cn("mt-2 text-sm leading-relaxed", hero ? "text-primary-foreground/80" : "text-muted-foreground")}>
-          Estimation indicative — pas un conseil fiscal. Les montants 2026 et 2027 sont identiques tant que l’OFAS n’a pas publié un nouveau tableau.
+          Estimation indicative — pas un conseil fiscal. {CEILING_NOTE}.
         </p>
       </div>
       <div className="mt-4 grid gap-2 px-4 sm:grid-cols-2">
@@ -125,7 +125,7 @@ export function CeilingSimulator({ tone = "paper" }: { tone?: "paper" | "hero" }
             hero && "bg-gradient-to-r from-[#BFF3EA] to-[#4FDCC7] text-[#062B40]",
           )}
         >
-          Demander un comparatif
+          Demander mon comparatif gratuit
         </Link>
       </div>
     </section>

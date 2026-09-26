@@ -45,13 +45,13 @@ export function LeadForm({
           <i className="h-1 flex-1 rounded-sm bg-[#23597C]" />
         </div>
         <h2 className="font-heading text-2xl font-semibold text-[#10324A]">
-          {isContact ? "Une question, un rappel" : "Recevoir un comparatif"}
+          {isContact ? "Une question, un rappel" : "Demander mon comparatif gratuit"}
         </h2>
         {idle ? (
           <p className="text-sm leading-relaxed text-muted-foreground">
             {isContact
               ? "Quatre champs. Prochaine étape : un rappel sous deux jours ouvrés, de préférence par téléphone."
-              : "Cinq champs. Un conseiller partenaire diplômé AFA lit la situation — sans honoraires, sans Typeform."}
+              : "Décrivez votre projet. Un conseiller vous rappelle sous deux jours ouvrés. Comparatif gratuit et sans engagement."}
           </p>
         ) : null}
         {isContact ? null : <TrustStrip />}
@@ -125,7 +125,7 @@ export function LeadForm({
           className="min-h-20 rounded-[10px] border-[#C9D8E2] bg-[#F7FAFC] text-base text-[#10324A] focus-visible:border-[#23597C] focus-visible:ring-2 focus-visible:ring-[#23597C]/40 md:text-base"
           placeholder={
             isContact
-              ? "Décrivez le besoin. Nous rappelons ; pas de confirmation dans votre boîte."
+              ? "Décrivez le besoin. Un conseiller vous rappelle sous deux jours ouvrés."
               : "Ex. frontalier Genève, TOU, logement…"
           }
         />
@@ -162,8 +162,8 @@ export function LeadForm({
       </Button>
       <p className="text-xs leading-relaxed text-muted-foreground">
         {isContact
-          ? "Pas de confirmation dans votre boîte. Un humain rappelle si le dossier est transmis."
-          : "Rappel sous deux jours ouvrés une fois le dossier transmis au conseiller. Vous n’êtes pas engagé."}
+          ? "Aucun e-mail de confirmation n’est envoyé. Un conseiller vous rappelle sous deux jours ouvrés si la demande est enregistrée."
+          : "Demande enregistrée après envoi. Un conseiller vous rappelle sous deux jours ouvrés. Aucun e-mail de confirmation n’est envoyé."}
       </p>
     </form>
   );

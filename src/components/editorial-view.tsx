@@ -21,6 +21,7 @@ import {
   faqPageLd,
   webPageLd,
 } from "@/lib/schema";
+import { calendarDay, formatEditorialDate, isPublicPostDate } from "@/lib/publication";
 import { canonical, SITE } from "@/lib/site";
 
 export function docMetadata(doc: EditorialDoc): Metadata {
@@ -38,8 +39,8 @@ export function docMetadata(doc: EditorialDoc): Metadata {
       locale: "fr_CH",
       type: doc.kind === "post" ? "article" : "website",
       siteName: SITE.name,
-      publishedTime: doc.published,
-      modifiedTime: doc.updated,
+      publishedTime: calendarDay(doc.published),
+      modifiedTime: calendarDay(doc.updated),
       images: [{ url: cover.src, width: cover.width, height: cover.height, alt: cover.alt }],
     },
     twitter: {
@@ -47,6 +48,10 @@ export function docMetadata(doc: EditorialDoc): Metadata {
       title: doc.metaTitle,
       description: doc.description,
     },
+    robots:
+      doc.kind === "post" && !isPublicPostDate(doc.published)
+        ? { index: false, follow: false }
+        : undefined,
   };
 }
 
@@ -70,33 +75,39 @@ export async function EditorialView({
       <article data-testid="page-merci">
         <div className="page-hero on-navy">
           <div className="page-hero-in">
-            <p className="kicker">{transmitted ? "Dossier transmis" : "Demande enregistrée"}</p>
+            <p className="kicker">{journalOk || transmitted ? "Demande enregistrée" : "Demande non confirmée"}</p>
             <h1 className="font-heading">{doc.title}</h1>
           </div>
         </div>
         <div className="mx-auto max-w-2xl px-4 py-16 md:px-6">
           <p className="text-lg leading-relaxed" data-testid="lead-crm-status" data-crm={transmitted ? "ok" : "no"}>
             {transmitted
-              ? "Votre demande est bien arrivée dans notre suivi interne. Un conseiller partenaire rappelle sous deux jours ouvrés, de préférence par téléphone."
+              ? "Votre demande est enregistrée. Un conseiller vous rappelle sous deux jours ouvrés. Aucun e-mail de confirmation n’est envoyé."
               : journalOk
-                ? "La demande est enregistrée sur le site, mais elle n’a pas pu être transmise au suivi conseiller. Aucun rappel automatique n’est déclenché. Écrivez-nous si vous n’avez pas de nouvelles."
-                : "Nous n’avons pas de confirmation d’enregistrement. Écrivez à l’adresse ci-dessous en rappelant votre numéro."}
+                ? "Votre demande est enregistrée sur le site, mais le rappel n’a pas pu être déclenché. Écrivez-nous pour qu’un conseiller vous rappelle. Aucun e-mail de confirmation n’est envoyé."
+                : "Nous n’avons pas de confirmation d’enregistrement. Écrivez à l’adresse ci-dessous en rappelant votre numéro. Aucun e-mail de confirmation n’est envoyé."}
           </p>
           <ol className="mt-10 grid gap-4">
             <li className="surface-card p-6">
               <p className="text-sm font-semibold tracking-[0.12em] text-[#23597C] uppercase">01</p>
-              <h2 className="mt-1 text-2xl font-semibold">{transmitted ? "Le dossier est chez le conseiller" : "Transmission en attente"}</h2>
+              <h2 className="mt-1 text-2xl font-semibold">{transmitted || journalOk ? "Demande enregistrée" : "Enregistrement non confirmé"}</h2>
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
                 {transmitted
-                  ? "Votre fiche est dans le suivi interne. Aucun e-mail de confirmation n’est envoyé dans votre boîte."
-                  : "Nous n’affirmons pas qu’un e-mail a été envoyé, ni qu’un conseiller voit déjà la fiche. Une copie locale existe seulement si l’enregistrement a réussi."}
+                  ? "La demande est enregistrée. Aucun e-mail de confirmation n’est envoyé."
+                  : journalOk
+                    ? "Une copie est conservée sur le site. Le rappel n’est pas parti. Aucun e-mail de confirmation n’est envoyé."
+                    : "Sans confirmation d’enregistrement, le rappel ne part pas. Aucun e-mail de confirmation n’est envoyé."}
               </p>
             </li>
             <li className="surface-card p-6">
               <p className="text-sm font-semibold tracking-[0.12em] text-[#23597C] uppercase">02</p>
-              <h2 className="mt-1 text-2xl font-semibold">Un humain rappelle</h2>
+              <h2 className="mt-1 text-2xl font-semibold">
+                {transmitted ? "Rappel sous deux jours ouvrés" : "Rappel non déclenché"}
+              </h2>
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                Sous deux jours ouvrés, de préférence par téléphone — une fois le dossier transmis. Si rien ne vient, écrivez à{" "}
+                {transmitted
+                  ? "Un conseiller vous rappelle sous deux jours ouvrés. Si rien ne vient, écrivez à "
+                  : "Si le rappel n’a pas été déclenché, écrivez à "}
                 <a className="font-semibold text-[#174462] underline underline-offset-4" href={`mailto:${SITE.email}`}>
                   {SITE.email}
                 </a>{" "}
@@ -116,7 +127,7 @@ export async function EditorialView({
           </div>
           {related.length ? (
             <div className="mt-12">
-              <p className="kicker">En attendant le rappel</p>
+              <p className="kicker">À lire</p>
               <ul className="mt-4 space-y-2">
                 {related.map((item) => (
                   <li key={item.slug}>
@@ -142,7 +153,7 @@ export async function EditorialView({
           </p>
           <h1 className="font-heading">{doc.title}</h1>
           <p className="page-hero-meta">
-            Publié le {formatDate(doc.published)} · mis à jour le {formatDate(doc.updated)}
+            Publié le {formatEditorialDate(doc.published)} · mis à jour le {formatEditorialDate(doc.updated)}
           </p>
         </div>
       </div>
@@ -156,9 +167,8 @@ export async function EditorialView({
           <div data-testid="hub-actualites" className="mt-12">
             <p className="kicker">Cadence</p>
             <p className="mt-2 max-w-2xl text-sm leading-relaxed text-muted-foreground">
-              Trois articles par semaine (lundi, mercredi, vendredi) — plafonds OFAS, cantons, frontaliers,
-              3a/3b, banque ou assurance, versement, retraite et rachat LPP. Semaines 1 à 6 en ligne. Pas un flux
-              quotidien. Les guides WordPress restent à leurs slugs d’origine.
+              Articles déjà datés : plafonds OFAS, rachat de lacunes, tableau des montants, retrait et lien avec le 2e pilier.
+              Les textes prévus après le 26 septembre 2026 ne figurent pas dans cette liste.
             </p>
             <ul className="mt-8 space-y-8">
               {posts.map((post) => (
@@ -172,7 +182,7 @@ export async function EditorialView({
                       {post.title}
                     </Link>
                     <p className="mt-1 text-xs uppercase tracking-[0.16em] text-muted-foreground">
-                      {formatDate(post.published)}
+                      {formatEditorialDate(post.published)}
                     </p>
                     <p className="mt-2 text-sm leading-relaxed">{post.description}</p>
                   </div>
@@ -234,10 +244,3 @@ function ArticleJsonLd({ doc }: { doc: EditorialDoc }) {
   return <JsonLd data={data} />;
 }
 
-function formatDate(iso: string): string {
-  return new Intl.DateTimeFormat("fr-CH", {
-    day: "numeric",
-    month: "long",
-    year: "numeric",
-  }).format(new Date(`${iso}T00:00:00`));
-}

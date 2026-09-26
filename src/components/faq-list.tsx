@@ -16,9 +16,9 @@ export function FaqList({ items }: { items: FaqItem[] }) {
           </p>
           <aside className="flex flex-col gap-4 rounded-[22px] bg-[#174462] p-7 text-white">
             <p className="text-xl font-semibold">Une autre question ?</p>
-            <p className="text-[15px] text-white/80">Un conseiller partenaire diplômé AFA vous répond au rappel.</p>
+            <p className="text-[15px] text-white/80">Un conseiller vous rappelle sous deux jours ouvrés.</p>
             <Link href="/formulaire-3eme-pilier/" className="btn-pill">
-              Recevoir un comparatif
+              Demander mon comparatif gratuit
             </Link>
           </aside>
         </div>

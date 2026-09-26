@@ -59,5 +59,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: post.series ? 0.85 : 0.65,
   }));
 
-  return [home, hub, category, ...pageEntries, ...postEntries];
+  const example: MetadataRoute.Sitemap[number] = {
+    url: canonical("/exemple-de-comparatif/"),
+    lastModified: "2026-09-26",
+    changeFrequency: "monthly",
+    priority: 0.7,
+  };
+
+  return [home, hub, category, example, ...pageEntries, ...postEntries];
 }

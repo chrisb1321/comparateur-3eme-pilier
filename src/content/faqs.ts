@@ -1,18 +1,18 @@
-import { chf, FIGURES, YEAR_SPAN_WORDS, CEILING_NOTE } from "@/lib/figures";
+import { chf, FIGURES, CEILING_NOTE } from "@/lib/figures";
 import type { FaqItem } from "./types";
 
 export const HOME_FAQS: FaqItem[] = [
   {
-    question: `Quel est le montant maximum du 3e pilier A en ${YEAR_SPAN_WORDS} ?`,
-    answer: `En 2026 (tableau OFAS du 1er janvier 2026) et en 2027 (mêmes montants encore en vigueur, art. 7 OPP 3 « dès 2025 »), la petite cotisation (affilié à une institution du 2e pilier) est de ${chf(FIGURES.pillar3aWithLpp)} par an. Sans affiliation au 2e pilier, la grande cotisation atteint 20 % du revenu de l’activité lucrative, plafonnée à ${chf(FIGURES.pillar3aWithoutLpp)}. ${CEILING_NOTE} Ces montants valent pour l’ensemble des comptes 3a.`,
+    question: "Quel est le montant maximum du 3e pilier A en 2026 ?",
+    answer: `${CEILING_NOTE}. En 2026, la petite cotisation (affilié à une institution du 2e pilier) est de ${chf(FIGURES.pillar3aWithLpp)} par an. Sans affiliation au 2e pilier, la grande cotisation atteint 20 % du revenu de l’activité lucrative, plafonnée à ${chf(FIGURES.pillar3aWithoutLpp)}. Ces montants 2026 valent pour l’ensemble des comptes 3a.`,
   },
   {
     question: "Les plafonds 3a 2027 sont-ils déjà publiés par l’OFAS ?",
-    answer: `Non, au 19 septembre 2026. L’OFAS n’a pas encore publié de tableau « montants valables au 1er janvier 2027 ». Nous n’inventons pas de hausse : les plafonds applicables restent ceux de l’ordonnance (art. 7 OPP 3, dès 2025), identiques au tableau 2026 — ${chf(FIGURES.pillar3aWithLpp)} / ${chf(FIGURES.pillar3aWithoutLpp)}. Une adaptation n’interviendrait que si le Conseil fédéral relève les rentes AVS (annonce usuelle en octobre).`,
+    answer: `Non. ${CEILING_NOTE}.`,
   },
   {
     question: "Peut-on racheter des années manquantes de 3a ?",
-    answer: `Oui, depuis l’année fiscale ${FIGURES.buybackFirstYear}. Le premier rachat possible concerne une lacune de ${FIGURES.buybackGapFrom}, dans la limite de la petite cotisation (${chf(FIGURES.buybackMax)}), en plus de la cotisation ordinaire de l’année du rachat. En 2027, les lacunes depuis 2025 restent rachetables selon les mêmes règles. Il faut un revenu soumis à l’AVS en Suisse pour l’année de lacune et pour l’année du rachat, et avoir versé le maximum ordinaire de l’année en cours. Source : OFAS.`,
+    answer: `Oui, depuis l’année fiscale ${FIGURES.buybackFirstYear}. Le premier rachat possible concerne une lacune de ${FIGURES.buybackGapFrom}, dans la limite de la petite cotisation 2026 (${chf(FIGURES.buybackMax)}), en plus de la cotisation ordinaire de l’année du rachat. Le montant de rachat applicable en 2027 est à confirmer par l’OFAS. Il faut un revenu soumis à l’AVS en Suisse pour l’année de lacune et pour l’année du rachat, et avoir versé le maximum ordinaire de l’année en cours. Source : OFAS.`,
   },
   {
     question: "Quelle est la différence entre le 3a et le 3b ?",
@@ -32,9 +32,9 @@ export const HOME_FAQS: FaqItem[] = [
   {
     question: "Le comparatif est-il payant ?",
     answer:
-      "Non. Le service est annoncé sans honoraires et sans engagement. Vous recevez un comparatif d’offres après avoir décrit votre situation. Vous restez libre de ne rien souscrire.",
+      "Non. Comparatif gratuit et sans engagement. Un conseiller vous rappelle sous deux jours ouvrés pour examiner les solutions accessibles dans le cadre du service. Vous restez libre de ne rien souscrire.",
   },
 ];
 
 export const METHOD_NOTE =
-  "Méthode : nous recoupons les textes officiels (OFAS, OPP 3, AFC) et les notices cantonales. Les plafonds 3a 2026 (tableau OFAS) et 2027 (ordonnance encore en vigueur, tableau OFAS non publié au 19.09.2026) sont nationaux. Les déductions 3b sont cantonales et partagent souvent l’enveloppe des primes d’assurance : un chiffre « maximum » n’est pas un crédit d’impôt automatique. Dernière revue éditoriale : 19 septembre 2026. Ceci n’est pas un conseil personnalisé.";
+  "Méthode : nous recoupons les textes officiels (OFAS, OPP 3, AFC) et les notices cantonales. Plafonds 2026 : CHF 7’258 / 36’288. Montants 2027 à confirmer par l’OFAS. Les déductions 3b sont cantonales et partagent souvent l’enveloppe des primes d’assurance : un chiffre « maximum » n’est pas un crédit d’impôt automatique. Dernière revue éditoriale : 19 septembre 2026. Ceci n’est pas un conseil personnalisé.";

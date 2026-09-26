@@ -42,12 +42,12 @@ export function ProcessSteps() {
     {
       n: "01",
       title: "Vous décrivez la situation",
-      text: "Canton, statut, un numéro joignable. Deux minutes, pas un Typeform.",
+      text: "Canton, statut, un numéro joignable. Deux minutes.",
     },
     {
       n: "02",
       title: "Un conseiller rappelle",
-      text: "Partenaire diplômé AFA, sous deux jours ouvrés, de préférence par téléphone.",
+      text: "Un conseiller vous rappelle sous deux jours ouvrés pour examiner les solutions accessibles dans le cadre du service.",
     },
     {
       n: "03",

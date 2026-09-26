@@ -30,7 +30,7 @@ const GROUPS = [
       { href: "/epargne-enfant/", label: "Épargne enfant" },
       { href: "/assurance-vie-en-suisse/", label: "Assurance-vie" },
       { href: "/actualite-3eme-pilier/", label: "Actualités" },
-      { href: "/methode-sources-ofas-afc/", label: "Méthode OFAS / AFC" },
+      { href: "/exemple-de-comparatif/", label: "Exemple de comparatif" },
     ],
   },
   {
@@ -60,14 +60,14 @@ export function SiteFooter() {
               Suisse romande · 3a et 3b
             </p>
             <h2 className="font-heading mb-5 text-5xl leading-[1.04] text-white uppercase max-[1100px]:text-[42px]">
-              Recevoir un <em>comparatif</em>
+              Demander mon <em>comparatif</em>
             </h2>
             <p className="mb-7 text-[19px] leading-relaxed text-white/85">
-              Sans honoraires, sans engagement. Un conseiller partenaire diplômé AFA lit votre situation — rappel sous deux jours ouvrés.
+              Comparatif gratuit et sans engagement. Un conseiller vous rappelle sous deux jours ouvrés.
             </p>
           </div>
           <Link href="/formulaire-3eme-pilier/" className="btn-pill shrink-0 max-[1100px]:w-full">
-            Demander un comparatif
+            Demander mon comparatif gratuit
             <Arrow />
           </Link>
         </div>

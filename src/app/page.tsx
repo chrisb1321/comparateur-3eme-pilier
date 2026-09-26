@@ -9,14 +9,14 @@ import { LeadForm } from "@/components/lead-form";
 import { SourcesList } from "@/components/sources-list";
 import { HOME_FAQS, METHOD_NOTE } from "@/content/faqs";
 import { ProcessSteps } from "@/components/trust-strip";
-import { chf, FIGURES, YEAR_SPAN, YEAR_SPAN_WORDS } from "@/lib/figures";
+import { CEILING_NOTE, chf, FIGURES, YEAR_SPAN } from "@/lib/figures";
 import { IMAGES } from "@/lib/media";
 import { canonical, SITE } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: `Comparateur 3ème pilier ${YEAR_SPAN} : comparez et déduisez`,
   description:
-    `Comparez les 3e piliers 3a et 3b en Suisse. Plafonds ${YEAR_SPAN_WORDS} (OFAS / OPP 3) : CHF 7’258 / 36’288. Comparatif gratuit, sans honoraires, sans Typeform.`,
+    "Comparez les solutions de 3e pilier adaptées à votre situation. Comparatif gratuit et sans engagement. Plafonds 2026 : CHF 7’258 / 36’288. Montants 2027 à confirmer par l’OFAS.",
   alternates: { canonical: canonical("/") },
 };
 
@@ -37,7 +37,7 @@ const PILLARS = [
     href: "/3eme-pilier-a-ou-b/",
     title: "3e pilier 3a / 3b",
     image: IMAGES.mixte,
-    text: `Prévoyance individuelle. Plafond 3a ${YEAR_SPAN_WORDS} : ${chf(FIGURES.pillar3aWithLpp)} ou ${chf(FIGURES.pillar3aWithoutLpp)}.`,
+    text: `Prévoyance individuelle. Plafond 3a 2026 : ${chf(FIGURES.pillar3aWithLpp)} ou ${chf(FIGURES.pillar3aWithoutLpp)}.`,
   },
 ];
 
@@ -84,18 +84,18 @@ export default function HomePage() {
               Suisse romande · Genève · frontaliers
             </p>
             <h1 className="font-heading mb-6 text-[64px] leading-[1.06] text-white max-[1100px]:mb-4 max-[1100px]:text-[42px]">
-              Un comparatif <em>3e pilier</em>, sans honoraires
+              Comparez les solutions de <em>3e pilier</em> adaptées à votre situation
             </h1>
             <p className="mb-9 max-w-[560px] text-xl leading-normal text-white/85 max-[1100px]:mb-6 max-[1100px]:text-[17px]">
-              Banque ou assurance, 3a ou 3b : un conseiller partenaire diplômé AFA lit votre situation. Les plafonds ci-dessous sont ceux de l’OFAS pour 2026 — et, pour 2027, les montants encore en vigueur. Pas une estimation, pas un Typeform.
+              3a ou 3b, banque ou assurance : décrivez votre projet en deux minutes. Un conseiller vous rappelle sous deux jours ouvrés pour examiner les solutions accessibles, leurs frais et leurs garanties. Comparatif gratuit et sans engagement.
             </p>
             <div className="mb-12 flex gap-3.5 max-[1100px]:mb-7 max-[1100px]:flex-col">
               <a href="#comparatif" className="btn-pill">
-                Recevoir un comparatif
+                Demander mon comparatif gratuit
                 <Arrow />
               </a>
-              <a href="#parcours" className="btn-ghost">
-                Comment ça marche
+              <a href="/exemple-de-comparatif/" className="btn-ghost">
+                Voir un exemple de comparatif
               </a>
             </div>
             <div className="grid grid-cols-3 overflow-hidden rounded-[20px] border border-white/18 bg-white/6">
@@ -120,7 +120,7 @@ export default function HomePage() {
               </h2>
             </div>
             <p className="m-0 max-w-[420px] text-lg leading-relaxed text-[#4A6275]">
-              Trois étapes : comprendre votre plafond 3a, remplir le formulaire, recevoir un rappel sous deux jours ouvrés. Pas d’e-mail automatique, pas de Typeform.
+              Trois étapes : comprendre votre plafond 3a 2026, décrire votre projet, puis un rappel sous deux jours ouvrés. Aucun e-mail de confirmation n’est envoyé.
             </p>
           </div>
           <ProcessSteps />
@@ -129,7 +129,7 @@ export default function HomePage() {
             <CeilingsBlock tone="paper" />
           </div>
           <Link href="/deductions-fiscales-3eme-pilier/" className="btn-pill self-center max-[1100px]:w-full">
-            Détail des plafonds {YEAR_SPAN}
+            Détail des plafonds 2026
             <Arrow />
           </Link>
         </div>
@@ -151,9 +151,9 @@ export default function HomePage() {
                 <span className="rounded-full bg-[#E8F7F4] px-3 py-1 text-[13px] font-semibold text-[#1F5E55]">Déductible</span>
               </div>
               <p className="text-[40px] leading-none font-semibold max-[1100px]:text-[32px]">{chf(FIGURES.pillar3aWithLpp)}</p>
-              <p className="text-sm text-[#4A6275]">Plafond avec 2e pilier, {YEAR_SPAN_WORDS}. Sans 2e pilier : {chf(FIGURES.pillar3aWithoutLpp)}.</p>
+              <p className="text-sm text-[#4A6275]">Plafond 2026 avec 2e pilier. Sans 2e pilier : {chf(FIGURES.pillar3aWithoutLpp)}.</p>
               <ul className="flex flex-col gap-2.5 text-base leading-snug">
-                <li>Déductible dans tous les cantons, jusqu’aux plafonds {YEAR_SPAN_WORDS}.</li>
+                <li>Déductible dans tous les cantons, jusqu’aux plafonds 2026.</li>
                 <li>Capital bloqué sauf motifs légaux. Ordre des bénéficiaires fixé.</li>
                 <li>Existe en banque et en assurance.</li>
               </ul>
@@ -194,13 +194,13 @@ export default function HomePage() {
             </p>
             <p className="mt-2 mb-5 text-[44px] leading-none text-[#1F7F72] italic max-[1100px]:text-[30px]">francs par an</p>
             <p className="mb-8 max-w-[520px] text-[22px] leading-snug text-[#10324A] max-[1100px]:text-lg">
-              Petite cotisation avec 2e pilier, art. 7 OPP 3, identique en {YEAR_SPAN_WORDS}. La grande cotisation monte à {chf(FIGURES.pillar3aWithoutLpp)}.
+              Petite cotisation 2026 avec 2e pilier, art. 7 OPP 3. La grande cotisation 2026 monte à {chf(FIGURES.pillar3aWithoutLpp)}.
             </p>
             <div className="mb-4 flex items-center gap-4 rounded-2xl border border-[#DCE6ED] bg-[#F5F8FA] px-[22px] py-[18px]">
               <b className="text-[32px] font-semibold whitespace-nowrap text-[#174462] max-[1100px]:text-[26px]">{chf(FIGURES.pillar3aWithoutLpp)}</b>
               <span className="text-base leading-snug text-[#4A6275]">sans 2e pilier, 20 % du revenu d’activité, dans cette limite.</span>
             </div>
-            <p className="mb-8 text-[13px] text-[#6B8293]">Source : tableau OFAS au 1er janvier 2026. 2027 : mêmes montants encore en vigueur.</p>
+            <p className="mb-8 text-[13px] text-[#6B8293]">{CEILING_NOTE}.</p>
           </div>
           <div className="flex flex-1 flex-col gap-4">
             {REASONS.map((item, index) => (
@@ -237,22 +237,22 @@ export default function HomePage() {
               </p>
               <div className="absolute right-5 bottom-5 left-5 rounded-[18px] bg-[#174462]/90 p-5 text-white">
                 <b className="mb-1 block text-[17px] font-semibold">Un comparatif, pas un mandat</b>
-                <span className="text-[15px] leading-snug text-white/85">30 minutes pour lire vos certificats LPP et vos 3a déjà ouverts, sans engagement.</span>
+                <span className="text-[15px] leading-snug text-white/85">Le conseiller examine les solutions accessibles dans le cadre du service, pas l’ensemble du marché suisse.</span>
               </div>
             </div>
             <div className="flex-1">
               <p className="kicker">Méthode</p>
               <h2 className="font-heading mb-7 text-[56px] leading-[1.05] text-[#10324A] max-[1100px]:mb-3 max-[1100px]:text-[38px]">
-                Un conseil humain, <em>diplômé AFA</em>
+                Un conseil pour <em>votre situation</em>
               </h2>
               <p className="mb-4 text-[19px] leading-relaxed text-[#10324A]">
                 « Un rachat 3a dès 2026 n’efface pas les années perdues avant 2025. On verse d’abord le maximum de l’année, ensuite seulement la lacune. »
               </p>
               <p className="mb-7 text-[19px] leading-relaxed text-[#4A6275]">
-                Le partenaire du comparatif est un conseiller diplômé AFA. Lecture neutre, calée sur l’OFAS — pas un palmarès, pas un Typeform.
+                Un conseiller examine les solutions accessibles dans le cadre du service, leurs frais et leurs garanties. Ce n’est pas l’ensemble du marché suisse.
               </p>
               <div className="flex flex-wrap gap-2.5">
-                {["Diplômé AFA", "Sans honoraires", "Suisse romande"].map((badge) => (
+                {["Gratuit", "Sans engagement", "Suisse romande"].map((badge) => (
                   <span key={badge} className="rounded-full border border-[#DCE6ED] bg-white px-4 py-2.5 text-[15px] font-semibold text-[#174462]">
                     {badge}
                   </span>
@@ -287,7 +287,7 @@ export default function HomePage() {
             Les trois <em>piliers</em> suisses
           </h2>
           <p className="mt-5 max-w-3xl text-lg leading-relaxed text-[#4A6275]">
-            Le système de retraite suisse combine répartition (AVS), capitalisation (LPP) et prévoyance individuelle (3e pilier). L’âge de référence AVS est 65 ans ; les femmes de la génération transitoire AVS 21 suivent un relèvement progressif. Les textes WordPress citaient encore « 64 ans pour les femmes » : c’est périmé pour {YEAR_SPAN_WORDS}.
+            Le système de retraite suisse combine répartition (AVS), capitalisation (LPP) et prévoyance individuelle (3e pilier). L’âge de référence AVS est 65 ans ; les femmes de la génération transitoire AVS 21 suivent un relèvement progressif.
           </p>
           <div className="mt-12 grid gap-4 md:grid-cols-3">
             {PILLARS.map((pillar) => (
@@ -326,7 +326,7 @@ export default function HomePage() {
           <a className="font-semibold text-[#174462] underline underline-offset-4" href={`mailto:${SITE.email}`}>
             {SITE.email}
           </a>
-          . Partenaire conseil diplômé AFA pour la lecture des offres.
+          .
         </p>
         <SourcesList />
       </div>
@@ -344,21 +344,21 @@ export default function HomePage() {
           {
             "@context": "https://schema.org",
             "@type": "Dataset",
-            name: `Plafonds 3e pilier 3a ${YEAR_SPAN} (Suisse)`,
-            description: `Déductions maximales du pilier 3a selon l’art. 7 OPP 3. 2026 : tableau OFAS du 1.1.2026. 2027 : mêmes montants encore en vigueur ; tableau OFAS non publié au 19.09.2026.`,
+            name: "Plafonds 3e pilier 3a 2026 (Suisse)",
+            description: CEILING_NOTE,
             creator: { "@type": "Organization", name: SITE.name },
             license: "https://www.bsv.admin.ch/fr/le-troisieme-pilier",
-            temporalCoverage: "2025/2027",
+            temporalCoverage: "2026",
             variableMeasured: [
               {
                 "@type": "PropertyValue",
-                name: "Petite cotisation 3a 2026 et 2027 (avec 2e pilier)",
+                name: "Petite cotisation 3a 2026 (avec 2e pilier)",
                 value: FIGURES.pillar3aWithLpp,
                 unitText: "CHF",
               },
               {
                 "@type": "PropertyValue",
-                name: "Grande cotisation 3a 2026 et 2027 (sans 2e pilier, max.)",
+                name: "Grande cotisation 3a 2026 (sans 2e pilier, max.)",
                 value: FIGURES.pillar3aWithoutLpp,
                 unitText: "CHF",
               },

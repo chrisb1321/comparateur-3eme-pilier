@@ -25,7 +25,7 @@ export function StickyCta() {
         href="/formulaire-3eme-pilier/"
         className="btn-pill w-full"
       >
-        Demander un comparatif
+        Demander mon comparatif gratuit
       </Link>
     </div>
   );
