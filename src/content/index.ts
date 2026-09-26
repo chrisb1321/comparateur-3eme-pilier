@@ -22,7 +22,7 @@ export function getAllSlugs(): string[] {
 }
 
 export function getPosts(): EditorialDoc[] {
-  return [...POSTS, ...loadMdxArticles()]
+  return [...POSTS, ...loadMdxArticles().filter((doc) => doc.kind === "post")]
     .filter(isListed)
     .sort((a, b) => (a.published < b.published ? 1 : -1));
 }
@@ -32,7 +32,7 @@ export function getSeriesPosts(): EditorialDoc[] {
 }
 
 export function getPages(): EditorialDoc[] {
-  return PAGES;
+  return [...PAGES, ...loadMdxArticles().filter((doc) => doc.kind === "page")];
 }
 
 export function getRelated(doc: EditorialDoc): EditorialDoc[] {

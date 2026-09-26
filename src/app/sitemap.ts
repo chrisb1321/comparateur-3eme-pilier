@@ -9,6 +9,7 @@ const MONEY_PAGES = new Set([
   "3eme-pilier-banque-assurance",
   "3eme-pilier-geneve",
   "frontalier-suisse",
+  "3eme-pilier-independant",
   "1er-pilier-avs-ai-apg",
   "2eme-pilier-lpp",
   "formulaire-3eme-pilier",

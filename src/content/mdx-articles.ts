@@ -20,6 +20,7 @@ type Frontmatter = {
   series?: boolean;
   weekId?: string;
   draft?: boolean;
+  kind?: "page" | "post";
 };
 
 function isMdxFile(name: string): boolean {
@@ -38,8 +39,10 @@ export function loadMdxArticles(options?: { includeDrafts?: boolean }): Editoria
     if (!data.slug || !data.title) continue;
     if (data.draft && !options?.includeDrafts) continue;
 
+    const kind = data.kind === "page" ? "page" : "post";
+
     docs.push({
-      kind: "post",
+      kind,
       slug: data.slug,
       title: data.title,
       metaTitle: data.metaTitle ?? data.title,
@@ -53,7 +56,7 @@ export function loadMdxArticles(options?: { includeDrafts?: boolean }): Editoria
       related: data.related,
       category: data.category ?? "prevoyance",
       cover: data.cover,
-      series: data.series ?? true,
+      series: kind === "page" ? false : (data.series ?? true),
       weekId: data.weekId,
       draft: data.draft ?? false,
     });

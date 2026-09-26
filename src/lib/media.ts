@@ -136,6 +136,7 @@ const SLUG_COVER: Record<string, keyof typeof IMAGES> = {
   "choisir-son-3eme-pilier": "alpes",
   "deductions-fiscales-3eme-pilier": "lpp",
   "frontalier-suisse": "frontalier",
+  "3eme-pilier-independant": "lpp",
   "3eme-pilier-geneve": "geneve",
   "assurance-vie-en-suisse": "assurance",
   "assurance-deces": "laiton",
