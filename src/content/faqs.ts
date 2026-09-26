@@ -22,6 +22,11 @@ export const HOME_FAQS: FaqItem[] = [
       "7’258 CHF avec un 2e pilier. Sans affiliation au 2e pilier, 20 % du revenu d’activité jusqu’à 36’288 CHF.",
   },
   {
+    question: "Faut-il verser avant le 31 décembre ?",
+    answer:
+      "C’est la date de valeur au crédit du compte ou de la police 3a qui compte, pas la date d’ordre. Un virement trop tardif bascule sur l’année suivante. Dans la plupart des banques, une date limite est exigée vers le milieu du mois de décembre afin de garantir que le versement soit pris en compte pour la période fiscale.",
+  },
+  {
     question: "J’ai déjà un 3e pilier. Puis-je quand même comparer ?",
     answer:
       "Oui. Indiquez-le dans le formulaire, dans « Ce que vous souhaitez comparer ».",
