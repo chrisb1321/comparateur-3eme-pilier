@@ -4,7 +4,7 @@ import { SourcesList } from "@/components/sources-list";
 import { CtaBand } from "@/components/cta-band";
 import { Frame } from "@/components/frame";
 import { getPosts } from "@/content";
-import { coverFor, IMAGES } from "@/lib/media";
+import { coverFor } from "@/lib/media";
 import { canonical } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -18,12 +18,10 @@ export default function CategoryPage() {
   const posts = getPosts();
   return (
     <div>
-      <div className="relative min-h-[36vh]">
-        <Frame image={IMAGES.lavaux} fill className="absolute inset-0 min-h-[36vh] rounded-none" rounded={false} sizes="100vw" priority />
-        <div className="absolute inset-0 bg-primary/55" />
-        <div className="relative mx-auto flex min-h-[36vh] max-w-3xl flex-col justify-end px-4 py-12 text-primary-foreground md:px-6">
+      <div className="page-hero on-navy">
+        <div className="page-hero-in">
           <p className="kicker">Catégorie</p>
-          <h1 className="font-heading mt-2 text-5xl">Prévoyance</h1>
+          <h1 className="font-heading">Prévoyance</h1>
         </div>
       </div>
       <div className="mx-auto max-w-3xl px-4 py-12 md:px-6">
@@ -33,10 +31,10 @@ export default function CategoryPage() {
         </p>
         <ul className="mt-10 space-y-8">
           {posts.map((post) => (
-            <li key={post.slug} className="grid gap-4 border-t border-accent/25 pt-6 sm:grid-cols-[9rem_1fr]">
+            <li key={post.slug} className="surface-card grid gap-4 overflow-hidden p-4 sm:grid-cols-[9rem_1fr]">
                 <Frame image={coverFor(post.slug, post.cover)} className="aspect-[4/3]" sizes="180px" />
               <div>
-                <Link href={`/${post.slug}/`} className="font-heading text-2xl text-primary hover:underline">
+                <Link href={`/${post.slug}/`} className="text-2xl font-semibold text-[#174462] hover:text-[#23597C]">
                   {post.title}
                 </Link>
                 <p className="mt-2 text-sm leading-relaxed">{post.description}</p>

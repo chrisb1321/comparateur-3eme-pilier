@@ -15,7 +15,7 @@ export function Blocks({ blocks }: { blocks: Block[] }) {
             return (
               <h2
                 key={index}
-                className="font-heading mt-12 text-3xl tracking-tight text-foreground"
+                className="font-heading mt-12 text-3xl leading-tight text-[#10324A] md:text-4xl"
               >
                 {block.text}
               </h2>
@@ -51,7 +51,7 @@ export function Blocks({ blocks }: { blocks: Block[] }) {
               <figure key={index} className="my-6 overflow-x-auto">
                 <table className="w-full min-w-[28rem] border-collapse font-figures text-left text-sm">
                   <thead>
-                    <tr className="border-b border-border bg-muted/60">
+                    <tr className="border-b border-[#DCE6ED] bg-[#F5F8FA]">
                       {block.headers.map((header) => (
                         <th key={header} className="px-3 py-2 font-semibold">
                           {header}
@@ -82,7 +82,7 @@ export function Blocks({ blocks }: { blocks: Block[] }) {
             return (
               <aside
                 key={index}
-                className="border border-accent/30 bg-card px-4 py-4"
+                className="rounded-[18px] border border-[#DCE6ED] bg-white px-5 py-4"
               >
                 <p className="text-sm font-semibold text-primary">{block.title}</p>
                 <p className="mt-1 text-sm leading-relaxed text-foreground/90">{block.text}</p>
