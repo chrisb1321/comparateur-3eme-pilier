@@ -3,14 +3,13 @@
 import { useActionState, type ReactNode } from "react";
 import Link from "next/link";
 import { submitLead, type LeadState } from "@/app/actions/leads";
-import { CANTONS } from "@/lib/site";
+import { ADVISOR_NAME, CANTONS, CTA_CALLBACK } from "@/lib/site";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { cn } from "@/lib/utils";
 import { AttributionFields } from "@/components/attribution-fields";
-import { TrustStrip } from "@/components/trust-strip";
 
 const fieldClass =
   "h-[46px] rounded-[10px] border-[#C9D8E2] bg-[#F7FAFC] px-3.5 text-base text-[#10324A] shadow-none focus-visible:border-[#23597C] focus-visible:ring-2 focus-visible:ring-[#23597C]/40 md:text-base";
@@ -38,23 +37,32 @@ export function LeadForm({
     >
       <header className="space-y-2">
         <div className="flex items-center justify-between gap-3">
-          <p className="kicker mb-0">{isContact ? "Écrire" : "Comparatif gratuit"}</p>
+          <p className="kicker mb-0">{isContact ? "Écrire" : ADVISOR_NAME}</p>
           <span className="text-[13px] text-[#4A6275]">Une étape</span>
         </div>
         <div className="flex gap-1.5" aria-hidden="true">
           <i className="h-1 flex-1 rounded-sm bg-[#23597C]" />
         </div>
+        {isContact ? null : (
+          <>
+            <h2 className="font-heading text-[1.65rem] leading-tight font-semibold text-[#10324A]">
+              Un échange clair avant toute décision
+            </h2>
+            <p className="text-sm leading-relaxed text-[#4A6275]">
+              Le comparatif et l’échange avec le conseiller sont sans honoraires pour vous. Le formulaire ne vous engage à aucune souscription. Votre demande sert à organiser un rappel et, avec votre accord, à la transmettre à {ADVISOR_NAME}, qui la traite.
+            </p>
+          </>
+        )}
         <h2 className="font-heading text-2xl font-semibold text-[#10324A]">
-          {isContact ? "Une question, un rappel" : "Demander mon comparatif gratuit"}
+          {isContact ? "Une question, un rappel" : "Parlons de votre 3e pilier"}
         </h2>
         {idle ? (
           <p className="text-sm leading-relaxed text-muted-foreground">
             {isContact
               ? "Quatre champs. Prochaine étape : un rappel sous deux jours ouvrés, de préférence par téléphone."
-              : "Décrivez votre projet. Un conseiller vous rappelle sous deux jours ouvrés. Comparatif gratuit et sans engagement."}
+              : `Expliquez-nous brièvement votre situation. ${ADVISOR_NAME} vous rappelle sous deux jours ouvrés pour faire le point sur les solutions à envisager.`}
           </p>
         ) : null}
-        {isContact ? null : <TrustStrip />}
       </header>
       <input type="hidden" name="intent" value={intent} />
       <AttributionFields />
@@ -116,7 +124,7 @@ export function LeadForm({
           </Field>
         </div>
       ) : null}
-      <Field label={isContact ? "Votre demande" : "Précision (facultatif)"} htmlFor={`${intent}-message`}>
+      <Field label={isContact ? "Votre demande" : "Ce que vous souhaitez comparer"} htmlFor={`${intent}-message`}>
         <Textarea
           id={`${intent}-message`}
           name="message"
@@ -126,16 +134,16 @@ export function LeadForm({
           placeholder={
             isContact
               ? "Décrivez le besoin. Un conseiller vous rappelle sous deux jours ouvrés."
-              : "Ex. frontalier Genève, TOU, logement…"
+              : "3a ou 3b, banque ou assurance, 3e pilier déjà en place…"
           }
         />
       </Field>
       <label className="flex items-start gap-3 text-sm leading-relaxed">
         <input type="checkbox" name="consent" value="oui" required className="mt-1 size-4 accent-primary" />
         <span>
-          J’accepte d’être recontacté et que la demande soit transmise au partenaire du comparatif.{" "}
+          J’accepte d’être recontacté au sujet de ma demande et que les informations fournies soient transmises à {ADVISOR_NAME}, chargé du comparatif.{" "}
           <Link href="/page-de-confidentialitee/" className="underline decoration-accent underline-offset-4">
-            Confidentialité
+            Politique de confidentialité
           </Link>
           .
         </span>
@@ -156,14 +164,14 @@ export function LeadForm({
       <Button
         type="submit"
         disabled={pending}
-        className="h-[52px] w-full rounded-xl border-0 bg-gradient-to-r from-[#BFF3EA] to-[#4FDCC7] px-6 text-base font-semibold tracking-normal text-[#062B40] normal-case hover:brightness-95"
+        className="h-auto min-h-[52px] w-full rounded-xl border-0 bg-gradient-to-r from-[#BFF3EA] to-[#4FDCC7] px-6 py-3 text-center text-base leading-snug font-semibold tracking-normal whitespace-normal text-[#062B40] normal-case hover:brightness-95"
       >
-        {pending ? "Envoi…" : isContact ? "Demander un rappel" : "Recevoir mon comparatif"}
+        {pending ? "Envoi…" : isContact ? "Demander un rappel" : CTA_CALLBACK}
       </Button>
       <p className="text-xs leading-relaxed text-muted-foreground">
         {isContact
           ? "Aucun e-mail de confirmation n’est envoyé. Un conseiller vous rappelle sous deux jours ouvrés si la demande est enregistrée."
-          : "Demande enregistrée après envoi. Un conseiller vous rappelle sous deux jours ouvrés. Aucun e-mail de confirmation n’est envoyé."}
+          : "Sans honoraires · Sans engagement · Aucun paiement demandé dans ce formulaire"}
       </p>
     </form>
   );

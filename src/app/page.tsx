@@ -1,23 +1,28 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { CeilingSimulator } from "@/components/ceiling-simulator";
-import { CeilingsBlock } from "@/components/ceilings-block";
 import { FaqList } from "@/components/faq-list";
 import { Frame } from "@/components/frame";
 import { JsonLd } from "@/components/json-ld";
 import { LeadForm } from "@/components/lead-form";
 import { SourcesList } from "@/components/sources-list";
-import { HOME_FAQS, METHOD_NOTE } from "@/content/faqs";
+import { HOME_FAQS } from "@/content/faqs";
 import { ProcessSteps } from "@/components/trust-strip";
-import { CEILING_NOTE, chf, FIGURES, YEAR_SPAN } from "@/lib/figures";
+import { CEILING_NOTE, chf, FIGURES } from "@/lib/figures";
 import { IMAGES } from "@/lib/media";
-import { canonical, SITE } from "@/lib/site";
+import { canonical, CTA_CALLBACK, SITE } from "@/lib/site";
+
+const PAGE_TITLE = "Comparateur 3e pilier suisse | Comparez 3a, 3b, banque et assurance";
+const PAGE_DESCRIPTION = SITE.description;
 
 export const metadata: Metadata = {
-  title: `Comparateur 3ème pilier ${YEAR_SPAN} : comparez et déduisez`,
-  description:
-    "Comparez les solutions de 3e pilier adaptées à votre situation. Comparatif gratuit et sans engagement. Plafonds 2026 : CHF 7’258 / 36’288. Montants 2027 à confirmer par l’OFAS.",
+  title: { absolute: PAGE_TITLE },
+  description: PAGE_DESCRIPTION,
   alternates: { canonical: canonical("/") },
+  openGraph: {
+    title: PAGE_TITLE,
+    description: PAGE_DESCRIPTION,
+    url: canonical("/"),
+  },
 };
 
 const PILLARS = [
@@ -37,25 +42,7 @@ const PILLARS = [
     href: "/3eme-pilier-a-ou-b/",
     title: "3e pilier 3a / 3b",
     image: IMAGES.mixte,
-    text: `Prévoyance individuelle. Plafond 3a 2026 : ${chf(FIGURES.pillar3aWithLpp)} ou ${chf(FIGURES.pillar3aWithoutLpp)}.`,
-  },
-];
-
-const REASONS = [
-  {
-    n: "01",
-    title: "Pourquoi un 3e pilier ?",
-    text: "Optimiser l’impôt de l’année, combler un trou de retraite, protéger conjoint et enfants.",
-  },
-  {
-    n: "02",
-    title: "Dans quels cas ?",
-    text: "Financer un logement selon les règles EPL, épargner pour un enfant via le 3b, préparer une activité indépendante.",
-  },
-  {
-    n: "03",
-    title: "Quelle limite ?",
-    text: "La déduction fiscale encourage l’effort. Elle ne justifie pas de vider votre trésorerie.",
+    text: "Prévoyance individuelle, en banque ou en assurance. Le plafond 3a 2026 est dans la FAQ, source OFAS.",
   },
 ];
 
@@ -81,28 +68,26 @@ export default function HomePage() {
         <div className="relative mx-auto flex w-full max-w-[1440px] items-start justify-between gap-16 px-12 pt-10 pb-16 max-[1100px]:flex-col max-[1100px]:gap-8 max-[1100px]:px-4 max-[1100px]:pt-6 max-[1100px]:pb-10">
           <div className="max-w-[700px] flex-1">
             <p className="mb-[18px] text-xl text-white/85 max-[1100px]:mb-3 max-[1100px]:text-base">
-              Suisse romande · Genève · frontaliers
+              3a ou 3b · banque ou assurance
             </p>
             <h1 className="font-heading mb-6 text-[64px] leading-[1.06] text-white max-[1100px]:mb-4 max-[1100px]:text-[42px]">
-              Comparez les solutions de <em>3e pilier</em> adaptées à votre situation
+              Quel <em>3e pilier</em> choisir ? Comparez vos options avant de vous engager.
             </h1>
             <p className="mb-9 max-w-[560px] text-xl leading-normal text-white/85 max-[1100px]:mb-6 max-[1100px]:text-[17px]">
-              3a ou 3b, banque ou assurance : décrivez votre projet en deux minutes. Un conseiller vous rappelle sous deux jours ouvrés pour examiner les solutions accessibles, leurs frais et leurs garanties. Comparatif gratuit et sans engagement.
+              3a ou 3b ? Banque ou assurance ? Faites le point sur vos objectifs, votre budget et les solutions possibles avec Christophe Bouin. Vous comprenez les différences de souplesse, de frais et de protection avant de prendre une décision.
             </p>
-            <div className="mb-12 flex gap-3.5 max-[1100px]:mb-7 max-[1100px]:flex-col">
-              <a href="#comparatif" className="btn-pill">
-                Demander mon comparatif gratuit
+            <div className="mb-6 flex gap-3.5 max-[1100px]:flex-col">
+              <a href="#comparatif" className="btn-pill whitespace-normal text-center leading-snug max-[1100px]:w-full">
+                {CTA_CALLBACK}
                 <Arrow />
               </a>
-              <a href="/exemple-de-comparatif/" className="btn-ghost">
-                Voir un exemple de comparatif
+              <a href="#parcours" className="btn-ghost whitespace-normal text-center leading-snug max-[1100px]:w-full">
+                Comment se passe le comparatif ?
               </a>
             </div>
-            <div className="grid grid-cols-3 overflow-hidden rounded-[20px] border border-white/18 bg-white/6">
-              <Stat value={chf(FIGURES.pillar3aWithLpp)} label="Plafond 3a avec 2e pilier" />
-              <Stat value={chf(FIGURES.pillar3aWithoutLpp)} label="Plafond 3a sans 2e pilier" border />
-              <Stat value="Gratuit" label="Sans honoraires, sans engagement" border />
-            </div>
+            <p className="text-[15px] leading-relaxed text-white/80">
+              Demande en deux minutes · Rappel sous deux jours ouvrés · Aucune obligation de souscrire
+            </p>
           </div>
           <div id="comparatif" className="w-full max-w-[480px] shrink-0 scroll-mt-36 max-[1100px]:max-w-none">
             <LeadForm intent="comparateur" tone="overlay" />
@@ -112,26 +97,87 @@ export default function HomePage() {
 
       <section id="parcours" className="bg-[#F5F8FA] scroll-mt-36">
         <div className="mx-auto flex w-full max-w-[1440px] flex-col gap-14 px-12 py-24 max-[1100px]:gap-6 max-[1100px]:px-4 max-[1100px]:py-14">
-          <div className="flex items-end justify-between gap-16 max-[1100px]:flex-col max-[1100px]:items-start max-[1100px]:gap-4">
-            <div>
-              <p className="kicker">Parcours</p>
-              <h2 className="font-heading text-[56px] leading-[1.05] text-[#10324A] max-[1100px]:text-[40px]">
-                Lire, estimer, puis <em>demander</em>
-              </h2>
-            </div>
-            <p className="m-0 max-w-[420px] text-lg leading-relaxed text-[#4A6275]">
-              Trois étapes : comprendre votre plafond 3a 2026, décrire votre projet, puis un rappel sous deux jours ouvrés. Aucun e-mail de confirmation n’est envoyé.
-            </p>
+          <div className="max-w-3xl">
+            <p className="kicker">Parcours</p>
+            <h2 className="font-heading text-[56px] leading-[1.05] text-[#10324A] max-[1100px]:text-[40px]">
+              Trois étapes, <em>sans engagement</em>
+            </h2>
           </div>
           <ProcessSteps />
-          <div className="grid items-start gap-6 lg:grid-cols-[1.1fr_0.9fr]">
-            <CeilingSimulator />
-            <CeilingsBlock tone="paper" />
-          </div>
-          <Link href="/deductions-fiscales-3eme-pilier/" className="btn-pill self-center max-[1100px]:w-full">
-            Détail des plafonds 2026
+          <a href="#comparatif" className="btn-pill self-center whitespace-normal text-center leading-snug max-[1100px]:w-full">
+            {CTA_CALLBACK}
             <Arrow />
-          </Link>
+          </a>
+        </div>
+      </section>
+
+      <div className="mx-auto w-full max-w-[1440px] px-12 max-[1100px]:px-4">
+        <FaqList items={HOME_FAQS} ctaHref="#comparatif" />
+      </div>
+
+      <section id="rappel" className="navy-band on-navy scroll-mt-36">
+        <div className="relative mx-auto flex w-full max-w-[1440px] flex-col items-start gap-6 px-12 py-24 max-[1100px]:px-4 max-[1100px]:py-14">
+          <p className="kicker">Dernier appel</p>
+          <h2 className="font-heading max-w-3xl text-[56px] leading-[1.05] text-white max-[1100px]:text-[40px]">
+            Un échange clair avant <em>toute décision</em>
+          </h2>
+          <p className="max-w-xl text-lg leading-relaxed text-white/85">
+            Christophe Bouin vous rappelle sous deux jours ouvrés. Aucune obligation de souscrire.
+          </p>
+          <a href="#comparatif" className="btn-pill whitespace-normal text-center leading-snug max-[1100px]:w-full">
+            {CTA_CALLBACK}
+            <Arrow />
+          </a>
+        </div>
+      </section>
+
+      <section id="qui" className="bg-[#F5F8FA] scroll-mt-36">
+        <div className="mx-auto flex w-full max-w-[1440px] flex-col gap-12 px-12 py-24 max-[1100px]:gap-4 max-[1100px]:px-4 max-[1100px]:py-14">
+          <div className="flex items-center gap-20 max-[1100px]:flex-col-reverse max-[1100px]:items-stretch max-[1100px]:gap-4">
+            <div className="relative h-[600px] w-[540px] shrink-0 overflow-hidden rounded-[28px] shadow-[0_30px_60px_-30px_rgba(16,50,74,0.45)] max-[1100px]:h-[420px] max-[1100px]:w-full max-[1100px]:rounded-[22px]">
+              <Frame image={IMAGES.conseiller} fill className="absolute inset-0 rounded-none" rounded={false} sizes="540px" />
+              <div className="absolute right-5 bottom-5 left-5 rounded-[18px] bg-[#174462]/90 p-5 text-white">
+                <b className="mb-1 block text-[17px] font-semibold">Christophe Bouin</b>
+                <span className="text-[15px] leading-snug text-white/85">Il explique les options pertinentes et leurs conditions. Aucune obligation de souscrire.</span>
+              </div>
+            </div>
+            <div className="flex-1">
+              <p className="kicker">Méthode</p>
+              <h2 className="font-heading mb-7 text-[56px] leading-[1.05] text-[#10324A] max-[1100px]:mb-3 max-[1100px]:text-[38px]">
+                Un conseil pour <em>votre situation</em>
+              </h2>
+              <p className="mb-4 text-[19px] leading-relaxed text-[#10324A]">
+                « Un rachat 3a dès 2026 n’efface pas les années perdues avant 2025. On verse d’abord le maximum de l’année, ensuite seulement la lacune. »
+              </p>
+              <p className="mb-7 text-[19px] leading-relaxed text-[#4A6275]">
+                Christophe Bouin examine les solutions accessibles dans le cadre du service, leurs frais et leurs garanties. Ce n’est pas l’ensemble du marché suisse.
+              </p>
+              <div className="flex flex-wrap gap-2.5">
+                {["Sans honoraires", "Sans engagement", "Rappel sous deux jours ouvrés"].map((badge) => (
+                  <span key={badge} className="rounded-full border border-[#DCE6ED] bg-white px-4 py-2.5 text-[15px] font-semibold text-[#174462]">
+                    {badge}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+          <div className="grid gap-4 md:grid-cols-3">
+            {[
+              { title: "Humain", text: "Un rappel de Christophe Bouin, pas un e-mail automatique." },
+              { title: "Indépendant", text: "Banque ou assurance : les deux supports sont lus." },
+              { title: "Transparent", text: "Le plafond 2026 cité vient de l’OFAS. Pas d’honoraires." },
+            ].map((item) => (
+              <article key={item.title} className="flex items-center gap-4 rounded-[18px] border border-[#DCE6ED] bg-white p-6 max-[1100px]:p-4">
+                <span className="flex size-12 shrink-0 items-center justify-center rounded-xl bg-[#EAF4F8] text-lg font-semibold text-[#174462]">
+                  {item.title.slice(0, 1)}
+                </span>
+                <div>
+                  <b className="mb-1 block text-lg">{item.title}</b>
+                  <span className="text-[15px] text-[#4A6275]">{item.text}</span>
+                </div>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -150,10 +196,10 @@ export default function HomePage() {
                 <p className="text-[13px] font-semibold tracking-[0.12em] text-[#23597C] uppercase">3a lié · OPP 3</p>
                 <span className="rounded-full bg-[#E8F7F4] px-3 py-1 text-[13px] font-semibold text-[#1F5E55]">Déductible</span>
               </div>
-              <p className="text-[40px] leading-none font-semibold max-[1100px]:text-[32px]">{chf(FIGURES.pillar3aWithLpp)}</p>
-              <p className="text-sm text-[#4A6275]">Plafond 2026 avec 2e pilier. Sans 2e pilier : {chf(FIGURES.pillar3aWithoutLpp)}.</p>
+              <p className="text-[28px] leading-tight font-semibold">Même plafond OFAS en 2026</p>
+              <p className="text-sm text-[#4A6275]">Le montant, avec ou sans 2e pilier, est dans la FAQ. Source OFAS, montants 2026.</p>
               <ul className="flex flex-col gap-2.5 text-base leading-snug">
-                <li>Déductible dans tous les cantons, jusqu’aux plafonds 2026.</li>
+                <li>Déductible dans tous les cantons, dans la limite publiée pour 2026.</li>
                 <li>Capital bloqué sauf motifs légaux. Ordre des bénéficiaires fixé.</li>
                 <li>Existe en banque et en assurance.</li>
               </ul>
@@ -166,8 +212,8 @@ export default function HomePage() {
                 <p className="text-[13px] font-semibold tracking-[0.12em] text-[#7FE3D3] uppercase">3b libre</p>
                 <span className="rounded-full bg-[rgba(191,243,234,0.16)] px-3 py-1 text-[13px] font-semibold text-[#BFF3EA]">Souple</span>
               </div>
-              <p className="text-[40px] leading-none font-semibold max-[1100px]:text-[32px]">Libre</p>
-              <p className="text-sm text-white/80">Pas de plafond OFAS. Déduction limitée, surtout Genève et Fribourg.</p>
+              <p className="text-[28px] leading-tight font-semibold">Pas de plafond OFAS</p>
+              <p className="text-sm text-white/80">Déduction limitée, surtout Genève et Fribourg.</p>
               <ul className="flex flex-col gap-2.5 text-base leading-snug text-white/90">
                 <li>Retrait et bénéficiaires plus souples.</li>
                 <li>Déduction surtout pour certaines polices d’assurance-vie.</li>
@@ -178,105 +224,10 @@ export default function HomePage() {
               </Link>
             </article>
           </div>
-          <p className="mb-8 flex items-start gap-3.5 rounded-[14px] border border-dashed border-[#BFF3EA]/50 px-[22px] py-[18px] text-base leading-snug text-white/90">
+          <p className="flex items-start gap-3.5 rounded-[14px] border border-dashed border-[#BFF3EA]/50 px-[22px] py-[18px] text-base leading-snug text-white/90">
             <strong className="text-white">Rachat 3a dès 2026.</strong>
-            Les lacunes depuis 2025 peuvent être rachetées, dans la limite de {chf(FIGURES.buybackMax)}, en plus de la cotisation ordinaire, sous conditions OFAS.
+            Les lacunes depuis 2025 peuvent être rachetées, dans la limite de la petite cotisation 2026, en plus de la cotisation ordinaire, sous conditions OFAS. Aucun montant 2027 n’est présenté comme officiel.
           </p>
-        </div>
-      </section>
-
-      <section id="plafonds" className="bg-white scroll-mt-36">
-        <div className="mx-auto flex w-full max-w-[1440px] items-start justify-between gap-20 px-12 py-24 max-[1100px]:flex-col max-[1100px]:gap-4 max-[1100px]:px-4 max-[1100px]:py-14">
-          <div className="w-full max-w-[600px] shrink-0">
-            <p className="kicker">Plafonds 3a</p>
-            <p className="text-[128px] leading-[0.95] font-semibold tracking-[-0.03em] text-[#174462] max-[1100px]:text-[88px]">
-              {FIGURES.pillar3aWithLpp.toLocaleString("fr-CH")}
-            </p>
-            <p className="mt-2 mb-5 text-[44px] leading-none text-[#1F7F72] italic max-[1100px]:text-[30px]">francs par an</p>
-            <p className="mb-8 max-w-[520px] text-[22px] leading-snug text-[#10324A] max-[1100px]:text-lg">
-              Petite cotisation 2026 avec 2e pilier, art. 7 OPP 3. La grande cotisation 2026 monte à {chf(FIGURES.pillar3aWithoutLpp)}.
-            </p>
-            <div className="mb-4 flex items-center gap-4 rounded-2xl border border-[#DCE6ED] bg-[#F5F8FA] px-[22px] py-[18px]">
-              <b className="text-[32px] font-semibold whitespace-nowrap text-[#174462] max-[1100px]:text-[26px]">{chf(FIGURES.pillar3aWithoutLpp)}</b>
-              <span className="text-base leading-snug text-[#4A6275]">sans 2e pilier, 20 % du revenu d’activité, dans cette limite.</span>
-            </div>
-            <p className="mb-8 text-[13px] text-[#6B8293]">{CEILING_NOTE}.</p>
-          </div>
-          <div className="flex flex-1 flex-col gap-4">
-            {REASONS.map((item, index) => (
-              <article
-                key={item.n}
-                className={`flex gap-[18px] rounded-[20px] border p-7 max-[1100px]:flex-col max-[1100px]:gap-2 max-[1100px]:p-5 ${
-                  index === 2 ? "border-[#174462] bg-[#174462] text-white" : "border-[#DCE6ED] bg-[#F5F8FA] text-[#10324A]"
-                }`}
-              >
-                <span
-                  className={`flex size-10 shrink-0 items-center justify-center rounded-full text-base font-semibold ${
-                    index === 2 ? "bg-[#BFF3EA] text-[#062B40]" : "bg-[#174462] text-[#BFF3EA]"
-                  }`}
-                >
-                  {index + 1}
-                </span>
-                <div>
-                  <h3 className={`mb-2 text-[22px] font-semibold max-[1100px]:text-xl ${index === 2 ? "text-white" : "text-[#10324A]"}`}>{item.title}</h3>
-                  <p className={`text-base leading-relaxed ${index === 2 ? "text-white/85" : "text-[#4A6275]"}`}>{item.text}</p>
-                </div>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section id="qui" className="bg-[#F5F8FA] scroll-mt-36">
-        <div className="mx-auto flex w-full max-w-[1440px] flex-col gap-12 px-12 py-24 max-[1100px]:gap-4 max-[1100px]:px-4 max-[1100px]:py-14">
-          <div className="flex items-center gap-20 max-[1100px]:flex-col-reverse max-[1100px]:items-stretch max-[1100px]:gap-4">
-            <div className="relative h-[600px] w-[540px] shrink-0 overflow-hidden rounded-[28px] shadow-[0_30px_60px_-30px_rgba(16,50,74,0.45)] max-[1100px]:h-[420px] max-[1100px]:w-full max-[1100px]:rounded-[22px]">
-              <Frame image={IMAGES.conseiller} fill className="absolute inset-0 rounded-none" rounded={false} sizes="540px" />
-              <p className="absolute top-5 left-5 flex items-center gap-2 rounded-full bg-[#174462]/80 px-3.5 py-2 text-sm font-semibold text-white">
-                Genève · Léman
-              </p>
-              <div className="absolute right-5 bottom-5 left-5 rounded-[18px] bg-[#174462]/90 p-5 text-white">
-                <b className="mb-1 block text-[17px] font-semibold">Un comparatif, pas un mandat</b>
-                <span className="text-[15px] leading-snug text-white/85">Le conseiller examine les solutions accessibles dans le cadre du service, pas l’ensemble du marché suisse.</span>
-              </div>
-            </div>
-            <div className="flex-1">
-              <p className="kicker">Méthode</p>
-              <h2 className="font-heading mb-7 text-[56px] leading-[1.05] text-[#10324A] max-[1100px]:mb-3 max-[1100px]:text-[38px]">
-                Un conseil pour <em>votre situation</em>
-              </h2>
-              <p className="mb-4 text-[19px] leading-relaxed text-[#10324A]">
-                « Un rachat 3a dès 2026 n’efface pas les années perdues avant 2025. On verse d’abord le maximum de l’année, ensuite seulement la lacune. »
-              </p>
-              <p className="mb-7 text-[19px] leading-relaxed text-[#4A6275]">
-                Un conseiller examine les solutions accessibles dans le cadre du service, leurs frais et leurs garanties. Ce n’est pas l’ensemble du marché suisse.
-              </p>
-              <div className="flex flex-wrap gap-2.5">
-                {["Gratuit", "Sans engagement", "Suisse romande"].map((badge) => (
-                  <span key={badge} className="rounded-full border border-[#DCE6ED] bg-white px-4 py-2.5 text-[15px] font-semibold text-[#174462]">
-                    {badge}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </div>
-          <div className="grid gap-4 md:grid-cols-3">
-            {[
-              { title: "Humain", text: "Un rappel téléphonique, pas un e-mail automatique." },
-              { title: "Indépendant", text: "Banque ou assurance : les deux supports sont lus." },
-              { title: "Transparent", text: "Plafonds OFAS affichés, frais de conseil à zéro." },
-            ].map((item) => (
-              <article key={item.title} className="flex items-center gap-4 rounded-[18px] border border-[#DCE6ED] bg-white p-6 max-[1100px]:p-4">
-                <span className="flex size-12 shrink-0 items-center justify-center rounded-xl bg-[#EAF4F8] text-lg font-semibold text-[#174462]">
-                  {item.title.slice(0, 1)}
-                </span>
-                <div>
-                  <b className="mb-1 block text-lg">{item.title}</b>
-                  <span className="text-[15px] text-[#4A6275]">{item.text}</span>
-                </div>
-              </article>
-            ))}
-          </div>
         </div>
       </section>
 
@@ -315,21 +266,18 @@ export default function HomePage() {
               </Link>
             ))}
           </div>
+          <div className="mt-10">
+            <p className="text-sm leading-relaxed text-[#4A6275]">
+              Service : {SITE.name}. Contact :{" "}
+              <a className="font-semibold text-[#174462] underline underline-offset-4" href={`mailto:${SITE.email}`}>
+                {SITE.email}
+              </a>
+              .
+            </p>
+            <SourcesList />
+          </div>
         </div>
       </section>
-
-      <div className="mx-auto w-full max-w-[1440px] px-12 max-[1100px]:px-4">
-        <FaqList items={HOME_FAQS} />
-        <p className="mt-10 text-sm leading-relaxed text-[#4A6275]">{METHOD_NOTE}</p>
-        <p className="mt-4 text-sm">
-          Service : {SITE.name}. Contact :{" "}
-          <a className="font-semibold text-[#174462] underline underline-offset-4" href={`mailto:${SITE.email}`}>
-            {SITE.email}
-          </a>
-          .
-        </p>
-        <SourcesList />
-      </div>
       <JsonLd
         data={[
           {
@@ -366,15 +314,6 @@ export default function HomePage() {
           },
         ]}
       />
-    </div>
-  );
-}
-
-function Stat({ value, label, border = false }: { value: string; label: string; border?: boolean }) {
-  return (
-    <div className={`flex flex-col gap-1.5 px-6 py-6 max-[1100px]:px-2.5 max-[1100px]:py-4 ${border ? "border-l border-white/15" : ""}`}>
-      <b className="text-[40px] leading-none font-semibold max-[1100px]:text-2xl">{value}</b>
-      <span className="text-[15px] leading-snug text-white/80 max-[1100px]:text-xs">{label}</span>
     </div>
   );
 }

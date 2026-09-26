@@ -1,6 +1,6 @@
 # Comparateur 3ème pilier
 
-> Information et comparatif 3a / 3b pour la Suisse romande. Pas un palmarès de produits.
+> Information et comparatif 3a / 3b en Suisse. Pas un palmarès de produits. Échange avec Christophe Bouin, sans honoraires et sans obligation de souscrire.
 
 Canonical: https://comparateur-3eme-pilier.ch/
 Contact: info@comparateur-3eme-pilier.ch
@@ -55,4 +55,4 @@ Les articles datés après le 26 septembre 2026 ne sont pas dans cette liste.
 
 ## Service
 
-Le comparatif est gratuit et sans engagement. Un conseiller rappelle sous deux jours ouvrés et examine les solutions accessibles dans le cadre du service, pas l’ensemble du marché suisse. Le formulaire n’envoie pas d’e-mail de confirmation.
+Le comparatif est sans honoraires et sans obligation de souscrire. Christophe Bouin rappelle sous deux jours ouvrés et explique les options pertinentes, pas l’ensemble du marché suisse. Le formulaire n’envoie pas d’e-mail de confirmation.

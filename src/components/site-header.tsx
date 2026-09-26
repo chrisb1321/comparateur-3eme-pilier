@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { NAV } from "@/lib/nav";
+import { CTA_MENU } from "@/lib/site";
 
 const PRIMARY = [
   { href: "/#parcours", label: "Comment ça marche" },
@@ -50,8 +51,8 @@ export function SiteHeader() {
       }`}
     >
       <div className="flex h-9 items-center justify-center gap-2 bg-[#3FD9C4] px-4 text-center text-sm font-medium text-[#062B40] max-[1100px]:h-8 max-[1100px]:text-[13px]">
-        <b className="font-semibold">Comparatif gratuit</b>
-        <span className="max-[1100px]:hidden">· sans engagement · plafonds 2026 : CHF 7’258 / 36’288</span>
+        <b className="font-semibold">Sans honoraires</b>
+        <span className="max-[1100px]:hidden">· rappel sous deux jours ouvrés · aucune obligation de souscrire</span>
       </div>
       <nav
         className="mx-auto flex h-[88px] w-full max-w-[1440px] items-center justify-between gap-8 px-12 max-[1100px]:h-16 max-[1100px]:px-4"
@@ -78,7 +79,7 @@ export function SiteHeader() {
             href="/formulaire-3eme-pilier/"
             className="inline-flex min-h-11 items-center rounded-full bg-gradient-to-r from-[#BFF3EA] to-[#4FDCC7] px-5 text-[15px] font-semibold text-[#062B40] hover:brightness-95"
           >
-            Comparer
+            {CTA_MENU}
           </Link>
         </div>
         <button
@@ -118,7 +119,7 @@ export function SiteHeader() {
             onClick={() => setOpen(false)}
             className="mt-6 inline-flex min-h-[54px] items-center justify-center rounded-full bg-gradient-to-r from-[#BFF3EA] to-[#4FDCC7] text-[17px] font-semibold text-[#062B40]"
           >
-            Comparer
+            {CTA_MENU}
           </Link>
           <Link
             href="/nous-contacter/"

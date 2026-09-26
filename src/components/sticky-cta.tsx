@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { CTA_CALLBACK } from "@/lib/site";
 
 const HIDDEN = new Set([
   "/formulaire-3eme-pilier",
@@ -22,10 +23,10 @@ export function StickyCta() {
       className="fixed inset-x-0 bottom-0 z-40 border-t border-white/10 bg-[#174462] p-3 md:hidden"
     >
       <Link
-        href="/formulaire-3eme-pilier/"
-        className="btn-pill w-full"
+        href={pathname === "/" ? "/#comparatif" : "/formulaire-3eme-pilier/"}
+        className="btn-pill w-full whitespace-normal px-4 text-center leading-snug"
       >
-        Demander mon comparatif gratuit
+        {CTA_CALLBACK}
       </Link>
     </div>
   );

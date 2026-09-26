@@ -12,6 +12,7 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { NAV } from "@/lib/nav";
+import { CTA_MENU } from "@/lib/site";
 
 export function MobileNav() {
   const [open, setOpen] = useState(false);
@@ -44,7 +45,7 @@ export function MobileNav() {
             onClick={() => setOpen(false)}
             className="mt-4 flex h-12 items-center justify-center bg-accent text-[0.72rem] uppercase tracking-[0.2em] text-accent-foreground"
           >
-            Demander mon comparatif gratuit
+            {CTA_MENU}
           </Link>
           <Link
             href="/nous-contacter/"

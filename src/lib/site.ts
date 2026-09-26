@@ -7,10 +7,16 @@ export const SITE = {
   language: "fr",
   email: "info@comparateur-3eme-pilier.ch",
   description:
-    "Comparez les solutions de 3e pilier adaptées à votre situation. Comparatif gratuit et sans engagement. Plafonds 2026 : CHF 7’258 / 36’288. Montants 2027 à confirmer par l’OFAS.",
+    "Comparez les solutions de 3e pilier selon votre situation : 3a ou 3b, banque ou assurance. Échange gratuit avec Christophe Bouin, sans engagement.",
   updated: "2026-09-20",
   foundingDate: "2021-10-04",
 } as const;
+
+export const ADVISOR_NAME = "Christophe Bouin";
+
+export const CTA_CALLBACK = "Être rappelé pour comparer mes options";
+
+export const CTA_MENU = "Comparer mes options";
 
 export function canonical(path = "/"): string {
   const normalized = path.startsWith("/") ? path : `/${path}`;

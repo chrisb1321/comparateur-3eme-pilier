@@ -736,16 +736,16 @@ export const PAGES: EditorialDoc[] = [
     title: "Formulaire comparatif 3e pilier",
     metaTitle: "Comparatif 3e pilier : demander un comparatif gratuit",
     description:
-      "Décrivez votre projet en deux minutes. Un conseiller vous rappelle sous deux jours ouvrés. Comparatif gratuit et sans engagement. Aucun e-mail de confirmation n’est envoyé.",
+      "Expliquez votre situation. Christophe Bouin vous rappelle sous deux jours ouvrés. Sans honoraires, sans obligation de souscrire.",
     published: "2021-11-02",
     updated: UPDATED,
     intro:
-      "3a ou 3b, banque ou assurance : décrivez votre projet. Un conseiller vous rappelle sous deux jours ouvrés pour examiner les solutions accessibles, leurs frais et leurs garanties. Comparatif gratuit et sans engagement. Aucun e-mail de confirmation n’est envoyé.",
+      "3a ou 3b, banque ou assurance : expliquez votre situation. Christophe Bouin vous rappelle sous deux jours ouvrés pour faire le point sur les solutions à envisager. Sans honoraires, sans obligation de souscrire.",
     related: ["nous-contacter", "page-remerciement", "choisir-son-3eme-pilier"],
     blocks: [
       {
         type: "p",
-        text: "Champs : prénom, nom, e-mail, téléphone, canton, situation. Une précision facultative (frontalier, TOU, logement). Consentement pour le rappel et la transmission au partenaire.",
+        text: "Champs : prénom, nom, e-mail, téléphone, canton, situation, et ce que vous souhaitez comparer. Consentement pour le rappel et la transmission à Christophe Bouin.",
       },
     ],
   },
@@ -817,7 +817,7 @@ export const PAGES: EditorialDoc[] = [
       { type: "h2", text: "4. Destinataire" },
       {
         type: "p",
-        text: "La demande est transmise au service qui traite les comparatifs de ce site, comme l’indique la case de consentement. Contact pour exercer un droit : info@comparateur-3eme-pilier.ch.",
+        text: "La demande est transmise à Christophe Bouin, chargé du comparatif, comme l’indique la case de consentement. Contact pour exercer un droit : info@comparateur-3eme-pilier.ch.",
       },
       { type: "h2", text: "5. Droits" },
       {

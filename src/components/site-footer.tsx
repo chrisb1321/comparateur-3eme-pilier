@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { SITE } from "@/lib/site";
+import { CTA_CALLBACK, SITE } from "@/lib/site";
 import { BrandLockup } from "@/components/site-header";
 
 const GROUPS = [
@@ -57,17 +57,17 @@ export function SiteFooter() {
         <div className="flex items-center justify-between gap-16 pb-16 max-[1100px]:flex-col max-[1100px]:items-stretch max-[1100px]:gap-6 max-[1100px]:pb-8">
           <div className="on-navy max-w-xl">
             <p className="mb-6 inline-flex rounded-full border border-white/60 px-4 py-2 text-[15px]">
-              Suisse romande · 3a et 3b
+              3a et 3b · banque ou assurance
             </p>
-            <h2 className="font-heading mb-5 text-5xl leading-[1.04] text-white uppercase max-[1100px]:text-[42px]">
-              Demander mon <em>comparatif</em>
+            <h2 className="font-heading mb-5 text-5xl leading-[1.04] text-white max-[1100px]:text-[42px]">
+              Comparez avant de <em>vous engager</em>
             </h2>
             <p className="mb-7 text-[19px] leading-relaxed text-white/85">
-              Comparatif gratuit et sans engagement. Un conseiller vous rappelle sous deux jours ouvrés.
+              Christophe Bouin vous rappelle sous deux jours ouvrés. Sans honoraires, sans obligation de souscrire.
             </p>
           </div>
-          <Link href="/formulaire-3eme-pilier/" className="btn-pill shrink-0 max-[1100px]:w-full">
-            Demander mon comparatif gratuit
+          <Link href="/formulaire-3eme-pilier/" className="btn-pill shrink-0 whitespace-normal text-center leading-snug max-[1100px]:w-full">
+            {CTA_CALLBACK}
             <Arrow />
           </Link>
         </div>
@@ -78,7 +78,7 @@ export function SiteFooter() {
               <BrandLockup size={28} />
             </Link>
             <p className="text-base leading-relaxed text-white/75">
-              Information générale pour la Suisse romande. Pas un mandat LSFin. Revue éditoriale du {SITE.updated}.
+              Information générale sur le 3e pilier en Suisse. Pas un mandat LSFin. Revue éditoriale du {SITE.updated}.
             </p>
             <span className="self-start rounded-full bg-[#3FD9C4] px-3 py-1.5 text-[13px] font-semibold text-[#062B40]">
               Comparatif gratuit · Plafonds OFAS

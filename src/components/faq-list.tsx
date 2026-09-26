@@ -1,7 +1,14 @@
 import type { FaqItem } from "@/content/types";
 import Link from "next/link";
+import { CTA_CALLBACK } from "@/lib/site";
 
-export function FaqList({ items }: { items: FaqItem[] }) {
+export function FaqList({
+  items,
+  ctaHref = "/formulaire-3eme-pilier/",
+}: {
+  items: FaqItem[];
+  ctaHref?: string;
+}) {
   if (!items.length) return null;
   return (
     <section id="faq" className="mt-16 scroll-mt-36" aria-labelledby="faq-heading">
@@ -16,9 +23,9 @@ export function FaqList({ items }: { items: FaqItem[] }) {
           </p>
           <aside className="flex flex-col gap-4 rounded-[22px] bg-[#174462] p-7 text-white">
             <p className="text-xl font-semibold">Une autre question ?</p>
-            <p className="text-[15px] text-white/80">Un conseiller vous rappelle sous deux jours ouvrés.</p>
-            <Link href="/formulaire-3eme-pilier/" className="btn-pill">
-              Demander mon comparatif gratuit
+            <p className="text-[15px] text-white/80">Christophe Bouin vous rappelle sous deux jours ouvrés.</p>
+            <Link href={ctaHref} className="btn-pill whitespace-normal px-5 text-center leading-snug">
+              {CTA_CALLBACK}
             </Link>
           </aside>
         </div>

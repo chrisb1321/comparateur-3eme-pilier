@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { Amount } from "@/components/amount";
 import { FIGURES, chf, CEILING_NOTE } from "@/lib/figures";
+import { CTA_CALLBACK } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
 type Situation = "salarie-lpp" | "sans-lpp" | "independant" | "frontalier" | "autre";
@@ -32,7 +33,7 @@ const OPTIONS: { value: Situation; label: string; hint: string }[] = [
   {
     value: "autre",
     label: "Je ne sais pas",
-    hint: "Un conseiller lit vos certificats LPP au rappel.",
+    hint: "Christophe Bouin lit vos certificats LPP au rappel.",
   },
 ];
 
@@ -121,11 +122,11 @@ export function CeilingSimulator({ tone = "paper" }: { tone?: "paper" | "hero" }
         <Link
           href="/formulaire-3eme-pilier/"
           className={cn(
-            "btn-pill mt-5",
+            "btn-pill mt-5 whitespace-normal text-center leading-snug",
             hero && "bg-gradient-to-r from-[#BFF3EA] to-[#4FDCC7] text-[#062B40]",
           )}
         >
-          Demander mon comparatif gratuit
+          {CTA_CALLBACK}
         </Link>
       </div>
     </section>

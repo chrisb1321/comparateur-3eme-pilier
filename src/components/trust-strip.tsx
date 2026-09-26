@@ -1,58 +1,21 @@
 import Link from "next/link";
-import { Amount } from "@/components/amount";
-import { FIGURES } from "@/lib/figures";
-
-const ITEMS = [
-  "Sans honoraires",
-  "Sans engagement",
-  "Suisse romande",
-  "Plafonds OFAS 2026",
-] as const;
-
-export function TrustStrip({
-  tone = "light",
-}: {
-  tone?: "light" | "hero";
-}) {
-  const hero = tone === "hero";
-  return (
-    <ul
-      className={
-        hero
-          ? "mt-2 flex flex-wrap gap-2 text-[13px] font-semibold text-white/85"
-          : "flex flex-wrap gap-2 text-[13px] font-semibold"
-      }
-    >
-      {ITEMS.map((item) => (
-        <li key={item} className={hero ? "rounded-full bg-white/10 px-3 py-1" : "rounded-full bg-[#E8F7F4] px-3 py-1 text-[#1F5E55]"}>
-          {item}
-        </li>
-      ))}
-      <li className={hero ? "rounded-full bg-white/10 px-3 py-1" : "rounded-full bg-[#E8F7F4] px-3 py-1 text-[#1F5E55]"}>
-        <Amount value={FIGURES.pillar3aWithLpp} />
-        <span aria-hidden> / </span>
-        <Amount value={FIGURES.pillar3aWithoutLpp} />
-      </li>
-    </ul>
-  );
-}
 
 export function ProcessSteps() {
   const steps = [
     {
       n: "01",
-      title: "Vous décrivez la situation",
-      text: "Canton, statut, un numéro joignable. Deux minutes.",
+      title: "Vous nous indiquez votre situation",
+      text: "Formulaire : coordonnées, canton, situation, et ce que vous souhaitez comparer.",
     },
     {
       n: "02",
-      title: "Un conseiller rappelle",
-      text: "Un conseiller vous rappelle sous deux jours ouvrés pour examiner les solutions accessibles dans le cadre du service.",
+      title: "Christophe Bouin vous rappelle",
+      text: "Sous deux jours ouvrés, pour échanger sur vos objectifs, votre horizon et les solutions que vous avez déjà.",
     },
     {
       n: "03",
-      title: "Vous choisissez",
-      text: "Un comparatif d’offres utiles. Vous n’êtes pas engagé, aucun honoraire.",
+      title: "Vous comparez et décidez",
+      text: "Il explique les options pertinentes et leurs conditions. Aucune obligation de souscrire.",
     },
   ];
   return (

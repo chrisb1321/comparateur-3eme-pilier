@@ -114,7 +114,7 @@ export default function ExempleComparatifPage() {
         </p>
         <div className="mt-8 flex flex-col gap-3 sm:flex-row">
           <Link href="/formulaire-3eme-pilier/" className="btn-pill">
-            Demander mon comparatif gratuit
+            Être rappelé pour comparer mes options
           </Link>
           <Link
             href="/"

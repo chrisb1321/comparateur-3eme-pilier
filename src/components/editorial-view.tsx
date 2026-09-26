@@ -194,8 +194,8 @@ export async function EditorialView({
         {showComparateur ? (
           <div className="mt-12 space-y-10">
             <ProcessSteps />
-            <CeilingSimulator />
             <LeadForm intent="comparateur" />
+            <CeilingSimulator />
           </div>
         ) : null}
         {showContact ? (

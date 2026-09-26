@@ -63,6 +63,7 @@ export async function submitLead(_prev: LeadState, form: FormData): Promise<Lead
     canton,
     situation,
     message,
+    consent: "oui",
     attribution: parseAttributionFromForm(form),
   };
 
