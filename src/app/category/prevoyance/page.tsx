@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { SourcesList } from "@/components/sources-list";
 import { CtaBand } from "@/components/cta-band";
 import { Frame } from "@/components/frame";
 import { getPosts } from "@/content";
@@ -46,7 +45,6 @@ export default function CategoryPage() {
           ))}
         </ul>
         <CtaBand />
-        <SourcesList />
       </div>
     </div>
   );

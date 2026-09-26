@@ -1,5 +1,5 @@
 import type { EditorialDoc, FaqItem } from "@/content/types";
-import { SOURCES, YEAR_SPAN } from "@/lib/figures";
+import { YEAR_SPAN } from "@/lib/figures";
 import { calendarDay } from "@/lib/publication";
 import { canonical, SITE } from "@/lib/site";
 import type { SiteImage } from "@/lib/media";
@@ -62,12 +62,6 @@ export const AUTHOR_LD = {
   publishingPrinciples: canonical("/a-propos/"),
 };
 
-const CITATIONS = SOURCES.map((source) => ({
-  "@type": "CreativeWork",
-  name: source.label,
-  url: source.href,
-}));
-
 export function faqPageLd(faqs: FaqItem[]): Record<string, unknown> {
   return {
     "@context": "https://schema.org",
@@ -114,7 +108,6 @@ export function articleLd(doc: EditorialDoc, cover: SiteImage): Record<string, u
     image: `${SITE.canonicalHost}${cover.src}`,
     author: AUTHOR_LD,
     publisher: { "@id": ORG_ID },
-    citation: CITATIONS,
     about: [
       { "@type": "Thing", name: "Pilier 3a" },
       { "@type": "Thing", name: `Prévoyance suisse ${YEAR_SPAN}` },
@@ -142,7 +135,6 @@ export function webPageLd(doc: EditorialDoc, cover: SiteImage): Record<string, u
     image: `${SITE.canonicalHost}${cover.src}`,
     author: AUTHOR_LD,
     publisher: { "@id": ORG_ID },
-    citation: CITATIONS,
     speakable: {
       "@type": "SpeakableSpecification",
       cssSelector: ["#reponse-directe", "h1"],

@@ -305,7 +305,7 @@ export const PAGES: EditorialDoc[] = [
       {
         question: "Faut-il verser avant le 31 décembre ?",
         answer:
-          "Oui : c’est la date de valeur au crédit du compte ou de la police 3a qui compte, pas la date d’ordre. Un virement trop tardif bascule sur l’année suivante. Source : OFAS, « Votre cotisation au 3e pilier ».",
+          "Oui : c’est la date de valeur au crédit du compte ou de la police 3a qui compte, pas la date d’ordre. Un virement trop tardif bascule sur l’année suivante. Dans la plupart des banques, une date limite est exigée vers le milieu du mois de décembre afin de garantir que le versement soit pris en compte pour la période fiscale.",
       },
       {
         question: `Les plafonds 3a 2027 sont-ils déjà connus ?`,
@@ -494,19 +494,130 @@ export const PAGES: EditorialDoc[] = [
     kind: "page",
     slug: "assurance-deces",
     wpId: 3202,
-    title: "Assurance décès",
-    metaTitle: `Assurance décès ${YEAR_SPAN} : risque pur, 3a et famille`,
+    title: "Assurance décès et 3e pilier",
+    metaTitle: "Assurance décès 3e pilier : compte 3a, police et 3b",
     description:
-      `Capital décès ${YEAR_SPAN} : police temporaire, 3a mixte ou 3b. Dimensionner la couverture sans confondre épargne et risque.`,
+      "Assurance décès 3e pilier : le compte 3a verse l’avoir constitué, une police peut prévoir un capital défini. Risque pur, 3a et 3b ne se confondent pas.",
     published: "2022-03-18",
     updated: UPDATED,
     intro:
-      "L’assurance décès verse un capital aux bénéficiaires si vous décédez pendant la durée du contrat. Elle peut être autonome (risque pur) ou intégrée à un 3e pilier. Ce n’est pas un substitut du 3a fiscal.",
-    related: ["risque-pur-deces", "choisir-les-beneficiaires", "3eme-pilier-mixte"],
+      "Une assurance décès, dans le 3e pilier, est un contrat qui prévoit un capital si la personne assurée décède pendant la durée couverte. Un compte 3a bancaire ne transmet que l’avoir déjà constitué. Le capital, la durée et les bénéficiaires se lisent sur le contrat : il n’existe pas une seule règle pour tous les ménages.",
+    related: [
+      "3eme-pilier-banque-assurance",
+      "3eme-pilier-a-ou-b",
+      "assurance-vie-en-suisse",
+      "liberation-du-paiement-des-primes",
+      "risque-pur-deces",
+    ],
+    faqs: [
+      {
+        question: "Quelle différence entre un 3a en banque et une assurance décès ?",
+        answer:
+          "Un 3a bancaire est un compte d’épargne liée : au décès, les proches reçoivent l’avoir constitué, pas un capital fixé à l’avance. Une assurance décès est un contrat qui prévoit un capital si le décès survient pendant la couverture. Les deux peuvent coexister. Le montant et les conditions se lisent sur le contrat, pas dans une règle unique.",
+      },
+      {
+        question: "Qu’est-ce qu’un risque pur dans le 3e pilier ?",
+        answer:
+          "Le risque pur est une assurance temporaire : la prime paie le risque de décès, sans constituer une épargne comparable à un compte. S’il n’y a pas de décès pendant la durée, il n’y a en général pas de capital à récupérer. Ce n’est pas une police 3a qui mêle épargne et couverture. La durée, le capital et les exclusions dépendent du contrat.",
+      },
+      {
+        question: "Une police 3a avec capital décès est-elle un 3b ?",
+        answer:
+          "Non. La police 3a reste de la prévoyance liée : le cadre du 3a s’applique, et un capital décès peut s’y ajouter selon le contrat. Le 3b est de la prévoyance libre, hors de ce cadre lié. On ne les substitue pas l’un à l’autre sans distinguer déduction et blocage d’un côté, souplesse de l’autre.",
+      },
+      {
+        question: "Qui sont les bénéficiaires d’un 3a en cas de décès ?",
+        answer:
+          "Le 3a suit un ordre légal de bénéficiaires. Une désignation est possible, dans les limites de cet ordre : ce n’est pas une liberté totale. La clause signée dit ce qui est ouvert dans votre contrat. Le 3b laisse en général une marge de désignation plus large, toujours encadrée par le contrat et le droit successoral.",
+      },
+      {
+        question: "La libération des primes remplace-t-elle une assurance décès ?",
+        answer:
+          "Non. La libération des primes fait continuer le contrat en cas d’incapacité, selon les conditions prévues. Une rente d’incapacité vise un revenu de remplacement, pas un capital versé aux proches au décès. Aucune de ces garanties n’est un capital décès. Le fonctionnement de la libération est détaillé sur la page qui lui est consacrée.",
+      },
+      {
+        question: "Quand faut-il une assurance décès en plus d’un compte 3a ?",
+        answer:
+          "Elle est utile quand les proches auraient besoin d’un capital que l’avoir déjà sur le compte ne couvre pas, par exemple tant que des charges du ménage reposent sur un revenu. Elle l’est moins quand transmettre cet avoir suffit, et qu’un capital défini n’est pas le besoin. Le contrat fixe le capital, la durée et les exclusions : il n’y a pas de seuil unique.",
+      },
+    ],
     blocks: [
       {
+        type: "h2",
+        text: "Le compte 3a verse l’avoir, l’assurance décès un capital",
+      },
+      {
         type: "p",
-        text: "Dimensionnez le capital par rapport aux dettes (hypothèque), au niveau de vie du ménage et aux rentes de survivants AVS/LPP déjà acquises. Un 3a bancaire ne paie que l’avoir : si la famille a besoin d’un million et que le compte pèse 40’000 CHF, le trou n’est pas « de l’épargne mal choisie », c’est un manque de risque pur.",
+        text: "Un 3a bancaire ne verse que l’avoir constitué. Une assurance décès couvre un capital défini si le décès a lieu pendant la période assurée.",
+      },
+      {
+        type: "p",
+        text: "L’avoir du compte dépend de ce qui a été versé et de ce que le support a produit. Il peut être modeste au début, même si le projet familial est déjà lourd. Le capital d’assurance, lui, est celui que le contrat prévoit : il ne grandit pas tout seul comme un compte, et il n’est dû que si les conditions de la police sont remplies. Comparer les deux sans ce distinguo mélange une épargne et une couverture.",
+      },
+      {
+        type: "h2",
+        text: "Risque pur, capital décès en 3a, et 3b",
+      },
+      {
+        type: "p",
+        text: "Le risque pur paie un capital sans jouer le rôle d’un compte. Une police 3a peut ajouter un capital décès à une épargne liée. Le 3b est une prévoyance libre, dont le capital dépend du contrat.",
+      },
+      {
+        type: "ul",
+        items: [
+          "Risque pur : temporaire décès, en principe sans épargne à récupérer si le risque ne se réalise pas. Utile pour couvrir une période, à côté d’un compte.",
+          "Capital décès dans une police 3a : la police reste liée. L’épargne et la couverture cohabitent dans le même contrat, avec le blocage et la déduction du 3a. Ce que les proches touchent en plus de l’épargne se lit sur la police, pas sur une promesse générale.",
+          "3b : prévoyance libre. Le capital, la durée et la possibilité de racheter le contrat varient. Ce n’est pas un second 3a, et ce n’est pas non plus automatiquement un risque pur.",
+        ],
+      },
+      {
+        type: "p",
+        text: "Le choix entre [banque ou assurance](/3eme-pilier-banque-assurance/) et entre [3a ou 3b](/3eme-pilier-a-ou-b/) vient de ce tri. Le mot [assurance-vie en Suisse](/assurance-vie-en-suisse/) recouvre ces formes : il ne désigne pas un seul produit.",
+      },
+      {
+        type: "h2",
+        text: "Bénéficiaires : ordre du 3a, marge du 3b",
+      },
+      {
+        type: "p",
+        text: "En 3a, les bénéficiaires suivent un ordre légal, avec une marge de désignation limitée. En 3b, la désignation est en général plus large, mais le contrat et le droit successoral décident.",
+      },
+      {
+        type: "p",
+        text: "On ne rédige pas ici la liste des rangs comme si elle remplaçait la clause signée. Deux contrats 3a peuvent ne pas ouvrir la même marge. Deux contrats 3b non plus. Avant de compter sur un proche précis, il faut lire qui est désigné, dans quel ordre, et ce que le contrat interdit de changer.",
+      },
+      {
+        type: "h2",
+        text: "Rente d’incapacité et libération des primes",
+      },
+      {
+        type: "p",
+        text: "Une rente d’incapacité et la libération des primes ne sont pas un capital décès. L’une vise un revenu si le travail s’arrête, l’autre fait continuer le contrat sans que la personne paie les primes.",
+      },
+      {
+        type: "p",
+        text: "Ces garanties s’activent, quand elles existent, selon la définition d’incapacité écrite au contrat. Elles ne versent pas aux proches le capital prévu pour un décès. La [libération du paiement des primes](/liberation-du-paiement-des-primes/) se lit à part : délai, degré et exclusions y sont ceux de la police, pas une règle commune à toutes les offres.",
+      },
+      {
+        type: "h2",
+        text: "Quand l’assurance décès est utile, et quand le compte suffit",
+      },
+      {
+        type: "p",
+        text: "L’assurance décès est utile quand les proches auraient besoin d’un capital que l’avoir du compte ne couvre pas. Le compte suffit quand transmettre cette épargne répond au besoin, sans capital défini en plus.",
+      },
+      {
+        type: "ul",
+        items: [
+          "Utile : un revenu du ménage disparaîtrait, des charges courent encore, et l’avoir 3a déjà constitué ne les couvre pas. Une temporaire, ou un capital dans une police, peut viser ce trou. Le montant reste celui du contrat.",
+          "Le compte peut suffire : l’objectif est de transmettre l’épargne accumulée, pas de garantir un capital plus élevé. Ajouter une assurance parce que « le 3e pilier se fait en assurance » ne répond pas à ce cas.",
+          "Les deux ensemble : le compte pour l’épargne liée, une couverture décès séparée ou incluse pour le capital. Ce n’est pas obligatoire. C’est un arbitrage entre prime, souplesse et ce que la clause bénéficiaire permet vraiment.",
+        ],
+      },
+      {
+        type: "callout",
+        title: "Ce que le contrat décide",
+        text: "Capital, durée, exclusions, rente d’incapacité, libération des primes et clause bénéficiaire ne se déduisent pas du mot « 3e pilier ». Deux offres du même nom peuvent couvrir des choses différentes.",
       },
     ],
   },
@@ -736,16 +847,16 @@ export const PAGES: EditorialDoc[] = [
     title: "Formulaire comparatif 3e pilier",
     metaTitle: "Comparatif 3e pilier : demander un comparatif gratuit",
     description:
-      "Expliquez votre situation. Christophe Bouin vous rappelle sous deux jours ouvrés. Sans honoraires, sans obligation de souscrire.",
+      "Comparez 3a ou 3b, en banque ou en assurance : frais, souplesse et garanties.",
     published: "2021-11-02",
     updated: UPDATED,
     intro:
-      "3a ou 3b, banque ou assurance : expliquez votre situation. Christophe Bouin vous rappelle sous deux jours ouvrés pour faire le point sur les solutions à envisager. Sans honoraires, sans obligation de souscrire.",
+      "Comparez 3a ou 3b, en banque ou en assurance : frais, souplesse et garanties.",
     related: ["nous-contacter", "page-remerciement", "choisir-son-3eme-pilier"],
     blocks: [
       {
         type: "p",
-        text: "Champs : prénom, nom, e-mail, téléphone, canton, situation, et ce que vous souhaitez comparer. Consentement pour le rappel et la transmission à Christophe Bouin.",
+        text: "Champs : nom et prénom, date de naissance, épargne mensuelle, e-mail, téléphone. Valider le formulaire reconnaît la politique de confidentialité.",
       },
     ],
   },
@@ -799,7 +910,7 @@ export const PAGES: EditorialDoc[] = [
       { type: "h2", text: "2. Données collectées" },
       {
         type: "p",
-        text: "Formulaire de comparatif : prénom, nom, e-mail, téléphone, canton ou résidence, situation (salarié avec 2e pilier, sans 2e pilier, indépendant, frontalier, autre), précision facultative, case de consentement, date et heure de la demande.",
+        text: "Formulaire de comparatif : nom et prénom, date de naissance, montant d’épargne mensuelle visé, e-mail, téléphone, date et heure de la demande. La validation reconnaît la politique de confidentialité. La date de naissance et l’épargne mensuelle sont jointes à la remarque transmise.",
       },
       {
         type: "p",
@@ -817,7 +928,7 @@ export const PAGES: EditorialDoc[] = [
       { type: "h2", text: "4. Destinataire" },
       {
         type: "p",
-        text: "La demande est transmise à Christophe Bouin, chargé du comparatif, comme l’indique la case de consentement. Contact pour exercer un droit : info@comparateur-3eme-pilier.ch.",
+        text: "La demande est transmise à Christophe Bouin, qui la traite. Contact pour exercer un droit : info@comparateur-3eme-pilier.ch.",
       },
       { type: "h2", text: "5. Droits" },
       {
@@ -830,14 +941,14 @@ export const PAGES: EditorialDoc[] = [
     kind: "page",
     slug: "page-remerciement",
     wpId: 1301,
-    title: "Merci pour votre demande",
+    title: "C'est fait ! Merci pour votre temps.",
     metaTitle: "Demande bien reçue — Comparateur 3ème pilier",
     description:
-      "Votre demande est enregistrée. Un conseiller vous rappelle sous deux jours ouvrés. Aucun e-mail de confirmation n’est envoyé.",
+      "C'est fait ! Merci pour votre temps. Aucun e-mail de confirmation n’est envoyé.",
     published: "2023-05-05",
     updated: UPDATED,
     intro:
-      "Votre demande est enregistrée. Un conseiller vous rappelle sous deux jours ouvrés. Aucun e-mail de confirmation n’est envoyé.",
+      "C'est fait ! Merci pour votre temps. Aucun e-mail de confirmation n’est envoyé.",
     related: ["deductions-fiscales-3eme-pilier", "3eme-pilier-a-ou-b"],
     blocks: [
       {

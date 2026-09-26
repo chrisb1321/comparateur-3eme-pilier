@@ -33,7 +33,7 @@ const OPTIONS: { value: Situation; label: string; hint: string }[] = [
   {
     value: "autre",
     label: "Je ne sais pas",
-    hint: "Christophe Bouin lit vos certificats LPP au rappel.",
+    hint: "L’affiliation au 2e pilier se vérifie avant de viser un plafond.",
   },
 ];
 

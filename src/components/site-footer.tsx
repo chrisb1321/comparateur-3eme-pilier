@@ -63,7 +63,7 @@ export function SiteFooter() {
               Comparez avant de <em>vous engager</em>
             </h2>
             <p className="mb-7 text-[19px] leading-relaxed text-white/85">
-              Christophe Bouin vous rappelle sous deux jours ouvrés. Sans honoraires, sans obligation de souscrire.
+              Comparez 3a ou 3b, en banque ou en assurance : frais, souplesse et garanties.
             </p>
           </div>
           <Link href="/formulaire-3eme-pilier/" className="btn-pill shrink-0 whitespace-normal text-center leading-snug max-[1100px]:w-full">

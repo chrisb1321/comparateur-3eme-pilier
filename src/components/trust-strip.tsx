@@ -4,18 +4,18 @@ export function ProcessSteps() {
   const steps = [
     {
       n: "01",
-      title: "Vous nous indiquez votre situation",
-      text: "Formulaire : coordonnées, canton, situation, et ce que vous souhaitez comparer.",
+      title: "Vous indiquez votre situation",
+      text: "Nom, date de naissance, épargne visée, e-mail et téléphone.",
     },
     {
       n: "02",
-      title: "Christophe Bouin vous rappelle",
-      text: "Sous deux jours ouvrés, pour échanger sur vos objectifs, votre horizon et les solutions que vous avez déjà.",
+      title: "Le comparatif pose les écarts",
+      text: "3a ou 3b, banque ou assurance : frais, souplesse et garanties.",
     },
     {
       n: "03",
-      title: "Vous comparez et décidez",
-      text: "Il explique les options pertinentes et leurs conditions. Aucune obligation de souscrire.",
+      title: "Vous choisissez",
+      text: "La suite se fait avec un conseiller.",
     },
   ];
   return (

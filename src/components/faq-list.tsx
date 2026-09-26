@@ -23,7 +23,7 @@ export function FaqList({
           </p>
           <aside className="flex flex-col gap-4 rounded-[22px] bg-[#174462] p-7 text-white">
             <p className="text-xl font-semibold">Une autre question ?</p>
-            <p className="text-[15px] text-white/80">Christophe Bouin vous rappelle sous deux jours ouvrés.</p>
+            <p className="text-[15px] text-white/80">Comparez 3a ou 3b, banque ou assurance.</p>
             <Link href={ctaHref} className="btn-pill whitespace-normal px-5 text-center leading-snug">
               {CTA_CALLBACK}
             </Link>

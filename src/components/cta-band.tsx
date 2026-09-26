@@ -3,7 +3,7 @@ import { CTA_CALLBACK } from "@/lib/site";
 
 export function CtaBand({
   title = "Un échange clair avant toute décision",
-  text = "Christophe Bouin vous rappelle sous deux jours ouvrés. Sans honoraires, sans obligation de souscrire.",
+  text = "Comparez 3a ou 3b, en banque ou en assurance : frais, souplesse et garanties.",
 }: {
   title?: string;
   text?: string;

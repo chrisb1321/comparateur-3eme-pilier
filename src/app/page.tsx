@@ -4,7 +4,6 @@ import { FaqList } from "@/components/faq-list";
 import { Frame } from "@/components/frame";
 import { JsonLd } from "@/components/json-ld";
 import { LeadForm } from "@/components/lead-form";
-import { SourcesList } from "@/components/sources-list";
 import { HOME_FAQS } from "@/content/faqs";
 import { ProcessSteps } from "@/components/trust-strip";
 import { CEILING_NOTE, chf, FIGURES } from "@/lib/figures";
@@ -42,7 +41,7 @@ const PILLARS = [
     href: "/3eme-pilier-a-ou-b/",
     title: "3e pilier 3a / 3b",
     image: IMAGES.mixte,
-    text: "Prévoyance individuelle, en banque ou en assurance. Le plafond 3a 2026 est dans la FAQ, source OFAS.",
+    text: "Prévoyance individuelle, en banque ou en assurance. Le plafond 3a 2026 est dans la FAQ.",
   },
 ];
 
@@ -74,7 +73,7 @@ export default function HomePage() {
               Quel <em>3e pilier</em> choisir ? Comparez vos options avant de vous engager.
             </h1>
             <p className="mb-9 max-w-[560px] text-xl leading-normal text-white/85 max-[1100px]:mb-6 max-[1100px]:text-[17px]">
-              3a ou 3b ? Banque ou assurance ? Faites le point sur vos objectifs, votre budget et les solutions possibles avec Christophe Bouin. Vous comprenez les différences de souplesse, de frais et de protection avant de prendre une décision.
+              Comparez 3a ou 3b, en banque ou en assurance : frais, souplesse et garanties.
             </p>
             <div className="mb-6 flex gap-3.5 max-[1100px]:flex-col">
               <a href="#comparatif" className="btn-pill whitespace-normal text-center leading-snug max-[1100px]:w-full">
@@ -85,9 +84,6 @@ export default function HomePage() {
                 Comment se passe le comparatif ?
               </a>
             </div>
-            <p className="text-[15px] leading-relaxed text-white/80">
-              Demande en deux minutes · Rappel sous deux jours ouvrés · Aucune obligation de souscrire
-            </p>
           </div>
           <div id="comparatif" className="w-full max-w-[480px] shrink-0 scroll-mt-36 max-[1100px]:max-w-none">
             <LeadForm intent="comparateur" tone="overlay" />
@@ -100,7 +96,7 @@ export default function HomePage() {
           <div className="max-w-3xl">
             <p className="kicker">Parcours</p>
             <h2 className="font-heading text-[56px] leading-[1.05] text-[#10324A] max-[1100px]:text-[40px]">
-              Trois étapes, <em>sans engagement</em>
+              Trois étapes pour <em>comparer</em>
             </h2>
           </div>
           <ProcessSteps />
@@ -122,7 +118,7 @@ export default function HomePage() {
             Un échange clair avant <em>toute décision</em>
           </h2>
           <p className="max-w-xl text-lg leading-relaxed text-white/85">
-            Christophe Bouin vous rappelle sous deux jours ouvrés. Aucune obligation de souscrire.
+            Comparez 3a ou 3b, en banque ou en assurance : frais, souplesse et garanties.
           </p>
           <a href="#comparatif" className="btn-pill whitespace-normal text-center leading-snug max-[1100px]:w-full">
             {CTA_CALLBACK}
@@ -137,8 +133,8 @@ export default function HomePage() {
             <div className="relative h-[600px] w-[540px] shrink-0 overflow-hidden rounded-[28px] shadow-[0_30px_60px_-30px_rgba(16,50,74,0.45)] max-[1100px]:h-[420px] max-[1100px]:w-full max-[1100px]:rounded-[22px]">
               <Frame image={IMAGES.conseiller} fill className="absolute inset-0 rounded-none" rounded={false} sizes="540px" />
               <div className="absolute right-5 bottom-5 left-5 rounded-[18px] bg-[#174462]/90 p-5 text-white">
-                <b className="mb-1 block text-[17px] font-semibold">Christophe Bouin</b>
-                <span className="text-[15px] leading-snug text-white/85">Il explique les options pertinentes et leurs conditions. Aucune obligation de souscrire.</span>
+                <b className="mb-1 block text-[17px] font-semibold">Comparatif</b>
+                <span className="text-[15px] leading-snug text-white/85">Frais, souplesse et garanties, en banque ou en assurance.</span>
               </div>
             </div>
             <div className="flex-1">
@@ -150,10 +146,10 @@ export default function HomePage() {
                 « Un rachat 3a dès 2026 n’efface pas les années perdues avant 2025. On verse d’abord le maximum de l’année, ensuite seulement la lacune. »
               </p>
               <p className="mb-7 text-[19px] leading-relaxed text-[#4A6275]">
-                Christophe Bouin examine les solutions accessibles dans le cadre du service, leurs frais et leurs garanties. Ce n’est pas l’ensemble du marché suisse.
+                Le comparatif examine les solutions accessibles dans le cadre du service, leurs frais et leurs garanties. Ce n’est pas l’ensemble du marché suisse.
               </p>
               <div className="flex flex-wrap gap-2.5">
-                {["Sans honoraires", "Sans engagement", "Rappel sous deux jours ouvrés"].map((badge) => (
+                {["Sans honoraires"].map((badge) => (
                   <span key={badge} className="rounded-full border border-[#DCE6ED] bg-white px-4 py-2.5 text-[15px] font-semibold text-[#174462]">
                     {badge}
                   </span>
@@ -163,7 +159,7 @@ export default function HomePage() {
           </div>
           <div className="grid gap-4 md:grid-cols-3">
             {[
-              { title: "Humain", text: "Un rappel de Christophe Bouin, pas un e-mail automatique." },
+              { title: "Humain", text: "Les options sont expliquées, pas un palmarès automatique." },
               { title: "Indépendant", text: "Banque ou assurance : les deux supports sont lus." },
               { title: "Transparent", text: "Le plafond 2026 cité vient de l’OFAS. Pas d’honoraires." },
             ].map((item) => (
@@ -197,7 +193,7 @@ export default function HomePage() {
                 <span className="rounded-full bg-[#E8F7F4] px-3 py-1 text-[13px] font-semibold text-[#1F5E55]">Déductible</span>
               </div>
               <p className="text-[28px] leading-tight font-semibold">Même plafond OFAS en 2026</p>
-              <p className="text-sm text-[#4A6275]">Le montant, avec ou sans 2e pilier, est dans la FAQ. Source OFAS, montants 2026.</p>
+              <p className="text-sm text-[#4A6275]">Le montant, avec ou sans 2e pilier, est dans la FAQ.</p>
               <ul className="flex flex-col gap-2.5 text-base leading-snug">
                 <li>Déductible dans tous les cantons, dans la limite publiée pour 2026.</li>
                 <li>Capital bloqué sauf motifs légaux. Ordre des bénéficiaires fixé.</li>
@@ -274,7 +270,6 @@ export default function HomePage() {
               </a>
               .
             </p>
-            <SourcesList />
           </div>
         </div>
       </section>
@@ -295,7 +290,6 @@ export default function HomePage() {
             name: "Plafonds 3e pilier 3a 2026 (Suisse)",
             description: CEILING_NOTE,
             creator: { "@type": "Organization", name: SITE.name },
-            license: "https://www.bsv.admin.ch/fr/le-troisieme-pilier",
             temporalCoverage: "2026",
             variableMeasured: [
               {

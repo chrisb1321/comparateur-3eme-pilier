@@ -8,7 +8,8 @@ export const HOME_FAQS: FaqItem[] = [
   },
   {
     question: "Le résultat est-il immédiat ?",
-    answer: "Non. Christophe Bouin vous rappelle sous deux jours ouvrés.",
+    answer:
+      "Non. Le comparatif porte sur 3a ou 3b, banque ou assurance : frais, souplesse et garanties.",
   },
   {
     question: "Banque ou assurance : que compare-t-on ?",

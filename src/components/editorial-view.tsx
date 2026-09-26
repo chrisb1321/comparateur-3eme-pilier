@@ -7,7 +7,6 @@ import { Frame } from "@/components/frame";
 import { JsonLd } from "@/components/json-ld";
 import { LeadForm } from "@/components/lead-form";
 import { MdxBody } from "@/components/mdx-body";
-import { SourcesList } from "@/components/sources-list";
 import { CeilingSimulator } from "@/components/ceiling-simulator";
 import { ProcessSteps } from "@/components/trust-strip";
 import { getPosts, getRelated } from "@/content";
@@ -82,10 +81,10 @@ export async function EditorialView({
         <div className="mx-auto max-w-2xl px-4 py-16 md:px-6">
           <p className="text-lg leading-relaxed" data-testid="lead-crm-status" data-crm={transmitted ? "ok" : "no"}>
             {transmitted
-              ? "Votre demande est enregistrée. Un conseiller vous rappelle sous deux jours ouvrés. Aucun e-mail de confirmation n’est envoyé."
+              ? "C'est fait ! Merci pour votre temps. Aucun e-mail de confirmation n’est envoyé."
               : journalOk
-                ? "Votre demande est enregistrée sur le site, mais le rappel n’a pas pu être déclenché. Écrivez-nous pour qu’un conseiller vous rappelle. Aucun e-mail de confirmation n’est envoyé."
-                : "Nous n’avons pas de confirmation d’enregistrement. Écrivez à l’adresse ci-dessous en rappelant votre numéro. Aucun e-mail de confirmation n’est envoyé."}
+                ? "Votre demande est enregistrée sur le site, mais la transmission n’a pas abouti. Écrivez-nous. Aucun e-mail de confirmation n’est envoyé."
+                : "Nous n’avons pas de confirmation d’enregistrement. Écrivez à l’adresse ci-dessous en indiquant votre numéro. Aucun e-mail de confirmation n’est envoyé."}
           </p>
           <ol className="mt-10 grid gap-4">
             <li className="surface-card p-6">
@@ -95,23 +94,23 @@ export async function EditorialView({
                 {transmitted
                   ? "La demande est enregistrée. Aucun e-mail de confirmation n’est envoyé."
                   : journalOk
-                    ? "Une copie est conservée sur le site. Le rappel n’est pas parti. Aucun e-mail de confirmation n’est envoyé."
-                    : "Sans confirmation d’enregistrement, le rappel ne part pas. Aucun e-mail de confirmation n’est envoyé."}
+                    ? "Une copie est conservée sur le site. La transmission n’a pas abouti. Aucun e-mail de confirmation n’est envoyé."
+                    : "Sans confirmation d’enregistrement, la demande ne part pas. Aucun e-mail de confirmation n’est envoyé."}
               </p>
             </li>
             <li className="surface-card p-6">
               <p className="text-sm font-semibold tracking-[0.12em] text-[#23597C] uppercase">02</p>
               <h2 className="mt-1 text-2xl font-semibold">
-                {transmitted ? "Rappel sous deux jours ouvrés" : "Rappel non déclenché"}
+                {transmitted ? "Suite avec un conseiller" : "Transmission non confirmée"}
               </h2>
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
                 {transmitted
-                  ? "Un conseiller vous rappelle sous deux jours ouvrés. Si rien ne vient, écrivez à "
-                  : "Si le rappel n’a pas été déclenché, écrivez à "}
+                  ? "La suite se fait avec un conseiller. Si rien ne vient, écrivez à "
+                  : "Si la transmission n’a pas abouti, écrivez à "}
                 <a className="font-semibold text-[#174462] underline underline-offset-4" href={`mailto:${SITE.email}`}>
                   {SITE.email}
                 </a>{" "}
-                en rappelant votre numéro.
+                en indiquant votre numéro.
               </p>
             </li>
             <li className="surface-card p-6">
@@ -221,7 +220,6 @@ export async function EditorialView({
           </aside>
         ) : null}
         {doc.slug !== "page-remerciement" && !showComparateur && !showContact ? <CtaBand /> : null}
-        <SourcesList />
         <ArticleJsonLd doc={doc} />
       </div>
     </article>
