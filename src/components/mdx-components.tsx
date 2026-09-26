@@ -3,7 +3,7 @@ import type { ComponentPropsWithoutRef, ReactNode } from "react";
 
 function Callout({ title, children }: { title: string; children: ReactNode }) {
   return (
-    <aside className="border border-accent/30 bg-card px-4 py-4">
+    <aside className="rounded-[18px] border border-[#DCE6ED] bg-white px-5 py-4">
       <p className="text-sm font-semibold text-primary">{title}</p>
       <div className="mt-1 text-sm leading-relaxed text-foreground/90">{children}</div>
     </aside>
@@ -14,7 +14,7 @@ export const mdxComponents = {
   Amount,
   Callout,
   h2: (props: ComponentPropsWithoutRef<"h2">) => (
-    <h2 className="font-heading mt-12 text-3xl tracking-tight text-foreground" {...props} />
+    <h2 className="font-heading mt-12 text-3xl leading-tight text-[#10324A] md:text-4xl" {...props} />
   ),
   h3: (props: ComponentPropsWithoutRef<"h3">) => (
     <h3 className="mt-8 text-lg font-semibold text-foreground" {...props} />
@@ -30,7 +30,7 @@ export const mdxComponents = {
   ),
   li: (props: ComponentPropsWithoutRef<"li">) => <li className="leading-relaxed" {...props} />,
   a: (props: ComponentPropsWithoutRef<"a">) => (
-    <a className="text-primary underline decoration-accent underline-offset-4" {...props} />
+    <a className="font-semibold text-[#174462] underline decoration-[#3FD9C4] underline-offset-4" {...props} />
   ),
   table: (props: ComponentPropsWithoutRef<"table">) => (
     <div className="my-6 overflow-x-auto">
@@ -38,7 +38,7 @@ export const mdxComponents = {
     </div>
   ),
   th: (props: ComponentPropsWithoutRef<"th">) => (
-    <th className="border-b border-border bg-muted/60 px-3 py-2 font-semibold" {...props} />
+    <th className="border-b border-[#DCE6ED] bg-[#F5F8FA] px-3 py-2 font-semibold" {...props} />
   ),
   td: (props: ComponentPropsWithoutRef<"td">) => <td className="border-b border-border/80 px-3 py-2 align-top" {...props} />,
   strong: (props: ComponentPropsWithoutRef<"strong">) => <strong className="font-semibold" {...props} />,

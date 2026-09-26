@@ -22,7 +22,7 @@ export function Frame({
   fill?: boolean;
 }) {
   return (
-    <figure className={cn("group overflow-hidden", rounded && "rounded-sm", className)}>
+    <figure className={cn("group overflow-hidden", rounded && "rounded-[20px]", className)}>
       {fill ? (
         <Image
           src={image.src}
