@@ -40,7 +40,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="fr-CH" className={`${sans.variable} h-full antialiased`}>
-      <body className="flex min-h-full flex-col bg-background pt-[96px] pb-20 text-foreground min-[1101px]:pt-[124px] md:pb-0">
+      <body className="flex min-h-full flex-col bg-background pt-16 pb-20 text-foreground min-[1101px]:pt-[88px] md:pb-0">
         <a
           href="#contenu"
           className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:bg-primary focus:px-3 focus:py-2 focus:text-primary-foreground"

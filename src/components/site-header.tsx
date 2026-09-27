@@ -50,10 +50,6 @@ export function SiteHeader() {
         scrolled ? "shadow-[0_8px_24px_-12px_rgba(3,22,38,0.6)]" : ""
       }`}
     >
-      <div className="flex h-9 items-center justify-center gap-2 bg-[#3FD9C4] px-4 text-center text-sm font-medium text-[#062B40] max-[1100px]:h-8 max-[1100px]:text-[13px]">
-        <b className="font-semibold">Sans honoraires</b>
-        <span className="max-[1100px]:hidden">· rappel sous deux jours ouvrés · aucune obligation de souscrire</span>
-      </div>
       <nav
         className="mx-auto flex h-[88px] w-full max-w-[1440px] items-center justify-between gap-8 px-12 max-[1100px]:h-16 max-[1100px]:px-4"
         aria-label="Principal"
@@ -102,7 +98,7 @@ export function SiteHeader() {
         </button>
       </nav>
       {open ? (
-        <div className="flex max-h-[calc(100vh-96px)] flex-col overflow-auto border-t border-white/12 px-4 pt-2 pb-6 min-[1101px]:hidden">
+        <div className="flex max-h-[calc(100vh-64px)] flex-col overflow-auto border-t border-white/12 px-4 pt-2 pb-6 min-[1101px]:hidden">
           {[...PRIMARY, ...extra].map((item) => (
             <Link
               key={item.href}
