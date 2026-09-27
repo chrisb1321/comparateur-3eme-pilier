@@ -78,7 +78,7 @@ export function SiteFooter() {
               <BrandLockup size={28} />
             </Link>
             <p className="text-base leading-relaxed text-white/75">
-              Information générale sur le 3e pilier en Suisse. Pas un mandat LSFin. Revue éditoriale du {SITE.updated}.
+              Information générale sur le 3e pilier en Suisse. Revue éditoriale du {SITE.updated}.
             </p>
             <span className="self-start rounded-full bg-[#3FD9C4] px-3 py-1.5 text-[13px] font-semibold text-[#062B40]">
               Comparatif gratuit · Plafonds OFAS
