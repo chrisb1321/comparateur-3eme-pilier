@@ -55,10 +55,10 @@ export const IMAGES = {
     height: 864,
   },
   conseiller: {
-    src: "/images/portrait-conseiller.jpg",
-    alt: "Conseiller en prévoyance, portrait éditorial dans une cour genevoise.",
-    width: 864,
-    height: 1152,
+    src: "/images/portrait-conseiller.png",
+    alt: "Portrait du conseiller en costume bleu marine, bras croisés.",
+    width: 1205,
+    height: 1212,
   },
   cliente: {
     src: "/images/portrait-cliente.jpg",

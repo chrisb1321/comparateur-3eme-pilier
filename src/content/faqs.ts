@@ -4,12 +4,12 @@ export const HOME_FAQS: FaqItem[] = [
   {
     question: "Le comparatif est-il gratuit ?",
     answer:
-      "Oui. Le comparatif et l’échange avec le conseiller sont sans honoraires. Vous restez libre de ne rien souscrire.",
+      "Oui. Le comparatif et l’échange avec le conseiller sont sans gratuit et sans engagement.",
   },
   {
     question: "Le résultat est-il immédiat ?",
     answer:
-      "Non. Le comparatif porte sur 3a ou 3b, banque ou assurance : frais, souplesse et garanties.",
+      "Oui , vous recevez immédiatemen t une simulation chiffrée, le comparatif est envoyé ensuite par un de nos conseiller",
   },
   {
     question: "Banque ou assurance : que compare-t-on ?",

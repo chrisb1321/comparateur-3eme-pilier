@@ -78,11 +78,6 @@ function ComparateurForm({ tone }: { tone: "paper" | "overlay" }) {
           <input type="text" name="website" tabIndex={-1} autoComplete="off" />
         </label>
       </div>
-      <header className="space-y-2">
-        <p className="text-sm leading-relaxed text-[#4A6275]">
-          {ADVISOR_NAME} traite votre demande. Sans engagement, sous deux jours ouvrés.
-        </p>
-      </header>
       {step === 0 ? (
         <Step
           title="Enchanté, comment vous appelez-vous ?"
