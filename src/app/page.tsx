@@ -142,11 +142,8 @@ export default function HomePage() {
               <h2 className="font-heading mb-7 text-[56px] leading-[1.05] text-[#10324A] max-[1100px]:mb-3 max-[1100px]:text-[38px]">
                 Un conseil pour <em>votre situation</em>
               </h2>
-              <p className="mb-4 text-[19px] leading-relaxed text-[#10324A]">
-                « Un rachat 3a dès 2026 n’efface pas les années perdues avant 2025. On verse d’abord le maximum de l’année, ensuite seulement la lacune. »
-              </p>
               <p className="mb-7 text-[19px] leading-relaxed text-[#4A6275]">
-                Le comparatif examine les solutions accessibles dans le cadre du service, leurs frais et leurs garanties. Ce n’est pas l’ensemble du marché suisse.
+                Le comparatif examine les solutions accessibles dans le cadre du service, leurs frais et leurs garanties.
               </p>
               <div className="flex flex-wrap gap-2.5">
                 {["Sans honoraires"].map((badge) => (
@@ -209,7 +206,7 @@ export default function HomePage() {
                 <span className="rounded-full bg-[rgba(191,243,234,0.16)] px-3 py-1 text-[13px] font-semibold text-[#BFF3EA]">Souple</span>
               </div>
               <p className="text-[28px] leading-tight font-semibold">Pas de plafond OFAS</p>
-              <p className="text-sm text-white/80">Déduction limitée, surtout Genève et Fribourg.</p>
+              <p className="text-sm text-white/80">Déduction possible, à Genève et Fribourg.</p>
               <ul className="flex flex-col gap-2.5 text-base leading-snug text-white/90">
                 <li>Retrait et bénéficiaires plus souples.</li>
                 <li>Déduction surtout pour certaines polices d’assurance-vie.</li>

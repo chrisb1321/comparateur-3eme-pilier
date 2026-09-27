@@ -274,7 +274,7 @@ export const PAGES: EditorialDoc[] = [
       },
       {
         type: "p",
-        text: "Décrivez votre projet. Un conseiller vous rappelle sous deux jours ouvrés pour examiner les solutions accessibles dans le cadre du service, leurs frais et leurs garanties. Ce n’est pas l’ensemble du marché suisse. Comparatif gratuit et sans engagement.",
+        text: "Décrivez votre projet. Un conseiller vous rappelle sous deux jours ouvrés pour examiner les solutions accessibles dans le cadre du service, leurs frais et leurs garanties. Comparatif gratuit et sans engagement.",
       },
       {
         type: "p",
@@ -1018,7 +1018,7 @@ export const PAGES: EditorialDoc[] = [
       { type: "h2", text: "Nature du service" },
       {
         type: "p",
-        text: "Le site publie une information générale sur le 3e pilier et recueille une demande de comparatif. Un conseiller rappelle sous deux jours ouvrés pour examiner les solutions accessibles dans le cadre du service, leurs frais et leurs garanties. Ce n’est pas l’ensemble du marché suisse. Le comparatif est gratuit et sans engagement.",
+        text: "Le site publie une information générale sur le 3e pilier et recueille une demande de comparatif. Un conseiller rappelle sous deux jours ouvrés pour examiner les solutions accessibles dans le cadre du service, leurs frais et leurs garanties. Le comparatif est gratuit et sans engagement.",
       },
     ],
   },
@@ -1043,7 +1043,7 @@ export const PAGES: EditorialDoc[] = [
       { type: "h2", text: "Ce que le service examine" },
       {
         type: "p",
-        text: "Un conseiller examine les solutions accessibles dans le cadre du service : frais, souplesse des versements, valeur de rachat, garanties décès ou incapacité, horizon. Ce n’est pas l’ensemble du marché suisse.",
+        text: "Un conseiller examine les solutions accessibles dans le cadre du service : frais, souplesse des versements, valeur de rachat, garanties décès ou incapacité, horizon.",
       },
       { type: "h2", text: "Limites" },
       {
