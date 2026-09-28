@@ -11,7 +11,7 @@ export const PAGES: EditorialDoc[] = [
     slug: "3eme-pilier-a-ou-b",
     wpId: 2060,
     title: `3e pilier A ou B : comment choisir en ${YEAR_SPAN}`,
-    metaTitle: `3e pilier A ou B (${YEAR_SPAN}) : fiscalité, retraits, bénéficiaires`,
+    metaTitle: "3e pilier A ou B : fiscalité, retraits, bénéficiaires",
     description:
       `Différences 3a / 3b en ${YEAR_SPAN_WORDS} : plafonds OFAS / OPP 3, retraits, bénéficiaires, Genève et Fribourg. Comparatif gratuit, sans honoraires.`,
     published: "2021-11-04",
@@ -168,7 +168,7 @@ export const PAGES: EditorialDoc[] = [
     slug: "3eme-pilier-banque-assurance",
     wpId: 1160,
     title: "3e pilier en banque ou en assurance",
-    metaTitle: `3e pilier banque ou assurance (${YEAR_SPAN}) : frais, garanties, horizon`,
+    metaTitle: "3e pilier banque ou assurance : frais et garanties",
     description:
       "Même déduction 3a, supports différents. Banque : flexibilité. Assurance : garanties, décès, libération des primes. Comment départager.",
     published: "2021-10-31",
@@ -223,7 +223,7 @@ export const PAGES: EditorialDoc[] = [
     slug: "3eme-pilier-mixte",
     wpId: 2129,
     title: "3e pilier mixte",
-    metaTitle: `3e pilier mixte ${YEAR_SPAN} : épargne et risque dans la même police`,
+    metaTitle: "3e pilier mixte : épargne et risque dans une police",
     description:
       `Une police mixte combine constitution de capital et couverture décès. Intérêt, limites, et quand séparer les deux contrats (${YEAR_SPAN}).`,
     published: "2022-03-17",
@@ -248,7 +248,7 @@ export const PAGES: EditorialDoc[] = [
     slug: "choisir-son-3eme-pilier",
     wpId: 6635,
     title: "Comment choisir son 3e pilier",
-    metaTitle: `Choisir son 3e pilier en ${YEAR_SPAN} : méthode, pas un palmarès`,
+    metaTitle: "Choisir son 3e pilier : méthode, pas un palmarès",
     description:
       `Grille de choix 3a/3b, banque/assurance, montant, canton et famille en ${YEAR_SPAN}. Comparatif indépendant, sans honoraires.`,
     published: "2023-06-01",
@@ -287,13 +287,14 @@ export const PAGES: EditorialDoc[] = [
     slug: "deductions-fiscales-3eme-pilier",
     wpId: 1918,
     title: `Déductions fiscales du 3e pilier en ${YEAR_SPAN}`,
-    metaTitle: `Déductions 3e pilier ${YEAR_SPAN} : plafonds OFAS 7’258 / 36’288`,
+    metaTitle: "Déductions 3e pilier 2026 : plafonds 7’258 / 36’288",
     description:
       "Plafonds 3a 2026 : CHF 7’258 / 36’288. Montants 2027 à confirmer par l’OFAS. Rachat dès 2026, 3b Genève/Fribourg, imposition au retrait. Sources AFC et OFAS.",
     published: "2021-11-12",
     updated: UPDATED,
     intro: `Quel est le plafond 3a déductible en 2026 ? ${chf(FIGURES.pillar3aWithLpp)} si vous êtes affilié au 2e pilier, ${chf(FIGURES.pillar3aWithoutLpp)} (20 % du revenu d’activité, max.) sinon. Source : tableau OFAS du 1.1.2026. ${CEILING_NOTE}.`,
     related: [
+      "3eme-pilier-independant",
       "quel-montant-deductible-3eme-pilier-2022",
       "3eme-pilier-a-impot-retrait",
       "plafonds-3a-2026-2027",
@@ -364,6 +365,7 @@ export const PAGES: EditorialDoc[] = [
     intro:
       "Un frontalier peut-il ouvrir un 3a ? Oui, si le revenu d’activité en Suisse est soumis à l’AVS. Ce n’est pas le permis G qui ouvre le droit : c’est l’assujettissement AVS (OFAS, circulaire AFC n° 18). L’intérêt fiscal dépend ensuite de la source, d’une éventuelle TOU, et du droit de l’État de résidence.",
     related: [
+      "3eme-pilier-independant",
       "ouvrir-un-3eme-pilier-pour-un-frontalier",
       "frontalier-avs-3a-conditions",
       "tou-impot-source-3a",
@@ -461,32 +463,88 @@ export const PAGES: EditorialDoc[] = [
     slug: "assurance-vie-en-suisse",
     wpId: 3182,
     title: "Assurance-vie en Suisse",
-    metaTitle: `Assurance-vie en Suisse ${YEAR_SPAN} : 3a, 3b, mixte, risque pur`,
+    metaTitle: "Assurance-vie en Suisse : risque pur, mixte, 3a ou 3b (2026)",
     description:
-      "Assurance-vie suisse : rôle dans le 3a et le 3b, capital décès, épargne, fiscalité. Landing historique à conserver.",
+      "Comparez assurance décès et assurance-vie mixte en Suisse : garanties, frais, valeur de rachat et fiscalité 3a/3b. Comparatif gratuit et sans engagement.",
     published: "2022-03-18",
-    updated: UPDATED,
+    updated: "2026-09-28",
     intro:
-      "En Suisse, « assurance-vie » recouvre des polices très différentes : risque pur, mixte, 3a lié, 3b libre. Cette page existait déjà en 2022 et recevait des liens depuis d’autres funnels. Elle reste à cette URL.",
-    related: ["3eme-pilier-mixte", "risque-pur-deces", "assurance-deces"],
+      "En Suisse, l’assurance-vie peut couvrir uniquement un risque, comme le décès, ou combiner protection et épargne dans un contrat mixte. Elle peut être souscrite dans le cadre du pilier 3a ou du pilier 3b. Pour choisir, comparez les garanties, les frais, la valeur de rachat, la fiscalité et la souplesse du contrat.",
+    related: ["3eme-pilier-mixte", "risque-pur-deces", "assurance-deces", "3eme-pilier-a-ou-b"],
+    faqs: [
+      {
+        question: "Quelle différence entre assurance-vie et 3e pilier ?",
+        answer:
+          "L’assurance-vie est un contrat : risque pur (décès seul) ou mixte (décès et épargne). Le 3e pilier est le cadre juridique. Le 3a est une prévoyance liée, avec déduction et sorties limitées. Le 3b est une prévoyance libre. Une assurance-vie peut être logée en 3a ou en 3b. Un compte 3a bancaire, lui, n’est pas une assurance-vie.",
+      },
+      {
+        question: "Que récupère-t-on si l’on résilie un contrat mixte ?",
+        answer:
+          "La valeur de rachat écrite dans le contrat, pas la somme des primes versées. Les premières années, cette valeur est souvent très inférieure aux primes, parfois nulle : les frais d’acquisition et le coût du risque sont prélevés au début. Seule la table de rachat de la police donne le montant. Un risque pur n’a en général pas de valeur de rachat.",
+      },
+      {
+        question: "Le capital est-il garanti ?",
+        answer:
+          "Cela dépend du contrat. Un capital en francs prévu à la police est dû si les conditions sont remplies. Un contrat lié à des fonds suit la valeur des parts : le capital à l’échéance n’est pas garanti. Le capital décès, lorsqu’il existe, est celui écrit au contrat.",
+      },
+    ],
     blocks: [
       {
+        type: "h2",
+        text: "Quatre formes, pas un seul produit",
+      },
+      {
         type: "p",
-        text: "Une police liée 3a offre la déduction OPP 3 mais verrouille les sorties. Une police 3b offre la liberté de bénéficiaires et de durée, avec une fiscalité à juger canton par canton. Une temporaire décès ne constitue pas d’épargne : elle paie un capital si le risque se réalise pendant la durée. Comparer « l’assurance-vie » sans ce tri n’a pas de sens.",
+        text: "Le [risque pur](/risque-pur-deces/) paie un capital si le décès survient pendant la durée, sans constituer d’épargne. Le [contrat mixte](/3eme-pilier-mixte/) réunit cette couverture et une épargne dans la même prime. La police peut être logée dans le [3a](/3eme-pilier-a-ou-b/) ou dans le [3b](/3eme-pilier-b-prevoyance-libre/). Le capital versé aux proches se lit sur la page [assurance décès](/assurance-deces/).",
+      },
+      {
+        type: "table",
+        caption:
+          "Lecture qualitative. Les frais et la valeur de rachat figurent sur la police : il n’existe pas un barème unique en francs.",
+        headers: ["Forme", "Ce que la prime paie", "Si le contrat s’arrête", "Cadre"],
+        rows: [
+          [
+            "Risque pur",
+            "Le décès pendant la durée. Pas d’épargne.",
+            "En général, pas de valeur de rachat.",
+            "Couverture, souvent à côté d’un compte 3a.",
+          ],
+          [
+            "Mixte",
+            "Épargne et décès dans la même prime.",
+            "La valeur de rachat du contrat, souvent faible les premières années.",
+            "3a ou 3b, selon la police.",
+          ],
+          [
+            "Police 3a",
+            "Épargne liée, parfois avec un capital décès.",
+            "Sortie pour un motif prévu par l’OPP 3. La valeur dépend du contrat.",
+            "Déduction dans le plafond 3a. Bénéficiaires selon l’ordre légal.",
+          ],
+          [
+            "Police 3b",
+            "Épargne libre et, selon le contrat, une couverture.",
+            "Rachat selon la police, hors des motifs de sortie du 3a.",
+            "Pas le plafond fédéral du 3a. Fiscalité à juger au canton.",
+          ],
+        ],
       },
       {
         type: "h2",
-        text: "Ce que nous regardons dans une offre",
+        text: "Plafond 3a en 2026",
       },
       {
-        type: "ul",
-        items: [
-          "Capital garanti vs lié à des fonds.",
-          "Table de valeurs de rachat.",
-          "Coût du risque (décès / invalidité / libération).",
-          "Frais d’acquisition et de gestion.",
-          "Clause bénéficiaire et rachat possible.",
-        ],
+        type: "p",
+        text: `En 2026, avec un 2e pilier, le plafond 3a est de ${chf(FIGURES.pillar3aWithLpp)}. Sans 2e pilier, il est de ${FIGURES.pillar3aWithoutLppRate} du revenu de l’activité lucrative, au maximum ${chf(FIGURES.pillar3aWithoutLpp)} (art. 7 OPP 3, tableau OFAS au 1er janvier 2026). Au 19 septembre 2026, le tableau OFAS 2027 n’est pas publié : ces montants restent ceux en vigueur. Le détail est sur la page [déductions fiscales](/deductions-fiscales-3eme-pilier/).`,
+      },
+      {
+        type: "p",
+        text: "Le 3b ne suit pas ce plafond. Il n’est pas déductible à l’impôt fédéral direct comme le 3a. Au canton, certains régimes seulement admettent les primes d’assurance-vie, souvent dans une enveloppe déjà occupée par d’autres primes. Voir [prévoyance libre 3b](/3eme-pilier-b-prevoyance-libre/) et, pour Genève, [3e pilier à Genève](/3eme-pilier-geneve/).",
+      },
+      {
+        type: "callout",
+        title: "Comparatif",
+        text: "Le comparatif examine les garanties, les frais et la valeur de rachat. Un conseiller rappelle sous deux jours ouvrés. Gratuit et sans engagement. [Recevoir le comparatif](/formulaire-3eme-pilier/).",
       },
     ],
   },
@@ -646,7 +704,7 @@ export const PAGES: EditorialDoc[] = [
     slug: "epargne-enfant",
     wpId: 1967,
     title: "Épargne enfant",
-    metaTitle: `Épargne enfant ${YEAR_SPAN} : 3b, assurance, compte — pas de 3a sans AVS`,
+    metaTitle: "Épargne enfant : 3b ou compte, pas de 3a sans AVS",
     description:
       "Épargne et protection pour un enfant : le 3a de l’enfant n’existe pas sans revenu AVS. Pistes 3b, compte, clause bénéficiaire.",
     published: "2021-11-04",
@@ -692,7 +750,7 @@ export const PAGES: EditorialDoc[] = [
     slug: "liberation-du-paiement-des-primes",
     wpId: 1929,
     title: "Libération du paiement des primes",
-    metaTitle: `Libération des primes ${YEAR_SPAN} : invalidité et 3e pilier assurance`,
+    metaTitle: "Libération des primes : invalidité et 3e pilier",
     description:
       "Si l’assureur prend en charge les primes en cas d’incapacité, le 3a/3b continue sans vous. Garantie à lire avant de signer.",
     published: "2021-10-31",
@@ -712,7 +770,7 @@ export const PAGES: EditorialDoc[] = [
     slug: "1er-pilier-avs-ai-apg",
     wpId: 1986,
     title: "1er pilier AVS / AI / APG",
-    metaTitle: `1er pilier ${YEAR_SPAN} : rentes AVS, 13e rente, âge de référence`,
+    metaTitle: "1er pilier AVS 2026 : rentes, 13e rente, âge",
     description:
       "AVS 2026 : rentes min./max. (tableau OFAS 1.1.2026). 2027 : tableau non publié au 19.09.2026. 13e rente dès décembre 2026, âge de référence 65 ans.",
     published: "2021-11-12",
@@ -761,11 +819,12 @@ export const PAGES: EditorialDoc[] = [
     title: "2e pilier LPP",
     metaTitle: `2e pilier LPP ${YEAR_SPAN} : seuil 22’680, coordination 26’460`,
     description:
-      "LPP 2026 (tableau OFAS 1.1.2026) : seuil d’entrée, déduction de coordination, salaire coordonné. 2027 : mêmes montants encore en vigueur, tableau OFAS non publié au 19.09.2026. Lien avec le plafond 3a.",
+      "LPP 2026 (OFAS) : seuil d’entrée, déduction de coordination et salaire coordonné. Le tableau 2027 n’est pas publié. Lien avec le plafond 3a.",
     published: "2021-11-12",
     updated: UPDATED,
     intro: `Quel est le seuil LPP en ${YEAR_SPAN_WORDS} ? Selon le tableau OFAS au 1er janvier 2026, l’affiliation obligatoire commence à ${chf(FIGURES.lppEntry)} de salaire annuel, la déduction de coordination est ${chf(FIGURES.lppCoordination)}, la limite supérieure ${chf(FIGURES.lppSalaryCap)}. Au 19 septembre 2026, le tableau 2027 n’est pas publié : ces montants restent ceux en vigueur.`,
     related: [
+      "3eme-pilier-independant",
       "a-quoi-sert-le-deuxieme-pilier",
       "libre-passage-lpp",
       "tableau-ofas-montants-avs-lpp-3a",
@@ -805,9 +864,9 @@ export const PAGES: EditorialDoc[] = [
     slug: "libre-passage-lpp",
     wpId: 5018,
     title: "Libre passage LPP",
-    metaTitle: `Libre passage LPP ${YEAR_SPAN} : changement d’employeur, compte, police`,
+    metaTitle: "Libre passage LPP : changement d’employeur, compte",
     description:
-      `Quand l’avoir de 2e pilier sort de la caisse : compte ou police de libre passage, délais, 3e pilier. Guide ${YEAR_SPAN}.`,
+      "Quand l’avoir de 2e pilier quitte la caisse : compte ou police de libre passage, délais de transfert, et ce que cela change pour le 3e pilier.",
     published: "2023-11-05",
     updated: UPDATED,
     intro:
@@ -825,9 +884,9 @@ export const PAGES: EditorialDoc[] = [
     slug: "compte-de-libre-passage-lpp",
     wpId: 5981,
     title: "Compte de libre passage LPP",
-    metaTitle: `Compte de libre passage ${YEAR_SPAN} : fonctionnement et pièges`,
+    metaTitle: "Compte de libre passage : fonctionnement et pièges",
     description:
-      "Compte vs police de libre passage, frais, titres, regroupement d’avoirs. À ne pas confondre avec un 3a.",
+      "Compte ou police de libre passage : frais, titres et regroupement d’avoirs LPP. Ce n’est pas un compte 3a, ni un livret.",
     published: "2023-10-10",
     updated: UPDATED,
     intro:
@@ -847,7 +906,7 @@ export const PAGES: EditorialDoc[] = [
     title: "Formulaire comparatif 3e pilier",
     metaTitle: "Comparatif 3e pilier : demander un comparatif gratuit",
     description:
-      "Comparez 3a ou 3b, en banque ou en assurance : frais, souplesse et garanties.",
+      "Demandez un comparatif 3a ou 3b, en banque ou en assurance. Un conseiller rappelle sous deux jours ouvrés. Sans honoraires, sans engagement.",
     published: "2021-11-02",
     updated: UPDATED,
     intro:
@@ -895,7 +954,7 @@ export const PAGES: EditorialDoc[] = [
     title: "Politique de confidentialité",
     metaTitle: "Confidentialité — comparateur-3eme-pilier.ch",
     description:
-      "Données recueillies par les formulaires de comparateur-3eme-pilier.ch. Contact : info@comparateur-3eme-pilier.ch.",
+      "Données des formulaires de comparatif et de contact : ce qui est enregistré, pourquoi, et comment écrire à info@comparateur-3eme-pilier.ch.",
     published: "2021-10-30",
     updated: UPDATED,
     intro:
@@ -982,13 +1041,13 @@ export const PAGES: EditorialDoc[] = [
     slug: "actualite-3eme-pilier",
     wpId: 2653,
     title: "Actualités du 3e pilier",
-    metaTitle: "Actualités 3e pilier — articles publiés au 26 septembre 2026",
+    metaTitle: "Actualités du 3e pilier en Suisse",
     description:
-      "Articles publiés au 26 septembre 2026 : plafonds 2026, rachat de lacunes, tableau OFAS, retrait 3a et lien avec le 2e pilier.",
+      "Articles du 3e pilier : plafonds OFAS 2026, rachat de lacunes, tableau des montants, retrait du 3a et lien avec le 2e pilier.",
     published: "2023-11-05",
     updated: UPDATED,
     intro:
-      "Cette liste ne montre que les articles dont la date est le 26 septembre 2026 ou avant. Les textes datés plus tard ne sont pas publiés ici.",
+      "Cette liste montre les articles dont la date de publication est atteinte. Un texte daté plus tard n’apparaît pas avant ce jour.",
     related: [
       "plafonds-3a-2026-2027",
       "rachat-lacunes-3a-2026",
@@ -1003,17 +1062,17 @@ export const PAGES: EditorialDoc[] = [
     title: "Mentions légales",
     metaTitle: "Mentions légales — Comparateur 3ème pilier",
     description:
-      "Mentions du site comparateur-3eme-pilier.ch. Contact : info@comparateur-3eme-pilier.ch.",
+      "Éditeur du site comparateur-3eme-pilier.ch, responsable du comparatif et nature du service. Contact : info@comparateur-3eme-pilier.ch.",
     published: UPDATED,
-    updated: UPDATED,
+    updated: "2026-09-28",
     intro:
-      "Site : comparateur-3eme-pilier.ch. Nom d’usage : Comparateur 3ème pilier. Contact : info@comparateur-3eme-pilier.ch.",
+      "Site : comparateur-3eme-pilier.ch. Nom d’usage : Comparateur 3ème pilier. Responsable du contenu et du comparatif : Christophe Bouin. Contact : info@comparateur-3eme-pilier.ch.",
     related: ["page-de-confidentialitee", "a-propos"],
     blocks: [
       { type: "h2", text: "Éditeur" },
       {
         type: "p",
-        text: "Site : comparateur-3eme-pilier.ch. Nom d’usage : Comparateur 3ème pilier. Contact : info@comparateur-3eme-pilier.ch.",
+        text: "Site : comparateur-3eme-pilier.ch. Nom d’usage : Comparateur 3ème pilier. Responsable du contenu et du comparatif : Christophe Bouin. Contact : info@comparateur-3eme-pilier.ch.",
       },
       { type: "h2", text: "Nature du service" },
       {
@@ -1028,13 +1087,18 @@ export const PAGES: EditorialDoc[] = [
     title: "À propos",
     metaTitle: "À propos — Comparateur 3ème pilier",
     description:
-      "Le site comparateur-3eme-pilier.ch informe sur le 3e pilier et recueille des demandes de comparatif. Contact : info@comparateur-3eme-pilier.ch.",
+      "Le site comparateur-3eme-pilier.ch informe sur le 3e pilier et recueille des demandes de comparatif. Responsable : Christophe Bouin.",
     published: UPDATED,
-    updated: UPDATED,
+    updated: "2026-09-28",
     intro:
-      "Le site comparateur-3eme-pilier.ch informe sur le 3e pilier à partir des textes OFAS et AFC, et recueille des demandes de comparatif. Contact : info@comparateur-3eme-pilier.ch.",
+      "Le site comparateur-3eme-pilier.ch informe sur le 3e pilier à partir des textes OFAS et AFC, et recueille des demandes de comparatif. Christophe Bouin en est le responsable. Contact : info@comparateur-3eme-pilier.ch.",
     related: ["deductions-fiscales-3eme-pilier", "analyse-de-prevoyance", "mentions-legales", "actualite-3eme-pilier"],
     blocks: [
+      { type: "h2", text: "Responsable" },
+      {
+        type: "p",
+        text: "Christophe Bouin rédige et revoit les pages du site. Il traite les demandes de comparatif. Contact : info@comparateur-3eme-pilier.ch.",
+      },
       { type: "h2", text: "Méthode" },
       {
         type: "p",

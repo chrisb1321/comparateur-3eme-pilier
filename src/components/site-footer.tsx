@@ -18,6 +18,7 @@ const GROUPS = [
       { href: "/3eme-pilier-a-ou-b/", label: "3a ou 3b" },
       { href: "/3eme-pilier-b-prevoyance-libre/", label: "Prévoyance libre 3b" },
       { href: "/3eme-pilier-banque-assurance/", label: "Banque ou assurance" },
+      { href: "/3eme-pilier-independant/", label: "Indépendant" },
       { href: "/deductions-fiscales-3eme-pilier/", label: "Déductions 2026–2027" },
       { href: "/3eme-pilier-mixte/", label: "Pilier mixte" },
     ],
@@ -59,9 +60,9 @@ export function SiteFooter() {
             <p className="mb-6 inline-flex rounded-full border border-white/60 px-4 py-2 text-[15px]">
               3a et 3b · banque ou assurance
             </p>
-            <h2 className="font-heading mb-5 text-5xl leading-[1.04] text-white max-[1100px]:text-[42px]">
+            <p className="font-heading mb-5 text-5xl leading-[1.04] text-white max-[1100px]:text-[42px]">
               Comparez avant de <em>vous engager</em>
-            </h2>
+            </p>
             <p className="mb-7 text-[19px] leading-relaxed text-white/85">
               Comparez 3a ou 3b, en banque ou en assurance : frais, souplesse et garanties.
             </p>

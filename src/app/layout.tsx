@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE.canonicalHost),
   title: {
     default: "Comparateur 3ème pilier — plafonds 2026 : CHF 7’258 / 36’288",
-    template: `%s | ${SITE.name}`,
+    template: "%s",
   },
   description: SITE.description,
   openGraph: {

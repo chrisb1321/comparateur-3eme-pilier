@@ -10,7 +10,7 @@ import { CEILING_NOTE, chf, FIGURES } from "@/lib/figures";
 import { IMAGES } from "@/lib/media";
 import { canonical, CTA_CALLBACK, SITE } from "@/lib/site";
 
-const PAGE_TITLE = "Comparateur 3e pilier suisse | Comparez 3a, 3b, banque et assurance";
+const PAGE_TITLE = "Comparateur 3e pilier suisse : 3a, 3b, banque";
 const PAGE_DESCRIPTION = SITE.description;
 
 export const metadata: Metadata = {
@@ -21,6 +21,13 @@ export const metadata: Metadata = {
     title: PAGE_TITLE,
     description: PAGE_DESCRIPTION,
     url: canonical("/"),
+    images: [{ url: IMAGES.hero.src, width: IMAGES.hero.width, height: IMAGES.hero.height, alt: IMAGES.hero.alt }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: PAGE_TITLE,
+    description: PAGE_DESCRIPTION,
+    images: [IMAGES.hero.src],
   },
 };
 
@@ -154,10 +161,8 @@ export default function HomePage() {
               </div>
             </div>
           </div>
-          <div className="grid gap-4 md:grid-cols-3">
+          <div className="grid gap-4 md:max-w-xl">
             {[
-              { title: "Humain", text: "Les options sont expliquées, pas un palmarès automatique." },
-              { title: "Indépendant", text: "Banque ou assurance : les deux supports sont lus." },
               { title: "Transparent", text: "Le plafond 2026 cité vient de l’OFAS. Pas d’honoraires." },
             ].map((item) => (
               <article key={item.title} className="flex items-center gap-4 rounded-[18px] border border-[#DCE6ED] bg-white p-6 max-[1100px]:p-4">

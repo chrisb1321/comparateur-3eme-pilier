@@ -10,7 +10,7 @@ import { canonical } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Catégorie prévoyance",
   description:
-    "Articles de prévoyance publiés au 26 septembre 2026 ou avant.",
+    "Les articles de prévoyance sont regroupés sur la page actualités.",
   alternates: { canonical: canonical("/category/prevoyance/") },
 };
 
@@ -26,7 +26,7 @@ export default function CategoryPage() {
       </div>
       <div className="mx-auto max-w-3xl px-4 py-12 md:px-6">
         <p className="text-lg leading-relaxed">
-          Articles dont la date est le 26 septembre 2026 ou avant.
+          Les articles publiés sont aussi listés sur la page actualités.
         </p>
         <ul className="mt-10 space-y-8">
           {posts.map((post) => (

@@ -1,12 +1,19 @@
-/** Jour éditorial : un article daté après cette date n’est pas public. */
-export const PUBLICATION_CUTOFF = "2026-09-26";
-
 export function calendarDay(iso: string): string {
   return iso.slice(0, 10);
 }
 
-export function isPublicPostDate(published: string): boolean {
-  return calendarDay(published) <= PUBLICATION_CUTOFF;
+/** Jour civil à Zurich. Un article est public dès sa date, sans cutoff figé. */
+export function zurichToday(now = new Date()): string {
+  return new Intl.DateTimeFormat("en-CA", {
+    timeZone: "Europe/Zurich",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  }).format(now);
+}
+
+export function isPublicPostDate(published: string, now = new Date()): boolean {
+  return calendarDay(published) <= zurichToday(now);
 }
 
 /** Même jour calendaire que `calendarDay`, fuseau Zurich, midi pour éviter le décalage. */

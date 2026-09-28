@@ -23,6 +23,11 @@ export const PATH_REDIRECTS: Redirect[] = [
     statusCode: 301,
   },
   {
+    source: "/category/prevoyance",
+    destination: "/actualite-3eme-pilier/",
+    statusCode: 301,
+  },
+  {
     source: "/frontaliers-suisse",
     destination: "/frontalier-suisse/",
     statusCode: 301,
@@ -48,11 +53,6 @@ export const PATH_REDIRECTS: Redirect[] = [
     statusCode: 301,
   },
   {
-    source: "/depart-de-suisse",
-    destination: "/frontalier-suisse/",
-    statusCode: 301,
-  },
-  {
     source: "/changement-employeur-libre-passage-lpp",
     destination: "/libre-passage-lpp/",
     statusCode: 301,
@@ -70,11 +70,6 @@ export const PATH_REDIRECTS: Redirect[] = [
   {
     source: "/geneve",
     destination: "/3eme-pilier-geneve/",
-    statusCode: 301,
-  },
-  {
-    source: "/canton-vaud",
-    destination: "/",
     statusCode: 301,
   },
   {
