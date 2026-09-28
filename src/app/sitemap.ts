@@ -67,5 +67,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   };
 
-  return [home, hub, category, example, ...pageEntries, ...postEntries];
+  const plafond: MetadataRoute.Sitemap[number] = {
+    url: canonical("/montant-maximum-3e-pilier-2026-2027/"),
+    lastModified: "2026-09-28",
+    changeFrequency: "weekly",
+    priority: 0.9,
+  };
+
+  return [home, hub, category, example, plafond, ...pageEntries, ...postEntries];
 }
