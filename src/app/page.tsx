@@ -233,6 +233,13 @@ export default function HomePage() {
           <p className="mt-5 max-w-3xl text-lg leading-relaxed text-[#4A6275]">
             Le système de retraite suisse combine répartition (AVS), capitalisation (LPP) et prévoyance individuelle (3e pilier). L’âge de référence AVS est 65 ans ; les femmes de la génération transitoire AVS 21 suivent un relèvement progressif.
           </p>
+          <p className="mt-4 max-w-3xl text-lg leading-relaxed text-[#4A6275]">
+            Le{" "}
+            <Link href="/3eme-pilier-suisse/" className="font-semibold text-[#174462] underline underline-offset-4">
+              3e pilier Suisse
+            </Link>{" "}
+            est cette prévoyance individuelle : 3a lié et 3b libre, en banque ou en assurance.
+          </p>
           <div className="mt-12 grid gap-4 md:grid-cols-3">
             {PILLARS.map((pillar) => (
               <Link key={pillar.href} href={pillar.href} className="surface-card group block overflow-hidden">

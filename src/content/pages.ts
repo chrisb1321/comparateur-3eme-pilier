@@ -8,6 +8,116 @@ const METHOD_INLINE =
 export const PAGES: EditorialDoc[] = [
   {
     kind: "page",
+    slug: "3eme-pilier-suisse",
+    title: "3e pilier Suisse : prévoyance individuelle",
+    metaTitle: "3e pilier Suisse : 3a, 3b, banque ou assurance",
+    description: `Le 3e pilier Suisse complète l’AVS et le 2e pilier. 3a lié et 3b libre, déduction 2026 de ${chf(FIGURES.pillar3aWithLpp)} pour un affilié au 2e pilier, comparatif banque ou assurance.`,
+    published: "2026-09-28",
+    updated: "2026-09-28",
+    intro:
+      "Le 3e pilier Suisse est la prévoyance individuelle. Il complète l’AVS (1er pilier) et la prévoyance professionnelle (2e pilier). Il se présente en 3a, lié, et en 3b, libre. Comparer une banque et une assurance sert à départager frais, souplesse et garanties.",
+    related: [
+      "3eme-pilier-a-ou-b",
+      "3eme-pilier-b-prevoyance-libre",
+      "3eme-pilier-banque-assurance",
+      "deductions-fiscales-3eme-pilier",
+      "1er-pilier-avs-ai-apg",
+      "2eme-pilier-lpp",
+    ],
+    faqs: [
+      {
+        question: "Qu’est-ce que le 3e pilier en Suisse ?",
+        answer:
+          "Le 3e pilier Suisse est la prévoyance individuelle, volontaire. Il complète l’AVS et le 2e pilier. Il comprend le 3a (prévoyance liée) et le 3b (prévoyance libre).",
+      },
+      {
+        question: "Quelle est la différence entre le 3a et le 3b ?",
+        answer:
+          "Le 3a est encouragé fiscalement et le retrait est encadré. Le 3b n’a pas de plafond OFAS : il sert surtout la souplesse des retraits et des bénéficiaires. Les deux peuvent se combiner.",
+      },
+      {
+        question: "Le plafond 3a 2027 est-il déjà connu ?",
+        answer: `Non. Au 28 septembre 2026, le plafond 2027 n’est pas encore annoncé. Pour 2026, la déduction maximale du pilier 3a, pour une personne affiliée à une institution du 2e pilier, est de ${chf(FIGURES.pillar3aWithLpp)}.`,
+      },
+      {
+        question: "Pourquoi comparer une banque et une assurance ?",
+        answer:
+          "La déduction 3a ne dépend pas du prestataire. Ce qui change, ce sont les frais, la souplesse des versements, l’horizon et les garanties (décès, libération des primes). Le comparatif se demande via le formulaire du site.",
+      },
+    ],
+    blocks: [
+      { type: "h2", text: "Ce qu’est le 3e pilier en Suisse" },
+      {
+        type: "p",
+        text: "En Suisse, la retraite repose sur trois piliers. Le [1er pilier](/1er-pilier-avs-ai-apg/) (AVS, AI, APG) est une assurance sociale. Le [2e pilier](/2eme-pilier-lpp/) (LPP) est la prévoyance professionnelle des personnes affiliées à une institution de prévoyance. Le 3e pilier est le volet individuel : une épargne et, selon le contrat, une protection que l’on constitue en plus, auprès d’une banque ou d’un assureur.",
+      },
+      {
+        type: "p",
+        text: "Il ne remplace ni la rente AVS ni l’avoir de caisse de pension. Il les complète, dans la limite de ce que le budget permet de verser dans la durée. Le 3a suit l’OPP 3 (déductions admises fiscalement au titre de la prévoyance). Le 3b est de la prévoyance libre : pas le même verrou, pas le même traitement fiscal.",
+      },
+      { type: "h2", text: "3a lié et 3b libre" },
+      {
+        type: "p",
+        text: "Les deux formes s’emboîtent. Le détail est sur les pages [3e pilier A ou B](/3eme-pilier-a-ou-b/) et [prévoyance libre 3b](/3eme-pilier-b-prevoyance-libre/).",
+      },
+      {
+        type: "ul",
+        items: [
+          "3a (prévoyance liée) : encouragé fiscalement dans toute la Suisse. Ouvert à une personne qui exerce une activité lucrative dont le revenu est soumis à l’AVS — salariés, indépendants, certains chômeurs (indemnités journalières) et frontaliers dans ce cas. Source : OFAS / circulaire AFC n° 18.",
+          "3a : le capital est versé au plus tôt cinq ans avant l’âge de référence AVS, au plus tard cinq ans après si l’activité se poursuit. Motifs anticipés : logement pour propre usage, remboursement d’hypothèque, départ définitif de Suisse, activité indépendante, rachat LPP, invalidité entière AI non couverte. L’ordre des bénéficiaires en cas de décès est légal.",
+          "3b (prévoyance libre) : pas de condition AVS comparable, pas de plafond OFAS. Utile pour un conjoint sans activité, une épargne enfant ou un bénéficiaire que l’ordre du 3a ne couvre pas. Le retrait est beaucoup plus libre.",
+          "3b et impôts : pas la même déduction que le 3a à l’impôt fédéral direct. Dans certains cantons seulement (Genève et Fribourg sont les cas romands les plus cités), des primes d’assurance-vie peuvent entrer dans une enveloppe cantonale. Un compte bancaire 3b n’ouvre pas cette déduction.",
+        ],
+      },
+      { type: "h2", text: "À qui s’adresse le 3e pilier" },
+      {
+        type: "p",
+        text: "Le 3e pilier Suisse s’adresse à qui veut compléter l’AVS et le 2e pilier, ou protéger un proche que le 3a ne vise pas. Le bon point d’entrée dépend du statut, pas d’un produit unique.",
+      },
+      {
+        type: "ul",
+        items: [
+          "Salarié affilié à une caisse de pension : le 3a complète l’AVS et la LPP, dans la limite de la petite cotisation.",
+          "[Indépendant](/3eme-pilier-independant/) : l’affiliation, ou non, à une institution du 2e pilier change la cotisation 3a admise. Le choix banque ou assurance se lit ensuite.",
+          "[Frontalier](/frontalier-suisse/) : l’accès au 3a suppose un revenu d’activité en Suisse soumis à l’AVS. Le permis ne suffit pas.",
+          "Personne sans revenu soumis à l’AVS (conjoint sans activité, [épargne enfant](/epargne-enfant/)) : le 3a n’est en principe pas ouvert. Le 3b sert alors la souplesse.",
+        ],
+      },
+      { type: "h2", text: "Pourquoi comparer une banque et une assurance" },
+      {
+        type: "p",
+        text: "La déduction 3a est la même que le versement aille à une fondation bancaire ou à un assureur. Le plafond ne dépend pas du prestataire. Ce qui change : les frais, la possibilité d’arrêter ou de moduler les versements, et ce qui est versé en cas de décès ou d’incapacité de gain.",
+      },
+      {
+        type: "ul",
+        items: [
+          "Banque : versements selon la capacité d’épargne, utile si l’horizon est plus court. Pas de capital décès intégré ni de libération des primes : la protection se limite à l’avoir accumulé, sauf police séparée.",
+          "Assurance : entre en jeu pour un capital décès, une libération du paiement des primes ou un capital garanti. Une police comporte souvent des frais d’acquisition, visibles si l’on s’arrête tôt.",
+          "3b à visée fiscale cantonale (Genève, Fribourg) : le support cité sur le site est une assurance-vie, pas un livret.",
+        ],
+      },
+      {
+        type: "p",
+        text: "La grille de lecture est sur [3e pilier en banque ou en assurance](/3eme-pilier-banque-assurance/) et sur [comment choisir son 3e pilier](/choisir-son-3eme-pilier/). Pour faire examiner frais, souplesse et garanties sur votre situation : [demander un comparatif](/formulaire-3eme-pilier/).",
+      },
+      { type: "h2", text: "Déduction maximale du 3a en 2026" },
+      {
+        type: "p",
+        text: `Pour 2026, la déduction maximale du pilier 3a, pour une personne affiliée à une institution du 2e pilier, est de ${chf(FIGURES.pillar3aWithLpp)}. Sans institution du 2e pilier, une autre limite s’applique : elle est déjà détaillée sur la page [déductions fiscales du 3e pilier](/deductions-fiscales-3eme-pilier/).`,
+      },
+      {
+        type: "p",
+        text: "Au 28 septembre 2026, le plafond 2027 n’est pas encore annoncé. La publication est attendue cet automne, probablement en octobre ou novembre 2026. L’AFC a communiqué le plafond 2026 le 17 novembre 2025.",
+      },
+      {
+        type: "callout",
+        title: "Pas de montant 2027 officieux",
+        text: "Aucun plafond 2027 n’est présenté ici comme décidé. Le chiffre retenu pour 2026 est celui déjà publié sur le site pour la personne affiliée au 2e pilier.",
+      },
+    ],
+  },
+  {
+    kind: "page",
     slug: "3eme-pilier-a-ou-b",
     wpId: 2060,
     title: `3e pilier A ou B : comment choisir en ${YEAR_SPAN}`,
@@ -19,6 +129,7 @@ export const PAGES: EditorialDoc[] = [
     intro:
       "Faut-il choisir 3a ou 3b ? Le plus souvent, les deux s’emboîtent. Le 3a (prévoyance liée) est encouragé fiscalement dans toute la Suisse. Le 3b (prévoyance libre) sert surtout la souplesse : bénéficiaires, durée, accès à l’épargne. Ce n’est pas un classement, c’est un emboîtement avec vos 1er et 2e piliers.",
     related: [
+      "3eme-pilier-suisse",
       "3eme-pilier-b-prevoyance-libre",
       "deductions-fiscales-3eme-pilier",
       "3eme-pilier-banque-assurance",
@@ -294,6 +405,7 @@ export const PAGES: EditorialDoc[] = [
     updated: UPDATED,
     intro: `Quel est le plafond 3a déductible en 2026 ? ${chf(FIGURES.pillar3aWithLpp)} si vous êtes affilié au 2e pilier, ${chf(FIGURES.pillar3aWithoutLpp)} (20 % du revenu d’activité, max.) sinon. Source : tableau OFAS du 1.1.2026. ${CEILING_NOTE}.`,
     related: [
+      "3eme-pilier-suisse",
       "quel-montant-deductible-3eme-pilier-2022",
       "3eme-pilier-a-impot-retrait",
       "plafonds-3a-2026-2027",
@@ -718,7 +830,7 @@ export const PAGES: EditorialDoc[] = [
     published: "2021-11-12",
     updated: UPDATED,
     intro: `Quelle est la rente AVS en ${YEAR_SPAN_WORDS} ? Selon le tableau OFAS au 1er janvier 2026, une rente de vieillesse complète se situe entre ${chf(FIGURES.avsMinMonthly)} et ${chf(FIGURES.avsMaxMonthly)} par mois. La somme des deux rentes d’un couple marié est plafonnée à ${chf(FIGURES.avsCoupleMaxMonthly)}. Au 19 septembre 2026, le tableau OFAS 2027 n’est pas publié : ces montants restent ceux en vigueur jusqu’à une éventuelle décision du Conseil fédéral (annonce usuelle en octobre).`,
-    related: ["2eme-pilier-lpp", "tableau-ofas-montants-avs-lpp-3a", "analyse-de-prevoyance"],
+    related: ["3eme-pilier-suisse", "2eme-pilier-lpp", "tableau-ofas-montants-avs-lpp-3a", "analyse-de-prevoyance"],
     faqs: [
       {
         question: "La 13e rente AVS relève-t-elle le plafond 3a ?",
@@ -766,6 +878,7 @@ export const PAGES: EditorialDoc[] = [
     updated: UPDATED,
     intro: `Quel est le seuil LPP en ${YEAR_SPAN_WORDS} ? Selon le tableau OFAS au 1er janvier 2026, l’affiliation obligatoire commence à ${chf(FIGURES.lppEntry)} de salaire annuel, la déduction de coordination est ${chf(FIGURES.lppCoordination)}, la limite supérieure ${chf(FIGURES.lppSalaryCap)}. Au 19 septembre 2026, le tableau 2027 n’est pas publié : ces montants restent ceux en vigueur.`,
     related: [
+      "3eme-pilier-suisse",
       "a-quoi-sert-le-deuxieme-pilier",
       "libre-passage-lpp",
       "tableau-ofas-montants-avs-lpp-3a",

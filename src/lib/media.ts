@@ -129,6 +129,7 @@ export const IMAGES = {
 } as const satisfies Record<string, SiteImage>;
 
 const SLUG_COVER: Record<string, keyof typeof IMAGES> = {
+  "3eme-pilier-suisse": "mixte",
   "3eme-pilier-a-ou-b": "mixte",
   "3eme-pilier-b-prevoyance-libre": "pillar3b",
   "3eme-pilier-banque-assurance": "banque",
