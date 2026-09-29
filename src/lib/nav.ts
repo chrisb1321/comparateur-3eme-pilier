@@ -1,4 +1,5 @@
 export const NAV = [
+  { href: "/3eme-pilier-suisse/", label: "3e pilier Suisse" },
   { href: "/3eme-pilier-a-ou-b/", label: "3a ou 3b" },
   { href: "/3eme-pilier-banque-assurance/", label: "Banque / assurance" },
   { href: "/deductions-fiscales-3eme-pilier/", label: "Déductions 2026–2027" },

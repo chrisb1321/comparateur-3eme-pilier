@@ -3,6 +3,7 @@ import { getPages, getPosts } from "@/content";
 import { SITE, canonical } from "@/lib/site";
 
 const MONEY_PAGES = new Set([
+  "3eme-pilier-suisse",
   "deductions-fiscales-3eme-pilier",
   "3eme-pilier-a-ou-b",
   "3eme-pilier-b-prevoyance-libre",

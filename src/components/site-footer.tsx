@@ -15,6 +15,7 @@ const GROUPS = [
   {
     title: "3e pilier",
     links: [
+      { href: "/3eme-pilier-suisse/", label: "3e pilier Suisse" },
       { href: "/3eme-pilier-a-ou-b/", label: "3a ou 3b" },
       { href: "/3eme-pilier-b-prevoyance-libre/", label: "Prévoyance libre 3b" },
       { href: "/3eme-pilier-banque-assurance/", label: "Banque ou assurance" },
