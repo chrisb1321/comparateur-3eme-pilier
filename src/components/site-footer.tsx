@@ -20,6 +20,7 @@ const GROUPS = [
       { href: "/3eme-pilier-b-prevoyance-libre/", label: "Prévoyance libre 3b" },
       { href: "/3eme-pilier-banque-assurance/", label: "Banque ou assurance" },
       { href: "/deductions-fiscales-3eme-pilier/", label: "Déductions 2026–2027" },
+      { href: "/montant-maximum-3e-pilier-2026-2027/", label: "Plafond 3a 2026–2027" },
       { href: "/3eme-pilier-mixte/", label: "Pilier mixte" },
     ],
   },
