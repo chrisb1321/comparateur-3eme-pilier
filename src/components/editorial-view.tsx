@@ -31,7 +31,7 @@ export function docMetadata(doc: EditorialDoc): Metadata {
   const cover = coverFor(doc.slug, doc.cover);
   const hidden =
     NOINDEX_SLUGS.has(doc.slug) || (doc.kind === "post" && !isPublicPostDate(doc.published));
-  return {
+  const metadata: Metadata = {
     title: { absolute: doc.metaTitle },
     description: doc.description,
     alternates: { canonical: url },
@@ -52,8 +52,10 @@ export function docMetadata(doc: EditorialDoc): Metadata {
       title: doc.metaTitle,
       description: doc.description,
     },
-    robots: hidden ? { index: false, follow: true } : undefined,
   };
+  if (hidden) metadata.robots = { index: false, follow: true };
+  else if (doc.slug !== "3eme-pilier-logement") metadata.robots = undefined;
+  return metadata;
 }
 
 export async function EditorialView({
