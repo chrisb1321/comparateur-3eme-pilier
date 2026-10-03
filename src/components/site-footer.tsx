@@ -7,6 +7,7 @@ const GROUPS = [
     title: "Comparer",
     links: [
       { href: "/formulaire-3eme-pilier/", label: "Formulaire comparatif" },
+      { href: "/ouvrir-un-3eme-pilier/", label: "Ouvrir un 3e pilier" },
       { href: "/nous-contacter/", label: "Nous contacter" },
       { href: "/choisir-son-3eme-pilier/", label: "Comment choisir" },
       { href: "/analyse-de-prevoyance/", label: "Analyse de prévoyance" },
@@ -20,6 +21,7 @@ const GROUPS = [
       { href: "/3eme-pilier-banque-assurance/", label: "Banque ou assurance" },
       { href: "/3eme-pilier-independant/", label: "Indépendant" },
       { href: "/deductions-fiscales-3eme-pilier/", label: "Déductions 2026–2027" },
+      { href: "/3eme-pilier-logement/", label: "Logement" },
       { href: "/3eme-pilier-mixte/", label: "Pilier mixte" },
     ],
   },

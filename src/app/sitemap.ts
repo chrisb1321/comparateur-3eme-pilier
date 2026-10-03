@@ -15,6 +15,8 @@ const MONEY_PAGES = new Set([
   "2eme-pilier-lpp",
   "formulaire-3eme-pilier",
   "choisir-son-3eme-pilier",
+  "ouvrir-un-3eme-pilier",
+  "3eme-pilier-logement",
 ]);
 
 export default function sitemap(): MetadataRoute.Sitemap {

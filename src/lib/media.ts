@@ -148,6 +148,8 @@ const SLUG_COVER: Record<string, keyof typeof IMAGES> = {
   "2eme-pilier-lpp": "lpp",
   "libre-passage-lpp": "lpp",
   "compte-de-libre-passage-lpp": "lpp",
+  "ouvrir-un-3eme-pilier": "pillar3a",
+  "3eme-pilier-logement": "alpes",
   "formulaire-3eme-pilier": "hero",
   "nous-contacter": "conseiller",
   "page-de-confidentialitee": "laiton",

@@ -75,6 +75,23 @@ export const AUTHOR_LD = {
   publishingPrinciples: canonical("/a-propos/"),
 };
 
+export function howToLd(doc: EditorialDoc): Record<string, unknown> {
+  const howTo = doc.howTo;
+  return {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    name: howTo?.name ?? doc.title,
+    description: doc.description,
+    inLanguage: "fr-CH",
+    step: (howTo?.steps ?? []).map((step, index) => ({
+      "@type": "HowToStep",
+      position: index + 1,
+      name: step.name,
+      text: step.text,
+    })),
+  };
+}
+
 export function faqPageLd(faqs: FaqItem[]): Record<string, unknown> {
   return {
     "@context": "https://schema.org",

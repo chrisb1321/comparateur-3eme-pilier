@@ -251,6 +251,8 @@ export default function HomePage() {
           </div>
           <div className="mt-6 grid gap-4 md:grid-cols-3">
             {[
+              { href: "/ouvrir-un-3eme-pilier/", image: IMAGES.pillar3a, title: "Ouvrir un 3e pilier", text: "Conditions AVS, plafond, délai au 31 décembre." },
+              { href: "/3eme-pilier-logement/", image: IMAGES.alpes, title: "Logement", text: "Retrait ou nantissement du 3a." },
               { href: "/3eme-pilier-geneve/", image: IMAGES.geneve, title: "Genève", text: "ICC, LIPP, frontaliers." },
               { href: "/frontalier-suisse/", image: IMAGES.frontalier, title: "Frontaliers", text: "AVS, source, TOU." },
               { href: "/epargne-enfant/", image: IMAGES.enfant, title: "Épargne enfant", text: "Pas de 3a sans revenu." },

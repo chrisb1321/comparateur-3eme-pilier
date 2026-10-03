@@ -18,6 +18,7 @@ import {
   breadcrumbLd,
   collectionPageLd,
   faqPageLd,
+  howToLd,
   webPageLd,
 } from "@/lib/schema";
 import { calendarDay, formatEditorialDate, isPublicPostDate } from "@/lib/publication";
@@ -65,6 +66,7 @@ export async function EditorialView({
   const related = getRelated(doc);
   const posts = doc.slug === "actualite-3eme-pilier" ? getPosts() : [];
   const showComparateur = doc.slug === "formulaire-3eme-pilier";
+  const showInlineLead = doc.lead === "comparateur";
   const showContact = doc.slug === "nous-contacter";
   const isThanks = doc.slug === "page-remerciement";
 
@@ -157,12 +159,33 @@ export async function EditorialView({
           </p>
         </div>
       </div>
-      <div className={`mx-auto px-4 py-14 md:px-6 md:py-16 ${showComparateur || showContact ? "max-w-[1100px]" : "max-w-3xl"}`}>
+      <div className={`mx-auto px-4 py-14 md:px-6 md:py-16 ${showComparateur || showContact || showInlineLead ? "max-w-[1100px]" : "max-w-3xl"}`}>
+        {showInlineLead ? (
+          <div className="grid items-start gap-10 lg:grid-cols-[minmax(0,1fr)_22rem]">
+            <p id="reponse-directe" className="text-[22px] leading-snug font-medium text-[#10324A] lg:col-start-1">
+              {doc.intro}
+            </p>
+            <aside id="comparatif" className="scroll-mt-28 lg:sticky lg:top-28 lg:col-start-2 lg:row-span-2 lg:row-start-1">
+              <p className="kicker mb-3">Comparatif sans honoraires</p>
+              <LeadForm intent="comparateur" />
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                Rappel sous deux jours ouvrés. Sans engagement.
+              </p>
+            </aside>
+            <div className="lg:col-start-1">
+              <div className="my-10 h-px bg-[#DCE6ED]" />
+              <Blocks blocks={doc.blocks} />
+            </div>
+          </div>
+        ) : (
+          <>
           <p id="reponse-directe" className="text-[22px] leading-snug font-medium text-[#10324A]">
             {doc.intro}
           </p>
         <div className="my-10 h-px bg-[#DCE6ED]" />
         {doc.body ? <MdxBody source={doc.body} /> : <Blocks blocks={doc.blocks} />}
+          </>
+        )}
         {posts.length ? (
           <div data-testid="hub-actualites" className="mt-12">
             <p className="kicker">Cadence</p>
@@ -204,7 +227,9 @@ export async function EditorialView({
             <LeadForm intent="contact" />
           </div>
         ) : null}
-        {doc.faqs?.length ? <FaqList items={doc.faqs} /> : null}
+        {doc.faqs?.length ? (
+          <FaqList items={doc.faqs} ctaHref={showInlineLead ? "#comparatif" : undefined} />
+        ) : null}
         {related.length ? (
           <aside className="mt-14">
             <p className="kicker">À lire aussi</p>
@@ -220,7 +245,7 @@ export async function EditorialView({
             </ul>
           </aside>
         ) : null}
-        {doc.slug !== "page-remerciement" && !showComparateur && !showContact ? <CtaBand /> : null}
+        {doc.slug !== "page-remerciement" && !showComparateur && !showContact && !showInlineLead ? <CtaBand /> : null}
         <ArticleJsonLd doc={doc} />
       </div>
     </article>
@@ -239,6 +264,9 @@ function ArticleJsonLd({ doc }: { doc: EditorialDoc }) {
   }
   if (doc.faqs?.length) {
     data.push(faqPageLd(doc.faqs));
+  }
+  if (doc.howTo?.steps.length) {
+    data.push(howToLd(doc));
   }
   return <JsonLd data={data} />;
 }

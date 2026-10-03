@@ -2,6 +2,7 @@ import { chf, FIGURES, pillar3aTableRows, YEAR_SPAN, YEAR_SPAN_WORDS, CEILING_NO
 import type { EditorialDoc } from "./types";
 
 const UPDATED = "2026-09-20";
+const PUBLISHED_CONVERSION = "2026-10-03";
 const METHOD_INLINE =
   "Méthode : textes officiels OFAS (tableau 2026) et AFC, notices cantonales pour le 3b. Plafonds 2026 : CHF 7’258 / 36’288. Montants 2027 à confirmer par l’OFAS. Dernière revue : 19 septembre 2026.";
 
@@ -22,6 +23,8 @@ export const PAGES: EditorialDoc[] = [
       "3eme-pilier-b-prevoyance-libre",
       "deductions-fiscales-3eme-pilier",
       "3eme-pilier-banque-assurance",
+      "ouvrir-un-3eme-pilier",
+      "3eme-pilier-logement",
       "combiner-3a-et-3b-2026",
       "actualite-3eme-pilier",
     ],
@@ -179,6 +182,8 @@ export const PAGES: EditorialDoc[] = [
       "choisir-entre-3eme-pilier-bancaire-ou-en-assurance",
       "liberation-du-paiement-des-primes",
       "frais-3a-banque-assurance",
+      "ouvrir-un-3eme-pilier",
+      "3eme-pilier-logement",
       "choisir-son-3eme-pilier",
     ],
     faqs: [
@@ -255,7 +260,13 @@ export const PAGES: EditorialDoc[] = [
     updated: UPDATED,
     intro:
       "Choisir un 3e pilier, ce n’est pas « le meilleur taux du moment ». C’est aligner un plafond fiscal, un horizon, un risque famille et un support (compte, titres, police) que vous tiendrez réellement.",
-    related: ["analyse-de-prevoyance", "3eme-pilier-a-ou-b", "formulaire-3eme-pilier"],
+    related: [
+      "analyse-de-prevoyance",
+      "3eme-pilier-a-ou-b",
+      "ouvrir-un-3eme-pilier",
+      "3eme-pilier-logement",
+      "formulaire-3eme-pilier",
+    ],
     blocks: [
       { type: "h2", text: "Cinq questions avant le produit" },
       {
@@ -284,6 +295,329 @@ export const PAGES: EditorialDoc[] = [
   },
   {
     kind: "page",
+    slug: "ouvrir-un-3eme-pilier",
+    title: "Ouvrir un 3e pilier en 2026",
+    metaTitle: "Ouvrir un 3e pilier en 2026 : conditions, plafond, délai",
+    description:
+      "Ouvrir un 3a en 2026 : revenu soumis à l’AVS, plafonds OFAS 7’258 / 36’288 CHF, crédit au 31 décembre. Banque ou assurance, puis comparatif sans honoraires.",
+    published: PUBLISHED_CONVERSION,
+    updated: PUBLISHED_CONVERSION,
+    lead: "comparateur",
+    intro: `On ouvre un 3a en 2026 dès qu’un revenu d’activité est soumis à l’AVS en Suisse. Le plafond déductible est ${chf(FIGURES.pillar3aWithLpp)} avec un 2e pilier, ou 20 % du revenu jusqu’à ${chf(FIGURES.pillar3aWithoutLpp)} sans (OFAS, art. 7 OPP 3). Le crédit doit tomber au 31 décembre. Sans AVS, seul le 3b reste ouvert.`,
+    howTo: {
+      name: "Comment ouvrir un 3e pilier en 2026",
+      steps: [
+        {
+          name: "Vérifier l’AVS et le 2e pilier",
+          text: `Le 3a est ouvert si le revenu d’activité est soumis à l’AVS en Suisse : salarié, indépendant, certains chômeurs indemnisés, frontalier dans ce cas. Avec une caisse LPP, le plafond 2026 est ${chf(FIGURES.pillar3aWithLpp)}. Sans institution du 2e pilier : 20 % du revenu d’activité, au maximum ${chf(FIGURES.pillar3aWithoutLpp)}. Source : OFAS, art. 7 OPP 3.`,
+        },
+        {
+          name: "Saturer le 3a avant d’ouvrir un 3b",
+          text: "Le 3b n’a pas de plafond OFAS et n’est pas déductible à l’impôt fédéral comme le 3a. Il sert la souplesse (bénéficiaires, accès à l’épargne) ou, à Genève et à Fribourg, une enveloppe cantonale de primes d’assurance-vie.",
+        },
+        {
+          name: "Choisir la banque si l’horizon est court",
+          text: "Une fondation bancaire accepte des versements libres jusqu’au plafond, en compte ou en titres. Il n’y a pas de capital décès intégré. C’est le support le plus lisible si un logement ou un départ est envisagé avant une dizaine d’années.",
+        },
+        {
+          name: "Choisir l’assurance si la famille doit être protégée",
+          text: "La police fixe souvent un rythme de primes, un capital décès et parfois la libération des primes. Les premières années, la valeur de rachat est en général inférieure aux primes versées. L’horizon long est le filtre honnête.",
+        },
+        {
+          name: "Créditer le versement avant le 31 décembre 2026",
+          text: "C’est la date de valeur au crédit du compte ou de la police qui compte pour la déduction 2026, pas la date de l’ordre. Beaucoup d’établissements fixent une date limite vers la mi-décembre pour que le crédit tombe encore dans l’année.",
+        },
+      ],
+    },
+    related: [
+      "3eme-pilier-a-ou-b",
+      "3eme-pilier-banque-assurance",
+      "deductions-fiscales-3eme-pilier",
+      "3eme-pilier-independant",
+      "frontalier-suisse",
+      "3eme-pilier-logement",
+      "rachat-lacunes-3a-2026",
+      "quand-commencer-le-3eme-pilier",
+    ],
+    faqs: [
+      {
+        question: "Qui peut ouvrir un 3e pilier A en Suisse ?",
+        answer: `Toute personne dont le revenu d’activité est soumis à l’AVS en Suisse. Le plafond 2026 est ${chf(FIGURES.pillar3aWithLpp)} avec un 2e pilier, ou 20 % du revenu jusqu’à ${chf(FIGURES.pillar3aWithoutLpp)} sans. Source : OFAS, art. 7 OPP 3. ${CEILING_NOTE}.`,
+      },
+      {
+        question: "Peut-on ouvrir plusieurs comptes 3a ?",
+        answer:
+          "Oui. Plusieurs relations 3a sont possibles. Le total versé dans l’année ne doit pas dépasser le plafond OFAS. Plusieurs comptes servent surtout à échelonner les retraits plus tard, ou à n’en mobiliser qu’un pour un logement.",
+      },
+      {
+        question: "Faut-il ouvrir le 3a avant le 31 décembre 2026 ?",
+        answer:
+          "Le compte ou la police doit exister à temps pour que le versement soit crédité au 31 décembre 2026. Un ordre passé trop tard bascule sur 2027. Beaucoup de banques coupent les versements vers la mi-décembre.",
+      },
+      {
+        question: "Un enfant peut-il ouvrir un 3a ?",
+        answer:
+          "Non s’il n’a pas de revenu soumis à l’AVS. L’épargne enfant passe par un compte, une police 3b, ou le 3a des parents avec une clause bénéficiaire. Voir la page épargne enfant.",
+      },
+      {
+        question: "Quels documents faut-il pour ouvrir un pilier 3a ?",
+        answer:
+          "La liste exacte dépend de la fondation ou de l’assureur. On demande en pratique une pièce d’identité, le numéro AVS, l’adresse, et de quoi savoir si un 2e pilier existe. Un permis de séjour est parfois demandé. Ce n’est pas le permis qui ouvre le droit : c’est le revenu soumis à l’AVS.",
+      },
+      {
+        question: "Peut-on ouvrir un 3e pilier en cours d’année ?",
+        answer:
+          "Oui. L’ouverture peut se faire n’importe quel jour. Seul le versement crédité au 31 décembre compte pour la déduction de l’année. Vous n’êtes pas obligé de verser le plafond.",
+      },
+      {
+        question: "Un frontalier peut-il ouvrir un 3e pilier ?",
+        answer:
+          "Oui si le revenu d’activité en Suisse est soumis à l’AVS. Le permis ne suffit pas. L’effet fiscal dépend ensuite de l’impôt à la source et, le cas échéant, de la taxation ordinaire ultérieure. Détail : page frontalier.",
+      },
+      {
+        question: "Un indépendant peut-il ouvrir un pilier 3a ?",
+        answer: `Oui, avec le même critère que les salariés : le revenu soumis à l’AVS. Sans caisse LPP, le plafond 2026 est 20 % du revenu, au maximum ${chf(FIGURES.pillar3aWithoutLpp)}. Avec une LPP, y compris une affiliation volontaire, c’est ${chf(FIGURES.pillar3aWithLpp)}. Détail : page indépendant.`,
+      },
+      {
+        question: "Peut-on rattraper une année sans versement 3a ?",
+        answer:
+          "Pas les années anciennes. Depuis 2026, une lacune apparue à partir de 2025 peut être rachetée, dans la limite de la petite cotisation, en plus du versement ordinaire de l’année, sous conditions OFAS. Le premier rachat possible est l’année fiscale 2026.",
+      },
+      {
+        question: "Le comparatif oblige-t-il à souscrire ?",
+        answer:
+          "Non. Le comparatif est sans honoraires et sans engagement. Un conseiller rappelle sous deux jours ouvrés et examine les solutions accessibles dans le cadre du service : frais, souplesse et garanties.",
+      },
+    ],
+    blocks: [
+      { type: "h2", text: "Qui peut ouvrir un 3a ?" },
+      {
+        type: "p",
+        text: "Le 3e pilier A (prévoyance liée) est ouvert à la personne qui exerce une activité lucrative dont le revenu est soumis à l’AVS en Suisse. L’OFAS vise les salariés, les indépendants, certains bénéficiaires d’indemnités journalières de chômage et les frontaliers dans ce cas. Ce n’est pas le permis de séjour qui ouvre le droit : c’est l’assujettissement AVS (circulaire AFC n° 18).",
+      },
+      {
+        type: "table",
+        caption: `Plafonds 3a 2026, OFAS / art. 7 OPP 3. ${CEILING_NOTE}.`,
+        headers: ["Situation à l’ouverture", `Maximum déductible ${YEAR_SPAN}`],
+        rows: [
+          ["Revenu AVS et affiliation au 2e pilier", chf(FIGURES.pillar3aWithLpp)],
+          [
+            "Revenu AVS, sans institution du 2e pilier",
+            `${FIGURES.pillar3aWithoutLppRate} du revenu, max. ${chf(FIGURES.pillar3aWithoutLpp)}`,
+          ],
+          ["Sans revenu soumis à l’AVS", "Pas de 3a. Le 3b reste possible"],
+        ],
+      },
+      { type: "h2", text: "Quels documents faut-il pour ouvrir un 3e pilier ?" },
+      {
+        type: "p",
+        text: "Il n’existe pas une liste unique imposée par l’OFAS. La fondation bancaire ou l’assureur fixe ses pièces. En pratique, préparez une pièce d’identité, votre numéro AVS et votre adresse. Selon le dossier, on vous demande aussi le permis de séjour, une attestation d’activité, ou de quoi confirmer l’affiliation au 2e pilier : c’est ce point qui choisit la petite ou la grande cotisation.",
+      },
+      {
+        type: "ul",
+        items: [
+          "Pièce d’identité.",
+          "Numéro AVS.",
+          "Adresse et coordonnées.",
+          "Parfois : permis de séjour, informations sur l’activité et sur le 2e pilier.",
+        ],
+      },
+      {
+        type: "p",
+        text: "Sans revenu soumis à l’AVS, ces documents n’ouvrent pas un 3a. Un [frontalier](/frontalier-suisse/) est éligible seulement si son revenu suisse est soumis à l’AVS. Un [indépendant](/3eme-pilier-independant/) l’est aussi : le plafond dépend de la LPP, pas du statut.",
+      },
+      { type: "h2", text: "Comment ouvrir un 3e pilier ?" },
+      {
+        type: "p",
+        text: "Cinq vérifications suffisent avant de signer. Le plafond ne choisit pas le contrat : il fixe seulement ce qui est déductible.",
+      },
+      {
+        type: "ol",
+        items: [
+          `Vérifier l’AVS et le 2e pilier : le 3a est ouvert si le revenu d’activité est soumis à l’AVS en Suisse. Avec une caisse LPP, le plafond 2026 est ${chf(FIGURES.pillar3aWithLpp)}. Sans institution du 2e pilier : 20 % du revenu, max. ${chf(FIGURES.pillar3aWithoutLpp)}. Source : OFAS, art. 7 OPP 3.`,
+          "Saturer le 3a avant d’ouvrir un 3b : le 3b n’a pas de plafond OFAS et n’est pas déductible à l’impôt fédéral comme le 3a. Il sert la souplesse, ou une enveloppe cantonale de primes à Genève et à Fribourg.",
+          "Choisir la banque si l’horizon est court : versements libres jusqu’au plafond, compte ou titres, pas de capital décès intégré. Lisible si un logement ou un départ est envisagé avant une dizaine d’années.",
+          "Choisir l’assurance si la famille doit être protégée : rythme de primes, capital décès, parfois libération des primes. Les premières années, la valeur de rachat est en général inférieure aux primes versées.",
+          "Créditer le versement avant le 31 décembre 2026 : c’est la date de valeur au crédit qui compte, pas la date de l’ordre. Beaucoup d’établissements fixent une date limite vers la mi-décembre.",
+        ],
+      },
+      { type: "h2", text: "Banque ou assurance au moment d’ouvrir" },
+      {
+        type: "table",
+        caption: "Même déduction 3a. Le support change les frais, la sortie et la protection.",
+        headers: ["Critère", "Fondation bancaire", "Police d’assurance"],
+        rows: [
+          ["Déduction 2026", chf(FIGURES.pillar3aWithLpp) + " / " + chf(FIGURES.pillar3aWithoutLpp), "Identique"],
+          ["Versements", "Libres, jusqu’au plafond", "Primes souvent contractuelles"],
+          ["Si vous arrêtez tôt", "L’avoir du compte ou des titres", "Valeur de rachat souvent inférieure aux primes"],
+          ["Famille", "L’avoir accumulé, ordre légal des bénéficiaires", "Capital décès, parfois libération des primes"],
+          ["Mieux quand", "Horizon court, projet de logement, revenu variable", "Horizon long et besoin de garantie"],
+        ],
+      },
+      {
+        type: "p",
+        text: "Selon l’OFAS, le plafond 2026 ne dépend pas de la banque ou de l’assureur. Vous n’êtes pas obligé de verser le maximum : le montant suit le budget et l’épargne de précaution. Le comparatif détaillé des supports est sur [banque ou assurance](/3eme-pilier-banque-assurance/).",
+      },
+      {
+        type: "callout",
+        title: "Nouveau depuis 2026 : rattraper un versement oublié",
+        text: "Une lacune de cotisation 3a apparue à partir de 2025 peut être rachetée dès l’année fiscale 2026, dans la limite de la petite cotisation, en plus du versement ordinaire de l’année, sous conditions OFAS. Les années antérieures à 2025 ne se rattrapent pas. Détail : [rachat de lacunes 3a](/rachat-lacunes-3a-2026/).",
+      },
+      { type: "h2", text: "Avantages et limites à l’ouverture" },
+      { type: "h3", text: "Ce que le 3a apporte" },
+      {
+        type: "ul",
+        items: [
+          `Déduction du revenu imposable jusqu’à ${chf(FIGURES.pillar3aWithLpp)} ou ${chf(FIGURES.pillar3aWithoutLpp)} en 2026, Confédération, cantons et communes.`,
+          "Capital bloqué, ce qui protège l’épargne retraite des retraits d’opportunité.",
+          "Motifs de sortie connus : retraite, logement pour propre usage, départ de Suisse, indépendance, rachat LPP, invalidité.",
+        ],
+      },
+      { type: "h3", text: "Ce que le 3a ne fait pas" },
+      {
+        type: "ul",
+        items: [
+          "Il ne remplace pas une épargne de précaution : l’argent n’est pas un livret.",
+          "Il ne garantit pas un rendement. Les titres 3a suivent les marchés ; un compte suit le taux de la fondation.",
+          "Il n’ouvre pas un second plafond via le 3b, sauf enveloppes cantonales limitées (Genève, Fribourg) sur des primes d’assurance-vie.",
+        ],
+      },
+      {
+        type: "callout",
+        title: "Information générale, pas un conseil fiscal",
+        text: `${METHOD_INLINE} Le comparatif ci-contre examine les solutions accessibles dans le cadre du service. Vous n’êtes pas engagé.`,
+      },
+    ],
+  },
+  {
+    kind: "page",
+    slug: "3eme-pilier-logement",
+    title: "3e pilier et logement : retrait ou nantissement",
+    metaTitle: "3e pilier et achat immobilier : retrait ou nantissement du 3a",
+    description:
+      "Utiliser un 3a pour un logement à usage propre en Suisse : retrait anticipé ou nantissement, impôt à la sortie, banque ou assurance. Comparatif sans honoraires.",
+    published: PUBLISHED_CONVERSION,
+    updated: PUBLISHED_CONVERSION,
+    lead: "comparateur",
+    intro:
+      "Un 3a peut financer un logement à usage propre en Suisse, par un retrait anticipé ou par un nantissement. Le retrait est imposé à part, à un taux réduit qui dépend du canton et du montant. Le nantissement ne déclenche pas cet impôt tout de suite, mais l’avoir sert de garantie à la banque. Un achat à l’étranger ne suit pas ce motif.",
+    howTo: {
+      name: "Comment utiliser un 3a pour un logement en Suisse",
+      steps: [
+        {
+          name: "Qualifier le logement",
+          text: "Le motif vise un logement pour propres besoins en Suisse (encouragement à la propriété du logement). Une résidence secondaire et un achat à l’étranger ne suivent pas cette règle. La fondation ou l’assureur contrôle les pièces.",
+        },
+        {
+          name: "Comparer retrait et nantissement",
+          text: "Le retrait verse le capital et déclenche l’impôt séparé sur la prestation. Le nantissement laisse l’avoir placé et le donne en garantie : pas d’impôt au moment de la mise en gage.",
+        },
+        {
+          name: "Lire la valeur de rachat si c’est une police",
+          text: "Une assurance 3a arrêtée tôt pour un achat peut rendre moins que les primes versées. Une fondation bancaire est plus lisible quand la date d’achat est déjà connue.",
+        },
+        {
+          name: "Choisir quelle relation 3a mobiliser",
+          text: "Un compte 3a se retire en pratique en une fois. Plusieurs relations permettent d’en verser une pour le logement et d’en laisser d’autres placées. Le plafond annuel OFAS reste global.",
+        },
+        {
+          name: "Faire chiffrer l’impôt de sortie",
+          text: "Le capital 3a retiré est imposé séparément du revenu, à un taux réduit. Le taux effectif dépend du canton et du montant. Il n’existe pas un pourcentage unique pour toute la Suisse. Source : circulaire AFC n° 18a.",
+        },
+      ],
+    },
+    related: [
+      "ouvrir-un-3eme-pilier",
+      "3eme-pilier-banque-assurance",
+      "3eme-pilier-a-impot-retrait",
+      "retrait-3a-vs-3b-2026",
+      "2eme-pilier-lpp",
+      "frontalier-suisse",
+    ],
+    faqs: [
+      {
+        question: "Peut-on utiliser le 3e pilier pour acheter un logement ?",
+        answer:
+          "Oui, pour un logement à usage propre en Suisse : retrait anticipé ou nantissement. L’OFAS cite le logement pour propres besoins et le remboursement d’une hypothèque parmi les motifs de versement anticipé du 3a. Un achat à l’étranger ne qualifie pas.",
+      },
+      {
+        question: "Retrait ou nantissement : lequel coûte moins d’impôt ?",
+        answer:
+          "Le retrait déclenche l’impôt sur le capital, séparé du revenu, à un taux réduit selon le canton et le montant. Le nantissement ne déclenche pas cet impôt au moment de la mise en gage. La banque peut en revanche exiger la garantie, et l’avoir reste engagé.",
+      },
+      {
+        question: "Peut-on ne retirer qu’une partie d’un compte 3a ?",
+        answer:
+          "En pratique, un compte 3a se verse en une fois. Ouvrir plusieurs relations permet d’en mobiliser une pour l’apport et de conserver les autres. Le total versé chaque année ne dépasse pas le plafond OFAS.",
+      },
+      {
+        question: "Une police 3a est-elle adaptée si l’achat est dans trois ans ?",
+        answer:
+          "Souvent non. Les premières années, la valeur de rachat d’une assurance est inférieure aux primes. Pour un achat daté, une fondation bancaire évite ce décalage. Le plafond déductible reste le même.",
+      },
+      {
+        question: "Faut-il rembourser un retrait 3a si l’on vend ?",
+        answer:
+          "L’obligation de remboursement après une vente est une règle du 2e pilier (LPP), pas une copie automatique pour le 3a. Le versement anticipé 3a suit l’OPP 3 et le règlement de la fondation. Faites qualifier la revente avant de compter sur un délai LPP.",
+      },
+    ],
+    blocks: [
+      { type: "h2", text: "Retrait ou nantissement du 3a" },
+      {
+        type: "p",
+        text: "Deux mécanismes financent un logement à usage propre. Ils ne produisent ni le même impôt, ni la même dette, ni le même reste placé.",
+      },
+      {
+        type: "table",
+        caption: "Logement pour propres besoins en Suisse. Le taux d’impôt au retrait dépend du canton et du montant (circulaire AFC n° 18a).",
+        headers: ["Critère", "Retrait anticipé", "Nantissement"],
+        rows: [
+          ["Avoir 3a", "Versé pour l’achat, les travaux à plus-value ou l’hypothèque", "Reste investi, donné en garantie"],
+          ["Impôt immédiat", "Oui : impôt sur le capital, séparé du revenu", "Non au moment de la mise en gage"],
+          ["Effet sur le crédit", "Augmente l’apport, peut réduire la dette", "Garantie que la banque peut exiger"],
+          ["Suite des versements", "La relation retirée est close", "On peut souvent continuer à cotiser"],
+          ["Mieux quand", "L’apport manque et l’avoir est en banque", "Vous voulez garder le placement et éviter l’impôt de sortie"],
+        ],
+      },
+      {
+        type: "p",
+        text: "L’OFAS liste le logement pour propres besoins et le remboursement d’une hypothèque parmi les motifs de versement anticipé, avec le départ définitif de Suisse, le passage à l’indépendant, le rachat LPP et l’invalidité entière non couverte par l’AI. Chaque motif exige des pièces. Détail des sorties : [retirer un 3a ou un 3b](/retrait-3a-vs-3b-2026/).",
+      },
+      { type: "h2", text: "Comment utiliser un 3a pour un logement" },
+      {
+        type: "ol",
+        items: [
+          "Qualifier le logement : usage propre en Suisse. Une résidence secondaire et un achat à l’étranger ne suivent pas ce motif. La fondation ou l’assureur contrôle les pièces.",
+          "Comparer retrait et nantissement : le retrait verse le capital et déclenche l’impôt séparé. Le nantissement laisse l’avoir placé, sans cet impôt au moment de la mise en gage.",
+          "Lire la valeur de rachat si c’est une police : une assurance arrêtée tôt peut rendre moins que les primes. Une fondation bancaire est plus lisible quand la date d’achat est connue.",
+          "Choisir quelle relation 3a mobiliser : un compte se retire en pratique en une fois. Plusieurs relations permettent d’en verser une et d’en laisser d’autres. Le plafond annuel reste global.",
+          "Faire chiffrer l’impôt de sortie : imposition séparée, taux réduit, selon le canton et le montant. Pas de pourcentage unique pour toute la Suisse. Source : circulaire AFC n° 18a.",
+        ],
+      },
+      { type: "h2", text: "Banque ou assurance si l’achat est déjà daté" },
+      {
+        type: "p",
+        text: `La déduction 2026 reste ${chf(FIGURES.pillar3aWithLpp)} avec LPP ou ${chf(FIGURES.pillar3aWithoutLpp)} sans, que l’argent aille en banque ou en assurance. ${CEILING_NOTE}. Ce qui change, c’est ce que vous récupérez si le logement arrive dans trois ou cinq ans. Une police conçue pour dix ans et plus n’est pas un apport immobilier. Voir [banque ou assurance](/3eme-pilier-banque-assurance/).`,
+      },
+      {
+        type: "callout",
+        title: "Ne pas confondre 3a et 2e pilier",
+        text: "Le retrait EPL du 2e pilier a ses propres planchers, délais et devoirs de remboursement. La circulaire AFC n° 18a (section 6.4) exclut d’utiliser un transfert 3a vers la LPP pour rembourser un retrait EPL du 2e pilier. Les deux enveloppes ne se mélangent pas.",
+      },
+      { type: "h2", text: "Ce que cette page ne promet pas" },
+      {
+        type: "ul",
+        items: [
+          "Pas de taux d’impôt « moyen suisse » : le barème du capital est cantonal.",
+          "Pas de rendement garanti sur les titres 3a laissés en nantissement.",
+          "Pas d’accès au motif logement pour un bien à l’étranger ou une résidence secondaire.",
+          METHOD_INLINE,
+        ],
+      },
+    ],
+  },
+  {
+    kind: "page",
     slug: "deductions-fiscales-3eme-pilier",
     wpId: 1918,
     title: `Déductions fiscales du 3e pilier en ${YEAR_SPAN}`,
@@ -300,6 +634,7 @@ export const PAGES: EditorialDoc[] = [
       "plafonds-3a-2026-2027",
       "3a-impot-cantonal-geneve-2026",
       "3b-deduction-fribourg",
+      "ouvrir-un-3eme-pilier",
       "actualite-3eme-pilier",
     ],
     faqs: [
@@ -366,6 +701,7 @@ export const PAGES: EditorialDoc[] = [
       "Un frontalier peut-il ouvrir un 3a ? Oui, si le revenu d’activité en Suisse est soumis à l’AVS. Ce n’est pas le permis G qui ouvre le droit : c’est l’assujettissement AVS (OFAS, circulaire AFC n° 18). L’intérêt fiscal dépend ensuite de la source, d’une éventuelle TOU, et du droit de l’État de résidence.",
     related: [
       "3eme-pilier-independant",
+      "ouvrir-un-3eme-pilier",
       "ouvrir-un-3eme-pilier-pour-un-frontalier",
       "frontalier-avs-3a-conditions",
       "tou-impot-source-3a",
@@ -389,7 +725,7 @@ export const PAGES: EditorialDoc[] = [
       { type: "h2", text: "Conditions 3a" },
       {
         type: "p",
-        text: "Revenu d’activité lucrative soumis à l’AVS suisse. Les frontaliers dans ce cas sont expressément visés par l’OFAS. Sans cotisations AVS suisses, le 3a n’est en principe pas ouvert ; le 3b peut l’être.",
+        text: "Revenu d’activité lucrative soumis à l’AVS suisse. Les frontaliers dans ce cas sont expressément visés par l’OFAS. Sans cotisations AVS suisses, le 3a n’est en principe pas ouvert ; le 3b peut l’être. La démarche d’ouverture, les pièces et le délai au 31 décembre : [ouvrir un 3e pilier](/ouvrir-un-3eme-pilier/).",
       },
       { type: "h2", text: "Impôt à la source et TOU" },
       {
@@ -416,6 +752,7 @@ export const PAGES: EditorialDoc[] = [
     related: [
       "3a-impot-cantonal-geneve-2026",
       "frontalier-suisse",
+      "ouvrir-un-3eme-pilier",
       "3eme-pilier-a-ou-b",
       "deductions-fiscales-3eme-pilier",
       "actualite-3eme-pilier",
@@ -454,7 +791,7 @@ export const PAGES: EditorialDoc[] = [
       { type: "h2", text: "Frontaliers travaillant à Genève" },
       {
         type: "p",
-        text: "Accès 3a si AVS suisse. L’effet fiscal passe souvent par l’impôt à la source et, le cas échéant, la TOU. Voir les pages frontalier et TOU.",
+        text: "Accès 3a si AVS suisse. L’effet fiscal passe souvent par l’impôt à la source et, le cas échéant, la TOU. Voir les pages frontalier et TOU. Pour les pièces et le délai : [ouvrir un 3e pilier](/ouvrir-un-3eme-pilier/).",
       },
     ],
   },
