@@ -991,7 +991,7 @@ export const PAGES: EditorialDoc[] = [
       },
       {
         type: "p",
-        text: "Le 3e pilier est le cadre, pas la police. Le [3a](/3eme-pilier-a-ou-b/) est lié : l’[OFAS](https://www.bsv.admin.ch/fr/le-troisieme-pilier) indique que les cotisations à une forme reconnue sont déductibles, et que l’avoir n’est pas libre. Le [3b](/3eme-pilier-b-prevoyance-libre/) est libre. Une police peut être l’un ou l’autre. Un compte 3a en fondation bancaire n’est pas une assurance-vie : il transmet l’avoir, pas un capital fixé d’avance. Voir [banque ou assurance](/3eme-pilier-banque-assurance/). Le risque couvert et le cadre 3a ou 3b se lisent sur le contrat, pas sur le nom commercial.",
+        text: "Le 3e pilier est le cadre, pas la police. Le [3a](/3eme-pilier-a-ou-b/) est lié : l’OFAS indique que les cotisations à une forme reconnue sont déductibles, et que l’avoir n’est pas libre. Le [3b](/3eme-pilier-b-prevoyance-libre/) est libre. Une police peut être l’un ou l’autre. Un compte 3a en fondation bancaire n’est pas une assurance-vie : il transmet l’avoir, pas un capital fixé d’avance. Voir [banque ou assurance](/3eme-pilier-banque-assurance/). Le risque couvert et le cadre 3a ou 3b se lisent sur le contrat, pas sur le nom commercial.",
       },
       {
         type: "h2",
@@ -1026,7 +1026,7 @@ export const PAGES: EditorialDoc[] = [
       },
       {
         type: "p",
-        text: "Le 3a est encouragé fiscalement dans des limites légales, parce que le capital est lié. L’OFAS reconnaît deux formes : la police d’assurance et le compte en fondation bancaire. Une sortie anticipée suit un motif de l’[OPP 3](https://www.fedlex.admin.ch/eli/cc/1985/643_643_643/fr) (logement pour ses propres besoins, départ de Suisse, indépendance, rachat LPP, invalidité entière AI non couverte, entre autres). Hors de ces cas, le capital reste bloqué jusqu’à la fenêtre de retraite.",
+        text: "Le 3a est encouragé fiscalement dans des limites légales, parce que le capital est lié. L’OFAS reconnaît deux formes : la police d’assurance et le compte en fondation bancaire. Une sortie anticipée suit un motif de l’OPP 3 (logement pour ses propres besoins, départ de Suisse, indépendance, rachat LPP, invalidité entière AI non couverte, entre autres). Hors de ces cas, le capital reste bloqué jusqu’à la fenêtre de retraite.",
       },
       {
         type: "p",
@@ -1106,15 +1106,15 @@ export const PAGES: EditorialDoc[] = [
       },
       {
         type: "p",
-        text: `Le 3a est déductible du revenu pour l’impôt fédéral direct et les impôts cantonaux et communaux, dans la mesure de l’art. 7 [OPP 3](https://www.fedlex.admin.ch/eli/cc/1985/643_643_643/fr). En 2026, la petite cotisation est de ${chf(FIGURES.pillar3aWithLpp)} pour une personne affiliée à une institution de prévoyance du 2e pilier. La grande cotisation est de ${FIGURES.pillar3aWithoutLppRate} du revenu de l’activité lucrative, au maximum ${chf(FIGURES.pillar3aWithoutLpp)}, pour une personne qui n’y est pas affiliée. Sources : [OFAS — Le troisième pilier](https://www.bsv.admin.ch/fr/le-troisieme-pilier) et [OFAS — Votre cotisation au 3e pilier](https://www.bsv.admin.ch/fr/votre-cotisation-au-3e-pilier). Le versement doit être crédité au 31 décembre pour compter sur l’année.`,
+        text: `Le 3a est déductible du revenu pour l’impôt fédéral direct et les impôts cantonaux et communaux, dans la mesure de l’art. 7 OPP 3. En 2026, la petite cotisation est de ${chf(FIGURES.pillar3aWithLpp)} pour une personne affiliée à une institution de prévoyance du 2e pilier. La grande cotisation est de ${FIGURES.pillar3aWithoutLppRate} du revenu de l’activité lucrative, au maximum ${chf(FIGURES.pillar3aWithoutLpp)}, pour une personne qui n’y est pas affiliée. Sources : OFAS — Le troisième pilier et OFAS — Votre cotisation au 3e pilier. Le versement doit être crédité au 31 décembre pour compter sur l’année.`,
       },
       {
         type: "p",
-        text: `Le 2 octobre 2026, le Conseil fédéral a décidé de porter ces plafonds au 1er janvier 2027 à ${chf(7373)} pour les personnes avec un 2e pilier et à ${chf(36864)} pour celles qui n’en ont pas. Source : [communiqué du Conseil fédéral du 2 octobre 2026](https://www.admin.ch/fr/newnsb/BqB41FVYi5FB). Pour un versement imputé à 2026, le plafond reste celui de 2026.`,
+        text: `Le 2 octobre 2026, le Conseil fédéral a décidé de porter ces plafonds au 1er janvier 2027 à ${chf(7373)} pour les personnes avec un 2e pilier et à ${chf(36864)} pour celles qui n’en ont pas. Source : communiqué du Conseil fédéral du 2 octobre 2026. Pour un versement imputé à 2026, le plafond reste celui de 2026.`,
       },
       {
         type: "p",
-        text: "Le 3b n’ouvre pas cette déduction. Certaines primes peuvent entrer dans l’enveloppe plafonnée des primes d’assurances et des intérêts d’épargne, souvent déjà occupée par l’assurance-maladie. Quelques cantons ajoutent une déduction limitée pour des primes d’assurance-vie : notice de l’année, pas un second plafond 3a. Détail : [déductions fiscales](/deductions-fiscales-3eme-pilier/). Au dénouement, le capital 3a est imposé séparément du reste du revenu. Pour une assurance 3b susceptible de rachat, l’[AFC](https://www.estv.admin.ch/fr/assurances-de-capitaux-susceptibles-de-rachat-du-pilier-3b) indique que le traitement du capital se juge au cas par cas par le canton.",
+        text: "Le 3b n’ouvre pas cette déduction. Certaines primes peuvent entrer dans l’enveloppe plafonnée des primes d’assurances et des intérêts d’épargne, souvent déjà occupée par l’assurance-maladie. Quelques cantons ajoutent une déduction limitée pour des primes d’assurance-vie : notice de l’année, pas un second plafond 3a. Détail : [déductions fiscales](/deductions-fiscales-3eme-pilier/). Au dénouement, le capital 3a est imposé séparément du reste du revenu. Pour une assurance 3b susceptible de rachat, l’AFC indique que le traitement du capital se juge au cas par cas par le canton.",
       },
       {
         type: "h2",
@@ -1332,7 +1332,7 @@ export const PAGES: EditorialDoc[] = [
       },
       {
         type: "p",
-        text: `Une temporaire décès peut être conclue en [3a](/3eme-pilier-a-ou-b/) ou en [3b](/3eme-pilier-b-prevoyance-libre/). Le cadre ne rend pas la prime déductible par principe. Dans un 3a reconnu, elle entre dans le plafond de l’art. 7 OPP 3 : en 2026, ${chf(FIGURES.pillar3aWithLpp)} si la personne est affiliée à une institution du 2e pilier, ou ${FIGURES.pillar3aWithoutLppRate} du revenu de l’activité lucrative, au maximum ${chf(FIGURES.pillar3aWithoutLpp)}, sinon. Source : [OFAS — Le troisième pilier](https://www.bsv.admin.ch/fr/le-troisieme-pilier). En 3b, il n’existe pas de déduction fédérale générale comparable au 3a. Une déduction limitée, quand elle existe, dépend du produit et du canton. Cette prime 3a occupe le plafond : elle laisse moins de place à l’épargne liée de la même année. Voir [assurance-vie en Suisse](/assurance-vie-en-suisse/) et [déductions fiscales](/deductions-fiscales-3eme-pilier/).`,
+        text: `Une temporaire décès peut être conclue en [3a](/3eme-pilier-a-ou-b/) ou en [3b](/3eme-pilier-b-prevoyance-libre/). Le cadre ne rend pas la prime déductible par principe. Dans un 3a reconnu, elle entre dans le plafond de l’art. 7 OPP 3 : en 2026, ${chf(FIGURES.pillar3aWithLpp)} si la personne est affiliée à une institution du 2e pilier, ou ${FIGURES.pillar3aWithoutLppRate} du revenu de l’activité lucrative, au maximum ${chf(FIGURES.pillar3aWithoutLpp)}, sinon. Source : OFAS — Le troisième pilier. En 3b, il n’existe pas de déduction fédérale générale comparable au 3a. Une déduction limitée, quand elle existe, dépend du produit et du canton. Cette prime 3a occupe le plafond : elle laisse moins de place à l’épargne liée de la même année. Voir [assurance-vie en Suisse](/assurance-vie-en-suisse/) et [déductions fiscales](/deductions-fiscales-3eme-pilier/).`,
       },
     ],
   },
