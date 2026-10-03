@@ -12,6 +12,11 @@ export type Block =
   | { type: "table"; caption?: string; headers: string[]; rows: string[][] }
   | { type: "callout"; title: string; text: string };
 
+export type HowToStep = {
+  name: string;
+  text: string;
+};
+
 export type EditorialDoc = {
   kind: "page" | "post";
   slug: string;
@@ -31,5 +36,8 @@ export type EditorialDoc = {
   series?: boolean;
   weekId?: string;
   draft?: boolean;
+  /** Formulaire comparatif sur la page, à côté du texte. */
+  lead?: "comparateur";
+  howTo?: { name: string; steps: HowToStep[] };
 };
 

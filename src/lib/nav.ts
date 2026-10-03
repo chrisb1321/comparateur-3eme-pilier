@@ -3,6 +3,8 @@ export const NAV = [
   { href: "/3eme-pilier-a-ou-b/", label: "3a ou 3b" },
   { href: "/3eme-pilier-banque-assurance/", label: "Banque / assurance" },
   { href: "/deductions-fiscales-3eme-pilier/", label: "Déductions 2026–2027" },
+  { href: "/ouvrir-un-3eme-pilier/", label: "Ouvrir un 3e pilier" },
+  { href: "/3eme-pilier-logement/", label: "Logement" },
   { href: "/3eme-pilier-independant/", label: "Indépendant" },
   { href: "/frontalier-suisse/", label: "Frontaliers" },
   { href: "/3eme-pilier-geneve/", label: "Genève" },

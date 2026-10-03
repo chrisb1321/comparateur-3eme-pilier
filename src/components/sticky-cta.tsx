@@ -11,6 +11,10 @@ const HIDDEN = new Set([
   "/nous-contacter/",
   "/page-remerciement",
   "/page-remerciement/",
+  "/ouvrir-un-3eme-pilier",
+  "/ouvrir-un-3eme-pilier/",
+  "/3eme-pilier-logement",
+  "/3eme-pilier-logement/",
 ]);
 
 export function StickyCta() {

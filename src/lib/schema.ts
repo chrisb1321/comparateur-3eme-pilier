@@ -7,6 +7,7 @@ import type { SiteImage } from "@/lib/media";
 export const ORG_ID = `${SITE.canonicalHost}/#organization`;
 export const WEBSITE_ID = `${SITE.canonicalHost}/#website`;
 export const AUTHOR_ID = `${SITE.canonicalHost}/#redaction`;
+export const PERSON_ID = `${SITE.canonicalHost}/#christophe-bouin`;
 
 export const ORGANIZATION_LD = {
   "@context": "https://schema.org",
@@ -53,6 +54,18 @@ export const WEBSITE_LD = {
   },
 };
 
+export const PERSON_LD = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "@id": PERSON_ID,
+  name: "Christophe Bouin",
+  url: canonical("/a-propos/"),
+  email: SITE.email,
+  jobTitle: "Responsable du comparatif",
+  worksFor: { "@id": ORG_ID },
+  knowsAbout: ["Pilier 3a", "Pilier 3b", "Prévoyance suisse"],
+};
+
 export const AUTHOR_LD = {
   "@type": "Organization",
   "@id": AUTHOR_ID,
@@ -61,6 +74,23 @@ export const AUTHOR_LD = {
   parentOrganization: { "@id": ORG_ID },
   publishingPrinciples: canonical("/a-propos/"),
 };
+
+export function howToLd(doc: EditorialDoc): Record<string, unknown> {
+  const howTo = doc.howTo;
+  return {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    name: howTo?.name ?? doc.title,
+    description: doc.description,
+    inLanguage: "fr-CH",
+    step: (howTo?.steps ?? []).map((step, index) => ({
+      "@type": "HowToStep",
+      position: index + 1,
+      name: step.name,
+      text: step.text,
+    })),
+  };
+}
 
 export function faqPageLd(faqs: FaqItem[]): Record<string, unknown> {
   return {
@@ -76,19 +106,26 @@ export function faqPageLd(faqs: FaqItem[]): Record<string, unknown> {
 
 export function breadcrumbLd(doc: EditorialDoc): Record<string, unknown> {
   const url = canonical(`/${doc.slug}/`);
-  const mid =
-    doc.kind === "post"
-      ? { name: "Actualités 3e pilier", item: canonical("/actualite-3eme-pilier/") }
-      : { name: "Guides", item: canonical("/deductions-fiscales-3eme-pilier/") };
+  const crumbs: { name: string; item: string }[] = [
+    { name: "Accueil", item: canonical("/") },
+  ];
+  if (doc.kind === "post") {
+    crumbs.push({
+      name: "Actualités 3e pilier",
+      item: canonical("/actualite-3eme-pilier/"),
+    });
+  }
+  crumbs.push({ name: doc.title, item: url });
 
   return {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
-    itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Accueil", item: canonical("/") },
-      { "@type": "ListItem", position: 2, name: mid.name, item: mid.item },
-      { "@type": "ListItem", position: 3, name: doc.title, item: url },
-    ],
+    itemListElement: crumbs.map((crumb, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: crumb.name,
+      item: crumb.item,
+    })),
   };
 }
 
@@ -106,7 +143,7 @@ export function articleLd(doc: EditorialDoc, cover: SiteImage): Record<string, u
     url,
     mainEntityOfPage: { "@type": "WebPage", "@id": url },
     image: `${SITE.canonicalHost}${cover.src}`,
-    author: AUTHOR_LD,
+    author: { "@id": PERSON_ID },
     publisher: { "@id": ORG_ID },
     about: [
       { "@type": "Thing", name: "Pilier 3a" },
@@ -133,7 +170,7 @@ export function webPageLd(doc: EditorialDoc, cover: SiteImage): Record<string, u
     isAccessibleForFree: true,
     url,
     image: `${SITE.canonicalHost}${cover.src}`,
-    author: AUTHOR_LD,
+    author: { "@id": PERSON_ID },
     publisher: { "@id": ORG_ID },
     speakable: {
       "@type": "SpeakableSpecification",

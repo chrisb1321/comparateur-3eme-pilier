@@ -18,19 +18,24 @@ import {
   breadcrumbLd,
   collectionPageLd,
   faqPageLd,
+  howToLd,
   webPageLd,
 } from "@/lib/schema";
 import { calendarDay, formatEditorialDate, isPublicPostDate } from "@/lib/publication";
+import { CANONICAL_ALIASES, NOINDEX_SLUGS } from "@/lib/indexing";
 import { canonical, SITE } from "@/lib/site";
 
 export function docMetadata(doc: EditorialDoc): Metadata {
-  const url = canonical(`/${doc.slug}/`);
+  const canonicalSlug = CANONICAL_ALIASES[doc.slug] ?? doc.slug;
+  const url = canonical(`/${canonicalSlug}/`);
   const cover = coverFor(doc.slug, doc.cover);
+  const hidden =
+    NOINDEX_SLUGS.has(doc.slug) || (doc.kind === "post" && !isPublicPostDate(doc.published));
   return {
-    title: doc.metaTitle,
+    title: { absolute: doc.metaTitle },
     description: doc.description,
     alternates: { canonical: url },
-    authors: [{ name: SITE.name, url: canonical("/a-propos/") }],
+    authors: [{ name: "Christophe Bouin", url: canonical("/a-propos/") }],
     openGraph: {
       title: doc.metaTitle,
       description: doc.description,
@@ -47,10 +52,7 @@ export function docMetadata(doc: EditorialDoc): Metadata {
       title: doc.metaTitle,
       description: doc.description,
     },
-    robots:
-      doc.kind === "post" && !isPublicPostDate(doc.published)
-        ? { index: false, follow: false }
-        : undefined,
+    robots: hidden ? { index: false, follow: true } : undefined,
   };
 }
 
@@ -64,6 +66,7 @@ export async function EditorialView({
   const related = getRelated(doc);
   const posts = doc.slug === "actualite-3eme-pilier" ? getPosts() : [];
   const showComparateur = doc.slug === "formulaire-3eme-pilier";
+  const showInlineLead = doc.lead === "comparateur";
   const showContact = doc.slug === "nous-contacter";
   const isThanks = doc.slug === "page-remerciement";
 
@@ -156,18 +159,39 @@ export async function EditorialView({
           </p>
         </div>
       </div>
-      <div className={`mx-auto px-4 py-14 md:px-6 md:py-16 ${showComparateur || showContact ? "max-w-[1100px]" : "max-w-3xl"}`}>
+      <div className={`mx-auto px-4 py-14 md:px-6 md:py-16 ${showComparateur || showContact || showInlineLead ? "max-w-[1100px]" : "max-w-3xl"}`}>
+        {showInlineLead ? (
+          <div className="grid items-start gap-10 lg:grid-cols-[minmax(0,1fr)_22rem]">
+            <p id="reponse-directe" className="text-[22px] leading-snug font-medium text-[#10324A] lg:col-start-1">
+              {doc.intro}
+            </p>
+            <aside id="comparatif" className="scroll-mt-28 lg:sticky lg:top-28 lg:col-start-2 lg:row-span-2 lg:row-start-1">
+              <p className="kicker mb-3">Comparatif sans honoraires</p>
+              <LeadForm intent="comparateur" />
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                Rappel sous deux jours ouvrés. Sans engagement.
+              </p>
+            </aside>
+            <div className="lg:col-start-1">
+              <div className="my-10 h-px bg-[#DCE6ED]" />
+              <Blocks blocks={doc.blocks} />
+            </div>
+          </div>
+        ) : (
+          <>
           <p id="reponse-directe" className="text-[22px] leading-snug font-medium text-[#10324A]">
             {doc.intro}
           </p>
         <div className="my-10 h-px bg-[#DCE6ED]" />
         {doc.body ? <MdxBody source={doc.body} /> : <Blocks blocks={doc.blocks} />}
+          </>
+        )}
         {posts.length ? (
           <div data-testid="hub-actualites" className="mt-12">
             <p className="kicker">Cadence</p>
             <p className="mt-2 max-w-2xl text-sm leading-relaxed text-muted-foreground">
               Articles déjà datés : plafonds OFAS, rachat de lacunes, tableau des montants, retrait et lien avec le 2e pilier.
-              Les textes prévus après le 26 septembre 2026 ne figurent pas dans cette liste.
+              Un texte apparaît ici le jour de sa date de publication.
             </p>
             <ul className="mt-8 space-y-8">
               {posts.map((post) => (
@@ -203,7 +227,9 @@ export async function EditorialView({
             <LeadForm intent="contact" />
           </div>
         ) : null}
-        {doc.faqs?.length ? <FaqList items={doc.faqs} /> : null}
+        {doc.faqs?.length ? (
+          <FaqList items={doc.faqs} ctaHref={showInlineLead ? "#comparatif" : undefined} />
+        ) : null}
         {related.length ? (
           <aside className="mt-14">
             <p className="kicker">À lire aussi</p>
@@ -219,7 +245,7 @@ export async function EditorialView({
             </ul>
           </aside>
         ) : null}
-        {doc.slug !== "page-remerciement" && !showComparateur && !showContact ? <CtaBand /> : null}
+        {doc.slug !== "page-remerciement" && !showComparateur && !showContact && !showInlineLead ? <CtaBand /> : null}
         <ArticleJsonLd doc={doc} />
       </div>
     </article>
@@ -238,6 +264,9 @@ function ArticleJsonLd({ doc }: { doc: EditorialDoc }) {
   }
   if (doc.faqs?.length) {
     data.push(faqPageLd(doc.faqs));
+  }
+  if (doc.howTo?.steps.length) {
+    data.push(howToLd(doc));
   }
   return <JsonLd data={data} />;
 }

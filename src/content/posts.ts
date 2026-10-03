@@ -50,7 +50,7 @@ export const POSTS: EditorialDoc[] = [
     slug: "taxation-ordinaire-ulterieure",
     wpId: 5881,
     title: "La taxation ordinaire ultérieure (TOU)",
-    metaTitle: `TOU et 3e pilier ${YEAR_SPAN} : frontaliers et impôt à la source`,
+    metaTitle: "TOU et 3e pilier : frontaliers et impôt à la source",
     description:
       `Quand l’impôt à la source devient une taxation ordinaire, la déduction 3a peut enfin apparaître. Points de vigilance ${YEAR_SPAN}, circulaire AFC n° 18.`,
     published: "2022-10-24",
@@ -83,7 +83,7 @@ export const POSTS: EditorialDoc[] = [
     slug: "3eme-pilier-a-impot-retrait",
     wpId: 5875,
     title: "L’impôt lors du retrait d’un 3e pilier A",
-    metaTitle: `Impôt au retrait du 3a ${YEAR_SPAN} : capital, canton, échelonnement`,
+    metaTitle: "Impôt au retrait du 3a : capital, canton, échelonnement",
     description:
       `Le 3a est déductible à l’entrée et imposé à la sortie, séparément du reste du revenu. Logique ${YEAR_SPAN}, sans HTML cassé.`,
     published: "2022-10-16",
@@ -169,7 +169,7 @@ export const POSTS: EditorialDoc[] = [
     title: "Ouvrir un 3e pilier pour un frontalier",
     metaTitle: `Frontalier : ouvrir un 3a en ${YEAR_SPAN}`,
     description:
-      "Revenu AVS suisse, impôt à la source, TOU, départ. Article frère de la landing frontalier.",
+      "Un frontalier ouvre un 3a si son revenu suisse est soumis à l’AVS. Impôt à la source, TOU et départ : le cadre est sur la page frontaliers.",
     published: "2021-12-07",
     updated: UPDATED,
     category: "prevoyance",
@@ -197,7 +197,7 @@ export const POSTS: EditorialDoc[] = [
     title: "Quand commencer son 3e pilier ?",
     metaTitle: `Quand commencer le 3e pilier ${YEAR_SPAN} ? Dès un revenu AVS`,
     description:
-      "Chaque année civile sans 3a est une déduction perdue — avec une nuance depuis 2026 : le rachat des lacunes depuis 2025.",
+      "On peut ouvrir un 3a dès un revenu soumis à l’AVS. Une année sans versement se rattrape seulement pour les lacunes depuis 2025, sous conditions OFAS.",
     published: "2021-12-06",
     updated: UPDATED,
     category: "prevoyance",
@@ -218,7 +218,7 @@ export const POSTS: EditorialDoc[] = [
     title: "Pourquoi souscrire au 3e pilier ?",
     metaTitle: `Pourquoi un 3e pilier en ${YEAR_SPAN} ?`,
     description:
-      "Trou de retraite, impôt, famille, logement. Les vraies raisons, sans slogan 2024 recyclé.",
+      "Le 3e pilier sert à combler l’écart de rentes, à déduire un plafond OFAS et à protéger la famille ou un projet de logement.",
     published: "2021-12-06",
     updated: UPDATED,
     category: "prevoyance",
@@ -245,7 +245,7 @@ export const POSTS: EditorialDoc[] = [
     title: "Constituer une épargne enfant",
     metaTitle: `Épargne enfant ${YEAR_SPAN} : 3b, compte, protection du parent`,
     description:
-      "Pas de 3a sans revenu AVS. Comment épargner pour un enfant sans bloquer le budget du ménage.",
+      "Pas de 3a au nom d’un enfant sans revenu AVS. Compte, police 3b ou épargne du parent : comment choisir sans bloquer le budget.",
     published: "2021-12-06",
     updated: UPDATED,
     category: "prevoyance",
@@ -266,7 +266,7 @@ export const POSTS: EditorialDoc[] = [
     title: "Choisir les bénéficiaires du 3e pilier en cas de décès",
     metaTitle: `Bénéficiaires du 3a et du 3b ${YEAR_SPAN} en cas de décès`,
     description:
-      "Ordre légal du 3a vs liberté du 3b. Conjoint, concubin, enfants, associé.",
+      "Au décès, le 3a suit l’ordre légal de l’OPP 3. Le 3b laisse plus de liberté pour le conjoint, le concubin, les enfants ou un associé.",
     published: "2021-12-06",
     updated: UPDATED,
     category: "prevoyance",

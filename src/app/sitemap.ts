@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { getPages, getPosts } from "@/content";
+import { CANONICAL_ALIASES, NOINDEX_SLUGS } from "@/lib/indexing";
 import { SITE, canonical } from "@/lib/site";
 
 const MONEY_PAGES = new Set([
@@ -15,6 +16,8 @@ const MONEY_PAGES = new Set([
   "2eme-pilier-lpp",
   "formulaire-3eme-pilier",
   "choisir-son-3eme-pilier",
+  "ouvrir-un-3eme-pilier",
+  "3eme-pilier-logement",
 ]);
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -36,15 +39,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.9,
   };
 
-  const category: MetadataRoute.Sitemap[number] = {
-    url: canonical("/category/prevoyance/"),
-    lastModified: newestPost,
-    changeFrequency: "weekly",
-    priority: 0.6,
-  };
-
   const pageEntries = pages
     .filter((page) => page.slug !== "actualite-3eme-pilier")
+    .filter((page) => !NOINDEX_SLUGS.has(page.slug) && !CANONICAL_ALIASES[page.slug])
     .map((page) => ({
       url: canonical(`/${page.slug}/`),
       lastModified: page.updated,
@@ -54,7 +51,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: MONEY_PAGES.has(page.slug) ? 0.9 : 0.7,
     }));
 
-  const postEntries = posts.map((post) => ({
+  const postEntries = posts
+    .filter((post) => !CANONICAL_ALIASES[post.slug])
+    .map((post) => ({
     url: canonical(`/${post.slug}/`),
     lastModified: post.updated,
     changeFrequency: (post.series ? "weekly" : "monthly") as "weekly" | "monthly",
@@ -75,5 +74,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.9,
   };
 
-  return [home, hub, category, example, plafond, ...pageEntries, ...postEntries];
+  return [home, hub, example, plafond, ...pageEntries, ...postEntries];
 }
