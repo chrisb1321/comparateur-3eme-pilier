@@ -115,6 +115,10 @@ export const PAGES: EditorialDoc[] = [
         title: "Pas de montant 2027 officieux",
         text: "Aucun plafond 2027 n’est présenté ici comme décidé. Le chiffre retenu pour 2026 est celui déjà publié sur le site pour la personne affiliée au 2e pilier.",
       },
+      {
+        type: "p",
+        text: "Le versement anticipé ou la mise en gage d’un 3a pour un logement à propres besoins est sur [3e pilier et achat immobilier](/3eme-pilier-logement/).",
+      },
     ],
   },
   {
@@ -219,6 +223,10 @@ export const PAGES: EditorialDoc[] = [
         type: "callout",
         title: "Chiffres 2023–2024 encore cités ailleurs",
         text: `Les anciens plafonds 7’056 / 35’280 (2023–2024) ou 34’416 (jusqu’en 2022) ne s’appliquent plus. En 2026 : ${chf(FIGURES.pillar3aWithLpp)} / ${chf(FIGURES.pillar3aWithoutLpp)}. ${CEILING_NOTE}.`,
+      },
+      {
+        type: "p",
+        text: "Le 3a peut financer un logement à propres besoins par un [retrait ou une mise en gage](/3eme-pilier-logement/).",
       },
     ],
   },
@@ -331,6 +339,10 @@ export const PAGES: EditorialDoc[] = [
           "Mêmes motifs de retrait liés OPP 3.",
           "Même imposition du capital 3a au dénouement.",
         ],
+      },
+      {
+        type: "p",
+        text: "Compte ou police, la valeur de rachat pour un logement se lit sur [compte 3a ou police et logement](/3eme-pilier-logement/).",
       },
     ],
   },
@@ -603,130 +615,116 @@ export const PAGES: EditorialDoc[] = [
   {
     kind: "page",
     slug: "3eme-pilier-logement",
-    title: "3e pilier et logement : retrait ou nantissement",
-    metaTitle: "3e pilier et achat immobilier : retrait ou nantissement du 3a",
+    title: "3e pilier et achat immobilier : retrait ou mise en gage",
+    metaTitle: "3e pilier et achat immobilier : retrait ou nantissement ?",
     description:
-      "Utiliser un 3a pour un logement à usage propre en Suisse : retrait anticipé ou nantissement, impôt à la sortie, banque ou assurance. Comparatif sans honoraires.",
-    published: PUBLISHED_CONVERSION,
-    updated: PUBLISHED_CONVERSION,
+      "Versement anticipé ou mise en gage d’un 3a pour un logement à propres besoins (OPP 3, art. 3 et 4). Les règles du 2e pilier ne s’y appliquent pas.",
+    published: "2026-10-03",
+    updated: "2026-10-03",
     lead: "comparateur",
     intro:
-      "Un 3a peut financer un logement à usage propre en Suisse, par un retrait anticipé ou par un nantissement. Le retrait est imposé à part, à un taux réduit qui dépend du canton et du montant. Le nantissement ne déclenche pas cet impôt tout de suite, mais l’avoir sert de garantie à la banque. Un achat à l’étranger ne suit pas ce motif.",
-    howTo: {
-      name: "Comment utiliser un 3a pour un logement en Suisse",
-      steps: [
-        {
-          name: "Qualifier le logement",
-          text: "Le motif vise un logement pour propres besoins en Suisse (encouragement à la propriété du logement). Une résidence secondaire et un achat à l’étranger ne suivent pas cette règle. La fondation ou l’assureur contrôle les pièces.",
-        },
-        {
-          name: "Comparer retrait et nantissement",
-          text: "Le retrait verse le capital et déclenche l’impôt séparé sur la prestation. Le nantissement laisse l’avoir placé et le donne en garantie : pas d’impôt au moment de la mise en gage.",
-        },
-        {
-          name: "Lire la valeur de rachat si c’est une police",
-          text: "Une assurance 3a arrêtée tôt pour un achat peut rendre moins que les primes versées. Une fondation bancaire est plus lisible quand la date d’achat est déjà connue.",
-        },
-        {
-          name: "Choisir quelle relation 3a mobiliser",
-          text: "Un compte 3a se retire en pratique en une fois. Plusieurs relations permettent d’en verser une pour le logement et d’en laisser d’autres placées. Le plafond annuel OFAS reste global.",
-        },
-        {
-          name: "Faire chiffrer l’impôt de sortie",
-          text: "Le capital 3a retiré est imposé séparément du revenu, à un taux réduit. Le taux effectif dépend du canton et du montant. Il n’existe pas un pourcentage unique pour toute la Suisse. Source : circulaire AFC n° 18a.",
-        },
-      ],
-    },
+      "L’OPP 3, art. 3 al. 3, permet de verser par anticipation la prestation de vieillesse du 3a pour acquérir ou construire un logement en propriété pour ses propres besoins, pour acquérir des participations à un tel logement, ou pour rembourser des prêts hypothécaires. Un tel versement ne peut être demandé que tous les cinq ans (art. 3 al. 4). La mise en gage, pour la propriété du logement de l’assuré, relève de l’art. 4 al. 2 : l’impôt sur le capital ne porte que sur la somme versée.",
     related: [
-      "ouvrir-un-3eme-pilier",
-      "3eme-pilier-banque-assurance",
-      "3eme-pilier-a-impot-retrait",
-      "retrait-3a-vs-3b-2026",
       "2eme-pilier-lpp",
-      "frontalier-suisse",
+      "3eme-pilier-banque-assurance",
+      "deductions-fiscales-3eme-pilier",
+      "3eme-pilier-a-ou-b",
+      "3eme-pilier-suisse",
+      "ouvrir-un-3eme-pilier",
     ],
     faqs: [
       {
-        question: "Peut-on utiliser le 3e pilier pour acheter un logement ?",
+        question: "Le versement logement du 3a se demande-t-il tous les cinq ans, comme au 2e pilier ?",
         answer:
-          "Oui, pour un logement à usage propre en Suisse : retrait anticipé ou nantissement. L’OFAS cite le logement pour propres besoins et le remboursement d’une hypothèque parmi les motifs de versement anticipé du 3a. Un achat à l’étranger ne qualifie pas.",
+          "Pour le 3a, l’OPP 3, art. 3 al. 4, vise le versement logement de l’art. 3 al. 3 : il ne peut être demandé que tous les cinq ans. Pour le 2e pilier, la phrase équivalente est à l’OEPL, art. 5 al. 3. Cette cadence du 3a ne s’applique pas au versement de vieillesse ordinaire de l’art. 3 al. 1, qui suit la fenêtre autour de l’âge de référence.",
       },
       {
-        question: "Retrait ou nantissement : lequel coûte moins d’impôt ?",
+        question: "Le 3a a-t-il un montant minimal de 20’000 francs ?",
         answer:
-          "Le retrait déclenche l’impôt sur le capital, séparé du revenu, à un taux réduit selon le canton et le montant. Le nantissement ne déclenche pas cet impôt au moment de la mise en gage. La banque peut en revanche exiger la garantie, et l’avoir reste engagé.",
+          "Non. Le minimum de 20’000 francs est l’OEPL, art. 5 al. 1, pour un versement anticipé du 2e pilier. L’OPP 3 ne fixe pas ce plancher pour le 3a.",
       },
       {
-        question: "Peut-on ne retirer qu’une partie d’un compte 3a ?",
+        question: "Le délai de trois ans et le plafond après 50 ans valent-ils pour le 3a ?",
         answer:
-          "En pratique, un compte 3a se verse en une fois. Ouvrir plusieurs relations permet d’en mobiliser une pour l’apport et de conserver les autres. Le total versé chaque année ne dépasse pas le plafond OFAS.",
+          "Non. Le délai de trois ans avant la naissance du droit aux prestations de vieillesse est la LPP, art. 30c al. 1. Le plafond après 50 ans est la LPP, art. 30c al. 2, et l’OEPL, art. 5 al. 4. L’OPP 3 ne reprend ni l’un ni l’autre pour le versement logement du 3a.",
       },
       {
-        question: "Une police 3a est-elle adaptée si l’achat est dans trois ans ?",
+        question: "Faut-il rembourser un retrait 3a si le logement est vendu ?",
         answer:
-          "Souvent non. Les premières années, la valeur de rachat d’une assurance est inférieure aux primes. Pour un achat daté, une fondation bancaire évite ce décalage. Le plafond déductible reste le même.",
+          "L’obligation de rembourser en cas de vente est la LPP, art. 30d, pour le 2e pilier. L’OPP 3 ne la copie pas. À Genève, la page cantonale du retrait logement, mise à jour le 8 juillet 2025, écrit qu’un retrait anticipé du 3e pilier A ne se rembourse pas. Cette phrase ne remplace pas l’ordonnance.",
       },
       {
-        question: "Faut-il rembourser un retrait 3a si l’on vend ?",
+        question: "Le nantissement du 3a est-il imposé comme le retrait ?",
         answer:
-          "L’obligation de remboursement après une vente est une règle du 2e pilier (LPP), pas une copie automatique pour le 3a. Le versement anticipé 3a suit l’OPP 3 et le règlement de la fondation. Faites qualifier la revente avant de compter sur un délai LPP.",
+          "La somme versée est imposable, y compris la prestation en capital (LIFD, art. 22 al. 1). Elle est imposée séparément, au cinquième des barèmes de l’art. 36 (art. 38 al. 1 et 2). L’impôt fédéral s’ajoute à l’impôt cantonal. La mise en gage n’est pas imposée tant que rien n’est versé. Si le 3a est transféré pour rembourser l’hypothèque, Genève l’impose. Le remboursement d’impôt après remboursement du retrait concerne le 2e pilier.",
+      },
+      {
+        question: "Une résidence qui n’est pas le domicile peut-elle être financée par le 3a ?",
+        answer:
+          "Les propres besoins du versement 3a renvoient aux art. 2 à 4 OEPL (OPP 3, art. 3 al. 5). L’art. 4 al. 1 vise l’usage par l’assuré à son lieu de domicile ou de séjour habituel. Une résidence de vacances qui n’est ni l’un ni l’autre en sort. L’article n’ajoute pas « en Suisse ». Une location temporaire est possible s’il est prouvé que la personne ne peut plus utiliser le logement pendant un certain temps (al. 2).",
       },
     ],
     blocks: [
-      { type: "h2", text: "Retrait ou nantissement du 3a" },
       {
         type: "p",
-        text: "Deux mécanismes financent un logement à usage propre. Ils ne produisent ni le même impôt, ni la même dette, ni le même reste placé.",
-      },
-      {
-        type: "table",
-        caption: "Logement pour propres besoins en Suisse. Le taux d’impôt au retrait dépend du canton et du montant (circulaire AFC n° 18a).",
-        headers: ["Critère", "Retrait anticipé", "Nantissement"],
-        rows: [
-          ["Avoir 3a", "Versé pour l’achat, les travaux à plus-value ou l’hypothèque", "Reste investi, donné en garantie"],
-          ["Impôt immédiat", "Oui : impôt sur le capital, séparé du revenu", "Non au moment de la mise en gage"],
-          ["Effet sur le crédit", "Augmente l’apport, peut réduire la dette", "Garantie que la banque peut exiger"],
-          ["Suite des versements", "La relation retirée est close", "On peut souvent continuer à cotiser"],
-          ["Mieux quand", "L’apport manque et l’avoir est en banque", "Vous voulez garder le placement et éviter l’impôt de sortie"],
-        ],
-      },
-      {
-        type: "p",
-        text: "L’OFAS liste le logement pour propres besoins et le remboursement d’une hypothèque parmi les motifs de versement anticipé, avec le départ définitif de Suisse, le passage à l’indépendant, le rachat LPP et l’invalidité entière non couverte par l’AI. Chaque motif exige des pièces. Détail des sorties : [retirer un 3a ou un 3b](/retrait-3a-vs-3b-2026/).",
-      },
-      { type: "h2", text: "Comment utiliser un 3a pour un logement" },
-      {
-        type: "ol",
-        items: [
-          "Qualifier le logement : usage propre en Suisse. Une résidence secondaire et un achat à l’étranger ne suivent pas ce motif. La fondation ou l’assureur contrôle les pièces.",
-          "Comparer retrait et nantissement : le retrait verse le capital et déclenche l’impôt séparé. Le nantissement laisse l’avoir placé, sans cet impôt au moment de la mise en gage.",
-          "Lire la valeur de rachat si c’est une police : une assurance arrêtée tôt peut rendre moins que les primes. Une fondation bancaire est plus lisible quand la date d’achat est connue.",
-          "Choisir quelle relation 3a mobiliser : un compte se retire en pratique en une fois. Plusieurs relations permettent d’en verser une et d’en laisser d’autres. Le plafond annuel reste global.",
-          "Faire chiffrer l’impôt de sortie : imposition séparée, taux réduit, selon le canton et le montant. Pas de pourcentage unique pour toute la Suisse. Source : circulaire AFC n° 18a.",
-        ],
-      },
-      { type: "h2", text: "Banque ou assurance si l’achat est déjà daté" },
-      {
-        type: "p",
-        text: `La déduction 2026 reste ${chf(FIGURES.pillar3aWithLpp)} avec LPP ou ${chf(FIGURES.pillar3aWithoutLpp)} sans, que l’argent aille en banque ou en assurance. ${CEILING_NOTE}. Ce qui change, c’est ce que vous récupérez si le logement arrive dans trois ou cinq ans. Une police conçue pour dix ans et plus n’est pas un apport immobilier. Voir [banque ou assurance](/3eme-pilier-banque-assurance/).`,
+        text: "Textes de Christophe Bouin. Relecture des textes le 3 octobre 2026 sur Fedlex — OPP 3 (état au 1er janvier 2025), LPP, OEPL, LIFD — et sur la directive ASB de décembre 2023, en vigueur le 1er janvier 2025. Le comparatif est sans honoraires et sans obligation de souscrire.",
       },
       {
         type: "callout",
-        title: "Ne pas confondre 3a et 2e pilier",
-        text: "Le retrait EPL du 2e pilier a ses propres planchers, délais et devoirs de remboursement. La circulaire AFC n° 18a (section 6.4) exclut d’utiliser un transfert 3a vers la LPP pour rembourser un retrait EPL du 2e pilier. Les deux enveloppes ne se mélangent pas.",
+        title: "Ce qui vaut seulement pour le 2e pilier :",
+        text: "minimum de 20’000 francs (OEPL, art. 5 al. 1) ; plafond après 50 ans (LPP, art. 30c al. 2, et OEPL, art. 5 al. 4) ; délai de trois ans (LPP, art. 30c al. 1) ; remboursement en cas de vente (LPP, art. 30d) ; cadence de cinq ans du 2e pilier (OEPL, art. 5 al. 3) — pour le 3a, la cadence du logement est l’OPP 3, art. 3 al. 4 ; un seul objet à la fois pour les fonds de la prévoyance professionnelle (OEPL, art. 1 al. 2). Ces règles ne se transportent pas au 3a. Lien vers [/2eme-pilier-lpp/](/2eme-pilier-lpp/).",
       },
-      { type: "h2", text: "Ce que cette page ne promet pas" },
+      { type: "h2", text: "Versement anticipé et mise en gage" },
       {
-        type: "ul",
-        items: [
-          "Pas de taux d’impôt « moyen suisse » : le barème du capital est cantonal.",
-          "Pas de rendement garanti sur les titres 3a laissés en nantissement.",
-          "Pas d’accès au motif logement pour un bien à l’étranger ou une résidence secondaire.",
-          METHOD_INLINE,
+        type: "p",
+        text: "Deux voies sont dans l’ordonnance. L’amortissement indirect n’en est pas une troisième : c’est une modalité de la directive ASB, ch. 2.2, par apport et nantissement d’avoirs du pilier 3a.",
+      },
+      {
+        type: "p",
+        text: "Le versement de l’art. 3 al. 3 sert à acquérir ou construire le logement, à acquérir des participations, ou à rembourser des prêts hypothécaires. L’art. 3 al. 4 : « Un tel versement ne peut être demandé que tous les cinq ans. » Cette phrase qualifie le versement logement, pas le versement de vieillesse ordinaire de l’art. 3 al. 1.",
+      },
+      {
+        type: "p",
+        text: "Consentement écrit du conjoint ou du partenaire enregistré (art. 3 al. 6). L’ordonnance ne dit pas qu’un versement logement doit porter sur la totalité d’une relation. Le transfert partiel de l’art. 3a al. 2 est réservé au rachat d’une lacune LPP.",
+      },
+      {
+        type: "table",
+        caption: "Impôt seulement sur la somme versée (LIFD, art. 38), plus l’impôt cantonal.",
+        headers: [
+          "Versement anticipé (OPP 3, art. 3 al. 3 et 4)",
+          "Mise en gage (OPP 3, art. 4 al. 2)",
+          "Amortissement indirect (directive ASB, ch. 2.2)",
         ],
+        rows: [],
+      },
+      { type: "h2", text: "Propres besoins" },
+      {
+        type: "p",
+        text: "Art. 3 al. 5 renvoie aux art. 2 à 4 OEPL. L’art. 4 al. 1 : domicile ou séjour habituel. Une résidence de vacances qui n’est ni l’un ni l’autre en sort. L’article n’exige pas que le logement soit en Suisse. La mise en gage sert à la propriété du logement de l’assuré (art. 4 al. 2) ; le renvoi analogique ne reprend pas le plafond après 50 ans, le délai de trois ans ni le remboursement à la vente.",
+      },
+      { type: "h2", text: "Compte ou police" },
+      {
+        type: "p",
+        text: "OPP 3, art. 1 : contrat d’assurance ou convention avec une fondation bancaire. La valeur de rachat n’est pas chiffrée dans l’OPP 3 ; au ch. 2.1 ASB une police compte au plus à hauteur de cette valeur. Lien [/3eme-pilier-banque-assurance/](/3eme-pilier-banque-assurance/).",
+      },
+      { type: "h2", text: "Les 10 % de fonds propres" },
+      {
+        type: "p",
+        text: "Directive ASB ch. 2.1, décembre 2023, en vigueur le 1er janvier 2025, standard minimal reconnu par la FINMA (LFINMA, art. 7 al. 3). La FINMA ne fixe pas le taux. 10 % de la valeur de nantissement hors avoir du 2e pilier. Le 3a gagé et la valeur de rachat « peuvent » compter. Une banque peut demander plus. Le champ d’application de cette directive vise les immeubles en Suisse : un achat à l’étranger ne se règle pas avec ce chiffre de 10 %, ce qui n’est pas la même chose qu’exclure l’étranger du motif logement de l’OPP 3. Ch. 2.2 : dette ramenée aux deux tiers en quinze ans ; amortissement indirect possible. Pas d’apport minimal de 20 % du prix dans cette directive.",
+      },
+      { type: "h2", text: "Illustration de trésorerie" },
+      {
+        type: "p",
+        text: "800’000 francs, avance de 80 % souvent pratiquée : apport 160’000, dette 640’000. Illustration de trésorerie, pas une preuve de conformité ASB ou LFINMA. Pas de montant d’impôt inventé. Liens [/deductions-fiscales-3eme-pilier/](/deductions-fiscales-3eme-pilier/) et [/3eme-pilier-a-ou-b/](/3eme-pilier-a-ou-b/).",
+      },
+      { type: "h2", text: "Impôt à Genève" },
+      {
+        type: "p",
+        text: "LIFD, art. 22 et 38 (cinquième du barème de l’art. 36), plus l’impôt cantonal. Genève : https://www.ge.ch/impot-prevoyance-retraite-du-2e-3e-pilier/impot-cas-retrait-anticipe-acheter-son-logement (8 juillet 2025). Mise en gage non déclarée tant que rien n’est versé. Un retrait 3a ne se rembourse pas. Simulateur : https://www.ge.ch/impot-prestations-capital/calculer-impot-prestation-capital. Pas d’autres cantons sur cette page.",
       },
     ],
   },
+
   {
     kind: "page",
     slug: "deductions-fiscales-3eme-pilier",
@@ -796,6 +794,10 @@ export const PAGES: EditorialDoc[] = [
       {
         type: "p",
         text: `Chaque conjoint actif avec LPP a son propre plafond 3a. Deux salariés affiliés : jusqu’à ${chf(FIGURES.pillar3aWithLpp * 2)} au total, sur deux relations de prévoyance distinctes.`,
+      },
+      {
+        type: "p",
+        text: "L’impôt ne porte que sur la somme versée pour un logement : [impôt du versement logement](/3eme-pilier-logement/).",
       },
     ],
   },
@@ -1492,6 +1494,10 @@ export const PAGES: EditorialDoc[] = [
           ["Salaire coordonné maximal", chf(FIGURES.lppCoordinatedMax)],
           ["Limite supérieure du salaire annuel", chf(FIGURES.lppSalaryCap)],
         ],
+      },
+      {
+        type: "p",
+        text: "Les minimums, délais et remboursements du 2e pilier ne se transportent pas au versement logement du 3a : [ce qui vaut seulement pour le 2e pilier](/3eme-pilier-logement/).",
       },
     ],
   },
