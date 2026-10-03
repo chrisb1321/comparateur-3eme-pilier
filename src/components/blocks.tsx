@@ -4,20 +4,26 @@ import type { Block } from "@/content/types";
 
 function RichText({ text }: { text: string }) {
   const nodes: ReactNode[] = [];
-  const links = /\[([^\]]+)\]\((\/[^)\s]+)\)/g;
+  const links = /\[([^\]]+)\]\(((?:\/|https?:\/\/)[^)\s]+)\)/g;
   let last = 0;
   for (const match of text.matchAll(links)) {
     const index = match.index ?? 0;
     if (index > last) nodes.push(text.slice(last, index));
-    nodes.push(
-      <Link
-        key={`${match[2]}-${index}`}
-        href={match[2]}
-        className="font-semibold text-[#174462] underline underline-offset-4"
-      >
-        {match[1]}
-      </Link>,
-    );
+    const href = match[2];
+    const className = "font-semibold text-[#174462] underline underline-offset-4";
+    if (href.startsWith("/")) {
+      nodes.push(
+        <Link key={`${href}-${index}`} href={href} className={className}>
+          {match[1]}
+        </Link>,
+      );
+    } else {
+      nodes.push(
+        <a key={`${href}-${index}`} href={href} className={className} rel="noopener noreferrer">
+          {match[1]}
+        </a>,
+      );
+    }
     last = index + match[0].length;
   }
   if (last < text.length) nodes.push(text.slice(last));

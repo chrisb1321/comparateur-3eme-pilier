@@ -343,14 +343,14 @@ export const PAGES: EditorialDoc[] = [
     description:
       `Une police mixte combine constitution de capital et couverture décès. Intérêt, limites, et quand séparer les deux contrats (${YEAR_SPAN}).`,
     published: "2022-03-17",
-    updated: UPDATED,
+    updated: "2026-10-03",
     intro:
-      "On appelle souvent « mixte » une assurance-vie qui verse un capital à l’échéance si vous êtes en vie, et un capital (parfois le même, parfois un autre) en cas de décès. C’est un outil, pas un produit obligatoire du 3a.",
+      "On appelle souvent « mixte » une assurance-vie qui verse un capital à l’échéance si vous êtes en vie, et un capital (parfois le même, parfois un autre) en cas de décès. C’est un outil, pas un produit obligatoire du 3a. La déduction fédérale ne suit que si la police est un 3a, dans les limites légales.",
     related: ["assurance-vie-en-suisse", "risque-pur-deces", "3eme-pilier-banque-assurance"],
     blocks: [
       {
         type: "p",
-        text: "L’intérêt : un seul contrat pour épargner et protéger. La limite : vous payez le risque et l’épargne dans la même prime, avec une transparence des frais parfois médiocre. Si le besoin décès est élevé et l’épargne faible, un risque pur (temporaire décès) plus un 3a bancaire est souvent plus lisible. Si l’horizon est long et que vous voulez une discipline de primes, le mixte peut coller.",
+        text: "L’intérêt : un seul contrat pour épargner et protéger. La limite : vous payez le risque et l’épargne dans la même prime, avec une transparence des frais parfois médiocre. Si le besoin décès est élevé et l’épargne faible, un risque pur (temporaire décès) plus un 3a bancaire est souvent plus lisible. Si l’horizon est long et que vous voulez une discipline de primes, le mixte peut coller. La prime n’est déductible au titre du 3a que si la police est une prévoyance liée, dans les limites de l’art. 7 OPP 3. Une mixte 3b n’ouvre pas la déduction fédérale générale du 3a.",
       },
       {
         type: "callout",
@@ -912,88 +912,251 @@ export const PAGES: EditorialDoc[] = [
     slug: "assurance-vie-en-suisse",
     wpId: 3182,
     title: "Assurance-vie en Suisse",
-    metaTitle: "Assurance-vie en Suisse : risque pur, mixte, 3a ou 3b (2026)",
+    metaTitle: "Assurance-vie Suisse 2026 : 3a, 3b, risque pur ou mixte",
     description:
-      "Comparez assurance décès et assurance-vie mixte en Suisse : garanties, frais, valeur de rachat et fiscalité 3a/3b. Comparatif gratuit et sans engagement.",
+      "Assurance-vie en Suisse : comparez pilier 3a, 3b, risque pur et assurance mixte. Fiscalité, frais, valeur de rachat et garanties à vérifier en 2026.",
     published: "2022-03-18",
-    updated: "2026-09-28",
+    updated: "2026-10-03",
     intro:
       "En Suisse, l’assurance-vie peut couvrir uniquement un risque, comme le décès, ou combiner protection et épargne dans un contrat mixte. Elle peut être souscrite dans le cadre du pilier 3a ou du pilier 3b. Pour choisir, comparez les garanties, les frais, la valeur de rachat, la fiscalité et la souplesse du contrat.",
-    related: ["3eme-pilier-mixte", "risque-pur-deces", "assurance-deces", "3eme-pilier-a-ou-b"],
+    related: [
+      "3eme-pilier-mixte",
+      "risque-pur-deces",
+      "assurance-deces",
+      "3eme-pilier-a-ou-b",
+      "3eme-pilier-b-prevoyance-libre",
+      "3eme-pilier-banque-assurance",
+      "deductions-fiscales-3eme-pilier",
+      "choisir-les-beneficiaires",
+    ],
     faqs: [
       {
-        question: "Quelle différence entre assurance-vie et 3e pilier ?",
-        answer:
-          "L’assurance-vie est un contrat : risque pur (décès seul) ou mixte (décès et épargne). Le 3e pilier est le cadre juridique. Le 3a est une prévoyance liée, avec déduction et sorties limitées. Le 3b est une prévoyance libre. Une assurance-vie peut être logée en 3a ou en 3b. Un compte 3a bancaire, lui, n’est pas une assurance-vie.",
+        question: "Toute assurance-vie est-elle déductible en Suisse ?",
+        answer: `Non. Seul un 3a reconnu l’est, dans les limites de l’art. 7 OPP 3 : en 2026, ${chf(FIGURES.pillar3aWithLpp)} avec 2e pilier, ou ${FIGURES.pillar3aWithoutLppRate} du revenu d’activité, max. ${chf(FIGURES.pillar3aWithoutLpp)}, sans. Le 3b n’a pas de déduction fédérale générale comparable.`,
       },
       {
-        question: "Que récupère-t-on si l’on résilie un contrat mixte ?",
+        question: "Quelle différence entre risque pur et assurance mixte ?",
         answer:
-          "La valeur de rachat écrite dans le contrat, pas la somme des primes versées. Les premières années, cette valeur est souvent très inférieure aux primes, parfois nulle : les frais d’acquisition et le coût du risque sont prélevés au début. Seule la table de rachat de la police donne le montant. Un risque pur n’a en général pas de valeur de rachat.",
+          "Le risque pur paie un capital si le décès survient pendant la durée, sans constituer d’épargne en général. La mixte ajoute un capital si la personne est en vie à l’échéance. À capital décès égal, sa prime est plus lourde : elle finance aussi l’épargne.",
+      },
+      {
+        question: "Faut-il placer l’assurance-vie en 3a ou en 3b ?",
+        answer:
+          "Le 3a, si la déduction dans le plafond légal compte plus que la disponibilité. Le 3b, s’il faut désigner plus librement un bénéficiaire ou sortir hors des motifs OPP 3. Les deux peuvent coexister. Le 3b ne double pas le plafond 3a.",
+      },
+      {
+        question: "Une assurance-vie a-t-elle une valeur de rachat ?",
+        answer:
+          "En général non pour un risque pur. En général oui pour une mixte, selon la table du contrat. Les premières années, elle est souvent bien inférieure aux primes. Ce n’est pas la somme des primes versées.",
       },
       {
         question: "Le capital est-il garanti ?",
         answer:
-          "Cela dépend du contrat. Un capital en francs prévu à la police est dû si les conditions sont remplies. Un contrat lié à des fonds suit la valeur des parts : le capital à l’échéance n’est pas garanti. Le capital décès, lorsqu’il existe, est celui écrit au contrat.",
+          "Un capital en francs écrit au contrat est dû si les conditions sont remplies. Un contrat lié à des fonds suit la valeur des parts : le capital à l’échéance n’est pas garanti. Une participation aux excédents n’est pas un rendement promis. Le capital décès et l’épargne se lisent sur deux lignes distinctes.",
+      },
+      {
+        question: "Qui reçoit le capital au décès ?",
+        answer:
+          "En 3a, l’ordre OFAS : conjoint ou partenaire enregistré, puis descendants et personnes à charge ou communauté de vie d’au moins cinq ans, puis parents, frères et sœurs, autres héritiers. On ne l’inverse pas. En 3b, la clause est en général plus libre, dans les limites du contrat et du droit successoral.",
+      },
+      {
+        question: "Le questionnaire de santé peut-il changer la prime ?",
+        answer:
+          "Oui. L’assureur peut accepter le dossier, appliquer une surprime, exclure un risque ou refuser la couverture. Les réponses engagent. La garantie vaut aux conditions écrites à l’acceptation, pas au jour de l’envoi du formulaire.",
+      },
+      {
+        question: "Quand vaut-il mieux séparer assurance et épargne ?",
+        answer:
+          "Quand le capital décès nécessaire est élevé et l’épargne encore faible, ou quand l’horizon est court : les frais d’une police se voient si on s’arrête tôt. Un risque pur à côté d’un compte 3a est alors souvent plus lisible. La mixte reste un outil sur un horizon long.",
       },
     ],
     blocks: [
       {
         type: "h2",
-        text: "Quatre formes, pas un seul produit",
+        text: "Assurance-vie en Suisse : l’essentiel",
       },
       {
         type: "p",
-        text: "Le [risque pur](/risque-pur-deces/) paie un capital si le décès survient pendant la durée, sans constituer d’épargne. Le [contrat mixte](/3eme-pilier-mixte/) réunit cette couverture et une épargne dans la même prime. La police peut être logée dans le [3a](/3eme-pilier-a-ou-b/) ou dans le [3b](/3eme-pilier-b-prevoyance-libre/). Le capital versé aux proches se lit sur la page [assurance décès](/assurance-deces/).",
+        text: "Une assurance-vie en Suisse protège des proches par un capital au décès, et parfois par une prestation en cas d’incapacité de gain. Le contrat est un risque pur, qui paie le risque sans constituer d’épargne, ou une assurance mixte, qui réunit risque et épargne dans la même prime. Il se loge dans le 3a, lié, ou dans le 3b, libre. Ce choix change la fiscalité, la disponibilité du capital, les bénéficiaires et, le plus souvent, la valeur de rachat. Une assurance-vie n’est pas déductible dans tous les cas : seul un 3a reconnu l’est, dans les limites légales.",
+      },
+      {
+        type: "h2",
+        text: "Qu’est-ce qu’une assurance-vie en Suisse ?",
+      },
+      {
+        type: "p",
+        text: "Une assurance-vie est un contrat : une prime, contre une prestation si un événement prévu survient (décès pendant la durée, survie à l’échéance, parfois incapacité de gain). Un [risque pur](/risque-pur-deces/) ne constitue pas d’épargne. Une [assurance mixte](/3eme-pilier-mixte/) ajoute un capital si la personne est en vie au terme. L’[assurance décès](/assurance-deces/) est le capital versé aux proches, seule ou dans une police d’épargne.",
+      },
+      {
+        type: "p",
+        text: "Le 3e pilier est le cadre, pas la police. Le [3a](/3eme-pilier-a-ou-b/) est lié : l’[OFAS](https://www.bsv.admin.ch/fr/le-troisieme-pilier) indique que les cotisations à une forme reconnue sont déductibles, et que l’avoir n’est pas libre. Le [3b](/3eme-pilier-b-prevoyance-libre/) est libre. Une police peut être l’un ou l’autre. Un compte 3a en fondation bancaire n’est pas une assurance-vie : il transmet l’avoir, pas un capital fixé d’avance. Voir [banque ou assurance](/3eme-pilier-banque-assurance/). Le risque couvert et le cadre 3a ou 3b se lisent sur le contrat, pas sur le nom commercial.",
+      },
+      {
+        type: "h2",
+        text: "Risque pur ou assurance mixte",
+      },
+      {
+        type: "p",
+        text: "Le risque pur, souvent une temporaire décès, verse un capital si le décès survient pendant la durée choisie. Si la personne est en vie au terme, il n’y a en général rien à récupérer : la prime a payé le risque. Le capital peut être constant ou dégressif, par exemple pour suivre le solde d’une hypothèque. La durée, les exclusions et une éventuelle rente d’invalidité figurent au contrat.",
+      },
+      {
+        type: "p",
+        text: "L’assurance mixte réunit, dans la même prime, un capital si l’assuré est en vie à l’échéance et un capital décès. Les deux montants sont parfois les mêmes, parfois non. Un seul contrat discipline l’épargne. La prime paie le risque, l’épargne et des frais, surtout au début. Si la couverture demandée est élevée et l’épargne faible, un risque pur à côté d’un 3a bancaire est souvent plus clair. La mixte n’est pas un produit obligatoire du 3a.",
       },
       {
         type: "table",
         caption:
-          "Lecture qualitative. Les frais et la valeur de rachat figurent sur la police : il n’existe pas un barème unique en francs.",
-        headers: ["Forme", "Ce que la prime paie", "Si le contrat s’arrête", "Cadre"],
+          "Lecture qualitative. Le montant de prime et la valeur de rachat se lisent sur la police : il n’existe pas un barème unique en francs.",
+        headers: ["Critère", "Risque pur", "Assurance mixte"],
+        rows: [
+          ["Épargne", "Non, en général", "Oui : capital si l’assuré est en vie à l’échéance"],
+          ["Capital décès", "Oui, si le décès survient pendant la durée", "Oui, selon le contrat (même capital ou un autre montant)"],
+          ["Valeur de rachat", "En général absente, ou négligeable", "En général prévue ; souvent faible les premières années"],
+          ["Niveau de prime", "Souvent plus bas à capital décès égal, car il n’y a pas d’épargne", "Plus élevé : la prime paie le risque et l’épargne"],
+          ["Objectif", "Couvrir une période (hypothèque, enfants, revenu du ménage)", "Épargner et protéger dans un seul contrat"],
+          ["3a possible", "Oui, si la police est une forme reconnue de prévoyance liée", "Oui, à la même condition"],
+          ["3b possible", "Oui", "Oui"],
+        ],
+      },
+      {
+        type: "h2",
+        text: "Pilier 3a ou pilier 3b",
+      },
+      {
+        type: "p",
+        text: "Le 3a est encouragé fiscalement dans des limites légales, parce que le capital est lié. L’OFAS reconnaît deux formes : la police d’assurance et le compte en fondation bancaire. Une sortie anticipée suit un motif de l’[OPP 3](https://www.fedlex.admin.ch/eli/cc/1985/643_643_643/fr) (logement pour ses propres besoins, départ de Suisse, indépendance, rachat LPP, invalidité entière AI non couverte, entre autres). Hors de ces cas, le capital reste bloqué jusqu’à la fenêtre de retraite.",
+      },
+      {
+        type: "p",
+        text: "Le 3b n’a pas ce plafond, ni cette déduction fédérale. L’OFAS indique que la prévoyance libre n’ouvre pas les déductions du 3a. Selon le produit et le canton, une déduction plus étroite peut exister (enveloppe des primes d’assurances, ou règle cantonale). Genève et Fribourg sont les cas romands cités ici : [Genève](/3eme-pilier-geneve/), [Fribourg](/3b-deduction-fribourg/). La notice de l’année fait foi. On ne généralise pas.",
+      },
+      {
+        type: "table",
+        caption: `Plafonds 3a 2026 : art. 7 OPP 3 et pages OFAS « Le troisième pilier » et « Votre cotisation au 3e pilier ». ${chf(FIGURES.pillar3aWithLpp)} / ${chf(FIGURES.pillar3aWithoutLpp)}.`,
+        headers: ["Critère", "3a (prévoyance liée)", "3b (prévoyance libre)"],
         rows: [
           [
-            "Risque pur",
-            "Le décès pendant la durée. Pas d’épargne.",
-            "En général, pas de valeur de rachat.",
-            "Couverture, souvent à côté d’un compte 3a.",
+            "Déduction fiscale",
+            `Oui, dans les limites légales. 2026 : ${chf(FIGURES.pillar3aWithLpp)} avec 2e pilier ; ${FIGURES.pillar3aWithoutLppRate} du revenu, max. ${chf(FIGURES.pillar3aWithoutLpp)} sans.`,
+            "Pas de déduction fédérale générale comparable au 3a. Selon le produit et le canton, une déduction limitée peut exister.",
           ],
           [
-            "Mixte",
-            "Épargne et décès dans la même prime.",
-            "La valeur de rachat du contrat, souvent faible les premières années.",
-            "3a ou 3b, selon la police.",
+            "Disponibilité",
+            "Capital bloqué. Sortie anticipée seulement pour un motif prévu par l’OPP 3.",
+            "Plus libre, selon le contrat. Un rachat anticipé peut avoir un coût.",
           ],
           [
-            "Police 3a",
-            "Épargne liée, parfois avec un capital décès.",
-            "Sortie pour un motif prévu par l’OPP 3. La valeur dépend du contrat.",
-            "Déduction dans le plafond 3a. Bénéficiaires selon l’ordre légal.",
+            "Bénéficiaires",
+            "Ordre légal. Marge de désignation à l’intérieur des rangs.",
+            "En général plus de liberté, selon la clause et le droit successoral.",
           ],
           [
-            "Police 3b",
-            "Épargne libre et, selon le contrat, une couverture.",
-            "Rachat selon la police, hors des motifs de sortie du 3a.",
-            "Pas le plafond fédéral du 3a. Fiscalité à juger au canton.",
+            "Plafond",
+            `Plafond fédéral 2026 : ${chf(FIGURES.pillar3aWithLpp)} ou ${chf(FIGURES.pillar3aWithoutLpp)}.`,
+            "Pas de plafond OFAS.",
+          ],
+          [
+            "Usage",
+            "Épargne liée et, selon la police, couverture décès ou incapacité.",
+            "Souplesse, protection d’une personne hors ordre 3a, complément une fois le 3a saturé.",
           ],
         ],
       },
       {
         type: "h2",
-        text: "Plafond 3a en 2026",
+        text: "Combien ça coûte, et quels frais comparer",
       },
       {
         type: "p",
-        text: `En 2026, avec un 2e pilier, le plafond 3a est de ${chf(FIGURES.pillar3aWithLpp)}. Sans 2e pilier, il est de ${FIGURES.pillar3aWithoutLppRate} du revenu de l’activité lucrative, au maximum ${chf(FIGURES.pillar3aWithoutLpp)} (art. 7 OPP 3, tableau OFAS au 1er janvier 2026). Au 19 septembre 2026, le tableau OFAS 2027 n’est pas publié : ces montants restent ceux en vigueur. Le détail est sur la page [déductions fiscales](/deductions-fiscales-3eme-pilier/).`,
+        text: "Il n’existe pas un prix unique en francs. La prime dépend du capital, de l’âge, de la durée, de l’état de santé, des garanties ajoutées et du fait que le contrat épargne ou non. Ce qui se compare, ce sont les lignes de frais, pas un taux isolé.",
       },
       {
         type: "p",
-        text: "Le 3b ne suit pas ce plafond. Il n’est pas déductible à l’impôt fédéral direct comme le 3a. Au canton, certains régimes seulement admettent les primes d’assurance-vie, souvent dans une enveloppe déjà occupée par d’autres primes. Voir [prévoyance libre 3b](/3eme-pilier-b-prevoyance-libre/) et, pour Genève, [3e pilier à Genève](/3eme-pilier-geneve/).",
+        text: "À mettre côte à côte : frais d’acquisition, souvent prélevés au début ; coût du risque (décès, incapacité, [libération des primes](/liberation-du-paiement-des-primes/)) ; frais de gestion ; frais du support si la police est en fonds ; coût ou perte au rachat. Une prime plus basse peut couvrir moins. Une prime plus haute peut payer une garantie, ou des frais peu lisibles. La page [frais 3a](/frais-3a-banque-assurance/) pose ces questions. Elle ne classe pas les compagnies.",
       },
       {
-        type: "callout",
-        title: "Comparatif",
-        text: "Le comparatif examine les garanties, les frais et la valeur de rachat. Un conseiller rappelle sous deux jours ouvrés. Gratuit et sans engagement. [Recevoir le comparatif](/formulaire-3eme-pilier/).",
+        type: "h2",
+        text: "Valeur de rachat",
+      },
+      {
+        type: "p",
+        text: "La valeur de rachat est la somme prévue au contrat si on l’arrête avant le terme. Ce n’est pas la somme des primes versées.",
+      },
+      {
+        type: "p",
+        text: "Un risque pur n’a en général pas de valeur de rachat, ou une valeur négligeable. Une mixte a en général une table de rachat. Les premières années, cette valeur est souvent très inférieure aux primes, parfois nulle : frais d’acquisition et coût du risque sont prélevés tôt. Seule la table de la police donne le montant. Un contrat particulier peut s’écarter de ce schéma.",
+      },
+      {
+        type: "h2",
+        text: "Fonds ou capital garanti",
+      },
+      {
+        type: "p",
+        text: "Deux mécaniques coexistent, parfois dans la même offre. Un capital en francs prévu à la police est dû si les conditions sont remplies : survie, décès, échéance. Un contrat lié à des fonds suit la valeur des parts. Le capital à l’échéance n’est alors pas garanti : il peut monter ou baisser. Une participation aux excédents, quand le contrat en prévoit une, n’est pas un rendement promis.",
+      },
+      {
+        type: "p",
+        text: "Le capital décès fixé en francs ne suit pas forcément l’épargne en fonds. Les deux lignes se lisent séparément. Cette page n’annonce pas de performance.",
+      },
+      {
+        type: "h2",
+        text: "Fiscalité : 3a, 3b, et ce qui ne se généralise pas",
+      },
+      {
+        type: "p",
+        text: `Le 3a est déductible du revenu pour l’impôt fédéral direct et les impôts cantonaux et communaux, dans la mesure de l’art. 7 [OPP 3](https://www.fedlex.admin.ch/eli/cc/1985/643_643_643/fr). En 2026, la petite cotisation est de ${chf(FIGURES.pillar3aWithLpp)} pour une personne affiliée à une institution de prévoyance du 2e pilier. La grande cotisation est de ${FIGURES.pillar3aWithoutLppRate} du revenu de l’activité lucrative, au maximum ${chf(FIGURES.pillar3aWithoutLpp)}, pour une personne qui n’y est pas affiliée. Sources : [OFAS — Le troisième pilier](https://www.bsv.admin.ch/fr/le-troisieme-pilier) et [OFAS — Votre cotisation au 3e pilier](https://www.bsv.admin.ch/fr/votre-cotisation-au-3e-pilier). Le versement doit être crédité au 31 décembre pour compter sur l’année.`,
+      },
+      {
+        type: "p",
+        text: `Le 2 octobre 2026, le Conseil fédéral a décidé de porter ces plafonds au 1er janvier 2027 à ${chf(7373)} pour les personnes avec un 2e pilier et à ${chf(36864)} pour celles qui n’en ont pas. Source : [communiqué du Conseil fédéral du 2 octobre 2026](https://www.admin.ch/fr/newnsb/BqB41FVYi5FB). Pour un versement imputé à 2026, le plafond reste celui de 2026.`,
+      },
+      {
+        type: "p",
+        text: "Le 3b n’ouvre pas cette déduction. Certaines primes peuvent entrer dans l’enveloppe plafonnée des primes d’assurances et des intérêts d’épargne, souvent déjà occupée par l’assurance-maladie. Quelques cantons ajoutent une déduction limitée pour des primes d’assurance-vie : notice de l’année, pas un second plafond 3a. Détail : [déductions fiscales](/deductions-fiscales-3eme-pilier/). Au dénouement, le capital 3a est imposé séparément du reste du revenu. Pour une assurance 3b susceptible de rachat, l’[AFC](https://www.estv.admin.ch/fr/assurances-de-capitaux-susceptibles-de-rachat-du-pilier-3b) indique que le traitement du capital se juge au cas par cas par le canton.",
+      },
+      {
+        type: "h2",
+        text: "Qui reçoit le capital au décès",
+      },
+      {
+        type: "p",
+        text: "En 3a, l’OFAS fixe un ordre. Au décès : le conjoint survivant ou le partenaire enregistré ; puis les descendants directs ainsi que les personnes à l’entretien desquelles le défunt subvenait de façon substantielle, ou la personne qui avait formé avec lui une communauté de vie ininterrompue d’au moins cinq ans immédiatement avant le décès, ou qui doit subvenir à l’entretien d’un enfant commun ; puis les parents ; puis les frères et sœurs ; puis les autres héritiers. On peut préciser à l’intérieur d’un rang. On n’inverse pas l’ordre. Un concubin de quatre ans n’entre pas dans le second rang. La page [choisir les bénéficiaires](/choisir-les-beneficiaires/) reprend cet ordre.",
+      },
+      {
+        type: "p",
+        text: "En 3b, la clause est en général plus libre : un concubin ou un associé peut être désigné, hors de l’ordre 3a. Le texte signé et le droit successoral limitent cette marge. Deux polices n’ouvrent pas la même liberté. On lit qui est nommé avant de compter sur un proche précis.",
+      },
+      {
+        type: "h2",
+        text: "Questionnaire de santé",
+      },
+      {
+        type: "p",
+        text: "Pour couvrir un décès ou une incapacité, l’assureur évalue le risque. Un questionnaire est fréquent ; des examens peuvent suivre selon le capital et l’âge. Les réponses engagent. L’issue peut être une acceptation, une surprime, une exclusion ou un refus. La couverture vaut aux conditions écrites à l’acceptation, pas au jour de l’envoi du formulaire.",
+      },
+      {
+        type: "h2",
+        text: "Quand c’est intéressant, et quand séparer assurance et épargne",
+      },
+      {
+        type: "p",
+        text: "Une assurance-vie répond à un capital dont les proches auraient besoin si un revenu disparaît, ou à une incapacité qui empêcherait de payer les primes. La [libération des primes](/liberation-du-paiement-des-primes/) et une rente d’incapacité, quand elles existent, ne sont pas un capital décès. Le contrat sert aussi à épargner sur un horizon long, si le rythme de primes est voulu et les frais acceptés.",
+      },
+      {
+        type: "p",
+        text: "Séparer couverture et épargne est souvent plus clair si le besoin décès est élevé et l’avoir encore faible (risque pur + compte 3a), si l’horizon est court (les frais d’acquisition se voient à l’arrêt), ou si le bénéficiaire n’entre pas dans l’ordre 3a (clause 3b ou risque pur nominatif). Le 3b ne devient pas pour autant un second plafond fiscal. Budget, dettes, rentes de survivants AVS/LPP et canton passent avant le nom du contrat. Une [analyse de prévoyance](/analyse-de-prevoyance/) pose ces montants.",
+      },
+      {
+        type: "h2",
+        text: "Comment comparer",
+      },
+      {
+        type: "p",
+        text: "Le comparatif du site part de la situation. Il est sans honoraires et sans engagement. Il ne classe pas les compagnies. Pour chaque police : capital à l’échéance, capital décès, table de rachat, frais, garanties d’incapacité, clause bénéficiaire, cadre 3a ou 3b. Sans ces lignes, deux primes ne se comparent pas.",
+      },
+      {
+        type: "p",
+        text: "La demande passe par le formulaire du site : [recevoir un comparatif](/formulaire-3eme-pilier/). Un rappel peut suivre pour lire les garanties. Souscrire n’est pas une obligation.",
       },
     ],
   },
@@ -1004,9 +1167,9 @@ export const PAGES: EditorialDoc[] = [
     title: "Assurance décès et 3e pilier",
     metaTitle: "Assurance décès 3e pilier : compte 3a, police et 3b",
     description:
-      "Assurance décès 3e pilier : le compte 3a verse l’avoir constitué, une police peut prévoir un capital défini. Risque pur, 3a et 3b ne se confondent pas.",
+      "Assurance décès 3e pilier : le compte 3a verse l’avoir constitué, une police peut prévoir un capital défini. Risque pur, 3a et 3b ne se confondent pas. La prime n’est déductible que dans un 3a, dans les limites légales.",
     published: "2022-03-18",
-    updated: UPDATED,
+    updated: "2026-10-03",
     intro:
       "Une assurance décès, dans le 3e pilier, est un contrat qui prévoit un capital si la personne assurée décède pendant la durée couverte. Un compte 3a bancaire ne transmet que l’avoir déjà constitué. Le capital, la durée et les bénéficiaires se lisent sur le contrat : il n’existe pas une seule règle pour tous les ménages.",
     related: [
@@ -1043,6 +1206,11 @@ export const PAGES: EditorialDoc[] = [
           "Non. La libération des primes fait continuer le contrat en cas d’incapacité, selon les conditions prévues. Une rente d’incapacité vise un revenu de remplacement, pas un capital versé aux proches au décès. Aucune de ces garanties n’est un capital décès. Le fonctionnement de la libération est détaillé sur la page qui lui est consacrée.",
       },
       {
+        question: "La prime d’une assurance décès est-elle toujours déductible ?",
+        answer:
+          "Non. Dans un 3a reconnu, elle entre dans le plafond légal (art. 7 OPP 3). En 3b, il n’y a pas de déduction fédérale générale comparable au 3a. Une déduction plus étroite peut exister selon le produit et le canton.",
+      },
+      {
         question: "Quand faut-il une assurance décès en plus d’un compte 3a ?",
         answer:
           "Elle est utile quand les proches auraient besoin d’un capital que l’avoir déjà sur le compte ne couvre pas, par exemple tant que des charges du ménage reposent sur un revenu. Elle l’est moins quand transmettre cet avoir suffit, et qu’un capital défini n’est pas le besoin. Le contrat fixe le capital, la durée et les exclusions : il n’y a pas de seuil unique.",
@@ -1074,8 +1242,12 @@ export const PAGES: EditorialDoc[] = [
         items: [
           "Risque pur : temporaire décès, en principe sans épargne à récupérer si le risque ne se réalise pas. Utile pour couvrir une période, à côté d’un compte.",
           "Capital décès dans une police 3a : la police reste liée. L’épargne et la couverture cohabitent dans le même contrat, avec le blocage et la déduction du 3a. Ce que les proches touchent en plus de l’épargne se lit sur la police, pas sur une promesse générale.",
-          "3b : prévoyance libre. Le capital, la durée et la possibilité de racheter le contrat varient. Ce n’est pas un second 3a, et ce n’est pas non plus automatiquement un risque pur.",
+          "3b : prévoyance libre. Le capital, la durée et la possibilité de racheter le contrat varient. Ce n’est pas un second 3a, et ce n’est pas non plus automatiquement un risque pur. La prime 3b n’est pas déductible comme un 3a : pas de déduction fédérale générale équivalente.",
         ],
+      },
+      {
+        type: "p",
+        text: "La prime n’est pas déductible par le seul fait qu’il s’agit d’une assurance décès. Logée dans un 3a reconnu, elle entre dans le plafond de l’art. 7 OPP 3. En 3b, l’effet fiscal, s’il existe, dépend du produit et du canton.",
       },
       {
         type: "p",
@@ -1135,16 +1307,30 @@ export const PAGES: EditorialDoc[] = [
     title: "Risque pur décès",
     metaTitle: `Risque pur décès ${YEAR_SPAN} : temporaire, capital, 3e pilier`,
     description:
-      `Le risque pur n’épargne pas : il paie un capital en cas de décès. Souvent moins cher qu’un mixte pour une grosse couverture (${YEAR_SPAN}).`,
+      `Le risque pur n’épargne pas : il paie un capital en cas de décès. La prime n’est déductible que dans un 3a, dans les limites légales (${YEAR_SPAN}).`,
     published: "2021-11-12",
-    updated: UPDATED,
+    updated: "2026-10-03",
     intro:
       "Une temporaire décès (risque pur) n’a pas de valeur de rachat, ou une valeur négligeable. Toute la prime paie le risque. C’est souvent la façon la plus efficace de couvrir une hypothèque ou des enfants en bas âge, à côté d’un 3a bancaire.",
-    related: ["assurance-deces", "3eme-pilier-mixte"],
+    related: ["assurance-deces", "3eme-pilier-mixte", "assurance-vie-en-suisse", "deductions-fiscales-3eme-pilier"],
+    faqs: [
+      {
+        question: "La prime d’un risque pur est-elle déductible ?",
+        answer: `Pas dans tous les cas. Dans un 3a reconnu, elle entre dans le plafond 2026 : ${chf(FIGURES.pillar3aWithLpp)} avec une institution du 2e pilier, ou ${FIGURES.pillar3aWithoutLppRate} du revenu de l’activité lucrative, au maximum ${chf(FIGURES.pillar3aWithoutLpp)}, sans (art. 7 OPP 3). En 3b, il n’y a pas de déduction fédérale générale comparable. Une déduction limitée dépend du produit et du canton.`,
+      },
+    ],
     blocks: [
       {
         type: "p",
         text: "Comparez le capital, la durée (constante ou dégressive), les exclusions, la clause d’invalidité éventuelle et le questionnaire de santé. Une police refusée ou surprime peut valoir mieux qu’un mixte « accepté » illisible.",
+      },
+      {
+        type: "h2",
+        text: "La prime n’est pas déductible dans tous les cas",
+      },
+      {
+        type: "p",
+        text: `Une temporaire décès peut être conclue en [3a](/3eme-pilier-a-ou-b/) ou en [3b](/3eme-pilier-b-prevoyance-libre/). Le cadre ne rend pas la prime déductible par principe. Dans un 3a reconnu, elle entre dans le plafond de l’art. 7 OPP 3 : en 2026, ${chf(FIGURES.pillar3aWithLpp)} si la personne est affiliée à une institution du 2e pilier, ou ${FIGURES.pillar3aWithoutLppRate} du revenu de l’activité lucrative, au maximum ${chf(FIGURES.pillar3aWithoutLpp)}, sinon. Source : [OFAS — Le troisième pilier](https://www.bsv.admin.ch/fr/le-troisieme-pilier). En 3b, il n’existe pas de déduction fédérale générale comparable au 3a. Une déduction limitée, quand elle existe, dépend du produit et du canton. Cette prime 3a occupe le plafond : elle laisse moins de place à l’épargne liée de la même année. Voir [assurance-vie en Suisse](/assurance-vie-en-suisse/) et [déductions fiscales](/deductions-fiscales-3eme-pilier/).`,
       },
     ],
   },
