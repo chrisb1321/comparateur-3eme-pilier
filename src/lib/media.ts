@@ -342,6 +342,12 @@ export const IMAGES = {
     width: 1152,
     height: 864,
   },
+  fraisAssurance: {
+    src: "/images/frais-assurance-vie.jpg",
+    alt: "Heurtoir de laiton sur un portail vert sombre.",
+    width: 1152,
+    height: 864,
+  },
 } as const satisfies Record<string, SiteImage>;
 
 const SLUG_COVER: Record<string, keyof typeof IMAGES> = {
@@ -357,6 +363,7 @@ const SLUG_COVER: Record<string, keyof typeof IMAGES> = {
   "3eme-pilier-independant": "independant",
   "3eme-pilier-geneve": "geneve",
   "assurance-vie-en-suisse": "assurance",
+  "frais-assurance-vie-3e-pilier": "fraisAssurance",
   "assurance-deces": "laiton",
   "risque-pur-deces": "risque",
   "epargne-enfant": "enfant",

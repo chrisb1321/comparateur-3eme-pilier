@@ -27,6 +27,8 @@ export type EditorialDoc = {
   related?: string[];
   /** Puces « En bref », affichées après la réponse directe. */
   brief?: string[];
+  /** Pas de liste « sources officielles » : elle ajoute des liens sortants. */
+  omitSources?: boolean;
   /** Fil d’Ariane sans l’accueil ni la page courante. */
   parents?: { name: string; href: string }[];
   /** Surtitre visible. « Guide » si absent. */

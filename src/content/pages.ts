@@ -1,4 +1,4 @@
-import { chf, FIGURES, pillar3aTableRows, YEAR_SPAN, YEAR_SPAN_WORDS, CEILING_NOTE, NOTE_2027 } from "@/lib/figures";
+import { chf, FIGURES, pillar3aTableRows, YEAR_SPAN, YEAR_SPAN_WORDS, CEILING_NOTE, NOTE_2027, YEARS } from "@/lib/figures";
 import type { EditorialDoc } from "./types";
 import { SOCLE_PAGES } from "./socle-pages";
 import { SUITE_PAGES } from "./suite-pages";
@@ -585,7 +585,7 @@ const BASE_PAGES: EditorialDoc[] = [
     description:
       "Assurance-vie suisse : rôle dans le 3a et le 3b, capital décès, épargne, fiscalité. Landing historique à conserver.",
     published: "2022-03-18",
-    updated: "2026-10-03",
+    updated: "2026-10-06",
     intro:
       "En Suisse, « assurance-vie » recouvre des polices différentes : risque pur, mixte, 3a lié, 3b libre. Elles ne déduisent pas la même chose et ne paient pas le même capital. Une temporaire décès ne constitue pas d’épargne. Une police 3a déduit dans la limite du plafond 2026, puis bloque la sortie. Comparer le mot « assurance-vie » sans ce tri n’a pas de sens.",
     brief: [
@@ -596,6 +596,7 @@ const BASE_PAGES: EditorialDoc[] = [
       NOTE_2027,
     ],
     related: [
+      "frais-assurance-vie-3e-pilier",
       "3eme-pilier-mixte",
       "3eme-pilier-a-ou-b",
       "risque-pur-deces",
@@ -637,13 +638,180 @@ const BASE_PAGES: EditorialDoc[] = [
           "Le capital annoncé est-il fixé au contrat, ou lié à des fonds ?",
           "Table de valeurs de rachat, surtout si l’on s’arrête tôt.",
           "Coût du risque : décès, invalidité, libération des primes.",
-          "Frais d’acquisition et de gestion.",
+          "Frais d’acquisition, de gestion et de rachat. Le détail des postes est sur [frais d’une assurance vie 3e pilier](/frais-assurance-vie-3e-pilier/).",
           "Clause bénéficiaire, et si le rachat est possible.",
         ],
       },
       {
         type: "p",
-        text: "Le cadre du 3e pilier, avant la police, est le [3e pilier Suisse](/3eme-pilier-suisse/). Banque et assurance se départagent sur [banque ou assurance](/3eme-pilier-banque-assurance/). 3a et 3b se départagent sur [3a ou 3b](/3eme-pilier-a-ou-b/).",
+        text: "Le cadre du 3e pilier, avant la police, est le [3e pilier Suisse](/3eme-pilier-suisse/). Banque et assurance se départagent sur [banque ou assurance](/3eme-pilier-banque-assurance/). 3a et 3b se départagent sur [3a ou 3b](/3eme-pilier-a-ou-b/). Les postes de frais d’une police — prime, entrée, gestion, rachat — sont détaillés sur [frais d’une assurance vie 3e pilier](/frais-assurance-vie-3e-pilier/).",
+      },
+    ],
+  },
+  {
+    kind: "page",
+    slug: "frais-assurance-vie-3e-pilier",
+    title: "Frais d’une assurance vie 3e pilier : prime, gestion, rachat",
+    metaTitle: "Frais d’une assurance vie 3e pilier : prime, gestion, rachat",
+    description:
+      "Prime, frais d’entrée, gestion et rachat d’une assurance-vie dans le 3e pilier. Risque pur ou mixte, 3a ou 3b : quoi comparer, sans palmarès.",
+    published: "2026-10-06",
+    updated: "2026-10-06",
+    omitSources: true,
+    parents: [{ name: "Assurance-vie", href: "/assurance-vie-en-suisse/" }],
+    intro:
+      "La prime d’une assurance-vie dans le 3e pilier n’est pas un prix unique. Elle paie, selon le contrat, une couverture, parfois une épargne, et des frais. On compare la prime, les frais d’entrée, les frais de gestion et les frais de rachat. Un risque pur et une assurance mixte ne répartissent pas ces francs de la même façon. Un 3a reconnu change la déduction et les sorties. Un 3b n’ouvre pas de déduction fédérale générale équivalente.",
+    brief: [
+      "La prime se lit en francs, puis se décompose : risque, épargne s’il y en a, frais.",
+      "Les frais d’entrée pèsent surtout au début. La valeur de rachat des premières années le montre.",
+      "Les frais de gestion se lisent sur la police et, s’il y a des fonds, sur le support.",
+      "Le rachat se lit sur la table du contrat, pas sur la somme des primes versées.",
+      "La déduction ne vaut que pour un 3a reconnu, dans les limites de l’OPP 3. Pas de déduction fédérale générale en 3b.",
+    ],
+    related: [
+      "assurance-vie-en-suisse",
+      "3eme-pilier-mixte",
+      "risque-pur-deces",
+      "3eme-pilier-banque-assurance",
+      "3eme-pilier-a-ou-b",
+    ],
+    faqs: [
+      {
+        question: "La prime est-elle un frais ?",
+        answer:
+          "Non. La prime est le versement. Les frais en sont une part, avec le risque et, dans une mixte, l’épargne. On décompose le montant, on ne le compare pas seul.",
+      },
+      {
+        question: "Pourquoi la valeur de rachat est-elle souvent faible au début ?",
+        answer:
+          "Les frais d’entrée et le coût du risque sont en général prélevés tôt. La valeur de rachat n’additionne pas les primes. Le chiffre est sur la table du contrat. Aucun pourcentage de marché ne le remplace.",
+      },
+      {
+        question: "Un risque pur a-t-il des frais de rachat ?",
+        answer:
+          "En général, il n’y a pas de valeur de rachat, ou elle est négligeable. La prime a payé le décès pendant la durée. On compare le capital, la durée et les exclusions.",
+      },
+      {
+        question: "Une assurance 3a déduit-elle plus qu’un compte 3a ?",
+        answer:
+          "Non. Seul un 3a reconnu entre dans les limites de l’OPP 3. Le plafond est le même en banque et en assurance. La police ne crée pas de déduction en plus.",
+      },
+      {
+        question: "Le 3b est-il déductible comme le 3a ?",
+        answer:
+          "Non à l’impôt fédéral direct : il n’y a pas de déduction fédérale générale équivalente. Une déduction cantonale de primes d’assurance-vie, si elle existe, suit le canton et la notice de l’année. Ce n’est pas le plafond de l’OFAS.",
+      },
+      {
+        question: "Où lire les frais sans se fier à un pourcentage moyen ?",
+        answer:
+          "Sur l’offre : prime, frais d’entrée ou d’acquisition, frais de gestion, table de valeurs de rachat. S’il y a des fonds, la ligne de coûts du support. Le comparatif met ces documents côte à côte.",
+      },
+    ],
+    blocks: [
+      { type: "h2", text: "Ce que la prime paie" },
+      {
+        type: "p",
+        text: "La prime est le montant versé, en général chaque mois ou chaque année. Ce n’est pas, à elle seule, un frais : c’est l’enveloppe. Le contrat y répartit le risque, l’épargne lorsqu’elle existe, et les coûts de la police. Deux primes égales en francs peuvent laisser une épargne très différente.",
+      },
+      {
+        type: "p",
+        text: "Sur une assurance mixte, une part alimente un capital ou un support, une autre paie le décès pendant la durée, une autre couvre les frais. Une libération des primes ou une rente d’incapacité, si le contrat les prévoit, a aussi un coût. Sur un [risque pur](/risque-pur-deces/), la prime paie la couverture et ses coûts. Elle ne constitue pas une épargne comparable à un compte. Cette page ne publie aucune moyenne de frais.",
+      },
+      { type: "h2", text: "Frais d’entrée" },
+      {
+        type: "p",
+        text: "Les frais d’entrée, souvent appelés frais d’acquisition ou frais de conclusion, rémunèrent la mise en place du contrat. Ils sont en général prélevés au début, parfois étalés sur les premières années, parfois si intégrés qu’aucune ligne ne les isole. On les voit alors à leur effet : une valeur de rachat nulle ou très inférieure aux primes déjà versées.",
+      },
+      {
+        type: "p",
+        text: "Aucun pourcentage type ne s’applique à toutes les polices. Demandez la table de valeurs de rachat des premières années, et la ligne qui nomme ces frais. Si la ligne manque, la table dit quand même ce qui resterait si le contrat s’arrêtait tôt. La lecture de cette table est reprise sur [valeur de rachat](/valeur-de-rachat-3a/).",
+      },
+      { type: "h2", text: "Frais de gestion" },
+      {
+        type: "p",
+        text: "Les frais de gestion paient la tenue du contrat. Selon la police, ils portent sur la prime, sur l’épargne, ou sur la valeur d’un support. Quand le contrat est lié à des fonds, le support a ses propres coûts, en plus de ceux de la police. Vérifiez la base de calcul et si le montant est un forfait en francs ou une part de la valeur. Aucun taux moyen n’est donné ici.",
+      },
+      { type: "h2", text: "Frais de rachat" },
+      {
+        type: "p",
+        text: "Le rachat dont il est question ici est l’arrêt du contrat d’assurance avant le terme, avec le versement de la valeur de rachat. Ce n’est pas le rachat de lacunes de cotisation 3a, qui consiste à combler des années non versées, dans les limites de l’OPP 3. Les frais de rachat, ou la réduction qu’ils produisent, se voient sur la somme que la police verse à la sortie, année par année.",
+      },
+      {
+        type: "p",
+        text: "Cette valeur n’est ni la somme des primes, ni le capital à l’échéance, ni le capital décès. Les premières années, elle est souvent plus basse que les primes déjà payées, parce que les frais d’entrée et le coût du risque ont été prélevés. Le seul chiffre fiable est celui de la table. Cette page n’en invente aucun. Si les primes cessent : [arrêter de payer une assurance 3a](/arret-primes-assurance-3a/).",
+      },
+      {
+        type: "p",
+        text: "Un risque pur n’a en général pas de valeur de rachat : la prime a payé un risque, pas une épargne à récupérer. Une [assurance mixte](/3eme-pilier-mixte/) en a une, selon le contrat. En 3a, on ne sort pas librement pour l’encaisser : il faut un motif prévu par l’OPP 3, ou un transfert qui reste de la prévoyance liée. En 3b, le rachat suit la police, hors de ces motifs, mais les frais restent.",
+      },
+      { type: "h2", text: "Les postes, côte à côte" },
+      {
+        type: "table",
+        caption:
+          "Lecture des postes. Aucun taux moyen n’est publié : les montants sont ceux du contrat, pas une moyenne de marché.",
+        headers: ["Poste", "Ce qu’il couvre", "Quand il s’applique", "Quoi vérifier"],
+        rows: [
+          [
+            "Prime",
+            "Le versement : risque, épargne s’il y en a, et frais selon le contrat.",
+            "À chaque échéance prévue par la police.",
+            "Montant annuel, rythme, ce qui est inclus, et l’issue si une prime n’est pas payée.",
+          ],
+          [
+            "Frais d’entrée",
+            "La mise en place du contrat, souvent nommée acquisition ou conclusion.",
+            "Surtout au début de la police.",
+            "La table de rachat des premières années, et la ligne qui nomme ces frais.",
+          ],
+          [
+            "Frais de gestion",
+            "La tenue de la police et, s’il y a des fonds, les coûts du support.",
+            "Pendant la durée, selon la périodicité écrite.",
+            "La base de calcul, et à part la ligne de coûts du support.",
+          ],
+          [
+            "Frais de rachat",
+            "La réduction si le contrat s’arrête avant le terme.",
+            "À la sortie prévue par la police.",
+            "La valeur de rachat année par année. Un risque pur n’a en général rien à récupérer.",
+          ],
+        ],
+      },
+      { type: "h2", text: "Risque pur et assurance mixte" },
+      {
+        type: "p",
+        text: "Le [risque pur](/risque-pur-deces/) et la [mixte](/3eme-pilier-mixte/) n’ont pas les mêmes postes. Sur un risque pur, la prime sert le décès pendant une durée. Il n’y a pas de pot d’épargne, donc pas de frais de gestion d’un capital constitué, et en principe rien à racheter. On compare le capital, la durée, les exclusions et ce que la prime inclut.",
+      },
+      {
+        type: "p",
+        text: "Sur une mixte, la même prime mêle épargne et décès. Les frais d’entrée pèsent au début, les frais de gestion touchent la part d’épargne, et la valeur de rachat compte si l’horizon peut se raccourcir. Une prime mixte du même montant qu’un versement en [banque](/3eme-pilier-banque-assurance/) ne laisse pas le même avoir : une part paie le risque et les frais. L’[assurance-vie en Suisse](/assurance-vie-en-suisse/) range ces formes côte à côte. Aucun rendement n’est annoncé ici.",
+      },
+      { type: "h2", text: "Ce qu’un 3a change par rapport à un 3b" },
+      {
+        type: "p",
+        text: "Les postes — prime, entrée, gestion, rachat — existent dans les deux cadres. Ce qui change, c’est la déduction, le blocage, et l’usage de la valeur de rachat. Le départage est sur [3a ou 3b](/3eme-pilier-a-ou-b/).",
+      },
+      {
+        type: "p",
+        text: `Un 3a n’est déductible que s’il est une prévoyance liée reconnue, et seulement dans les limites légales. En 2026, l’article 7 OPP 3 et le tableau de l’OFAS au 1er janvier fixent ${chf(FIGURES.pillar3aWithLpp)} avec une institution du 2e pilier, et 20 % du revenu de l’activité lucrative jusqu’à ${chf(FIGURES.pillar3aWithoutLpp)} sans 2e pilier. L’AFC reprend cette déduction à l’impôt fédéral direct. Une police ne crée pas un plafond plus haut qu’une fondation bancaire.`,
+      },
+      {
+        type: "p",
+        text: `Au 1er janvier 2027, le Conseil fédéral porte ces plafonds à ${chf(YEARS[2027].pillar3aWithLpp)} avec un 2e pilier et ${chf(YEARS[2027].pillar3aWithoutLpp)} au maximum sans. Le taux de 20 % n’est pas modifié. Ces montants ne s’appliquent pas à un versement crédité en 2026.`,
+      },
+      {
+        type: "p",
+        text: "En 3a, la sortie est liée : un motif prévu par l’OPP 3, ou un transfert qui reste de la prévoyance liée. On transfère la valeur du contrat à cette date, pas la somme des primes. Un 3b est de la prévoyance libre. Il n’ouvre pas de déduction fédérale générale équivalente au 3a. Un canton peut admettre des primes d’assurance-vie dans son propre droit, souvent dans une enveloppe déjà occupée par d’autres primes. Ce n’est pas un second plafond fédéral, et ce n’est pas automatique : la notice fiscale de l’année le dit. Le rachat suit la police. Les frais restent.",
+      },
+      { type: "h2", text: "Ce qu’il faut avoir sous les yeux" },
+      {
+        type: "p",
+        text: "Un comparatif de frais ne classe pas des assureurs. Il aligne les lignes du tableau ci-dessus, plus le cadre 3a ou 3b. Sans elles, une prime basse ne dit rien.",
+      },
+      {
+        type: "callout",
+        title: "Comparatif",
+        text: "Le comparatif aligne ces lignes pour votre situation. Gratuit, sans engagement. [Recevoir le comparatif](/formulaire-3eme-pilier/).",
       },
     ],
   },

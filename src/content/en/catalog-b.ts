@@ -1,4 +1,4 @@
-import { chf, FIGURES } from "@/lib/figures";
+import { chf, FIGURES, YEARS } from "@/lib/figures";
 import { AUTHOR } from "@/lib/editorial";
 import { SITE as SITE_PUBLIC } from "@/lib/site";
 import {
@@ -80,7 +80,49 @@ export const EN_B: Record<string, EnCopy> = {
     intro: "Life insurance in Switzerland is not one product. A pure risk pays if death occurs during the term and builds no savings. An endowment mixes savings and death. A pillar 3a policy is tied and deductible inside the FSIO ceiling. A pillar 3b policy is flexible. This page announces no guaranteed capital.",
     brief: ["Read the surrender table before you sign.", "The federal deduction belongs to pillar 3a, not to the word insurance.", "No ranking of insurers.", PENDING],
     faqs: [{ question: "Does life insurance raise the 3a ceiling?", answer: `No. The 2026 ceiling stays ${petit} or ${grand}, provider aside.` }],
-    blocks: [p("Related: [pure death risk](/en/risque-pur-deces/), [death cover](/en/assurance-deces/), [bank or insurance](/en/3eme-pilier-banque-assurance/)."), p(HUB)],
+    blocks: [p("Related: [pure death risk](/en/risque-pur-deces/), [death cover](/en/assurance-deces/), [bank or insurance](/en/3eme-pilier-banque-assurance/). The fee lines of a policy are on [life-insurance fees in pillar 3](/en/frais-assurance-vie-3e-pilier/)."), p(HUB)],
+  },
+  "frais-assurance-vie-3e-pilier": {
+    title: "Life insurance fees in pillar 3: premium, management, surrender",
+    metaTitle: "Life insurance fees in pillar 3: premium, management, surrender",
+    description: "Premium, entry costs, management costs and surrender costs of a life policy in the Swiss third pillar. Pure risk or endowment, 3a or 3b. No fee average.",
+    intro: "The premium of a life policy in the Swiss third pillar is not one price. It pays for cover, sometimes savings, and costs. Compare the premium, entry costs, management costs and surrender costs. A pure risk and an endowment do not split those francs the same way. A recognised pillar 3a changes the deduction and the exits. Pillar 3b has no equivalent general federal deduction.",
+    brief: [
+      "Read the premium in francs, then split it: risk, savings if any, costs.",
+      "Entry costs weigh at the start. The early surrender values show it.",
+      "Management costs are on the policy and, if there are funds, on the support.",
+      "Surrender is the table in the contract, not the sum of premiums.",
+      "The deduction exists only for a recognised pillar 3a, inside the legal limits. No general federal deduction in pillar 3b.",
+    ],
+    faqs: [
+      { question: "Is the premium a fee?", answer: "No. The premium is the payment. Costs are one part of it, with the risk and, in an endowment, the savings. Split the amount. Do not compare it alone." },
+      { question: "Why is the surrender value often low at the start?", answer: "Entry costs and the cost of risk are usually taken early. The surrender value does not add up the premiums. The figure is on the contract table. No market percentage replaces it." },
+      { question: "Does a pure risk have surrender costs?", answer: "Usually there is no surrender value, or it is negligible. The premium paid for death cover during the term. Compare the capital, the term and the exclusions." },
+      { question: "Does a pillar 3a policy deduct more than a pillar 3a account?", answer: "No. Only a recognised pillar 3a fits the legal limits. The ceiling is the same at a bank and at an insurer. The policy does not create an extra deduction." },
+      { question: "Is pillar 3b deductible like pillar 3a?", answer: "Not for federal direct tax: there is no equivalent general federal deduction. A cantonal deduction of life premiums, when it exists, follows that canton and the year’s notice. It is not the federal ceiling." },
+      { question: "Where do you read the costs without an average percentage?", answer: "On the offer: premium, entry or acquisition costs, management costs, surrender table. If there are funds, the support’s cost line. A comparison puts those documents side by side." },
+    ],
+    blocks: [
+      h2("What the premium pays"),
+      p("The premium is what you pay, usually each month or each year. It is the envelope, not a fee by itself. The contract splits risk, savings when they exist, and policy costs. Two equal premiums can leave very different savings. On an endowment, one part feeds a capital or a fund, another pays for death during the term, another covers costs. A waiver of premium or a disability pension, if the contract includes them, also has a cost. On a [pure risk](/en/risque-pur-deces/), the premium pays for the cover and its costs. It does not build savings like an account. This page publishes no average fee."),
+      h2("Entry costs"),
+      p("Entry costs, often called acquisition or conclusion costs, pay for setting up the contract. They are usually taken at the start, sometimes spread over the first years, sometimes so embedded that no line isolates them. You then see them in the effect: a surrender value of nothing, or far below the premiums already paid. No typical percentage applies to every policy. Ask for the surrender table of the first years, and for the line that names these costs. The same reading is on [surrender value](/en/valeur-de-rachat-3a/)."),
+      h2("Management costs"),
+      p("Management costs pay for running the contract. Depending on the policy, they apply to the premium, the savings, or the value of a support. When the contract is linked to funds, the support has its own costs, on top of the policy’s. Read both. Check the base, the frequency, and whether the amount is a franc fee or a share of the value. No average rate is given here."),
+      h2("Surrender costs"),
+      p("Surrender here means ending the insurance contract before the term and receiving the surrender value. It is not a pillar 3a contribution buy-back, which fills unpaid years inside the legal limits. The surrender cost, or the reduction it produces, shows in the amount the policy pays on the way out, year by year. That value is not the sum of premiums, not the maturity capital, and not the death capital. In the first years it is often lower than the premiums already paid, because entry costs and the cost of risk were taken first. The only reliable figure is the table. This page invents none. If premiums stop, the outcomes are those of the contract: [stopping a pillar 3a policy](/en/arret-primes-assurance-3a/)."),
+      p("A pure risk usually has no surrender value: the premium paid for a risk, not for savings you get back. An [endowment](/en/3eme-pilier-mixte/) has one, according to the contract. In pillar 3a you cannot cash it freely: you need a reason set by the rules, or a transfer that stays tied pension. In pillar 3b, surrender follows the policy, outside those reasons, but the costs remain."),
+      h2("Pure risk and endowment"),
+      p("A [pure risk](/en/risque-pur-deces/) and an [endowment](/en/3eme-pilier-mixte/) do not carry the same cost lines. On a pure risk, the premium serves death during a term. There is no savings pot, so no management cost on built-up capital, and in principle nothing to surrender. Compare the capital, the term and the exclusions. Do not compare that premium with a payment into an account. On an endowment, the same premium mixes savings and death. Entry costs weigh at the start, management costs touch the savings part, and the surrender value matters if the horizon may shorten. An endowment premium of the same amount as a [bank](/en/3eme-pilier-banque-assurance/) payment does not leave the same savings: part of it pays for risk and costs. [Life insurance in Switzerland](/en/assurance-vie-en-suisse/) sets these forms side by side. No return is announced here."),
+      h2("What pillar 3a changes compared with pillar 3b"),
+      p("The same cost lines exist in both frames. What changes is the deduction, the lock-in, and the use of the surrender value. The split is on [pillar 3a or 3b](/en/3eme-pilier-a-ou-b/)."),
+      p(`A pillar 3a is deductible only if it is recognised tied pension, and only inside the legal limits. In 2026, article 7 and the FSIO table of 1 January set ${petit} with a 2nd-pillar institution, and 20% of earned income up to ${grand} without one. Federal direct tax follows that deduction. A policy does not create a higher ceiling than a bank foundation.`),
+      p(`From 1 January 2027 the Federal Council sets those ceilings at ${chf(YEARS[2027].pillar3aWithLpp)} with a 2nd pillar and ${chf(YEARS[2027].pillar3aWithoutLpp)} at most without one. The 20% rate is unchanged. Those amounts do not apply to a payment credited in 2026.`),
+      p("In pillar 3a the exit is tied. You do not surrender the policy like a free investment: you need a reason the rules provide, or a transfer that stays tied pension. What moves is the contract value on that date, not the sum of premiums. Pillar 3b is flexible provision. It does not open a general federal deduction equivalent to pillar 3a. Federal direct tax does not treat a pillar 3b premium like the tied contribution. A canton may allow life-insurance premiums under its own rules, often inside an envelope already used by other premiums. That is not a second federal ceiling, and it is not automatic: the year’s tax notice says so. Surrender follows the policy. Costs do not vanish because the frame is flexible."),
+      h2("What to have in front of you"),
+      p("A cost comparison does not rank insurers. It lines up the annual premium, the surrender table, the maturity and death capitals, entry and management costs, what happens if premiums stop, and whether the frame is pillar 3a or 3b. Without those lines, a low premium says nothing."),
+      p(FORM),
+    ],
   },
   "analyse-de-prevoyance": {
     title: "A pension review before the product",

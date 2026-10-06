@@ -297,7 +297,7 @@ export async function EditorialView({
           />
         ) : null}
         <AuthorBox variant={doc.slug === "christophe-bouin" ? "page" : "compact"} locale={locale} />
-        <SourcesList locale={locale} />
+        {doc.omitSources ? null : <SourcesList locale={locale} />}
         <ArticleJsonLd doc={doc} locale={locale} />
       </div>
     </article>
