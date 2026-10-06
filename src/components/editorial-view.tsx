@@ -54,7 +54,15 @@ export function docMetadata(doc: EditorialDoc): Metadata {
     },
   };
   if (hidden) metadata.robots = { index: false, follow: true };
-  else if (doc.slug !== "3eme-pilier-logement") metadata.robots = undefined;
+  else if (
+    doc.slug !== "3eme-pilier-logement" &&
+    doc.slug !== "impot-retrait-3a-logement-geneve" &&
+    doc.slug !== "impot-retrait-3a-logement-vaud" &&
+    doc.slug !== "impot-retrait-3a-logement-valais" &&
+    doc.slug !== "impot-retrait-3a-logement-fribourg"
+  ) {
+    metadata.robots = undefined;
+  }
   return metadata;
 }
 

@@ -32,6 +32,10 @@ const GROUPS = [
     links: [
       { href: "/frontalier-suisse/", label: "Frontaliers" },
       { href: "/3eme-pilier-geneve/", label: "Genève" },
+      { href: "/impot-retrait-3a-logement-geneve/", label: "Retrait 3a à Genève" },
+      { href: "/impot-retrait-3a-logement-vaud/", label: "Retrait 3a en Vaud" },
+      { href: "/impot-retrait-3a-logement-valais/", label: "Retrait 3a en Valais" },
+      { href: "/impot-retrait-3a-logement-fribourg/", label: "Retrait 3a à Fribourg" },
       { href: "/epargne-enfant/", label: "Épargne enfant" },
       { href: "/assurance-vie-en-suisse/", label: "Assurance-vie" },
       { href: "/actualite-3eme-pilier/", label: "Actualités" },

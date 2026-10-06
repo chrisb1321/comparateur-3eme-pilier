@@ -18,6 +18,10 @@ const MONEY_PAGES = new Set([
   "choisir-son-3eme-pilier",
   "ouvrir-un-3eme-pilier",
   "3eme-pilier-logement",
+  "impot-retrait-3a-logement-geneve",
+  "impot-retrait-3a-logement-vaud",
+  "impot-retrait-3a-logement-valais",
+  "impot-retrait-3a-logement-fribourg",
 ]);
 
 export default function sitemap(): MetadataRoute.Sitemap {

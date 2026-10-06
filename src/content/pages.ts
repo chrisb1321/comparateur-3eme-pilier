@@ -727,15 +727,293 @@ export const PAGES: EditorialDoc[] = [
         type: "p",
         text: "Pour un prix de 800’000 francs, une avance de 80 % souvent pratiquée donne un apport de 160’000 francs et une dette de 640’000 francs. C’est une illustration de trésorerie, pas une preuve de conformité à la directive ASB ou à la LFINMA. Aucun montant d’impôt n’est calculé ici. L’impôt sur la somme versée se lit sur [déductions fiscales du 3e pilier](/deductions-fiscales-3eme-pilier/). Le cadre 3a ou 3b est sur [3e pilier A ou B](/3eme-pilier-a-ou-b/).",
       },
-      { type: "h2", text: "Impôt à Genève" },
+      { type: "h2", text: "Impôt selon le canton" },
       {
         type: "p",
-        text: "La somme versée est imposée selon la LIFD, art. 22 et 38 : séparément, au cinquième du barème de l’art. 36, plus l’impôt cantonal. À Genève, la page du retrait anticipé pour acheter son logement, mise à jour le 8 juillet 2025, est [impôt en cas de retrait anticipé (ge.ch)](https://www.ge.ch/impot-prevoyance-retraite-du-2e-3e-pilier/impot-cas-retrait-anticipe-acheter-son-logement). La mise en gage n’est pas déclarée tant que rien n’est versé. Un retrait 3a ne se rembourse pas. Le simulateur cantonal est [calcul de l’impôt sur une prestation en capital (ge.ch)](https://www.ge.ch/impot-prestations-capital/calculer-impot-prestation-capital). Pas d’autres cantons sur cette page.",
+        text: "La somme versée est imposée selon la LIFD, art. 22 et 38 : séparément, au cinquième du barème de l’art. 36, plus l’impôt cantonal. La mise en gage n’est pas imposée tant que rien n’est versé. À Genève, la page cantonale mise à jour le 8 juillet 2025 dit qu’un retrait anticipé du 3e pilier A ne se rembourse pas. Le détail et la notice sont sur [l’impôt genevois du retrait 3a](/impot-retrait-3a-logement-geneve/).",
+      },
+      {
+        type: "p",
+        text: "Les autres notices lues le 6 octobre 2026 : [l’impôt vaudois du retrait 3a](/impot-retrait-3a-logement-vaud/), [l’impôt valaisan du retrait 3a](/impot-retrait-3a-logement-valais/) et [l’impôt fribourgeois du retrait 3a](/impot-retrait-3a-logement-fribourg/). Aucune de ces pages ne calcule un montant d’impôt.",
       },
       {
         type: "callout",
         title: "Relecture du 3 octobre 2026",
         text: "Textes de Christophe Bouin. Relecture sur Fedlex — OPP 3 (état au 1er janvier 2025), LPP, OEPL, LIFD — et sur la directive ASB de décembre 2023, en vigueur le 1er janvier 2025. Le comparatif est sans honoraires et sans obligation de souscrire.",
+      },
+    ],
+  },
+
+  {
+    kind: "page",
+    slug: "impot-retrait-3a-logement-geneve",
+    title: "Impôt au retrait 3a pour un logement à Genève",
+    metaTitle: "Retrait 3a à Genève : impôt pour acheter son logement",
+    description:
+      "À Genève, le retrait d’un 3a pour acheter son logement est un impôt sur les prestations en capital. La mise en gage n’est pas déclarée tant que rien n’est versé. Notice ge.ch du 8 juillet 2025.",
+    published: "2026-10-06",
+    updated: "2026-10-06",
+    intro:
+      "À Genève, un retrait du 3e pilier A pour acheter son logement est-il imposé ? Oui. La page cantonale, mise à jour le 8 juillet 2025, soumet ces sommes à l’impôt sur les prestations en capital. L’impôt fédéral (LIFD, art. 38) s’ajoute à l’impôt cantonal. Cette page ne calcule pas de montant.",
+    related: [
+      "3eme-pilier-logement",
+      "3eme-pilier-geneve",
+      "impot-retrait-3a-logement-vaud",
+      "impot-retrait-3a-logement-valais",
+      "impot-retrait-3a-logement-fribourg",
+    ],
+    faqs: [
+      {
+        question: "Faut-il déclarer une mise en gage du 3a à Genève ?",
+        answer:
+          "Non, tant que rien n’est versé. La page ge.ch du 8 juillet 2025 dit qu’un prêt obtenu par la mise en gage du 3e pilier A pour acheter le logement n’a pas à être déclaré. Si une partie du 3a est transférée à la banque pour rembourser l’hypothèque, cette somme est imposable et doit être déclarée.",
+      },
+      {
+        question: "Un retrait 3a pour le logement se rembourse-t-il à Genève ?",
+        answer:
+          "Non. La même page écrit : « Vous ne pouvez pas rembourser un retrait anticipé de votre 3e pilier A. » Le remboursement obligatoire à la vente, et le remboursement de l’impôt qui l’accompagne, sont écrits dans la section du 2e pilier. Ils ne sont pas repris pour le 3a.",
+      },
+      {
+        question: "Quel impôt fédéral s’ajoute ?",
+        answer:
+          "La somme versée est une prestation en capital. Elle est imposée séparément, au cinquième des barèmes de la LIFD, art. 36 (art. 38). L’impôt cantonal s’y ajoute. Le simulateur genevois n’est pas recopié ici.",
+      },
+    ],
+    blocks: [
+      { type: "h2", text: "Ce que dit la notice" },
+      {
+        type: "p",
+        text: "Si vous retirez tout ou partie du 2e ou du 3e pilier pour acheter votre logement, ces sommes sont soumises à l’impôt sur les prestations en capital et doivent être déclarées. C’est le texte de [l’impôt en cas de retrait anticipé pour acheter son logement (ge.ch)](https://www.ge.ch/impot-prevoyance-retraite-du-2e-3e-pilier/impot-cas-retrait-anticipe-acheter-son-logement), dernière mise à jour le 8 juillet 2025. Le cadre du versement 3a, distinct de cet impôt, est sur [3e pilier et achat immobilier](/3eme-pilier-logement/).",
+      },
+      {
+        type: "table",
+        caption: "Page ge.ch du 8 juillet 2025. Aucun franc d’impôt n’est calculé ici.",
+        headers: ["Situation", "Ce que Genève écrit"],
+        rows: [
+          ["Retrait du 3e pilier pour acheter le logement", "Impôt sur les prestations en capital, à déclarer"],
+          ["Prêt par mise en gage du 3e pilier A", "Pas de déclaration tant que rien n’est versé"],
+          ["Transfert du 3a à la banque pour rembourser l’hypothèque", "Impôt sur les prestations en capital, à déclarer"],
+          ["Remboursement du retrait 3a", "Impossible, selon la page"],
+        ],
+      },
+      { type: "h2", text: "Impôt fédéral, en plus" },
+      {
+        type: "p",
+        text: "La somme versée est imposable, y compris la prestation en capital (LIFD, art. 22 al. 1). Elle est imposée séparément, au cinquième des barèmes de l’art. 36 (art. 38). Genève perçoit en plus l’impôt cantonal sur les prestations en capital. Le simulateur du canton est [calculer l’impôt sur une prestation en capital (ge.ch)](https://www.ge.ch/impot-prestations-capital/calculer-impot-prestation-capital). Son résultat n’est pas reproduit.",
+      },
+      { type: "h2", text: "Le 2e pilier n’est pas le 3a" },
+      {
+        type: "p",
+        text: "La même page décrit le remboursement du 2e pilier : libre tant que le logement reste la résidence principale, obligatoire à la vente ou s’il ne l’est plus, avec remboursement de l’impôt payé, sans intérêt. La section suivante dit qu’un retrait anticipé du 3e pilier A ne se rembourse pas. Le minimum de fonds, le délai avant la retraite et le plafond après 50 ans du 2e pilier ne figurent pas sur cette notice comme règles du 3a. La page générale du canton reste [3e pilier à Genève](/3eme-pilier-geneve/).",
+      },
+      {
+        type: "callout",
+        title: "Relecture du 6 octobre 2026",
+        text: "Texte de Christophe Bouin. Relecture de la page ge.ch « L’impôt en cas de retrait anticipé pour acheter son logement », mise à jour le 8 juillet 2025, et de la LIFD, art. 38. Le comparatif est sans honoraires et sans obligation de souscrire.",
+      },
+    ],
+  },
+  {
+    kind: "page",
+    slug: "impot-retrait-3a-logement-vaud",
+    title: "Impôt au retrait 3a pour un logement dans le canton de Vaud",
+    metaTitle: "Retrait 3a dans le canton de Vaud : impôt sur le logement",
+    description:
+      "Dans le canton de Vaud, le retrait d’un 3a est une prestation en capital imposée séparément (LI, art. 49). L’impôt fédéral, LIFD art. 38, s’ajoute. Pas de montant calculé.",
+    published: "2026-10-06",
+    updated: "2026-10-06",
+    intro:
+      "Dans le canton de Vaud, le retrait d’un 3a pour un logement est-il un revenu ordinaire ? Non. L’administration cantonale des impôts impose séparément les prestations en capital du 3e pilier A. L’impôt fédéral direct, LIFD art. 38, s’ajoute à l’impôt cantonal. Aucun montant n’est calculé ici.",
+    related: [
+      "3eme-pilier-logement",
+      "3eme-pilier-canton-vaud",
+      "impot-retrait-3a-logement-geneve",
+      "impot-retrait-3a-logement-valais",
+      "impot-retrait-3a-logement-fribourg",
+    ],
+    faqs: [
+      {
+        question: "La mise en gage du 3a est-elle déjà l’impôt vaudois ?",
+        answer:
+          "Non, tant que rien n’est versé. Le formulaire vaudois et la loi cantonale visent la prestation en capital obtenue. Une mise en gage qui ne verse rien n’est pas cette prestation. Si le 3a est versé, l’impôt cantonal et l’impôt fédéral s’appliquent à la somme.",
+      },
+      {
+        question: "Faut-il déclarer le retrait, et dans quel délai ?",
+        answer:
+          "Oui. Le formulaire de déclaration d’une prestation en capital reproduit l’art. 198a de la loi vaudoise du 4 juillet 2000 : pour chaque prestation, informer le département dans les trente jours dès son obtention.",
+      },
+      {
+        question: "Le remboursement à la vente du 2e pilier vaut-il pour le 3a ?",
+        answer:
+          "Cette page ne le transporte pas. La notice vaudoise citée ici impose la prestation obtenue. Elle ne reprend pas, pour le 3a, le minimum de 20’000 francs, le délai de trois ans ni l’obligation de rembourser à la vente, qui sont des règles du 2e pilier.",
+      },
+    ],
+    blocks: [
+      { type: "h2", text: "Prestation imposée séparément" },
+      {
+        type: "p",
+        text: "La page [Ma situation personnelle](https://www.vd.ch/etat-droit-finances/impots/impots-pour-les-individus/ma-situation-personnelle) range les prestations en capital du 3e pilier A parmi celles qui sont imposées séparément. Si plusieurs prestations sont perçues la même année civile, elles sont additionnées. Le retrait pour un logement est une de ces prestations dès qu’il est versé. Le motif du versement est sur [3e pilier et achat immobilier](/3eme-pilier-logement/).",
+      },
+      {
+        type: "p",
+        text: "Le formulaire « Déclaration de prestation en capital », listé pour 2026 sur [Formulaires, directives, lois et barèmes](https://www.vd.ch/etat-droit-finances/impots/formulaires-directives-et-baremes), reproduit deux textes. La loi du 4 juillet 2000, art. 49 : les prestations en capital de la prévoyance sont imposées séparément ; l’impôt est calculé sur des taux représentant le cinquième des barèmes de l’art. 47 ; les déductions sociales des art. 39 à 42 ne sont pas autorisées. La LIFD, art. 38 : imposition séparée, impôt annuel entier, taux représentant le cinquième des barèmes de l’art. 36.",
+      },
+      {
+        type: "table",
+        caption: "Formulaire ACI et page « Ma situation personnelle ». Pas de franc d’impôt sur cette page.",
+        headers: ["Texte", "Ce qu’il retient"],
+        rows: [
+          ["LI, art. 49", "Impôt cantonal séparé, cinquième des barèmes de l’art. 47"],
+          ["LIFD, art. 38", "Impôt fédéral séparé, cinquième des barèmes de l’art. 36"],
+          ["LI, art. 198a", "Déclaration dans les trente jours dès l’obtention"],
+          ["Mise en gage sans versement", "Pas la prestation que ces textes imposent"],
+        ],
+      },
+      { type: "h2", text: "Ce qui n’est pas calculé" },
+      {
+        type: "p",
+        text: "Les barèmes de l’impôt à la source sur les prestations en capital (I, J, K) figurent sur la même page de formulaires. Ils concernent l’impôt à la source. Ils ne sont pas recopiés ici, et ils ne sont pas présentés comme l’impôt d’un résident. Le plafond du versement 3a, lui, reste fédéral : [3e pilier dans le canton de Vaud](/3eme-pilier-canton-vaud/).",
+      },
+      {
+        type: "callout",
+        title: "Relecture du 6 octobre 2026",
+        text: "Texte de Christophe Bouin. Relecture de la page « Ma situation personnelle » et du formulaire de prestation en capital publiés sur vd.ch, et de la LIFD, art. 38. Le comparatif est sans honoraires et sans obligation de souscrire.",
+      },
+    ],
+  },
+  {
+    kind: "page",
+    slug: "impot-retrait-3a-logement-valais",
+    title: "Impôt au retrait 3a pour un logement en Valais",
+    metaTitle: "Retrait 3a en Valais : impôt pour un logement",
+    description:
+      "En Valais, la prestation en capital du 3e pilier A est imposée séparément (guide 2025). L’impôt fédéral est le cinquième du barème. Le barème de l’impôt à la source n’est pas recopié.",
+    published: "2026-10-06",
+    updated: "2026-10-06",
+    intro:
+      "En Valais, une prestation en capital du 3e pilier A est-elle imposée avec le salaire ? Non. Le guide de la déclaration 2025 l’impose séparément. L’impôt fédéral, au cinquième du barème ordinaire, s’ajoute à l’impôt cantonal. Le tableau de l’impôt à la source n’est pas recopié.",
+    related: [
+      "3eme-pilier-logement",
+      "impot-retrait-3a-logement-geneve",
+      "impot-retrait-3a-logement-vaud",
+      "impot-retrait-3a-logement-fribourg",
+    ],
+    faqs: [
+      {
+        question: "Où déclare-t-on le retrait 3a ?",
+        answer:
+          "Le guide simplifié 2025 vise les codes 1010 et 1020 : prestation en capital du 2e pilier, du 3e pilier A et autres, avec les justificatifs. La prestation est imposée séparément des autres revenus. La formule de déclaration 2026 a une rubrique « Prestations en capital touchées », avec une case 3e pilier A.",
+      },
+      {
+        question: "La mise en gage est-elle déjà imposable ?",
+        answer:
+          "Non, tant que rien n’est versé. Le guide impose la prestation touchée. Une mise en gage qui ne verse rien n’est pas cette prestation. L’impôt fédéral (LIFD, art. 38) et l’impôt cantonal portent sur la somme versée.",
+      },
+      {
+        question: "Peut-on lire un taux unique pour tout le Valais ?",
+        answer:
+          "Non sur cette page. Le guide 2025 décrit la méthode cantonale et le cinquième du barème fédéral. Les barèmes de l’impôt à la source, publiés à part pour 2025 et 2026, ne sont pas reproduits : ils ne sont pas l’impôt ordinaire d’une personne domiciliée dans le canton.",
+      },
+    ],
+    blocks: [
+      { type: "h2", text: "Ce que dit le guide 2025" },
+      {
+        type: "p",
+        text: "Le [guide de la déclaration d’impôts 2025](https://www.vs.ch/documents/d/scc/guide-2025_f_final) écrit que les prestations en capital du 3e pilier A, comme celles du 2e pilier, sont imposables à 100 %. Elles sont imposées séparément. Pour l’impôt fédéral direct, le taux représente le cinquième du barème ordinaire. Pour l’impôt cantonal et communal, le guide renvoie à l’art. 33b al. 4 de la loi fiscale, modifié en 2016 : impôt annuel entier, au taux qui serait applicable si des prestations périodiques étaient servies, au moins au taux minimum prévu et au plus au taux maximum de 4 %. Ce calcul se fait d’office. Les déductions sociales ne sont pas autorisées.",
+      },
+      {
+        type: "p",
+        text: "Le même passage accorde, pour les personnes mariées vivant en ménage commun et pour certaines familles monoparentales, une réduction de l’impôt dû de 2 %, mais au maximum de 2’450 francs. C’est le texte du guide 2025, pas un calcul pour un dossier. Le [guide simplifié 2025](https://www.vs.ch/documents/d/scc/guide_simplifie_2025_f) place la prestation aux codes 1010-1020 et rappelle qu’elle est imposée séparément. La [formule 2026](https://www.vs.ch/documents/d/scc/declaration-neutre-2026) prévoit la case 3e pilier A et la date du paiement.",
+      },
+      {
+        type: "table",
+        caption: "Guide valaisan 2025. Pas de tableau de l’impôt à la source.",
+        headers: ["Impôt", "Ce que le guide retient"],
+        rows: [
+          ["Cantonal et communal", "Séparément, au plus au taux maximum de 4 %"],
+          ["Fédéral", "Cinquième du barème ordinaire"],
+          ["Réduction citée", "2 % de l’impôt dû, au maximum 2’450 francs, pour les cas que le guide énumère"],
+          ["Mise en gage sans versement", "Pas la prestation touchée que le guide impose"],
+        ],
+      },
+      { type: "h2", text: "Logement et impôt à la source" },
+      {
+        type: "p",
+        text: "Dès que le 3a est versé pour le logement, c’est cette prestation en capital. Le motif du versement est sur [3e pilier et achat immobilier](/3eme-pilier-logement/). Les [barèmes de l’impôt à la source](https://www.vs.ch/web/scc/baremes-source) existent pour 2025 et 2026. Ils ne sont pas recopiés : un taux lu dans ce tableau n’est pas, à lui seul, l’impôt cantonal d’une personne domiciliée en Valais.",
+      },
+      {
+        type: "callout",
+        title: "Relecture du 6 octobre 2026",
+        text: "Texte de Christophe Bouin. Relecture du guide de la déclaration 2025, du guide simplifié 2025 et de la formule 2026 publiés sur vs.ch. Le comparatif est sans honoraires et sans obligation de souscrire.",
+      },
+    ],
+  },
+  {
+    kind: "page",
+    slug: "impot-retrait-3a-logement-fribourg",
+    title: "Impôt au retrait 3a pour un logement à Fribourg",
+    metaTitle: "Retrait 3a à Fribourg : impôt pour un logement",
+    description:
+      "À Fribourg, le 3a versé est une prestation en capital imposée séparément. Les instructions, situation au 31 décembre 2025, donnent le barème cantonal. L’impôt fédéral est le cinquième du barème ordinaire.",
+    published: "2026-10-06",
+    updated: "2026-10-06",
+    intro:
+      "À Fribourg, le retrait d’un 3a pour un logement est-il imposé comme le salaire ? Non. Les instructions de la déclaration, situation au 31 décembre 2025, rangent le pilier 3a parmi les prestations en capital imposées séparément. L’impôt fédéral, au cinquième du barème ordinaire, s’ajoute à l’impôt cantonal. Le fichier des montants touchés entre 2010 et 2022 n’est pas repris comme s’il était la notice de 2026.",
+    related: [
+      "3eme-pilier-logement",
+      "3b-deduction-fribourg",
+      "impot-retrait-3a-logement-geneve",
+      "impot-retrait-3a-logement-vaud",
+      "impot-retrait-3a-logement-valais",
+    ],
+    faqs: [
+      {
+        question: "La mise en gage du 3a est-elle imposable à Fribourg ?",
+        answer:
+          "Non, tant que rien n’est versé. Les instructions imposent la prestation en capital versée. Avant le versement, la prétention envers une forme reconnue de prévoyance liée n’est pas soumise à l’impôt sur la fortune et ne se déclare pas à ce titre. Une mise en gage qui ne verse rien n’est pas la prestation du chapitre sur les capitaux.",
+      },
+      {
+        question: "Le remboursement de l’impôt après un remboursement du retrait vaut-il pour le 3a ?",
+        answer:
+          "Les instructions lient ce remboursement d’impôt à l’encouragement à la propriété au moyen du 2e pilier, avec une demande écrite dans les trois ans. Cette phrase n’est pas recopiée ici comme une règle du 3a.",
+      },
+      {
+        question: "Où est le barème 2026 ?",
+        answer:
+          "Le site fribourgeois publie une calculette « impôt sur les prestations en capital 2026 ». Ses taux ne sont pas recopiés sur cette page. Le barème cité plus bas est celui des instructions, situation au 31 décembre 2025.",
+      },
+    ],
+    blocks: [
+      { type: "h2", text: "Le 3a est une prestation en capital" },
+      {
+        type: "p",
+        text: "Les [instructions générales de la déclaration](https://www.fr.ch/sites/default/files/2026-05/instructions-generales-concernant-la-declaration-d-impot_0.pdf), situation au 31 décembre 2025, chapitre X.I, visent les prestations en capital de la prévoyance individuelle liée (pilier 3a), avec celles de l’AVS/AI et du 2e pilier. Elles sont imposées séparément. Plusieurs prestations de la même année civile s’additionnent. Pour les époux qui vivent en ménage commun, et pour les familles monoparentales au sens de la notice, une déduction de 10’000 francs est accordée. Lorsque le total annuel est inférieur à 10’000 francs, l’impôt n’est pas perçu. Le retrait pour un logement entre dans cette catégorie dès qu’il est versé. Le motif du versement est sur [3e pilier et achat immobilier](/3eme-pilier-logement/).",
+      },
+      {
+        type: "table",
+        caption: "Impôt cantonal selon les instructions, situation au 31 décembre 2025. Les communes et les paroisses perçoivent leurs impôts en pour-cent de l’impôt cantonal : ce pour-cent n’est pas chiffré ici.",
+        headers: ["Tranche de la prestation", "Taux cantonal écrit dans la notice"],
+        rows: [
+          ["Premiers 50’000 francs", "1 %"],
+          ["Prochains 50’000 francs", "2 %"],
+          ["Prochains 50’000 francs", "3 %"],
+          ["Prochains 50’000 francs", "4 %"],
+          ["Au-delà", "5 %"],
+        ],
+      },
+      { type: "h2", text: "Impôt fédéral, et ce qui n’est pas recopié" },
+      {
+        type: "p",
+        text: "Les mêmes instructions disent, pour l’impôt fédéral direct, que ces prestations sont imposées séparément des autres revenus. L’impôt se calcule à un taux représentant le cinquième de celui du barème ordinaire. On ne tient pas compte des déductions sociales. C’est la LIFD, art. 38, telle que la notice la résume. La [calculette 2026](https://www.fr.ch/impots/personnes-physiques/calculer-ses-impots) est sur le site du canton. Ses cellules ne sont pas recopiées. Le PDF « barème 2010-2022 » n’est pas la notice citée ici.",
+      },
+      {
+        type: "p",
+        text: "La [FAQ du Service cantonal des contributions](https://www.fr.ch/impots/personnes-physiques/impots-des-personnes-physiques-faq) dit que les prestations en capital à caractère de prévoyance sont imposées séparément, à un barème particulier pour les impôts cantonaux et à un taux réduit pour l’impôt fédéral direct. La question sur l’achat du logement y est posée pour le 2e pilier. Le remboursement de l’impôt après remboursement du versement anticipé y est aussi rattaché au 2e pilier, dans les trois ans, sans intérêt. Cette page ne transporte pas cette phrase au 3a. La déduction des primes, autre sujet, est sur [3b à Fribourg](/3b-deduction-fribourg/).",
+      },
+      {
+        type: "callout",
+        title: "Relecture du 6 octobre 2026",
+        text: "Texte de Christophe Bouin. Relecture des instructions générales, situation au 31 décembre 2025, et de la FAQ du Service cantonal des contributions. Le comparatif est sans honoraires et sans obligation de souscrire.",
       },
     ],
   },
