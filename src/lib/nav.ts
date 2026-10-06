@@ -1,12 +1,17 @@
 export const NAV = [
-  { href: "/3eme-pilier-suisse/", label: "3e pilier Suisse" },
-  { href: "/3eme-pilier-a-ou-b/", label: "3a ou 3b" },
-  { href: "/3eme-pilier-banque-assurance/", label: "Banque / assurance" },
-  { href: "/deductions-fiscales-3eme-pilier/", label: "Déductions 2026–2027" },
-  { href: "/ouvrir-un-3eme-pilier/", label: "Ouvrir un 3e pilier" },
-  { href: "/3eme-pilier-logement/", label: "Logement" },
-  { href: "/3eme-pilier-independant/", label: "Indépendant" },
-  { href: "/frontalier-suisse/", label: "Frontaliers" },
-  { href: "/3eme-pilier-geneve/", label: "Genève" },
-  { href: "/actualite-3eme-pilier/", label: "Actualités" },
+  { href: "/formulaire-3eme-pilier/", label: "Comparer" },
+  { href: "/3eme-pilier-suisse/", label: "3e pilier" },
+  { href: "/deductions-fiscales-3eme-pilier/", label: "Fiscalité" },
+  { href: "/3eme-pilier-banque-assurance/", label: "Banque ou assurance" },
+  { href: "/3eme-pilier-suisse/#profils", label: "Profils" },
+  { href: "/actualite-3eme-pilier/", label: "Guides" },
+] as const;
+
+export const EN_NAV = [
+  { href: "/en/formulaire-3eme-pilier/", label: "Compare" },
+  { href: "/en/3eme-pilier-suisse/", label: "Third pillar" },
+  { href: "/en/deductions-fiscales-3eme-pilier/", label: "Tax" },
+  { href: "/en/3eme-pilier-banque-assurance/", label: "Bank or insurance" },
+  { href: "/en/3eme-pilier-suisse/#profils", label: "Profiles" },
+  { href: "/en/actualite-3eme-pilier/", label: "Guides" },
 ] as const;

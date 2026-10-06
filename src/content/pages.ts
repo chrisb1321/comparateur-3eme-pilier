@@ -1,147 +1,38 @@
-import { chf, FIGURES, pillar3aTableRows, YEAR_SPAN, YEAR_SPAN_WORDS, CEILING_NOTE, YEARS } from "@/lib/figures";
+import { chf, FIGURES, pillar3aTableRows, YEAR_SPAN, YEAR_SPAN_WORDS, CEILING_NOTE, NOTE_2027 } from "@/lib/figures";
 import type { EditorialDoc } from "./types";
+import { SOCLE_PAGES } from "./socle-pages";
+import { SUITE_PAGES } from "./suite-pages";
 
 const UPDATED = "2026-09-20";
-const PUBLISHED_CONVERSION = "2026-10-03";
 const METHOD_INLINE =
-  "Méthode : textes officiels OFAS (tableau 2026), Conseil fédéral du 2 octobre 2026 pour 2027, et AFC. Notices cantonales pour le 3b. Plafonds 2026 : CHF 7’258 / 36’288. Plafonds 2027 : CHF 7’373 / 36’864. Dernière revue : 6 octobre 2026.";
+  "Méthode : textes officiels OFAS (tableau 2026) et AFC, notices cantonales pour le 3b. Les plafonds 2026 viennent du tableau OFAS. Au 1er janvier 2027, le Conseil fédéral fixe 7 373 CHF avec un 2e pilier et 36 864 CHF au maximum sans 2e pilier. Le taux de 20 % n’est pas modifié. Communiqué du 2 octobre 2026 : https://www.admin.ch/fr/newnsb/BqB41FVYi5FB. Nous ne copions pas un palmarès publicitaire. Dernière revue : 6 octobre 2026.";
 
-export const PAGES: EditorialDoc[] = [
-  {
-    kind: "page",
-    slug: "3eme-pilier-suisse",
-    title: "3e pilier Suisse : prévoyance individuelle",
-    metaTitle: "3e pilier Suisse : 3a, 3b, banque ou assurance",
-    description: `Le 3e pilier Suisse complète l’AVS et le 2e pilier. 3a lié et 3b libre, déduction 2026 de ${chf(FIGURES.pillar3aWithLpp)} pour un affilié au 2e pilier, comparatif banque ou assurance.`,
-    published: "2026-09-28",
-    updated: "2026-09-28",
-    intro:
-      "Le 3e pilier Suisse est la prévoyance individuelle. Il complète l’AVS (1er pilier) et la prévoyance professionnelle (2e pilier). Il se présente en 3a, lié, et en 3b, libre. Comparer une banque et une assurance sert à départager frais, souplesse et garanties.",
-    related: [
-      "3eme-pilier-a-ou-b",
-      "3eme-pilier-b-prevoyance-libre",
-      "3eme-pilier-banque-assurance",
-      "deductions-fiscales-3eme-pilier",
-      "1er-pilier-avs-ai-apg",
-      "2eme-pilier-lpp",
-    ],
-    faqs: [
-      {
-        question: "Qu’est-ce que le 3e pilier en Suisse ?",
-        answer:
-          "Le 3e pilier Suisse est la prévoyance individuelle, volontaire. Il complète l’AVS et le 2e pilier. Il comprend le 3a (prévoyance liée) et le 3b (prévoyance libre).",
-      },
-      {
-        question: "Quelle est la différence entre le 3a et le 3b ?",
-        answer:
-          "Le 3a est encouragé fiscalement et le retrait est encadré. Le 3b n’a pas de plafond OFAS : il sert surtout la souplesse des retraits et des bénéficiaires. Les deux peuvent se combiner.",
-      },
-      {
-        question: "Le plafond 3a 2027 est-il déjà connu ?",
-        answer: `Non. Au 28 septembre 2026, le plafond 2027 n’est pas encore annoncé. Pour 2026, la déduction maximale du pilier 3a, pour une personne affiliée à une institution du 2e pilier, est de ${chf(FIGURES.pillar3aWithLpp)}.`,
-      },
-      {
-        question: "Pourquoi comparer une banque et une assurance ?",
-        answer:
-          "La déduction 3a ne dépend pas du prestataire. Ce qui change, ce sont les frais, la souplesse des versements, l’horizon et les garanties (décès, libération des primes). Le comparatif se demande via le formulaire du site.",
-      },
-    ],
-    blocks: [
-      { type: "h2", text: "Ce qu’est le 3e pilier en Suisse" },
-      {
-        type: "p",
-        text: "En Suisse, la retraite repose sur trois piliers. Le [1er pilier](/1er-pilier-avs-ai-apg/) (AVS, AI, APG) est une assurance sociale. Le [2e pilier](/2eme-pilier-lpp/) (LPP) est la prévoyance professionnelle des personnes affiliées à une institution de prévoyance. Le 3e pilier est le volet individuel : une épargne et, selon le contrat, une protection que l’on constitue en plus, auprès d’une banque ou d’un assureur.",
-      },
-      {
-        type: "p",
-        text: "Il ne remplace ni la rente AVS ni l’avoir de caisse de pension. Il les complète, dans la limite de ce que le budget permet de verser dans la durée. Le 3a suit l’OPP 3 (déductions admises fiscalement au titre de la prévoyance). Le 3b est de la prévoyance libre : pas le même verrou, pas le même traitement fiscal.",
-      },
-      { type: "h2", text: "3a lié et 3b libre" },
-      {
-        type: "p",
-        text: "Les deux formes s’emboîtent. Le détail est sur les pages [3e pilier A ou B](/3eme-pilier-a-ou-b/) et [prévoyance libre 3b](/3eme-pilier-b-prevoyance-libre/).",
-      },
-      {
-        type: "ul",
-        items: [
-          "3a (prévoyance liée) : encouragé fiscalement dans toute la Suisse. Ouvert à une personne qui exerce une activité lucrative dont le revenu est soumis à l’AVS — salariés, indépendants, certains chômeurs (indemnités journalières) et frontaliers dans ce cas. Source : OFAS / circulaire AFC n° 18.",
-          "3a : le capital est versé au plus tôt cinq ans avant l’âge de référence AVS, au plus tard cinq ans après si l’activité se poursuit. Motifs anticipés : logement pour propre usage, remboursement d’hypothèque, départ définitif de Suisse, activité indépendante, rachat LPP, invalidité entière AI non couverte. L’ordre des bénéficiaires en cas de décès est légal.",
-          "3b (prévoyance libre) : pas de condition AVS comparable, pas de plafond OFAS. Utile pour un conjoint sans activité, une épargne enfant ou un bénéficiaire que l’ordre du 3a ne couvre pas. Le retrait est beaucoup plus libre.",
-          "3b et impôts : pas la même déduction que le 3a à l’impôt fédéral direct. Dans certains cantons seulement (Genève et Fribourg sont les cas romands les plus cités), des primes d’assurance-vie peuvent entrer dans une enveloppe cantonale. Un compte bancaire 3b n’ouvre pas cette déduction.",
-        ],
-      },
-      { type: "h2", text: "À qui s’adresse le 3e pilier" },
-      {
-        type: "p",
-        text: "Le 3e pilier Suisse s’adresse à qui veut compléter l’AVS et le 2e pilier, ou protéger un proche que le 3a ne vise pas. Le bon point d’entrée dépend du statut, pas d’un produit unique.",
-      },
-      {
-        type: "ul",
-        items: [
-          "Salarié affilié à une caisse de pension : le 3a complète l’AVS et la LPP, dans la limite de la petite cotisation.",
-          "[Indépendant](/3eme-pilier-independant/) : l’affiliation, ou non, à une institution du 2e pilier change la cotisation 3a admise. Le choix banque ou assurance se lit ensuite.",
-          "[Frontalier](/frontalier-suisse/) : l’accès au 3a suppose un revenu d’activité en Suisse soumis à l’AVS. Le permis ne suffit pas.",
-          "Personne sans revenu soumis à l’AVS (conjoint sans activité, [épargne enfant](/epargne-enfant/)) : le 3a n’est en principe pas ouvert. Le 3b sert alors la souplesse.",
-        ],
-      },
-      { type: "h2", text: "Pourquoi comparer une banque et une assurance" },
-      {
-        type: "p",
-        text: "La déduction 3a est la même que le versement aille à une fondation bancaire ou à un assureur. Le plafond ne dépend pas du prestataire. Ce qui change : les frais, la possibilité d’arrêter ou de moduler les versements, et ce qui est versé en cas de décès ou d’incapacité de gain.",
-      },
-      {
-        type: "ul",
-        items: [
-          "Banque : versements selon la capacité d’épargne, utile si l’horizon est plus court. Pas de capital décès intégré ni de libération des primes : la protection se limite à l’avoir accumulé, sauf police séparée.",
-          "Assurance : entre en jeu pour un capital décès, une libération du paiement des primes ou un capital garanti. Une police comporte souvent des frais d’acquisition, visibles si l’on s’arrête tôt.",
-          "3b à visée fiscale cantonale (Genève, Fribourg) : le support cité sur le site est une assurance-vie, pas un livret.",
-        ],
-      },
-      {
-        type: "p",
-        text: "La grille de lecture est sur [3e pilier en banque ou en assurance](/3eme-pilier-banque-assurance/) et sur [comment choisir son 3e pilier](/choisir-son-3eme-pilier/). Pour faire examiner frais, souplesse et garanties sur votre situation : [demander un comparatif](/formulaire-3eme-pilier/).",
-      },
-      { type: "h2", text: "Déduction maximale du 3a en 2026" },
-      {
-        type: "p",
-        text: `Pour 2026, la déduction maximale du pilier 3a, pour une personne affiliée à une institution du 2e pilier, est de ${chf(FIGURES.pillar3aWithLpp)}. Sans institution du 2e pilier, une autre limite s’applique : elle est déjà détaillée sur la page [déductions fiscales du 3e pilier](/deductions-fiscales-3eme-pilier/).`,
-      },
-      {
-        type: "p",
-        text: "Au 28 septembre 2026, le plafond 2027 n’est pas encore annoncé. La publication est attendue cet automne, probablement en octobre ou novembre 2026. L’AFC a communiqué le plafond 2026 le 17 novembre 2025.",
-      },
-      {
-        type: "callout",
-        title: "Pas de montant 2027 officieux",
-        text: "Aucun plafond 2027 n’est présenté ici comme décidé. Le chiffre retenu pour 2026 est celui déjà publié sur le site pour la personne affiliée au 2e pilier.",
-      },
-      {
-        type: "p",
-        text: "Le versement anticipé ou la mise en gage d’un 3a pour un logement à propres besoins est sur [3e pilier et achat immobilier](/3eme-pilier-logement/).",
-      },
-    ],
-  },
+const BASE_PAGES: EditorialDoc[] = [
   {
     kind: "page",
     slug: "3eme-pilier-a-ou-b",
     wpId: 2060,
     title: `3e pilier A ou B : comment choisir en ${YEAR_SPAN}`,
-    metaTitle: "3e pilier A ou B : fiscalité, retraits, bénéficiaires",
+    metaTitle: `3e pilier A ou B (${YEAR_SPAN}) : fiscalité, retraits, bénéficiaires`,
     description:
       `Différences 3a / 3b en ${YEAR_SPAN_WORDS} : plafonds OFAS / OPP 3, retraits, bénéficiaires, Genève et Fribourg. Comparatif gratuit, sans honoraires.`,
     published: "2021-11-04",
-    updated: UPDATED,
+    updated: "2026-10-03",
     intro:
       "Faut-il choisir 3a ou 3b ? Le plus souvent, les deux s’emboîtent. Le 3a (prévoyance liée) est encouragé fiscalement dans toute la Suisse. Le 3b (prévoyance libre) sert surtout la souplesse : bénéficiaires, durée, accès à l’épargne. Ce n’est pas un classement, c’est un emboîtement avec vos 1er et 2e piliers.",
+    brief: [
+      "Le 3a est déductible dans toute la Suisse. Le capital est bloqué, sauf motifs légaux.",
+      `Plafond 3a 2026 : ${chf(FIGURES.pillar3aWithLpp)} avec 2e pilier, ou 20 % du revenu jusqu’à ${chf(FIGURES.pillar3aWithoutLpp)} sans.`,
+      "Le 3b n’a pas de plafond OFAS. Le retrait et les bénéficiaires sont plus libres.",
+      "À Genève et à Fribourg, une déduction cantonale vise des primes d’assurance-vie, pas un compte.",
+      NOTE_2027,
+    ],
     related: [
-      "3eme-pilier-suisse",
+      "ouvrir-un-3eme-pilier",
+      "3eme-pilier-logement",
       "3eme-pilier-b-prevoyance-libre",
       "deductions-fiscales-3eme-pilier",
       "3eme-pilier-banque-assurance",
-      "ouvrir-un-3eme-pilier",
-      "3eme-pilier-logement",
-      "combiner-3a-et-3b-2026",
-      "actualite-3eme-pilier",
     ],
     faqs: [
       {
@@ -173,7 +64,7 @@ export const PAGES: EditorialDoc[] = [
       },
       {
         type: "table",
-        caption: `Plafonds 3a 2026 (OFAS / art. 7 OPP 3) — valables Confédération, cantons et communes. ${CEILING_NOTE}.`,
+        caption: `Plafonds 3a ${YEAR_SPAN_WORDS} (OFAS / art. 7 OPP 3) — valables Confédération, cantons et communes. ${CEILING_NOTE}`,
         headers: ["Situation", `Maximum ${YEAR_SPAN}`],
         rows: [
           [`Salarié ou indépendant affilié au 2e pilier (« petite cotisation »)`, chf(FIGURES.pillar3aWithLpp)],
@@ -189,7 +80,7 @@ export const PAGES: EditorialDoc[] = [
       },
       {
         type: "p",
-        text: "Le 3b n’est pas déductible à l’impôt fédéral direct comme le 3a. Au canton, seuls certains régimes (Genève, Fribourg notamment) admettent les primes d’assurance-vie dans une enveloppe déjà largement occupée par la LAMal. Voir la page déductions et la landing Genève.",
+        text: "Le 3b n’est pas déductible à l’impôt fédéral direct comme le 3a. Au canton, seuls certains régimes (Genève, Fribourg notamment) admettent les primes d’assurance-vie dans une enveloppe déjà largement occupée par la LAMal. Voir les [déductions fiscales](/deductions-fiscales-3eme-pilier/) et le [3e pilier à Genève](/3eme-pilier-geneve/). Le [canton de Vaud](/3eme-pilier-canton-vaud/) n’ajoute pas de plafond 3a local.",
       },
       {
         type: "h2",
@@ -202,6 +93,10 @@ export const PAGES: EditorialDoc[] = [
           "3a au dénouement : imposition séparée du reste du revenu, à un taux réduit (pratique souvent présentée comme le cinquième du barème — le taux effectif dépend du canton et du montant).",
           "3b : retrait beaucoup plus libre. Pendant le contrat, la valeur de rachat entre dans la fortune imposable. Au terme, le capital n’est en principe pas imposé comme un 3a ; les plus-values d’assurance-vie suivent les règles cantonales.",
         ],
+      },
+      {
+        type: "p",
+        text: "Le motif logement du 3a se lit à part : [retrait ou mise en gage du 3a pour un logement](/3eme-pilier-logement/). Le délai de cinq ans de ce versement est l’OPP 3, art. 3 al. 4. Il ne reprend pas le minimum de 20’000 francs, le délai de trois ans ni le remboursement à la vente, qui restent ceux du 2e pilier. La fenêtre de cinq ans autour de l’âge de référence, elle, est l’art. 3 al. 1 : ce n’est pas la même règle.",
       },
       {
         type: "h2",
@@ -217,16 +112,12 @@ export const PAGES: EditorialDoc[] = [
       },
       {
         type: "p",
-        text: "Le 3a existe en fondation bancaire et en police d’assurance. Le 3b « utile fiscalement » à Genève ou Fribourg est une assurance-vie, pas un compte. Pour un horizon court, la banque 3a évite souvent les frais d’acquisition d’une police. Pour un capital décès, une libération de primes ou un capital garanti, l’assurance entre en jeu.",
+        text: "Le 3a existe en fondation bancaire et en police d’assurance. Le 3b utile fiscalement à Genève ou à Fribourg est une [assurance-vie](/assurance-vie-en-suisse/), pas un compte. Pour un horizon court, la banque évite souvent les frais d’acquisition d’une police. Le cadre des trois piliers est le [3e pilier Suisse](/3eme-pilier-suisse/). Pour départager le support : [banque ou assurance](/3eme-pilier-banque-assurance/) et [comment choisir](/choisir-son-3eme-pilier/). Un [indépendant](/3eme-pilier-independant/) suit la même règle de plafond, selon qu’il a ou non une LPP. Pour un logement, lisez [utiliser le 3e pilier](/3eme-pilier-logement/). Pour ouvrir le contrat, voir [ouvrir un 3e pilier](/ouvrir-un-3eme-pilier/).",
       },
       {
         type: "callout",
         title: "Chiffres 2023–2024 encore cités ailleurs",
-        text: `Les anciens plafonds 7’056 / 35’280 (2023–2024) ou 34’416 (jusqu’en 2022) ne s’appliquent plus. En 2026 : ${chf(FIGURES.pillar3aWithLpp)} / ${chf(FIGURES.pillar3aWithoutLpp)}. ${CEILING_NOTE}.`,
-      },
-      {
-        type: "p",
-        text: "Le 3a peut financer un logement à propres besoins par un [retrait ou une mise en gage](/3eme-pilier-logement/).",
+        text: `Les anciens plafonds 7’056 / 35’280 (2023–2024) ou 34’416 (jusqu’en 2022) ne s’appliquent plus. En ${YEAR_SPAN_WORDS} : ${chf(FIGURES.pillar3aWithLpp)} / ${chf(FIGURES.pillar3aWithoutLpp)}. ${CEILING_NOTE}`,
       },
     ],
   },
@@ -240,7 +131,7 @@ export const PAGES: EditorialDoc[] = [
       `Le 3b n’est pas un second 3a. Souplesse des retraits et des bénéficiaires, déduction limitée à certains cantons. Mode d’emploi ${YEAR_SPAN}.`,
     published: "2021-11-06",
     updated: UPDATED,
-    intro: `Le 3b est-il un second plafond OFAS ? Non. En 2026 le 3a déduit ${chf(FIGURES.pillar3aWithLpp)} ou ${chf(FIGURES.pillar3aWithoutLpp)} (art. 7 OPP 3). ${CEILING_NOTE}. Le 3b n’a pas de maximum fédéral : il sert la souplesse, et, dans certains cantons seulement, une enveloppe de primes d’assurance-vie.`,
+    intro: `Le 3b est-il un second plafond OFAS ? Non. En ${YEAR_SPAN_WORDS} le 3a déduit ${chf(FIGURES.pillar3aWithLpp)} ou ${chf(FIGURES.pillar3aWithoutLpp)} (art. 7 OPP 3). Le 3b n’a pas de maximum fédéral : il sert la souplesse, et, dans certains cantons seulement, une enveloppe de primes d’assurance-vie.`,
     related: [
       "3eme-pilier-a-ou-b",
       "3eme-pilier-geneve",
@@ -251,7 +142,7 @@ export const PAGES: EditorialDoc[] = [
     faqs: [
       {
         question: "Le 3b a-t-il un plafond OFAS ?",
-        answer: `Non. L’OFAS fixe le 3a pour 2026 (${chf(FIGURES.pillar3aWithLpp)} / ${chf(FIGURES.pillar3aWithoutLpp)}). ${CEILING_NOTE}. Une déduction 3b, si elle existe, est cantonale et concerne en pratique des primes d’assurance-vie.`,
+        answer: `Non. L’OFAS fixe uniquement le 3a (${chf(FIGURES.pillar3aWithLpp)} / ${chf(FIGURES.pillar3aWithoutLpp)} en ${YEAR_SPAN_WORDS}). Une déduction 3b, si elle existe, est cantonale et concerne en pratique des primes d’assurance-vie.`,
       },
       {
         question: "Un compte bancaire 3b déduit-il à Genève ou Fribourg ?",
@@ -290,19 +181,25 @@ export const PAGES: EditorialDoc[] = [
     slug: "3eme-pilier-banque-assurance",
     wpId: 1160,
     title: "3e pilier en banque ou en assurance",
-    metaTitle: "3e pilier banque ou assurance : frais et garanties",
+    metaTitle: `3e pilier banque ou assurance (${YEAR_SPAN}) : frais, garanties, horizon`,
     description:
       "Même déduction 3a, supports différents. Banque : flexibilité. Assurance : garanties, décès, libération des primes. Comment départager.",
     published: "2021-10-31",
-    updated: UPDATED,
+    updated: "2026-10-03",
     intro:
-      "La déduction 3a 2026 est identique que l’argent soit versé à une fondation bancaire ou à un assureur. Plafonds 2026 : CHF 7’258 / 36’288. Plafonds 2027 : CHF 7’373 / 36’864 (Conseil fédéral, 2 octobre 2026). Ce qui change : les frais, les garanties, la discipline d’épargne et ce qui reste si vous arrêtez au bout de trois ans.",
+      `La déduction 3a ${YEAR_SPAN_WORDS} est identique que l’argent soit versé à une fondation bancaire ou à un assureur. Ce qui change : les frais, les garanties, la discipline d’épargne et ce qui reste si vous arrêtez au bout de trois ans. Ni la banque ni l’assurance n’est le bon support pour tout le monde.`,
+    brief: [
+      "Même plafond 3a en 2026, en fondation bancaire ou chez un assureur.",
+      `Avec 2e pilier : ${chf(FIGURES.pillar3aWithLpp)}. Sans : 20 % du revenu, au maximum ${chf(FIGURES.pillar3aWithoutLpp)}.`,
+      "Banque : versements libres, pas de capital décès intégré.",
+      "Assurance : primes, décès, parfois libération des primes. La valeur de rachat est souvent basse au début.",
+      NOTE_2027,
+    ],
     related: [
+      "3eme-pilier-logement",
       "choisir-entre-3eme-pilier-bancaire-ou-en-assurance",
       "liberation-du-paiement-des-primes",
       "frais-3a-banque-assurance",
-      "ouvrir-un-3eme-pilier",
-      "3eme-pilier-logement",
       "choisir-son-3eme-pilier",
     ],
     faqs: [
@@ -313,8 +210,7 @@ export const PAGES: EditorialDoc[] = [
       },
       {
         question: "L’assurance 3a déduit-elle davantage que la banque ?",
-        answer:
-          "Non. Plafonds 2026 : CHF 7’258 / 36’288. Plafonds 2027 : CHF 7’373 / 36’864 (Conseil fédéral, 2 octobre 2026). Le plafond 2026 ne dépend pas du prestataire.",
+        answer: `Non. En ${YEAR_SPAN_WORDS} le plafond OFAS est ${chf(FIGURES.pillar3aWithLpp)} / ${chf(FIGURES.pillar3aWithoutLpp)}, prestataire indifférent. Le détail des frais est sur la page frais du 3a.`,
       },
     ],
     blocks: [
@@ -326,7 +222,7 @@ export const PAGES: EditorialDoc[] = [
       { type: "h2", text: "Assurance" },
       {
         type: "p",
-        text: "La police fixe souvent un rythme de primes, un capital à l’échéance, un capital décès, parfois une rente d’invalidité et la libération du paiement des primes. Ces garanties ont un coût, surtout les premières années : une résiliation précoce laisse une valeur de rachat inférieure aux primes versées. Un horizon long (souvent 8 à 10 ans et plus) est le filtre le plus honnête.",
+        text: "La police fixe souvent un rythme de primes, un capital à l’échéance, un capital décès, parfois une rente d’invalidité et la libération du paiement des primes. Ces garanties ont un coût, surtout les premières années : une résiliation précoce laisse une valeur de rachat inférieure aux primes versées. Un horizon long est le filtre le plus honnête. Pour un achat, lisez [le 3e pilier et le logement](/3eme-pilier-logement/) avant de signer. Pour les conditions d’ouverture : [ouvrir un 3e pilier](/ouvrir-un-3eme-pilier/).",
       },
       {
         type: "h2",
@@ -342,7 +238,16 @@ export const PAGES: EditorialDoc[] = [
       },
       {
         type: "p",
-        text: "Compte ou police, la valeur de rachat pour un logement se lit sur [compte 3a ou police et logement](/3eme-pilier-logement/).",
+        text: "Si un achat est en vue, la valeur de rachat d’une police et l’avoir d’une fondation bancaire ne se lisent pas de la même façon. Le cadre du [versement anticipé et du nantissement du pilier 3a](/3eme-pilier-logement/) est l’OPP 3, art. 3 et 4. La valeur de rachat peut compter dans les fonds propres au sens de la directive ASB, ch. 2.1, au plus à hauteur de cette valeur.",
+      },
+      {
+        type: "p",
+        text: "Le cadre est le [3e pilier Suisse](/3eme-pilier-suisse/). Avant de choisir un produit : [comment choisir son 3e pilier](/choisir-son-3eme-pilier/) et une [analyse de prévoyance](/analyse-de-prevoyance/). Une police qui mélange épargne et décès se lit sur le [pilier mixte](/3eme-pilier-mixte/) et sur l’[assurance-vie en Suisse](/assurance-vie-en-suisse/). Ce n’est pas une recommandation automatique de l’assurance.",
+      },
+      { type: "h2", text: "Exemple chiffré, hypothèses nommées" },
+      {
+        type: "p",
+        text: `Tout ce qui suit est hypothétique. Hypothèse 1 : la personne est affiliée à une institution du 2e pilier. Hypothèse 2 : elle verse le plafond 2026, ${chf(FIGURES.pillar3aWithLpp)}, pendant trois années de suite. Hypothèse 3 : aucun rendement, aucun frais chiffré, aucune performance. Total des versements hypothétiques : ${chf(FIGURES.pillar3aWithLpp * 3)}. En banque, ce total est la somme versée, pas un capital à l’échéance. En assurance, la valeur de rachat de la troisième année n’est pas ce total : elle se lit sur la [table du contrat](/valeur-de-rachat-3a/). Si les primes cessent : [arrêter de payer](/arret-primes-assurance-3a/). Aucun des deux supports n’est déclaré gagnant.`,
       },
     ],
   },
@@ -351,23 +256,61 @@ export const PAGES: EditorialDoc[] = [
     slug: "3eme-pilier-mixte",
     wpId: 2129,
     title: "3e pilier mixte",
-    metaTitle: "3e pilier mixte : épargne et risque dans une police",
+    metaTitle: `3e pilier mixte ${YEAR_SPAN} : épargne et risque dans la même police`,
     description:
       `Une police mixte combine constitution de capital et couverture décès. Intérêt, limites, et quand séparer les deux contrats (${YEAR_SPAN}).`,
     published: "2022-03-17",
     updated: "2026-10-03",
     intro:
-      "On appelle souvent « mixte » une assurance-vie qui verse un capital à l’échéance si vous êtes en vie, et un capital (parfois le même, parfois un autre) en cas de décès. C’est un outil, pas un produit obligatoire du 3a. La déduction fédérale ne suit que si la police est un 3a, dans les limites légales.",
-    related: ["assurance-vie-en-suisse", "risque-pur-deces", "3eme-pilier-banque-assurance"],
+      "On appelle souvent « mixte » une assurance-vie qui verse un capital si vous êtes en vie au terme, et un capital si vous décédez avant. Les deux montants ne sont pas toujours les mêmes. Ce n’est pas un produit obligatoire du 3a, et ce n’est pas non plus un capital dont le montant serait connu d’avance sur cette page. On paie l’épargne et le risque dans la même prime.",
+    brief: [
+      "Un seul contrat pour épargner et couvrir un décès. Les frais des deux sont mélangés.",
+      "Si le besoin de décès est élevé et l’épargne faible, séparer un risque pur et un 3a bancaire est souvent plus lisible.",
+      "Le mixte peut coller à un horizon long et à une discipline de primes. Ce n’est pas un choix automatique.",
+      "Sans capital à l’échéance, capital décès, table de rachat et frais, ce n’est pas un comparatif.",
+      NOTE_2027,
+    ],
+    related: ["assurance-vie-en-suisse", "risque-pur-deces", "3eme-pilier-banque-assurance", "3eme-pilier-suisse"],
+    faqs: [
+      {
+        question: "Le 3e pilier mixte est-il obligatoire ?",
+        answer:
+          "Non. Le 3a peut être une fondation bancaire, sans capital décès intégré. Le mixte est une forme d’assurance, pas la forme du 3e pilier.",
+      },
+      {
+        question: "Le capital du mixte est-il garanti ?",
+        answer:
+          "Pas sur cette page. Certains contrats annoncent un capital, d’autres le lient à des fonds. Le chiffre se lit sur l’offre, avec la table de valeurs de rachat. Nous n’en publions aucun.",
+      },
+    ],
     blocks: [
       {
         type: "p",
-        text: "L’intérêt : un seul contrat pour épargner et protéger. La limite : vous payez le risque et l’épargne dans la même prime, avec une transparence des frais parfois médiocre. Si le besoin décès est élevé et l’épargne faible, un risque pur (temporaire décès) plus un 3a bancaire est souvent plus lisible. Si l’horizon est long et que vous voulez une discipline de primes, le mixte peut coller. La prime n’est déductible au titre du 3a que si la police est une prévoyance liée, dans les limites de l’art. 7 OPP 3. Une mixte 3b n’ouvre pas la déduction fédérale générale du 3a.",
+        text: "L’intérêt : un seul contrat pour épargner et protéger. La limite : vous payez le risque et l’épargne dans la même prime, avec une transparence des frais parfois médiocre. Si le besoin décès est élevé et l’épargne faible, un risque pur (temporaire décès) plus un 3a bancaire est souvent plus lisible. Si l’horizon est long et que vous voulez une discipline de primes, le mixte peut coller. L’assurance n’est pas recommandée par défaut.",
+      },
+      { type: "h2", text: "Quand séparer les deux contrats" },
+      {
+        type: "p",
+        text: "Un [risque pur décès](/risque-pur-deces/) paie un capital si le décès survient pendant la durée. Il ne constitue pas d’épargne. Un 3a en [banque](/3eme-pilier-banque-assurance/) laisse voir l’avoir. Les additionner se lit mieux qu’une prime unique quand vous voulez savoir ce que coûte la protection. Le [3e pilier Suisse](/3eme-pilier-suisse/) rappelle que la déduction 3a ne dépend pas de ce choix.",
+      },
+      { type: "h2", text: "Ce qu’il faut avoir sous les yeux" },
+      {
+        type: "ul",
+        items: [
+          "Capital si vous êtes en vie au terme, et capital en cas de décès.",
+          "Valeur de rachat année par année, surtout les premières années.",
+          "Frais d’acquisition et participation aux excédents, si le contrat en prévoit.",
+          "Ce qui se passe si vous arrêtez les primes.",
+        ],
       },
       {
         type: "callout",
         title: "À comparer noir sur blanc",
-        text: "Capital à l’échéance, capital décès, valeur de rachat année par année, frais, participation aux excédents. Sans ces quatre lignes, ce n’est pas un comparatif.",
+        text: "Capital à l’échéance, capital décès, valeur de rachat année par année, frais. Sans ces lignes, ce n’est pas un comparatif. Aucun rendement n’est annoncé ici.",
+      },
+      {
+        type: "p",
+        text: "L’[assurance-vie en Suisse](/assurance-vie-en-suisse/) range le mixte à côté du risque pur, du 3a et du 3b. Pour savoir si le décès est le vrai besoin, partez d’une [analyse de prévoyance](/analyse-de-prevoyance/), pas du nom du contrat.",
       },
     ],
   },
@@ -376,19 +319,31 @@ export const PAGES: EditorialDoc[] = [
     slug: "choisir-son-3eme-pilier",
     wpId: 6635,
     title: "Comment choisir son 3e pilier",
-    metaTitle: "Choisir son 3e pilier : méthode, pas un palmarès",
+    metaTitle: `Choisir son 3e pilier en ${YEAR_SPAN} : méthode, pas un palmarès`,
     description:
       `Grille de choix 3a/3b, banque/assurance, montant, canton et famille en ${YEAR_SPAN}. Comparatif indépendant, sans honoraires.`,
     published: "2023-06-01",
-    updated: UPDATED,
+    updated: "2026-10-03",
     intro:
-      "Choisir un 3e pilier, ce n’est pas « le meilleur taux du moment ». C’est aligner un plafond fiscal, un horizon, un risque famille et un support (compte, titres, police) que vous tiendrez réellement.",
-    related: [
-      "analyse-de-prevoyance",
-      "3eme-pilier-a-ou-b",
-      "ouvrir-un-3eme-pilier",
-      "3eme-pilier-logement",
-      "formulaire-3eme-pilier",
+      "Choisir un 3e pilier, ce n’est pas le meilleur taux du moment. C’est aligner le plafond fiscal de 2026, un horizon, un besoin de protection et un support — compte, titres ou police — que vous tiendrez vraiment. Le 3a et le 3b ne se remplacent pas. La banque et l’assurance non plus. Cette page pose les questions avant le formulaire, pas un palmarès.",
+    brief: [
+      "D’abord le trou de rente, le plafond tenable et le besoin de décès. Le produit vient après.",
+      `Plafond 3a 2026 : ${chf(FIGURES.pillar3aWithLpp)} avec 2e pilier, ou 20 % du revenu jusqu’à ${chf(FIGURES.pillar3aWithoutLpp)} sans.`,
+      "Aucun rendement, aucun capital type et aucun classement d’établissements ne sont publiés ici.",
+      "Le comparatif est sans honoraires. Vous n’êtes pas obligé de souscrire.",
+      NOTE_2027,
+    ],
+    related: ["analyse-de-prevoyance", "3eme-pilier-a-ou-b", "3eme-pilier-banque-assurance", "3eme-pilier-suisse", "formulaire-3eme-pilier"],
+    faqs: [
+      {
+        question: "Faut-il atteindre le plafond 3a ?",
+        answer: `Non. ${chf(FIGURES.pillar3aWithLpp)} ou ${chf(FIGURES.pillar3aWithoutLpp)} est un maximum déductible en 2026, pas un objectif. Le versement tenable est celui qui laisse une réserve.`,
+      },
+      {
+        question: "Le site désigne-t-il le meilleur contrat ?",
+        answer:
+          "Non. Il n’y a pas de palmarès. Le formulaire décrit la situation. Un conseiller du service rappelle sur les solutions accessibles, pas sur l’ensemble du marché. Aucun diplôme ni registre n’est affiché : ils ne sont pas établis ici.",
+      },
     ],
     blocks: [
       { type: "h2", text: "Cinq questions avant le produit" },
@@ -399,16 +354,18 @@ export const PAGES: EditorialDoc[] = [
           `Pouvez-vous viser le plafond 3a ${chf(FIGURES.pillar3aWithLpp)} sans mettre en péril votre épargne de précaution ?`,
           "Faut-il un capital décès ou une libération de primes, ou seulement de l’épargne ?",
           "Horizon : moins de 8 ans, ou jusqu’à l’âge de référence ?",
-          "Canton et statut (salarié, indépendant, frontalier, TOU) : la fiscalité n’est pas la même.",
+          "Canton et statut (salarié, indépendant, frontalier, taxation ordinaire ultérieure) : la fiscalité n’est pas la même.",
         ],
       },
-      {
-        type: "h2",
-        text: "Ce que nous comparons",
-      },
+      { type: "h2", text: "Où lire la suite, dans l’ordre" },
       {
         type: "p",
-        text: "Décrivez votre projet. Un conseiller vous rappelle sous deux jours ouvrés pour examiner les solutions accessibles dans le cadre du service, leurs frais et leurs garanties. Comparatif gratuit et sans engagement.",
+        text: "Le cadre est le [3e pilier Suisse](/3eme-pilier-suisse/). [3a ou 3b](/3eme-pilier-a-ou-b/) départage le lié et le libre. [Banque ou assurance](/3eme-pilier-banque-assurance/) départage le support. Les montants sont sur les [déductions fiscales](/deductions-fiscales-3eme-pilier/). L’[analyse de prévoyance](/analyse-de-prevoyance/) vient avant le formulaire, pas après la signature.",
+      },
+      { type: "h2", text: "Ce que le comparatif fait, et ce qu’il ne fait pas" },
+      {
+        type: "p",
+        text: "Le formulaire décrit la situation. Un conseiller du service rappelle. Vous n’êtes pas obligé de souscrire. Le site ne publie pas de diplôme, de registre, de liste d’établissements ni de rendement : ces éléments ne sont pas établis ici. L’entretien sert à lire frais, souplesse et garanties.",
       },
       {
         type: "p",
@@ -418,673 +375,39 @@ export const PAGES: EditorialDoc[] = [
   },
   {
     kind: "page",
-    slug: "ouvrir-un-3eme-pilier",
-    title: "Ouvrir un 3e pilier en 2026",
-    metaTitle: "Ouvrir un 3e pilier en 2026 : conditions, plafond, délai",
-    description:
-      "Ouvrir un 3a en 2026 : revenu soumis à l’AVS, plafonds OFAS 7’258 / 36’288 CHF, crédit au 31 décembre. Banque ou assurance, puis comparatif sans honoraires.",
-    published: PUBLISHED_CONVERSION,
-    updated: PUBLISHED_CONVERSION,
-    lead: "comparateur",
-    intro: `On ouvre un 3a en 2026 dès qu’un revenu d’activité est soumis à l’AVS en Suisse. Le plafond déductible est ${chf(FIGURES.pillar3aWithLpp)} avec un 2e pilier, ou 20 % du revenu jusqu’à ${chf(FIGURES.pillar3aWithoutLpp)} sans (OFAS, art. 7 OPP 3). Le crédit doit tomber au 31 décembre. Sans AVS, seul le 3b reste ouvert.`,
-    howTo: {
-      name: "Comment ouvrir un 3e pilier en 2026",
-      steps: [
-        {
-          name: "Vérifier l’AVS et le 2e pilier",
-          text: `Le 3a est ouvert si le revenu d’activité est soumis à l’AVS en Suisse : salarié, indépendant, certains chômeurs indemnisés, frontalier dans ce cas. Avec une caisse LPP, le plafond 2026 est ${chf(FIGURES.pillar3aWithLpp)}. Sans institution du 2e pilier : 20 % du revenu d’activité, au maximum ${chf(FIGURES.pillar3aWithoutLpp)}. Source : OFAS, art. 7 OPP 3.`,
-        },
-        {
-          name: "Saturer le 3a avant d’ouvrir un 3b",
-          text: "Le 3b n’a pas de plafond OFAS et n’est pas déductible à l’impôt fédéral comme le 3a. Il sert la souplesse (bénéficiaires, accès à l’épargne) ou, à Genève et à Fribourg, une enveloppe cantonale de primes d’assurance-vie.",
-        },
-        {
-          name: "Choisir la banque si l’horizon est court",
-          text: "Une fondation bancaire accepte des versements libres jusqu’au plafond, en compte ou en titres. Il n’y a pas de capital décès intégré. C’est le support le plus lisible si un logement ou un départ est envisagé avant une dizaine d’années.",
-        },
-        {
-          name: "Choisir l’assurance si la famille doit être protégée",
-          text: "La police fixe souvent un rythme de primes, un capital décès et parfois la libération des primes. Les premières années, la valeur de rachat est en général inférieure aux primes versées. L’horizon long est le filtre honnête.",
-        },
-        {
-          name: "Créditer le versement avant le 31 décembre 2026",
-          text: "C’est la date de valeur au crédit du compte ou de la police qui compte pour la déduction 2026, pas la date de l’ordre. Beaucoup d’établissements fixent une date limite vers la mi-décembre pour que le crédit tombe encore dans l’année.",
-        },
-      ],
-    },
-    related: [
-      "3eme-pilier-a-ou-b",
-      "3eme-pilier-banque-assurance",
-      "deductions-fiscales-3eme-pilier",
-      "3eme-pilier-independant",
-      "frontalier-suisse",
-      "3eme-pilier-logement",
-      "rachat-lacunes-3a-2026",
-      "quand-commencer-le-3eme-pilier",
-    ],
-    faqs: [
-      {
-        question: "Qui peut ouvrir un 3e pilier A en Suisse ?",
-        answer: `Toute personne dont le revenu d’activité est soumis à l’AVS en Suisse. Le plafond 2026 est ${chf(FIGURES.pillar3aWithLpp)} avec un 2e pilier, ou 20 % du revenu jusqu’à ${chf(FIGURES.pillar3aWithoutLpp)} sans. Source : OFAS, art. 7 OPP 3. ${CEILING_NOTE}.`,
-      },
-      {
-        question: "Peut-on ouvrir plusieurs comptes 3a ?",
-        answer:
-          "Oui. Plusieurs relations 3a sont possibles. Le total versé dans l’année ne doit pas dépasser le plafond OFAS. Plusieurs comptes servent surtout à échelonner les retraits plus tard, ou à n’en mobiliser qu’un pour un logement.",
-      },
-      {
-        question: "Faut-il ouvrir le 3a avant le 31 décembre 2026 ?",
-        answer:
-          "Le compte ou la police doit exister à temps pour que le versement soit crédité au 31 décembre 2026. Un ordre passé trop tard bascule sur 2027. Beaucoup de banques coupent les versements vers la mi-décembre.",
-      },
-      {
-        question: "Un enfant peut-il ouvrir un 3a ?",
-        answer:
-          "Non s’il n’a pas de revenu soumis à l’AVS. L’épargne enfant passe par un compte, une police 3b, ou le 3a des parents avec une clause bénéficiaire. Voir la page épargne enfant.",
-      },
-      {
-        question: "Quels documents faut-il pour ouvrir un pilier 3a ?",
-        answer:
-          "La liste exacte dépend de la fondation ou de l’assureur. On demande en pratique une pièce d’identité, le numéro AVS, l’adresse, et de quoi savoir si un 2e pilier existe. Un permis de séjour est parfois demandé. Ce n’est pas le permis qui ouvre le droit : c’est le revenu soumis à l’AVS.",
-      },
-      {
-        question: "Peut-on ouvrir un 3e pilier en cours d’année ?",
-        answer:
-          "Oui. L’ouverture peut se faire n’importe quel jour. Seul le versement crédité au 31 décembre compte pour la déduction de l’année. Vous n’êtes pas obligé de verser le plafond.",
-      },
-      {
-        question: "Un frontalier peut-il ouvrir un 3e pilier ?",
-        answer:
-          "Oui si le revenu d’activité en Suisse est soumis à l’AVS. Le permis ne suffit pas. L’effet fiscal dépend ensuite de l’impôt à la source et, le cas échéant, de la taxation ordinaire ultérieure. Détail : page frontalier.",
-      },
-      {
-        question: "Un indépendant peut-il ouvrir un pilier 3a ?",
-        answer: `Oui, avec le même critère que les salariés : le revenu soumis à l’AVS. Sans caisse LPP, le plafond 2026 est 20 % du revenu, au maximum ${chf(FIGURES.pillar3aWithoutLpp)}. Avec une LPP, y compris une affiliation volontaire, c’est ${chf(FIGURES.pillar3aWithLpp)}. Détail : page indépendant.`,
-      },
-      {
-        question: "Peut-on rattraper une année sans versement 3a ?",
-        answer:
-          "Pas les années anciennes. Depuis 2026, une lacune apparue à partir de 2025 peut être rachetée, dans la limite de la petite cotisation, en plus du versement ordinaire de l’année, sous conditions OFAS. Le premier rachat possible est l’année fiscale 2026.",
-      },
-      {
-        question: "Le comparatif oblige-t-il à souscrire ?",
-        answer:
-          "Non. Le comparatif est sans honoraires et sans engagement. Un conseiller rappelle sous deux jours ouvrés et examine les solutions accessibles dans le cadre du service : frais, souplesse et garanties.",
-      },
-    ],
-    blocks: [
-      { type: "h2", text: "Qui peut ouvrir un 3a ?" },
-      {
-        type: "p",
-        text: "Le 3e pilier A (prévoyance liée) est ouvert à la personne qui exerce une activité lucrative dont le revenu est soumis à l’AVS en Suisse. L’OFAS vise les salariés, les indépendants, certains bénéficiaires d’indemnités journalières de chômage et les frontaliers dans ce cas. Ce n’est pas le permis de séjour qui ouvre le droit : c’est l’assujettissement AVS (circulaire AFC n° 18).",
-      },
-      {
-        type: "table",
-        caption: `Plafonds 3a 2026, OFAS / art. 7 OPP 3. ${CEILING_NOTE}.`,
-        headers: ["Situation à l’ouverture", `Maximum déductible ${YEAR_SPAN}`],
-        rows: [
-          ["Revenu AVS et affiliation au 2e pilier", chf(FIGURES.pillar3aWithLpp)],
-          [
-            "Revenu AVS, sans institution du 2e pilier",
-            `${FIGURES.pillar3aWithoutLppRate} du revenu, max. ${chf(FIGURES.pillar3aWithoutLpp)}`,
-          ],
-          ["Sans revenu soumis à l’AVS", "Pas de 3a. Le 3b reste possible"],
-        ],
-      },
-      { type: "h2", text: "Quels documents faut-il pour ouvrir un 3e pilier ?" },
-      {
-        type: "p",
-        text: "Il n’existe pas une liste unique imposée par l’OFAS. La fondation bancaire ou l’assureur fixe ses pièces. En pratique, préparez une pièce d’identité, votre numéro AVS et votre adresse. Selon le dossier, on vous demande aussi le permis de séjour, une attestation d’activité, ou de quoi confirmer l’affiliation au 2e pilier : c’est ce point qui choisit la petite ou la grande cotisation.",
-      },
-      {
-        type: "ul",
-        items: [
-          "Pièce d’identité.",
-          "Numéro AVS.",
-          "Adresse et coordonnées.",
-          "Parfois : permis de séjour, informations sur l’activité et sur le 2e pilier.",
-        ],
-      },
-      {
-        type: "p",
-        text: "Sans revenu soumis à l’AVS, ces documents n’ouvrent pas un 3a. Un [frontalier](/frontalier-suisse/) est éligible seulement si son revenu suisse est soumis à l’AVS. Un [indépendant](/3eme-pilier-independant/) l’est aussi : le plafond dépend de la LPP, pas du statut.",
-      },
-      { type: "h2", text: "Comment ouvrir un 3e pilier ?" },
-      {
-        type: "p",
-        text: "Cinq vérifications suffisent avant de signer. Le plafond ne choisit pas le contrat : il fixe seulement ce qui est déductible.",
-      },
-      {
-        type: "ol",
-        items: [
-          `Vérifier l’AVS et le 2e pilier : le 3a est ouvert si le revenu d’activité est soumis à l’AVS en Suisse. Avec une caisse LPP, le plafond 2026 est ${chf(FIGURES.pillar3aWithLpp)}. Sans institution du 2e pilier : 20 % du revenu, max. ${chf(FIGURES.pillar3aWithoutLpp)}. Source : OFAS, art. 7 OPP 3.`,
-          "Saturer le 3a avant d’ouvrir un 3b : le 3b n’a pas de plafond OFAS et n’est pas déductible à l’impôt fédéral comme le 3a. Il sert la souplesse, ou une enveloppe cantonale de primes à Genève et à Fribourg.",
-          "Choisir la banque si l’horizon est court : versements libres jusqu’au plafond, compte ou titres, pas de capital décès intégré. Lisible si un logement ou un départ est envisagé avant une dizaine d’années.",
-          "Choisir l’assurance si la famille doit être protégée : rythme de primes, capital décès, parfois libération des primes. Les premières années, la valeur de rachat est en général inférieure aux primes versées.",
-          "Créditer le versement avant le 31 décembre 2026 : c’est la date de valeur au crédit qui compte, pas la date de l’ordre. Beaucoup d’établissements fixent une date limite vers la mi-décembre.",
-        ],
-      },
-      { type: "h2", text: "Banque ou assurance au moment d’ouvrir" },
-      {
-        type: "table",
-        caption: "Même déduction 3a. Le support change les frais, la sortie et la protection.",
-        headers: ["Critère", "Fondation bancaire", "Police d’assurance"],
-        rows: [
-          ["Déduction 2026", chf(FIGURES.pillar3aWithLpp) + " / " + chf(FIGURES.pillar3aWithoutLpp), "Identique"],
-          ["Versements", "Libres, jusqu’au plafond", "Primes souvent contractuelles"],
-          ["Si vous arrêtez tôt", "L’avoir du compte ou des titres", "Valeur de rachat souvent inférieure aux primes"],
-          ["Famille", "L’avoir accumulé, ordre légal des bénéficiaires", "Capital décès, parfois libération des primes"],
-          ["Mieux quand", "Horizon court, projet de logement, revenu variable", "Horizon long et besoin de garantie"],
-        ],
-      },
-      {
-        type: "p",
-        text: "Selon l’OFAS, le plafond 2026 ne dépend pas de la banque ou de l’assureur. Vous n’êtes pas obligé de verser le maximum : le montant suit le budget et l’épargne de précaution. Le comparatif détaillé des supports est sur [banque ou assurance](/3eme-pilier-banque-assurance/).",
-      },
-      {
-        type: "callout",
-        title: "Nouveau depuis 2026 : rattraper un versement oublié",
-        text: "Une lacune de cotisation 3a apparue à partir de 2025 peut être rachetée dès l’année fiscale 2026, dans la limite de la petite cotisation, en plus du versement ordinaire de l’année, sous conditions OFAS. Les années antérieures à 2025 ne se rattrapent pas. Détail : [rachat de lacunes 3a](/rachat-lacunes-3a-2026/).",
-      },
-      { type: "h2", text: "Avantages et limites à l’ouverture" },
-      { type: "h3", text: "Ce que le 3a apporte" },
-      {
-        type: "ul",
-        items: [
-          `Déduction du revenu imposable jusqu’à ${chf(FIGURES.pillar3aWithLpp)} ou ${chf(FIGURES.pillar3aWithoutLpp)} en 2026, Confédération, cantons et communes.`,
-          "Capital bloqué, ce qui protège l’épargne retraite des retraits d’opportunité.",
-          "Motifs de sortie connus : retraite, logement pour propre usage, départ de Suisse, indépendance, rachat LPP, invalidité.",
-        ],
-      },
-      { type: "h3", text: "Ce que le 3a ne fait pas" },
-      {
-        type: "ul",
-        items: [
-          "Il ne remplace pas une épargne de précaution : l’argent n’est pas un livret.",
-          "Il ne garantit pas un rendement. Les titres 3a suivent les marchés ; un compte suit le taux de la fondation.",
-          "Il n’ouvre pas un second plafond via le 3b, sauf enveloppes cantonales limitées (Genève, Fribourg) sur des primes d’assurance-vie.",
-        ],
-      },
-      {
-        type: "callout",
-        title: "Information générale, pas un conseil fiscal",
-        text: `${METHOD_INLINE} Le comparatif ci-contre examine les solutions accessibles dans le cadre du service. Vous n’êtes pas engagé.`,
-      },
-    ],
-  },
-  {
-    kind: "page",
-    slug: "3eme-pilier-logement",
-    title: "3e pilier et achat immobilier : retrait ou mise en gage",
-    metaTitle: "3e pilier et achat immobilier : retrait ou nantissement ?",
-    description:
-      "Versement anticipé ou mise en gage d’un 3a pour un logement à propres besoins (OPP 3, art. 3 et 4). Les règles du 2e pilier ne s’y appliquent pas.",
-    published: "2026-10-03",
-    updated: "2026-10-06",
-    lead: "comparateur",
-    intro:
-      "Peut-on financer un logement avec un 3a ? L’OPP 3, art. 3 al. 3, permet de verser par anticipation la prestation de vieillesse pour acquérir ou construire un logement en propriété pour ses propres besoins, pour acquérir des participations à un tel logement, ou pour rembourser des prêts hypothécaires. Un tel versement ne peut être demandé que tous les cinq ans (art. 3 al. 4). La mise en gage, pour la propriété du logement de l’assuré, relève de l’art. 4 al. 2 : l’impôt sur le capital ne porte que sur la somme versée.",
-    related: [
-      "2eme-pilier-lpp",
-      "3eme-pilier-banque-assurance",
-      "deductions-fiscales-3eme-pilier",
-      "3eme-pilier-a-ou-b",
-      "3eme-pilier-suisse",
-      "ouvrir-un-3eme-pilier",
-    ],
-    faqs: [
-      {
-        question: "Le versement logement du 3a se demande-t-il tous les cinq ans, comme au 2e pilier ?",
-        answer:
-          "Pour le 3a, l’OPP 3, art. 3 al. 4, vise le versement logement de l’art. 3 al. 3 : il ne peut être demandé que tous les cinq ans. Pour le 2e pilier, la phrase équivalente est à l’OEPL, art. 5 al. 3. Cette cadence du 3a ne s’applique pas au versement de vieillesse ordinaire de l’art. 3 al. 1, qui suit la fenêtre autour de l’âge de référence.",
-      },
-      {
-        question: "Le 3a a-t-il un montant minimal de 20’000 francs ?",
-        answer:
-          "Non. Le minimum de 20’000 francs est l’OEPL, art. 5 al. 1, pour un versement anticipé du 2e pilier. L’OPP 3 ne fixe pas ce plancher pour le 3a.",
-      },
-      {
-        question: "Le délai de trois ans et le plafond après 50 ans valent-ils pour le 3a ?",
-        answer:
-          "Non. Le délai de trois ans avant la naissance du droit aux prestations de vieillesse est la LPP, art. 30c al. 1. Le plafond après 50 ans est la LPP, art. 30c al. 2, et l’OEPL, art. 5 al. 4. L’OPP 3 ne reprend ni l’un ni l’autre pour le versement logement du 3a.",
-      },
-      {
-        question: "Faut-il rembourser un retrait 3a si le logement est vendu ?",
-        answer:
-          "L’obligation de rembourser en cas de vente est la LPP, art. 30d, pour le 2e pilier. L’OPP 3 ne la copie pas. À Genève, la page cantonale du retrait logement, mise à jour le 8 juillet 2025, écrit qu’un retrait anticipé du 3e pilier A ne se rembourse pas. Cette phrase ne remplace pas l’ordonnance.",
-      },
-      {
-        question: "Le nantissement du 3a est-il imposé comme le retrait ?",
-        answer:
-          "La somme versée est imposable, y compris la prestation en capital (LIFD, art. 22 al. 1). Elle est imposée séparément, au cinquième des barèmes de l’art. 36 (art. 38 al. 1 et 2). L’impôt fédéral s’ajoute à l’impôt cantonal. La mise en gage n’est pas imposée tant que rien n’est versé. Si le 3a est transféré pour rembourser l’hypothèque, Genève l’impose. Le remboursement d’impôt après remboursement du retrait concerne le 2e pilier.",
-      },
-      {
-        question: "Une résidence qui n’est pas le domicile peut-elle être financée par le 3a ?",
-        answer:
-          "Les propres besoins du versement 3a renvoient aux art. 2 à 4 OEPL (OPP 3, art. 3 al. 5). L’art. 4 al. 1 vise l’usage par l’assuré à son lieu de domicile ou de séjour habituel. Une résidence de vacances qui n’est ni l’un ni l’autre en sort. L’article n’ajoute pas « en Suisse ». Une location temporaire est possible s’il est prouvé que la personne ne peut plus utiliser le logement pendant un certain temps (al. 2).",
-      },
-    ],
-    blocks: [
-      {
-        type: "callout",
-        title: "Ce qui vaut seulement pour le 2e pilier",
-        text: "Ces règles ne se transportent pas au 3a : minimum de 20’000 francs (OEPL, art. 5 al. 1) ; plafond après 50 ans (LPP, art. 30c al. 2, et OEPL, art. 5 al. 4) ; délai de trois ans (LPP, art. 30c al. 1) ; remboursement en cas de vente (LPP, art. 30d) ; cadence de cinq ans du 2e pilier (OEPL, art. 5 al. 3). Pour le 3a, la cadence du logement est l’OPP 3, art. 3 al. 4. Un seul objet à la fois vise les fonds de la prévoyance professionnelle (OEPL, art. 1 al. 2). Le cadre du 2e pilier se lit sur [2e pilier LPP](/2eme-pilier-lpp/).",
-      },
-      { type: "h2", text: "Versement anticipé et mise en gage" },
-      {
-        type: "p",
-        text: "Deux voies sont dans l’ordonnance. L’amortissement indirect n’en est pas une troisième : c’est une modalité de la directive ASB, ch. 2.2, par apport et nantissement d’avoirs du pilier 3a.",
-      },
-      {
-        type: "p",
-        text: "Le versement de l’art. 3 al. 3 sert à acquérir ou construire le logement, à acquérir des participations, ou à rembourser des prêts hypothécaires. L’art. 3 al. 4 dit : « Un tel versement ne peut être demandé que tous les cinq ans. » Cette phrase qualifie le versement logement, pas le versement de vieillesse ordinaire de l’art. 3 al. 1.",
-      },
-      {
-        type: "p",
-        text: "Le consentement écrit du conjoint ou du partenaire enregistré est exigé (art. 3 al. 6). L’ordonnance ne dit pas qu’un versement logement doit porter sur la totalité d’une relation. Le transfert partiel de l’art. 3a al. 2 est réservé au rachat d’une lacune LPP.",
-      },
-      {
-        type: "table",
-        caption: "Impôt seulement sur la somme versée (LIFD, art. 38), plus l’impôt cantonal. L’amortissement indirect n’est pas une troisième voie de l’OPP 3.",
-        headers: ["Critère", "Versement anticipé", "Mise en gage", "Amortissement indirect"],
-        rows: [
-          ["Base", "OPP 3, art. 3 al. 3 et 4", "OPP 3, art. 4 al. 2", "Directive ASB, ch. 2.2"],
-          [
-            "Objet",
-            "Acquérir ou construire, acquérir des participations, rembourser des prêts hypothécaires",
-            "Propriété du logement de l’assuré",
-            "Apport et nantissement d’avoirs du pilier 3a",
-          ],
-          [
-            "Cadence",
-            "Tous les cinq ans (art. 3 al. 4)",
-            "Distincte du versement de l’art. 3 al. 3",
-            "Modalité de la directive ASB, pas de l’art. 3",
-          ],
-        ],
-      },
-      { type: "h2", text: "Propres besoins" },
-      {
-        type: "p",
-        text: "L’art. 3 al. 5 renvoie aux art. 2 à 4 OEPL. L’art. 4 al. 1 vise le domicile ou le séjour habituel. Une résidence de vacances qui n’est ni l’un ni l’autre en sort. L’article n’exige pas que le logement soit en Suisse. La mise en gage sert à la propriété du logement de l’assuré (art. 4 al. 2). Le renvoi analogique ne reprend pas le plafond après 50 ans, le délai de trois ans ni le remboursement à la vente.",
-      },
-      { type: "h2", text: "Compte ou police" },
-      {
-        type: "p",
-        text: "L’OPP 3, art. 1, reconnaît deux formes : un contrat d’assurance, ou une convention avec une fondation bancaire. La valeur de rachat n’est pas chiffrée dans l’OPP 3. Au ch. 2.1 de la directive ASB, une police compte au plus à hauteur de cette valeur. Le départage des supports est sur [banque ou assurance](/3eme-pilier-banque-assurance/).",
-      },
-      { type: "h2", text: "Les 10 % de fonds propres" },
-      {
-        type: "p",
-        text: "La directive ASB, ch. 2.1, de décembre 2023, en vigueur le 1er janvier 2025, est un standard minimal reconnu par la FINMA (LFINMA, art. 7 al. 3). La FINMA ne fixe pas le taux. Le chiffre cité est 10 % de la valeur de nantissement, hors avoir du 2e pilier. Le 3a gagé et la valeur de rachat « peuvent » compter. Une banque peut demander plus.",
-      },
-      {
-        type: "p",
-        text: "Le champ d’application de cette directive vise les immeubles en Suisse. Un achat à l’étranger ne se règle pas avec ce chiffre de 10 %. Ce n’est pas la même chose qu’exclure l’étranger du motif logement de l’OPP 3. Le ch. 2.2 ramène la dette aux deux tiers en quinze ans, et l’amortissement indirect y est possible. Cette directive ne fixe pas d’apport minimal de 20 % du prix.",
-      },
-      { type: "h2", text: "Illustration de trésorerie" },
-      {
-        type: "p",
-        text: "Pour un prix de 800’000 francs, une avance de 80 % souvent pratiquée donne un apport de 160’000 francs et une dette de 640’000 francs. C’est une illustration de trésorerie, pas une preuve de conformité à la directive ASB ou à la LFINMA. Aucun montant d’impôt n’est calculé ici. L’impôt sur la somme versée se lit sur [déductions fiscales du 3e pilier](/deductions-fiscales-3eme-pilier/). Le cadre 3a ou 3b est sur [3e pilier A ou B](/3eme-pilier-a-ou-b/).",
-      },
-      { type: "h2", text: "Impôt selon le canton" },
-      {
-        type: "p",
-        text: "La somme versée est imposée selon la LIFD, art. 22 et 38 : séparément, au cinquième du barème de l’art. 36, plus l’impôt cantonal. La mise en gage n’est pas imposée tant que rien n’est versé. À Genève, la page cantonale mise à jour le 8 juillet 2025 dit qu’un retrait anticipé du 3e pilier A ne se rembourse pas. Le détail et la notice sont sur [l’impôt genevois du retrait 3a](/impot-retrait-3a-logement-geneve/).",
-      },
-      {
-        type: "p",
-        text: "Les autres notices lues le 6 octobre 2026 : [l’impôt vaudois du retrait 3a](/impot-retrait-3a-logement-vaud/), [l’impôt valaisan du retrait 3a](/impot-retrait-3a-logement-valais/) et [l’impôt fribourgeois du retrait 3a](/impot-retrait-3a-logement-fribourg/). Aucune de ces pages ne calcule un montant d’impôt.",
-      },
-      {
-        type: "callout",
-        title: "Relecture du 3 octobre 2026",
-        text: "Textes de Christophe Bouin. Relecture sur Fedlex — OPP 3 (état au 1er janvier 2025), LPP, OEPL, LIFD — et sur la directive ASB de décembre 2023, en vigueur le 1er janvier 2025. Le comparatif est sans honoraires et sans obligation de souscrire.",
-      },
-    ],
-  },
-
-  {
-    kind: "page",
-    slug: "impot-retrait-3a-logement-geneve",
-    title: "À Genève, le retrait 3a pour le logement ne se rembourse pas",
-    metaTitle: "Retrait 3a à Genève : déclaré, et impossible à rembourser",
-    description:
-      "La page ge.ch du 8 juillet 2025 impose le retrait 3a pour acheter le logement, ne fait pas déclarer le gage, et dit que ce retrait ne se rembourse pas. Le simulateur n’est pas recopié.",
-    published: "2026-10-06",
-    updated: "2026-10-06",
-    intro:
-      "Peut-on rendre à Genève un 3a déjà retiré pour acheter son logement ? Non. La page cantonale mise à jour le 8 juillet 2025 soumet ce retrait à l’impôt sur les prestations en capital, puis elle écrit : « Vous ne pouvez pas rembourser un retrait anticipé de votre 3e pilier A. »",
-    related: [
-      "3eme-pilier-logement",
-      "3eme-pilier-geneve",
-      "impot-retrait-3a-logement-vaud",
-      "impot-retrait-3a-logement-valais",
-      "impot-retrait-3a-logement-fribourg",
-    ],
-    faqs: [
-      {
-        question: "Le prêt obtenu en gagant le 3a se déclare-t-il à Genève ?",
-        answer:
-          "Non. La page du 8 juillet 2025 dit qu’un prêt obtenu par la mise en gage du 2e pilier ou du 3e pilier A, pour acheter le logement, n’a pas à être déclaré.",
-      },
-      {
-        question: "Et si une part du 3a part à la banque pour l’hypothèque ?",
-        answer:
-          "Là, Genève change de ligne. Si une partie du 2e ou du 3e pilier est transférée à la banque pour rembourser l’hypothèque, ces sommes sont soumises à l’impôt sur les prestations en capital et doivent être déclarées.",
-      },
-      {
-        question: "Le simulateur genevois est-il recopié ici ?",
-        answer:
-          "Non. Le canton le tient à part, sous « calculer l’impôt sur une prestation en capital ». Aucun résultat saisi dans cet outil n’est reproduit sur cette page.",
-      },
-    ],
-    blocks: [
-      { type: "h2", text: "Quatre lignes, pas un barème" },
-      {
-        type: "p",
-        text: "La page [L’impôt en cas de retrait anticipé pour acheter son logement (ge.ch)](https://www.ge.ch/impot-prevoyance-retraite-du-2e-3e-pilier/impot-cas-retrait-anticipe-acheter-son-logement) ne donne pas un taux. Elle sépare des situations. Retirer tout ou partie du 2e ou du 3e pilier pour acheter le logement : impôt sur les prestations en capital, à déclarer. Obtenir le prêt en laissant le 3e pilier A en gage : pas de déclaration. Faire ensuite transférer une partie du 3a à la banque pour rembourser l’hypothèque : de nouveau une prestation en capital, à déclarer.",
-      },
-      {
-        type: "table",
-        caption: "Page ge.ch, dernière mise à jour le 8 juillet 2025. Aucun autre canton n’est collé sur ce tableau.",
-        headers: ["Ce que vous faites", "Ce que Genève en fait"],
-        rows: [
-          ["Retrait pour acheter le logement", "Prestation en capital, à déclarer"],
-          ["Prêt garanti par le gage du 3e pilier A", "Rien à déclarer"],
-          ["Transfert du 3a à la banque pour l’hypothèque", "Prestation en capital, à déclarer"],
-          ["Envie de remettre le 3a retiré", "La page dit que c’est impossible"],
-        ],
-      },
-      {
-        type: "p",
-        text: "L’ordre de ces lignes est l’exemple. Le gage qui obtient le crédit reste hors déclaration. Le jour où une part du 3a quitte la fondation pour aller à la banque, la même page change de conséquence : cette part se déclare.",
-      },
-      { type: "h2", text: "La section d’après vise le 3e pilier A" },
-      {
-        type: "p",
-        text: "Juste avant, Genève décrit le remboursement du 2e pilier : libre tant que le logement reste la résidence principale, obligatoire à la vente ou s’il ne l’est plus, avec remboursement de l’impôt payé, sans intérêt. La section suivante ne prolonge pas ce régime. Elle s’arrête à une phrase : un retrait anticipé du 3e pilier A ne se rembourse pas. Rien n’y est ajouté ici.",
-      },
-      { type: "h2", text: "Le simulateur reste sur ge.ch" },
-      {
-        type: "p",
-        text: "Le chiffre, Genève le laisse à [calculer l’impôt sur une prestation en capital](https://www.ge.ch/impot-prestations-capital/calculer-impot-prestation-capital). On y entre un cas. Cette page n’en rapporte aucun, et elle n’emprunte pas le barème d’un autre canton pour le remplacer. Le cadre genevois du 3a, hors de ce retrait, reste sur [3e pilier à Genève](/3eme-pilier-geneve/).",
-      },
-      {
-        type: "p",
-        text: "Deux rappels, et c’est tout : la somme versée est imposée séparément, au cinquième des barèmes de l’art. 36 (LIFD, art. 38), et une mise en gage qui ne verse rien n’est pas cette somme. Quand l’ordonnance permet le versement, le motif se lit sur [3e pilier et achat immobilier](/3eme-pilier-logement/).",
-      },
-      {
-        type: "callout",
-        title: "Notice genevoise relue le 6 octobre 2026",
-        text: "Texte de Christophe Bouin. Source : page ge.ch sur le retrait anticipé pour acheter son logement, mise à jour le 8 juillet 2025. Le comparatif est sans honoraires et sans obligation de souscrire.",
-      },
-    ],
-  },
-  {
-    kind: "page",
-    slug: "impot-retrait-3a-logement-vaud",
-    title: "Dans le canton de Vaud, on déclare le retrait 3a sans publier la cote",
-    metaTitle: "Retrait 3a en Vaud : trente jours, et pas de franc ici",
-    description:
-      "Le canton de Vaud fait déclarer le retrait 3a dans les trente jours (LI, art. 198a). L’art. 49 donne la méthode. Cette page ne publie aucun franc d’impôt.",
-    published: "2026-10-06",
-    updated: "2026-10-06",
-    intro:
-      "Où le canton de Vaud écrit-il le nombre de francs dus sur un retrait 3a ? Pas ici. Il publie une démarche : la page « Ma situation personnelle », une formule à envoyer dans les trente jours, l’art. 49 de la loi du 4 juillet 2000, et l’art. 38 de la LIFD. Le blanc laissé au montant est le sujet de cette page.",
-    related: [
-      "3eme-pilier-logement",
-      "3eme-pilier-canton-vaud",
-      "impot-retrait-3a-logement-geneve",
-      "impot-retrait-3a-logement-valais",
-      "impot-retrait-3a-logement-fribourg",
-    ],
-    faqs: [
-      {
-        question: "Quel délai court à partir du versement ?",
-        answer:
-          "Trente jours. L’art. 198a de la loi vaudoise du 4 juillet 2000, reproduit sur la formule, demande d’informer l’autorité de taxation du domicile fiscal dès l’obtention de chaque prestation, justificatifs joints.",
-      },
-      {
-        question: "Pourquoi aucun franc n’est-il écrit sur cette page ?",
-        answer:
-          "Parce que la formule ne contient pas la cote. Elle renvoie au cinquième des barèmes de l’art. 47 pour l’impôt cantonal, et à ceux de l’art. 36 LIFD pour l’impôt fédéral. Ces barèmes ne sont pas développés ici, et ils ne sont pas inventés pour remplir le vide.",
-      },
-      {
-        question: "Les lettres I, J et K donnent-elles le montant manquant ?",
-        answer:
-          "Non. Ce sont des barèmes de l’impôt à la source, sur la même page de formulaires. Ils ne sont pas l’impôt d’une personne imposée ordinairement dans le canton. Les recopier fournirait un nombre, et le mauvais.",
-      },
-    ],
-    blocks: [
-      { type: "h2", text: "D’abord la formule, pas la cote" },
-      {
-        type: "p",
-        text: "La page [Ma situation personnelle](https://www.vd.ch/etat-droit-finances/impots/impots-pour-les-individus/ma-situation-personnelle) range le 3e pilier A avec l’AVS/AI et le 2e pilier : prestations en capital imposées séparément. Plusieurs prestations la même année civile s’additionnent. Le retrait logement entre dans cette liste le jour où il est versé, pas le jour où l’on en parle.",
-      },
-      {
-        type: "p",
-        text: "La pièce est la « Déclaration de prestation en capital », formule 21029, listée pour 2026 sur [Formulaires, directives, lois et barèmes](https://www.vd.ch/etat-droit-finances/impots/formulaires-directives-et-baremes). Elle demande l’institution qui verse, la nature de la prestation, le montant touché et la date. Elle s’adresse à l’Administration cantonale des impôts, route de Berne 46, Lausanne. Elle ne se termine pas par un impôt en francs : c’est voulu, et cette page ne comble pas cette fin.",
-      },
-      {
-        type: "table",
-        caption: "Parcours vaudois. La dernière ligne dit où ne pas aller chercher un chiffre.",
-        headers: ["Moment", "Ce que Vaud met dans la main"],
-        rows: [
-          ["Le versement a lieu", "Prestation imposée séparément, page « Ma situation personnelle »"],
-          ["Les trente jours courent", "Art. 198a : déclaration dès l’obtention, avec justificatifs"],
-          ["On remplit la 21029", "Montant touché et date, pas une cote"],
-          ["On voit les lettres I, J, K", "Impôt à la source : une autre imposition"],
-        ],
-      },
-      { type: "h2", text: "L’art. 49 nomme la méthode" },
-      {
-        type: "p",
-        text: "Au dos de la formule, l’art. 49 : imposition séparée des prestations en capital de la prévoyance ; taux représentant le cinquième des barèmes inscrits à l’art. 47 ; déductions sociales des art. 39 à 42 non autorisées. Les prestations des époux vivant en ménage commun s’additionnent pour le taux. Voilà ce que le canton écrit. Il n’écrit pas, sur cette formule, le nombre de francs qui en sort. Le plafond de ce que l’on peut verser dans un 3a, autre question, est sur [3e pilier dans le canton de Vaud](/3eme-pilier-canton-vaud/).",
-      },
-      { type: "h2", text: "Le trou n’est pas l’impôt à la source" },
-      {
-        type: "p",
-        text: "La même liste de formulaires publie des barèmes d’impôt à la source sur les prestations en capital, marqués I, J et K. S’en servir comme cote du résident, ce serait prendre un autre impôt pour celui que la formule laisse en blanc. Cette page s’arrête donc avant tout franc : le blanc est le propos, pas une omission à réparer.",
-      },
-      {
-        type: "p",
-        text: "La formule cite à côté l’impôt fédéral : prestation imposée séparément, impôt annuel entier, cinquième des barèmes de l’art. 36 (LIFD, art. 38). Tant que rien n’est versé, le gage n’est pas une ligne de la 21029. Le motif du versement, quand il est permis, est sur [3e pilier et achat immobilier](/3eme-pilier-logement/).",
-      },
-      {
-        type: "callout",
-        title: "Formule vaudoise relue le 6 octobre 2026",
-        text: "Texte de Christophe Bouin. Sources : page « Ma situation personnelle » et formule 21029 publiées sur vd.ch. Le comparatif est sans honoraires et sans obligation de souscrire.",
-      },
-    ],
-  },
-  {
-    kind: "page",
-    slug: "impot-retrait-3a-logement-valais",
-    title: "En Valais, le retrait 3a est pris à 100 %, puis borné à 4 %",
-    metaTitle: "Retrait 3a en Valais : 100 %, plafond de 4 %, réduction de 2 %",
-    description:
-      "Le guide valaisan 2025 prend le 3a versé à 100 %, l’impose à part, plafonne le taux cantonal et communal à 4 %, puis réduit l’impôt de 2 % dans la limite de 2’450 francs.",
-    published: "2026-10-06",
-    updated: "2026-10-06",
-    intro:
-      "Comment le guide valaisan 2025 traite-t-il un 3a versé pour un logement ? Il le retient à 100 %, à part du revenu ordinaire, avec un taux cantonal et communal qui ne dépasse pas 4 %. Pour les personnes qu’il énumère, l’impôt dû baisse ensuite de 2 %, sans que cette baisse excède 2’450 francs.",
-    related: [
-      "3eme-pilier-logement",
-      "impot-retrait-3a-logement-geneve",
-      "impot-retrait-3a-logement-vaud",
-      "impot-retrait-3a-logement-fribourg",
-    ],
-    faqs: [
-      {
-        question: "Le plafond de 4 % est-il l’impôt fédéral ?",
-        answer:
-          "Non. Le guide 2025 le pose pour l’impôt cantonal et communal : au plus le taux maximum de 4 %. L’impôt fédéral, à côté, est le cinquième du barème ordinaire. Les deux ne se confondent pas.",
-      },
-      {
-        question: "Qui obtient la réduction de 2 % ?",
-        answer:
-          "Le guide vise les personnes mariées vivant en ménage commun, et les personnes veuves, séparées, divorcées ou célibataires qui font ménage commun avec des enfants ou des personnes nécessiteuses dont elles assurent pour l’essentiel l’entretien. La réduction est de 2 % de l’impôt dû, au maximum 2’450 francs.",
-      },
-      {
-        question: "Où la prestation se coche-t-elle ?",
-        answer:
-          "Le guide simplifié 2025 la place aux codes 1010 et 1020. La formule 2026 a une rubrique « Prestations en capital touchées », avec une case 3e pilier A et la date du paiement.",
-      },
-    ],
-    blocks: [
-      { type: "h2", text: "D’abord 100 %, et à part" },
-      {
-        type: "p",
-        text: "Le [guide de la déclaration d’impôts 2025](https://www.vs.ch/documents/d/scc/guide-2025_f_final) commence par la base, pas par un exemple chiffré de dossier. Les prestations en capital du 3e pilier A, comme celles du 2e pilier, sont imposables à 100 %. Lorsqu’elles viennent de la prévoyance professionnelle ou d’une forme reconnue de prévoyance liée, elles sont imposées séparément du reste du revenu. Le retrait logement est cette prestation dès qu’il est touché.",
-      },
-      { type: "h2", text: "Ensuite un taux qui s’arrête à 4 %" },
-      {
-        type: "p",
-        text: "Pour le cantonal et le communal, le guide renvoie à la modification de 2016, art. 33b al. 4 de la loi fiscale. L’impôt est un impôt annuel entier. Le taux est celui qui s’appliquerait si des prestations périodiques étaient servies à la place. Il ne descend pas sous le taux minimum prévu, et il ne monte pas au-dessus du taux maximum de 4 %. Le calcul se fait d’office. Les déductions sociales ne sont pas autorisées. Pour l’impôt fédéral direct, le même passage fixe un autre geste : le taux représente le cinquième du barème ordinaire.",
-      },
-      {
-        type: "table",
-        caption: "Ordre du guide 2025. Ce n’est pas un impôt calculé pour un dossier.",
-        headers: ["Étape", "Ce que le guide fige"],
-        rows: [
-          ["Base", "Prestation du 3e pilier A imposable à 100 %"],
-          ["Séparation", "À part des autres revenus"],
-          ["Cantonal et communal", "Annuel entier, au plus 4 %, d’office"],
-          ["Fédéral", "Cinquième du barème ordinaire"],
-        ],
-      },
-      { type: "h2", text: "Puis 2 %, sans dépasser 2’450 francs" },
-      {
-        type: "p",
-        text: "La réduction vient après, et seulement pour des personnes nommées. Personnes mariées vivant en ménage commun. Personnes veuves, séparées, divorcées ou célibataires qui font ménage commun avec des enfants ou des personnes nécessiteuses, et qui en assurent pour l’essentiel l’entretien. Pour elles, l’impôt dû est réduit de 2 %, mais au maximum de 2’450 francs. Ce plafond borne la réduction, pas la prestation. Le guide ne convertit pas ces règles en un impôt dû par un acheteur précis.",
-      },
-      {
-        type: "p",
-        text: "La case arrive en dernier. Le [guide simplifié 2025](https://www.vs.ch/documents/d/scc/guide_simplifie_2025_f) vise les codes 1010 et 1020, avec les justificatifs, et rappelle l’imposition séparée. La [formule 2026](https://www.vs.ch/documents/d/scc/declaration-neutre-2026) prévoit la case 3e pilier A et la date du paiement.",
-      },
-      {
-        type: "p",
-        text: "Le guide parle de la prestation touchée : une mise en gage sans versement n’entre pas dans ce mot. L’impôt fédéral décrit ci-dessus est celui de la LIFD, art. 38. Le cadre du versement logement est sur [3e pilier et achat immobilier](/3eme-pilier-logement/).",
-      },
-      {
-        type: "callout",
-        title: "Guide valaisan relu le 6 octobre 2026",
-        text: "Texte de Christophe Bouin. Sources : guide de la déclaration 2025, guide simplifié 2025 et formule 2026, sur vs.ch. Le comparatif est sans honoraires et sans obligation de souscrire.",
-      },
-    ],
-  },
-  {
-    kind: "page",
-    slug: "impot-retrait-3a-logement-fribourg",
-    title: "À Fribourg, le retrait 3a se lit tranche par tranche",
-    metaTitle: "Retrait 3a à Fribourg : 1 % à 5 % par tranches de 50’000",
-    description:
-      "Les instructions fribourgeoises, situation au 31 décembre 2025, découpent le retrait 3a de 1 % à 5 % par tranches de 50’000 francs, avec une déduction de 10’000 francs.",
-    published: "2026-10-06",
-    updated: "2026-10-06",
-    intro:
-      "Le taux fribourgeois de la dernière tranche s’applique-t-il à tout le retrait 3a ? Non. Les instructions, situation au 31 décembre 2025, empilent : 1 % sur les premiers 50’000 francs, puis 2 %, 3 % et 4 % sur chaque bloc suivant de 50’000 francs, et 5 % seulement sur ce qui reste.",
-    related: [
-      "3eme-pilier-logement",
-      "3b-deduction-fribourg",
-      "impot-retrait-3a-logement-geneve",
-      "impot-retrait-3a-logement-vaud",
-      "impot-retrait-3a-logement-valais",
-    ],
-    faqs: [
-      {
-        question: "Faut-il chercher la ligne du montant total et tout y passer ?",
-        answer:
-          "Non. Les instructions du 31 décembre 2025 découpent. Les premiers 50’000 francs sont à 1 %, les prochains 50’000 à 2 %, puis 3 %, puis 4 %, et le surplus à 5 %. Le taux du surplus ne remonte pas sur les tranches d’avant.",
-      },
-      {
-        question: "Que fait la déduction de 10’000 francs ?",
-        answer:
-          "Elle est accordée aux époux qui vivent en ménage commun, et aux familles monoparentales au sens de la notice. Si le total annuel des prestations est inférieur à 10’000 francs, l’impôt n’est pas perçu. Cette déduction n’est pas un pour-cent de rabais sur l’impôt déjà calculé.",
-      },
-      {
-        question: "Le pour-cent communal est-il dans la notice ?",
-        answer:
-          "Le principe oui, le chiffre non. Les communes et les paroisses perçoivent leurs impôts en pour-cent de l’impôt cantonal. Ce pour-cent n’est pas écrit dans le passage cité. La calculette 2026 du canton n’est pas recopiée non plus.",
-      },
-    ],
-    blocks: [
-      { type: "h2", text: "On empile les blocs de 50’000 francs" },
-      {
-        type: "p",
-        text: "Les [instructions générales](https://www.fr.ch/sites/default/files/2026-05/instructions-generales-concernant-la-declaration-d-impot_0.pdf), situation au 31 décembre 2025, chapitre X.I, visent les prestations en capital de la prévoyance individuelle liée (pilier 3a), avec l’AVS/AI et le 2e pilier. Elles sont imposées séparément. Plusieurs prestations de la même année s’additionnent. Le retrait pour un logement y entre quand il est versé.",
-      },
-      {
-        type: "p",
-        text: "La lecture refuse le raccourci. On ne prend pas le taux de la tranche où « tombe » le total pour l’appliquer à toute la prestation. On remplit dans l’ordre : premiers 50’000 francs à 1 %, prochains 50’000 à 2 %, prochains 50’000 à 3 %, prochains 50’000 à 4 %, et ce qui dépasse ces quatre blocs à 5 %. C’est l’exemple. Il montre le découpage. Il ne sort pas une cote en francs pour un achat donné.",
-      },
-      {
-        type: "table",
-        caption: "Impôt cantonal, instructions au 31 décembre 2025. Chaque ligne ne concerne que sa part.",
-        headers: ["Part lue dans l’ordre", "Taux de cette part seule"],
-        rows: [
-          ["Premiers 50’000 francs", "1 %"],
-          ["Prochains 50’000 francs", "2 %"],
-          ["Prochains 50’000 francs", "3 %"],
-          ["Prochains 50’000 francs", "4 %"],
-          ["Ce qui dépasse ces quatre blocs", "5 %"],
-        ],
-      },
-      { type: "h2", text: "10’000 francs, avant de parler de taux" },
-      {
-        type: "p",
-        text: "Avant ce découpage, la notice accorde une déduction de 10’000 francs aux époux qui vivent en ménage commun. Les prestations du couple sont additionnées, puis cette déduction s’applique. Les familles monoparentales l’ont aussi. Lorsque le total annuel est inférieur à 10’000 francs, l’impôt n’est pas perçu. Le fichier des montants touchés de 2010 à 2022 n’est pas ce barème, et il n’est pas repris à sa place.",
-      },
-      { type: "h2", text: "Le pour-cent communal n’est pas dans le tableau" },
-      {
-        type: "p",
-        text: "Les communes et les paroisses prennent un pour-cent de l’impôt cantonal. La notice le dit, sans donner le pour-cent : il n’est donc pas inventé ici. La [calculette impôt sur les prestations en capital 2026](https://www.fr.ch/impots/personnes-physiques/calculer-ses-impots) est sur le site du canton. Ses cellules restent là-bas. La [FAQ du Service cantonal des contributions](https://www.fr.ch/impots/personnes-physiques/impots-des-personnes-physiques-faq) confirme l’imposition séparée, à un barème particulier pour le cantonal. Sa question sur l’achat du logement est écrite pour le 2e pilier. La déduction de primes, autre sujet, est sur [3b à Fribourg](/3b-deduction-fribourg/).",
-      },
-      {
-        type: "p",
-        text: "L’impôt fédéral, dans les mêmes instructions, se calcule à part : taux égal au cinquième de celui du barème ordinaire, sans déductions sociales (LIFD, art. 38). Avant le versement, la prétention 3a n’est pas soumise à l’impôt sur la fortune et ne se déclare pas au code 3.520 : une mise en gage qui ne verse rien n’est pas non plus la prestation du chapitre X.I. Le motif du versement est sur [3e pilier et achat immobilier](/3eme-pilier-logement/).",
-      },
-      {
-        type: "callout",
-        title: "Instructions fribourgeoises relues le 6 octobre 2026",
-        text: "Texte de Christophe Bouin. Source : instructions générales, situation au 31 décembre 2025, chapitre X.I. Le comparatif est sans honoraires et sans obligation de souscrire.",
-      },
-    ],
-  },
-
-  {
-    kind: "page",
     slug: "deductions-fiscales-3eme-pilier",
     wpId: 1918,
     title: `Déductions fiscales du 3e pilier en ${YEAR_SPAN}`,
-    metaTitle: "Déductions 3e pilier 2026 : plafonds 7’258 / 36’288",
+    metaTitle: `Déductions 3e pilier ${YEAR_SPAN} : plafonds OFAS 7’258 / 36’288`,
     description:
-      "Plafonds 3a 2026 : CHF 7’258 / 36’288. Plafonds 2027 : CHF 7’373 / 36’864 (Conseil fédéral, 2 octobre 2026). Rachat dès 2026, 3b Genève/Fribourg, imposition au retrait. Sources AFC et OFAS.",
+      `Plafonds 3a 2026 (OFAS), rachat dès 2026, 3b Genève et Fribourg, imposition au retrait. ${NOTE_2027}.`,
     published: "2021-11-12",
-    updated: UPDATED,
-    intro: `Quel est le plafond 3a déductible en 2026 ? ${chf(FIGURES.pillar3aWithLpp)} si vous êtes affilié au 2e pilier, ${chf(FIGURES.pillar3aWithoutLpp)} (20 % du revenu d’activité, max.) sinon. Source : tableau OFAS du 1.1.2026. ${CEILING_NOTE}.`,
+    updated: "2026-10-03",
+    intro: `Quel est le plafond 3a déductible en 2026 ? ${chf(FIGURES.pillar3aWithLpp)} si vous êtes affilié au 2e pilier, ${chf(FIGURES.pillar3aWithoutLpp)} (20 % du revenu d’activité, max.) sinon. Source : tableau OFAS du 1er janvier 2026. ${NOTE_2027}. Le 3b ne double pas cette déduction.`,
+    brief: [
+      `Avec 2e pilier : ${chf(FIGURES.pillar3aWithLpp)}. Sans 2e pilier : 20 % du revenu d’activité, au maximum ${chf(FIGURES.pillar3aWithoutLpp)}.`,
+      "Le crédit doit arriver au 31 décembre. La date de l’ordre ne suffit pas.",
+      "Deux salariés affiliés ont chacun leur plafond, sur deux relations distinctes.",
+      "Genève et Fribourg peuvent viser des primes d’assurance-vie. Vaud n’ajoute pas de plafond 3a.",
+      NOTE_2027,
+    ],
     related: [
-      "3eme-pilier-suisse",
-      "3eme-pilier-independant",
-      "quel-montant-deductible-3eme-pilier-2022",
-      "3eme-pilier-a-impot-retrait",
-      "plafonds-3a-2026-2027",
-      "3a-impot-cantonal-geneve-2026",
-      "3b-deduction-fribourg",
       "ouvrir-un-3eme-pilier",
-      "actualite-3eme-pilier",
+      "3eme-pilier-logement",
+      "quel-montant-deductible-3eme-pilier-2022",
+      "plafonds-3a-2026-2027",
+      "3eme-pilier-a-impot-retrait",
+      "3a-impot-cantonal-geneve-2026",
     ],
     faqs: [
       {
         question: "Faut-il verser avant le 31 décembre ?",
         answer:
-          "Oui : c’est la date de valeur au crédit du compte ou de la police 3a qui compte, pas la date d’ordre. Un virement trop tardif bascule sur l’année suivante. Dans la plupart des banques, une date limite est exigée vers le milieu du mois de décembre afin de garantir que le versement soit pris en compte pour la période fiscale.",
+          "Oui : c’est la date de valeur au crédit du compte ou de la police 3a qui compte, pas la date d’ordre. Un virement trop tardif bascule sur l’année suivante. Source : OFAS, « Votre cotisation au 3e pilier ».",
       },
       {
         question: `Les plafonds 3a 2027 sont-ils déjà connus ?`,
-        answer:
-          "Oui. Dès le 1er janvier 2027 : CHF 7’373 avec un 2e pilier, et 20 % du revenu d’activité jusqu’à CHF 36’864 sans. En 2026 : CHF 7’258 / 36’288. Source : Conseil fédéral, 2 octobre 2026.",
+        answer: `Oui. ${NOTE_2027}. Les plafonds 2026 de cette page restent ceux du tableau OFAS au 1er janvier 2026.`,
       },
       {
         question: "Le 3b double-t-il cette déduction ?",
@@ -1106,7 +429,7 @@ export const PAGES: EditorialDoc[] = [
       },
       {
         type: "p",
-        text: `Les lacunes depuis 2025 peuvent être rachetées à partir de 2026, dans la limite de la petite cotisation 2026 (${chf(FIGURES.buybackMax)}), en plus du versement ordinaire de l’année, si vous aviez un revenu AVS l’année de la lacune et l’année du rachat, et que le maximum ordinaire de l’année en cours est déjà versé. Pour un rachat effectué en 2027, la limite est la petite cotisation 2027 (CHF 7’373), en plus du versement ordinaire. Source OFAS, « Rachats dans le pilier 3a ».`,
+        text: `Les lacunes depuis 2025 peuvent être rachetées à partir de 2026, dans la limite de la petite cotisation (${chf(FIGURES.buybackMax)}), en plus du versement ordinaire de l’année, si vous aviez un revenu AVS l’année de la lacune et l’année du rachat, et que le maximum ordinaire de l’année en cours est déjà versé. Source OFAS. ${NOTE_2027} pour le plafond de l’année suivante.`,
       },
       {
         type: "h2",
@@ -1114,7 +437,7 @@ export const PAGES: EditorialDoc[] = [
       },
       {
         type: "p",
-        text: `L’enveloppe LIFD des primes d’assurances et intérêts d’épargne (${chf(FIGURES.lifdSingle)} personne seule / ${chf(FIGURES.lifdMarried)} couple, majorée en l’absence de 2e pilier / 3a) n’est pas un « plafond 3b ». Elle est souvent déjà utilisée par la LAMal. Les déductions cantonales 3b (GE, FR) sont documentées sur les pages Genève et 3a ou 3b.`,
+        text: `L’enveloppe LIFD des primes d’assurances et intérêts d’épargne (${chf(FIGURES.lifdSingle)} personne seule / ${chf(FIGURES.lifdMarried)} couple, majorée en l’absence de 2e pilier / 3a) n’est pas un « plafond 3b ». Elle est souvent déjà utilisée par la LAMal. Les déductions cantonales se lisent pour [Genève](/3eme-pilier-geneve/) et, à l’inverse, pour le [canton de Vaud](/3eme-pilier-canton-vaud/), qui n’écrit pas un second barème 3a. Le cadre national est le [3e pilier Suisse](/3eme-pilier-suisse/) et la page [3a ou 3b](/3eme-pilier-a-ou-b/).`,
       },
       {
         type: "h2",
@@ -1122,11 +445,15 @@ export const PAGES: EditorialDoc[] = [
       },
       {
         type: "p",
-        text: `Chaque conjoint actif avec LPP a son propre plafond 3a. Deux salariés affiliés : jusqu’à ${chf(FIGURES.pillar3aWithLpp * 2)} au total, sur deux relations de prévoyance distinctes.`,
+        text: `Chaque conjoint actif avec LPP a son propre plafond 3a. Deux salariés affiliés : jusqu’à ${chf(FIGURES.pillar3aWithLpp * 2)} au total, sur deux relations de prévoyance distinctes. Plusieurs relations d’une même personne ne multiplient pas son plafond. Les clôturer à des dates différentes se lit sur le [retrait échelonné](/retrait-echelonne-3a/).`,
       },
       {
         type: "p",
-        text: "L’impôt ne porte que sur la somme versée pour un logement : [impôt du versement logement](/3eme-pilier-logement/).",
+        text: "Pour appliquer la formule 2026 à un revenu : [calculateur du plafond 3a](/calculateur-plafond-3a/). Deux cas seulement, information générale.",
+      },
+      {
+        type: "p",
+        text: "La déduction annuelle n’est pas l’impôt dû quand une somme du 3a est versée pour un logement. Cette sortie est imposée à part (LIFD, art. 38), en plus de l’impôt cantonal. Le gage, tant que rien n’est versé, ne déclenche pas cet impôt. Détail, sans montant inventé : [utiliser le 3a pour acquérir un logement](/3eme-pilier-logement/).",
       },
     ],
   },
@@ -1139,12 +466,17 @@ export const PAGES: EditorialDoc[] = [
     description:
       `Frontaliers : accès au 3a si revenu soumis à l’AVS, fiscalité selon le canton, TOU, retrait en cas de départ. Comparatif ${YEAR_SPAN}.`,
     published: "2021-11-04",
-    updated: UPDATED,
+    updated: "2026-10-03",
     intro:
-      "Un frontalier peut-il ouvrir un 3a ? Oui, si le revenu d’activité en Suisse est soumis à l’AVS. Ce n’est pas le permis G qui ouvre le droit : c’est l’assujettissement AVS (OFAS, circulaire AFC n° 18). L’intérêt fiscal dépend ensuite de la source, d’une éventuelle TOU, et du droit de l’État de résidence.",
+      "Un frontalier peut-il ouvrir un 3a ? Oui, si le revenu d’activité en Suisse est soumis à l’AVS. Ce n’est pas le permis G qui ouvre le droit : c’est l’assujettissement AVS (OFAS, circulaire AFC n° 18). L’intérêt fiscal dépend ensuite de la source, d’une éventuelle taxation ordinaire ultérieure, et du droit de l’État de résidence. Le plafond reste le plafond fédéral, pas un barème de frontalier.",
+    brief: [
+      "Accès au 3a : revenu d’activité en Suisse soumis à l’AVS. Le permis ne suffit pas.",
+      `Plafond 2026 : ${chf(FIGURES.pillar3aWithLpp)} avec 2e pilier, ou 20 % du revenu jusqu’à ${chf(FIGURES.pillar3aWithoutLpp)} sans.`,
+      "La déduction devient concrète surtout si une taxation ordinaire ultérieure s’applique.",
+      "Un achat hors de Suisse n’est pas un motif de retrait « logement en propre usage » suisse.",
+      NOTE_2027,
+    ],
     related: [
-      "3eme-pilier-independant",
-      "ouvrir-un-3eme-pilier",
       "ouvrir-un-3eme-pilier-pour-un-frontalier",
       "frontalier-avs-3a-conditions",
       "tou-impot-source-3a",
@@ -1168,17 +500,17 @@ export const PAGES: EditorialDoc[] = [
       { type: "h2", text: "Conditions 3a" },
       {
         type: "p",
-        text: "Revenu d’activité lucrative soumis à l’AVS suisse. Les frontaliers dans ce cas sont expressément visés par l’OFAS. Sans cotisations AVS suisses, le 3a n’est en principe pas ouvert ; le 3b peut l’être. La démarche d’ouverture, les pièces et le délai au 31 décembre : [ouvrir un 3e pilier](/ouvrir-un-3eme-pilier/).",
+        text: "Revenu d’activité lucrative soumis à l’AVS suisse. Les frontaliers dans ce cas sont expressément visés par l’OFAS. Sans cotisations AVS suisses, le 3a n’est en principe pas ouvert ; le 3b peut l’être.",
       },
       { type: "h2", text: "Impôt à la source et TOU" },
       {
         type: "p",
-        text: "Beaucoup de frontaliers sont imposés à la source. Une taxation ordinaire ultérieure (TOU) peut s’appliquer selon le canton, le revenu et le patrimoine suisse. C’est souvent dans la TOU que la déduction 3a devient concrète — d’où l’intérêt de verser avant la fin de l’année civile et de conserver les attestations. Page dédiée : taxation ordinaire ultérieure.",
+        text: `Beaucoup de frontaliers sont imposés à la source. Une taxation ordinaire ultérieure peut s’appliquer selon le canton, le revenu et le patrimoine suisse. C’est souvent là que la déduction 3a devient concrète — d’où l’intérêt de verser avant la fin de l’année civile et de conserver les attestations. Le plafond 2026 reste ${chf(FIGURES.pillar3aWithLpp)} ou ${chf(FIGURES.pillar3aWithoutLpp)}, comme pour un résident. Détail : [taxation ordinaire ultérieure](/taxation-ordinaire-ulterieure/) et [plafonds 3a](/plafonds-3a-2026-2027/). ${NOTE_2027}.`,
       },
       { type: "h2", text: "Banque, assurance, logement" },
       {
         type: "p",
-        text: "Les motifs de retrait 3a (logement pour propre usage en Suisse, départ, indépendance) s’appliquent aussi aux frontaliers. Un achat en France n’est pas un « propre usage » suisse au sens EPL. Faites qualifier le projet avant d’ouvrir une police longue.",
+        text: "Les motifs de retrait 3a (logement pour propre usage en Suisse, départ, indépendance) s’appliquent aussi aux frontaliers. Un achat en France n’est pas un « propre usage » suisse. Faites qualifier le projet avant d’ouvrir une police longue. Le cadre est le [3e pilier Suisse](/3eme-pilier-suisse/). Le cas sans caisse LPP rejoint l’[indépendant](/3eme-pilier-independant/). Selon le canton d’imposition : [Genève](/3eme-pilier-geneve/) ou [Vaud](/3eme-pilier-canton-vaud/).",
       },
     ],
   },
@@ -1188,14 +520,20 @@ export const PAGES: EditorialDoc[] = [
     title: "3e pilier à Genève",
     metaTitle: `3e pilier Genève ${YEAR_SPAN} : 3a, 3b, ICC et frontaliers`,
     description:
-      "Landing Genève : plafonds 3a 2026, enveloppe LIPP des primes d’assurance-vie, frontaliers. Plafonds 2026 : CHF 7’258 / 36’288. Plafonds 2027 : CHF 7’373 / 36’864 (Conseil fédéral, 2 octobre 2026).",
+      `Landing Genève : plafonds 3a ${YEAR_SPAN_WORDS}, enveloppe LIPP des primes d’assurance-vie, frontaliers. Remplace l’ancienne URL qui menait à une image.`,
     published: "2022-07-01",
-    updated: UPDATED,
-    intro: `Le plafond 3a à Genève est-il plus élevé qu’ailleurs ? Non. En 2026 c’est le maximum fédéral OFAS / OPP 3 : ${chf(FIGURES.pillar3aWithLpp)} avec 2e pilier, ${chf(FIGURES.pillar3aWithoutLpp)} sans. ${CEILING_NOTE}. L’ICC change l’économie d’impôt, pas le droit de verser. La LIPP vise des primes d’assurance-vie, pas un « bonus 3b ».`,
+    updated: "2026-10-03",
+    intro: `Le plafond 3a à Genève est-il plus élevé qu’ailleurs ? Non. En ${YEAR_SPAN_WORDS} c’est le maximum fédéral OFAS / OPP 3 : ${chf(FIGURES.pillar3aWithLpp)} avec 2e pilier, ${chf(FIGURES.pillar3aWithoutLpp)} sans. L’ICC change l’économie d’impôt, pas le droit de verser. La LIPP vise des primes d’assurance-vie, pas un « bonus 3b ».`,
+    brief: [
+      `Plafond 3a 2026 à Genève : ${chf(FIGURES.pillar3aWithLpp)} avec 2e pilier, ${chf(FIGURES.pillar3aWithoutLpp)} au maximum sans. Identique au reste de la Suisse.`,
+      "L’ICC change l’économie d’un versement. Elle ne crée pas un plafond cantonal.",
+      "La LIPP vise des primes d’assurance-vie et des intérêts d’épargne, pas le mot « 3b ».",
+      "Un frontalier ouvre un 3a si le revenu suisse est soumis à l’AVS.",
+      NOTE_2027,
+    ],
     related: [
       "3a-impot-cantonal-geneve-2026",
       "frontalier-suisse",
-      "ouvrir-un-3eme-pilier",
       "3eme-pilier-a-ou-b",
       "deductions-fiscales-3eme-pilier",
       "actualite-3eme-pilier",
@@ -1219,7 +557,7 @@ export const PAGES: EditorialDoc[] = [
       { type: "h2", text: "3a : les mêmes plafonds qu’ailleurs" },
       {
         type: "p",
-        text: `À Genève comme dans les autres cantons, le 3a 2026 déduit jusqu’à ${chf(FIGURES.pillar3aWithLpp)} (avec LPP) ou ${chf(FIGURES.pillar3aWithoutLpp)} (sans LPP, 20 % du revenu). L’économie d’impôt dépend du barème ICC + IFD, pas d’un « bonus genevois » sur le plafond fédéral. ${CEILING_NOTE}.`,
+        text: `À Genève comme dans les autres cantons, le 3a ${YEAR_SPAN_WORDS} déduit jusqu’à ${chf(FIGURES.pillar3aWithLpp)} (avec LPP) ou ${chf(FIGURES.pillar3aWithoutLpp)} (sans LPP, 20 % du revenu). L’économie d’impôt dépend du barème ICC + IFD, pas d’un « bonus genevois » sur le plafond fédéral. ${CEILING_NOTE}`,
       },
       { type: "h2", text: "3b et LIPP" },
       {
@@ -1234,7 +572,7 @@ export const PAGES: EditorialDoc[] = [
       { type: "h2", text: "Frontaliers travaillant à Genève" },
       {
         type: "p",
-        text: "Accès 3a si AVS suisse. L’effet fiscal passe souvent par l’impôt à la source et, le cas échéant, la TOU. Voir les pages frontalier et TOU. Pour les pièces et le délai : [ouvrir un 3e pilier](/ouvrir-un-3eme-pilier/).",
+        text: "Accès 3a si AVS suisse. L’effet fiscal passe souvent par l’impôt à la source et, le cas échéant, la taxation ordinaire ultérieure. Voir le [guide frontalier](/frontalier-suisse/). Le [canton de Vaud](/3eme-pilier-canton-vaud/) applique le même plafond 3a, sans l’enveloppe genevoise des primes-vie. Le cadre national est le [3e pilier Suisse](/3eme-pilier-suisse/).",
       },
     ],
   },
@@ -1243,251 +581,69 @@ export const PAGES: EditorialDoc[] = [
     slug: "assurance-vie-en-suisse",
     wpId: 3182,
     title: "Assurance-vie en Suisse",
-    metaTitle: "Assurance-vie Suisse 2026 : 3a, 3b, risque pur ou mixte",
+    metaTitle: `Assurance-vie en Suisse ${YEAR_SPAN} : 3a, 3b, mixte, risque pur`,
     description:
-      "Assurance-vie en Suisse : comparez pilier 3a, 3b, risque pur et assurance mixte. Fiscalité, frais, valeur de rachat et garanties à vérifier en 2026.",
+      "Assurance-vie suisse : rôle dans le 3a et le 3b, capital décès, épargne, fiscalité. Landing historique à conserver.",
     published: "2022-03-18",
     updated: "2026-10-03",
     intro:
-      "En Suisse, l’assurance-vie peut couvrir uniquement un risque, comme le décès, ou combiner protection et épargne dans un contrat mixte. Elle peut être souscrite dans le cadre du pilier 3a ou du pilier 3b. Pour choisir, comparez les garanties, les frais, la valeur de rachat, la fiscalité et la souplesse du contrat.",
+      "En Suisse, « assurance-vie » recouvre des polices différentes : risque pur, mixte, 3a lié, 3b libre. Elles ne déduisent pas la même chose et ne paient pas le même capital. Une temporaire décès ne constitue pas d’épargne. Une police 3a déduit dans la limite du plafond 2026, puis bloque la sortie. Comparer le mot « assurance-vie » sans ce tri n’a pas de sens.",
+    brief: [
+      "Risque pur : un capital si le décès survient pendant la durée. Pas d’épargne.",
+      "Mixte : épargne et décès dans la même prime. Pas un choix automatique.",
+      `3a en assurance : même plafond 2026 qu’en banque (${chf(FIGURES.pillar3aWithLpp)} ou ${chf(FIGURES.pillar3aWithoutLpp)}).`,
+      "3b : bénéficiaires plus libres. Déduction cantonale seulement, surtout des primes-vie.",
+      NOTE_2027,
+    ],
     related: [
       "3eme-pilier-mixte",
+      "3eme-pilier-a-ou-b",
       "risque-pur-deces",
       "assurance-deces",
-      "3eme-pilier-a-ou-b",
-      "3eme-pilier-b-prevoyance-libre",
       "3eme-pilier-banque-assurance",
-      "deductions-fiscales-3eme-pilier",
-      "choisir-les-beneficiaires",
+      "3eme-pilier-suisse",
     ],
     faqs: [
       {
-        question: "Toute assurance-vie est-elle déductible en Suisse ?",
-        answer: `Non. Seul un 3a reconnu l’est, dans les limites de l’art. 7 OPP 3 : en 2026, ${chf(FIGURES.pillar3aWithLpp)} avec 2e pilier, ou ${FIGURES.pillar3aWithoutLppRate} du revenu d’activité, max. ${chf(FIGURES.pillar3aWithoutLpp)}, sans. Le 3b n’a pas de déduction fédérale générale comparable.`,
-      },
-      {
-        question: "Quelle différence entre risque pur et assurance mixte ?",
+        question: "Toute assurance-vie est-elle un 3e pilier déductible ?",
         answer:
-          "Le risque pur paie un capital si le décès survient pendant la durée, sans constituer d’épargne en général. La mixte ajoute un capital si la personne est en vie à l’échéance. À capital décès égal, sa prime est plus lourde : elle finance aussi l’épargne.",
-      },
-      {
-        question: "Faut-il placer l’assurance-vie en 3a ou en 3b ?",
-        answer:
-          "Le 3a, si la déduction dans le plafond légal compte plus que la disponibilité. Le 3b, s’il faut désigner plus librement un bénéficiaire ou sortir hors des motifs OPP 3. Les deux peuvent coexister. Le 3b ne double pas le plafond 3a.",
-      },
-      {
-        question: "Une assurance-vie a-t-elle une valeur de rachat ?",
-        answer:
-          "En général non pour un risque pur. En général oui pour une mixte, selon la table du contrat. Les premières années, elle est souvent bien inférieure aux primes. Ce n’est pas la somme des primes versées.",
+          "Non. Seule une forme reconnue de prévoyance liée (3a) entre dans le plafond OFAS. Une temporaire décès ou un 3b suit d’autres règles. Le 3b n’a pas de plafond OFAS.",
       },
       {
         question: "Le capital est-il garanti ?",
         answer:
-          "Un capital en francs écrit au contrat est dû si les conditions sont remplies. Un contrat lié à des fonds suit la valeur des parts : le capital à l’échéance n’est pas garanti. Une participation aux excédents n’est pas un rendement promis. Le capital décès et l’épargne se lisent sur deux lignes distinctes.",
-      },
-      {
-        question: "Qui reçoit le capital au décès ?",
-        answer:
-          "En 3a, l’ordre OFAS : conjoint ou partenaire enregistré, puis descendants et personnes à charge ou communauté de vie d’au moins cinq ans, puis parents, frères et sœurs, autres héritiers. On ne l’inverse pas. En 3b, la clause est en général plus libre, dans les limites du contrat et du droit successoral.",
-      },
-      {
-        question: "Le questionnaire de santé peut-il changer la prime ?",
-        answer:
-          "Oui. L’assureur peut accepter le dossier, appliquer une surprime, exclure un risque ou refuser la couverture. Les réponses engagent. La garantie vaut aux conditions écrites à l’acceptation, pas au jour de l’envoi du formulaire.",
-      },
-      {
-        question: "Quand vaut-il mieux séparer assurance et épargne ?",
-        answer:
-          "Quand le capital décès nécessaire est élevé et l’épargne encore faible, ou quand l’horizon est court : les frais d’une police se voient si on s’arrête tôt. Un risque pur à côté d’un compte 3a est alors souvent plus lisible. La mixte reste un outil sur un horizon long.",
+          "Cela dépend du contrat. Certains annoncent un capital, d’autres le lient à des fonds. Cette page ne publie aucun montant, aucun rendement et aucun nom d’assureur.",
       },
     ],
     blocks: [
       {
-        type: "h2",
-        text: "Assurance-vie en Suisse : l’essentiel",
-      },
-      {
         type: "p",
-        text: "Une assurance-vie en Suisse protège des proches par un capital au décès, et parfois par une prestation en cas d’incapacité de gain. Le contrat est un risque pur, qui paie le risque sans constituer d’épargne, ou une assurance mixte, qui réunit risque et épargne dans la même prime. Il se loge dans le 3a, lié, ou dans le 3b, libre. Ce choix change la fiscalité, la disponibilité du capital, les bénéficiaires et, le plus souvent, la valeur de rachat. Une assurance-vie n’est pas déductible dans tous les cas : seul un 3a reconnu l’est, dans les limites légales.",
+        text: "Une police liée 3a offre la déduction OPP 3 mais verrouille les sorties. Une police 3b offre la liberté de bénéficiaires et de durée, avec une fiscalité à juger canton par canton. Une temporaire décès ne constitue pas d’épargne : elle paie un capital si le risque se réalise pendant la durée. Aucune de ces formes n’est recommandée d’office.",
       },
+      { type: "h2", text: "Quatre lectures, pas un produit" },
       {
-        type: "h2",
-        text: "Qu’est-ce qu’une assurance-vie en Suisse ?",
+        type: "ul",
+        items: [
+          "Risque pur : la prime paie le décès pendant une durée. Voir [risque pur décès](/risque-pur-deces/).",
+          "Mixte : capital au terme et capital décès, dans la même prime. Voir [3e pilier mixte](/3eme-pilier-mixte/).",
+          `3a : déduction 2026 de ${chf(FIGURES.pillar3aWithLpp)} avec 2e pilier, ou 20 % du revenu jusqu’à ${chf(FIGURES.pillar3aWithoutLpp)} sans. Même plafond qu’en banque.`,
+          "3b : pas de plafond OFAS. Utile pour un bénéficiaire hors ordre du 3a, pas comme second plafond.",
+        ],
       },
+      { type: "h2", text: "Ce que l’on demande dans une offre" },
       {
-        type: "p",
-        text: "Une assurance-vie est un contrat : une prime, contre une prestation si un événement prévu survient (décès pendant la durée, survie à l’échéance, parfois incapacité de gain). Un [risque pur](/risque-pur-deces/) ne constitue pas d’épargne. Une [assurance mixte](/3eme-pilier-mixte/) ajoute un capital si la personne est en vie au terme. L’[assurance décès](/assurance-deces/) est le capital versé aux proches, seule ou dans une police d’épargne.",
-      },
-      {
-        type: "p",
-        text: "Le 3e pilier est le cadre, pas la police. Le [3a](/3eme-pilier-a-ou-b/) est lié : l’OFAS indique que les cotisations à une forme reconnue sont déductibles, et que l’avoir n’est pas libre. Le [3b](/3eme-pilier-b-prevoyance-libre/) est libre. Une police peut être l’un ou l’autre. Un compte 3a en fondation bancaire n’est pas une assurance-vie : il transmet l’avoir, pas un capital fixé d’avance. Voir [banque ou assurance](/3eme-pilier-banque-assurance/). Le risque couvert et le cadre 3a ou 3b se lisent sur le contrat, pas sur le nom commercial.",
-      },
-      {
-        type: "h2",
-        text: "Risque pur ou assurance mixte",
-      },
-      {
-        type: "p",
-        text: "Le risque pur, souvent une temporaire décès, verse un capital si le décès survient pendant la durée choisie. Si la personne est en vie au terme, il n’y a en général rien à récupérer : la prime a payé le risque. Le capital peut être constant ou dégressif, par exemple pour suivre le solde d’une hypothèque. La durée, les exclusions et une éventuelle rente d’invalidité figurent au contrat.",
-      },
-      {
-        type: "p",
-        text: "L’assurance mixte réunit, dans la même prime, un capital si l’assuré est en vie à l’échéance et un capital décès. Les deux montants sont parfois les mêmes, parfois non. Un seul contrat discipline l’épargne. La prime paie le risque, l’épargne et des frais, surtout au début. Si la couverture demandée est élevée et l’épargne faible, un risque pur à côté d’un 3a bancaire est souvent plus clair. La mixte n’est pas un produit obligatoire du 3a.",
-      },
-      {
-        type: "table",
-        caption:
-          "Lecture qualitative. Le montant de prime et la valeur de rachat se lisent sur la police : il n’existe pas un barème unique en francs.",
-        headers: ["Critère", "Risque pur", "Assurance mixte"],
-        rows: [
-          ["Épargne", "Non, en général", "Oui : capital si l’assuré est en vie à l’échéance"],
-          ["Capital décès", "Oui, si le décès survient pendant la durée", "Oui, selon le contrat (même capital ou un autre montant)"],
-          ["Valeur de rachat", "En général absente, ou négligeable", "En général prévue ; souvent faible les premières années"],
-          ["Niveau de prime", "Souvent plus bas à capital décès égal, car il n’y a pas d’épargne", "Plus élevé : la prime paie le risque et l’épargne"],
-          ["Objectif", "Couvrir une période (hypothèque, enfants, revenu du ménage)", "Épargner et protéger dans un seul contrat"],
-          ["3a possible", "Oui, si la police est une forme reconnue de prévoyance liée", "Oui, à la même condition"],
-          ["3b possible", "Oui", "Oui"],
+        type: "ul",
+        items: [
+          "Le capital annoncé est-il fixé au contrat, ou lié à des fonds ?",
+          "Table de valeurs de rachat, surtout si l’on s’arrête tôt.",
+          "Coût du risque : décès, invalidité, libération des primes.",
+          "Frais d’acquisition et de gestion.",
+          "Clause bénéficiaire, et si le rachat est possible.",
         ],
       },
       {
-        type: "h2",
-        text: "Pilier 3a ou pilier 3b",
-      },
-      {
         type: "p",
-        text: "Le 3a est encouragé fiscalement dans des limites légales, parce que le capital est lié. L’OFAS reconnaît deux formes : la police d’assurance et le compte en fondation bancaire. Une sortie anticipée suit un motif de l’OPP 3 (logement pour ses propres besoins, départ de Suisse, indépendance, rachat LPP, invalidité entière AI non couverte, entre autres). Hors de ces cas, le capital reste bloqué jusqu’à la fenêtre de retraite.",
-      },
-      {
-        type: "p",
-        text: "Le 3b n’a pas ce plafond, ni cette déduction fédérale. L’OFAS indique que la prévoyance libre n’ouvre pas les déductions du 3a. Selon le produit et le canton, une déduction plus étroite peut exister (enveloppe des primes d’assurances, ou règle cantonale). Genève et Fribourg sont les cas romands cités ici : [Genève](/3eme-pilier-geneve/), [Fribourg](/3b-deduction-fribourg/). La notice de l’année fait foi. On ne généralise pas.",
-      },
-      {
-        type: "table",
-        caption: `Plafonds 3a 2026 : art. 7 OPP 3 et pages OFAS « Le troisième pilier » et « Votre cotisation au 3e pilier ». ${chf(FIGURES.pillar3aWithLpp)} / ${chf(FIGURES.pillar3aWithoutLpp)}.`,
-        headers: ["Critère", "3a (prévoyance liée)", "3b (prévoyance libre)"],
-        rows: [
-          [
-            "Déduction fiscale",
-            `Oui, dans les limites légales. 2026 : ${chf(FIGURES.pillar3aWithLpp)} avec 2e pilier ; ${FIGURES.pillar3aWithoutLppRate} du revenu, max. ${chf(FIGURES.pillar3aWithoutLpp)} sans.`,
-            "Pas de déduction fédérale générale comparable au 3a. Selon le produit et le canton, une déduction limitée peut exister.",
-          ],
-          [
-            "Disponibilité",
-            "Capital bloqué. Sortie anticipée seulement pour un motif prévu par l’OPP 3.",
-            "Plus libre, selon le contrat. Un rachat anticipé peut avoir un coût.",
-          ],
-          [
-            "Bénéficiaires",
-            "Ordre légal. Marge de désignation à l’intérieur des rangs.",
-            "En général plus de liberté, selon la clause et le droit successoral.",
-          ],
-          [
-            "Plafond",
-            `Plafond fédéral 2026 : ${chf(FIGURES.pillar3aWithLpp)} ou ${chf(FIGURES.pillar3aWithoutLpp)}.`,
-            "Pas de plafond OFAS.",
-          ],
-          [
-            "Usage",
-            "Épargne liée et, selon la police, couverture décès ou incapacité.",
-            "Souplesse, protection d’une personne hors ordre 3a, complément une fois le 3a saturé.",
-          ],
-        ],
-      },
-      {
-        type: "h2",
-        text: "Combien ça coûte, et quels frais comparer",
-      },
-      {
-        type: "p",
-        text: "Il n’existe pas un prix unique en francs. La prime dépend du capital, de l’âge, de la durée, de l’état de santé, des garanties ajoutées et du fait que le contrat épargne ou non. Ce qui se compare, ce sont les lignes de frais, pas un taux isolé.",
-      },
-      {
-        type: "p",
-        text: "À mettre côte à côte : frais d’acquisition, souvent prélevés au début ; coût du risque (décès, incapacité, [libération des primes](/liberation-du-paiement-des-primes/)) ; frais de gestion ; frais du support si la police est en fonds ; coût ou perte au rachat. Une prime plus basse peut couvrir moins. Une prime plus haute peut payer une garantie, ou des frais peu lisibles. La page [frais 3a](/frais-3a-banque-assurance/) pose ces questions. Elle ne classe pas les compagnies.",
-      },
-      {
-        type: "h2",
-        text: "Valeur de rachat",
-      },
-      {
-        type: "p",
-        text: "La valeur de rachat est la somme prévue au contrat si on l’arrête avant le terme. Ce n’est pas la somme des primes versées.",
-      },
-      {
-        type: "p",
-        text: "Un risque pur n’a en général pas de valeur de rachat, ou une valeur négligeable. Une mixte a en général une table de rachat. Les premières années, cette valeur est souvent très inférieure aux primes, parfois nulle : frais d’acquisition et coût du risque sont prélevés tôt. Seule la table de la police donne le montant. Un contrat particulier peut s’écarter de ce schéma.",
-      },
-      {
-        type: "h2",
-        text: "Fonds ou capital garanti",
-      },
-      {
-        type: "p",
-        text: "Deux mécaniques coexistent, parfois dans la même offre. Un capital en francs prévu à la police est dû si les conditions sont remplies : survie, décès, échéance. Un contrat lié à des fonds suit la valeur des parts. Le capital à l’échéance n’est alors pas garanti : il peut monter ou baisser. Une participation aux excédents, quand le contrat en prévoit une, n’est pas un rendement promis.",
-      },
-      {
-        type: "p",
-        text: "Le capital décès fixé en francs ne suit pas forcément l’épargne en fonds. Les deux lignes se lisent séparément. Cette page n’annonce pas de performance.",
-      },
-      {
-        type: "h2",
-        text: "Fiscalité : 3a, 3b, et ce qui ne se généralise pas",
-      },
-      {
-        type: "p",
-        text: `Le 3a est déductible du revenu pour l’impôt fédéral direct et les impôts cantonaux et communaux, dans la mesure de l’art. 7 OPP 3. En 2026, la petite cotisation est de ${chf(FIGURES.pillar3aWithLpp)} pour une personne affiliée à une institution de prévoyance du 2e pilier. La grande cotisation est de ${FIGURES.pillar3aWithoutLppRate} du revenu de l’activité lucrative, au maximum ${chf(FIGURES.pillar3aWithoutLpp)}, pour une personne qui n’y est pas affiliée. Sources : OFAS — Le troisième pilier et OFAS — Votre cotisation au 3e pilier. Le versement doit être crédité au 31 décembre pour compter sur l’année.`,
-      },
-      {
-        type: "p",
-        text: `Le 2 octobre 2026, le Conseil fédéral a décidé de porter ces plafonds au 1er janvier 2027 à ${chf(7373)} pour les personnes avec un 2e pilier et à ${chf(36864)} pour celles qui n’en ont pas. Source : communiqué du Conseil fédéral du 2 octobre 2026. Pour un versement imputé à 2026, le plafond reste celui de 2026.`,
-      },
-      {
-        type: "p",
-        text: "Le 3b n’ouvre pas cette déduction. Certaines primes peuvent entrer dans l’enveloppe plafonnée des primes d’assurances et des intérêts d’épargne, souvent déjà occupée par l’assurance-maladie. Quelques cantons ajoutent une déduction limitée pour des primes d’assurance-vie : notice de l’année, pas un second plafond 3a. Détail : [déductions fiscales](/deductions-fiscales-3eme-pilier/). Au dénouement, le capital 3a est imposé séparément du reste du revenu. Pour une assurance 3b susceptible de rachat, l’AFC indique que le traitement du capital se juge au cas par cas par le canton.",
-      },
-      {
-        type: "h2",
-        text: "Qui reçoit le capital au décès",
-      },
-      {
-        type: "p",
-        text: "En 3a, l’OFAS fixe un ordre. Au décès : le conjoint survivant ou le partenaire enregistré ; puis les descendants directs ainsi que les personnes à l’entretien desquelles le défunt subvenait de façon substantielle, ou la personne qui avait formé avec lui une communauté de vie ininterrompue d’au moins cinq ans immédiatement avant le décès, ou qui doit subvenir à l’entretien d’un enfant commun ; puis les parents ; puis les frères et sœurs ; puis les autres héritiers. On peut préciser à l’intérieur d’un rang. On n’inverse pas l’ordre. Un concubin de quatre ans n’entre pas dans le second rang. La page [choisir les bénéficiaires](/choisir-les-beneficiaires/) reprend cet ordre.",
-      },
-      {
-        type: "p",
-        text: "En 3b, la clause est en général plus libre : un concubin ou un associé peut être désigné, hors de l’ordre 3a. Le texte signé et le droit successoral limitent cette marge. Deux polices n’ouvrent pas la même liberté. On lit qui est nommé avant de compter sur un proche précis.",
-      },
-      {
-        type: "h2",
-        text: "Questionnaire de santé",
-      },
-      {
-        type: "p",
-        text: "Pour couvrir un décès ou une incapacité, l’assureur évalue le risque. Un questionnaire est fréquent ; des examens peuvent suivre selon le capital et l’âge. Les réponses engagent. L’issue peut être une acceptation, une surprime, une exclusion ou un refus. La couverture vaut aux conditions écrites à l’acceptation, pas au jour de l’envoi du formulaire.",
-      },
-      {
-        type: "h2",
-        text: "Quand c’est intéressant, et quand séparer assurance et épargne",
-      },
-      {
-        type: "p",
-        text: "Une assurance-vie répond à un capital dont les proches auraient besoin si un revenu disparaît, ou à une incapacité qui empêcherait de payer les primes. La [libération des primes](/liberation-du-paiement-des-primes/) et une rente d’incapacité, quand elles existent, ne sont pas un capital décès. Le contrat sert aussi à épargner sur un horizon long, si le rythme de primes est voulu et les frais acceptés.",
-      },
-      {
-        type: "p",
-        text: "Séparer couverture et épargne est souvent plus clair si le besoin décès est élevé et l’avoir encore faible (risque pur + compte 3a), si l’horizon est court (les frais d’acquisition se voient à l’arrêt), ou si le bénéficiaire n’entre pas dans l’ordre 3a (clause 3b ou risque pur nominatif). Le 3b ne devient pas pour autant un second plafond fiscal. Budget, dettes, rentes de survivants AVS/LPP et canton passent avant le nom du contrat. Une [analyse de prévoyance](/analyse-de-prevoyance/) pose ces montants.",
-      },
-      {
-        type: "h2",
-        text: "Comment comparer",
-      },
-      {
-        type: "p",
-        text: "Le comparatif du site part de la situation. Il est sans honoraires et sans engagement. Il ne classe pas les compagnies. Pour chaque police : capital à l’échéance, capital décès, table de rachat, frais, garanties d’incapacité, clause bénéficiaire, cadre 3a ou 3b. Sans ces lignes, deux primes ne se comparent pas.",
-      },
-      {
-        type: "p",
-        text: "La demande passe par le formulaire du site : [recevoir un comparatif](/formulaire-3eme-pilier/). Un rappel peut suivre pour lire les garanties. Souscrire n’est pas une obligation.",
+        text: "Le cadre du 3e pilier, avant la police, est le [3e pilier Suisse](/3eme-pilier-suisse/). Banque et assurance se départagent sur [banque ou assurance](/3eme-pilier-banque-assurance/). 3a et 3b se départagent sur [3a ou 3b](/3eme-pilier-a-ou-b/).",
       },
     ],
   },
@@ -1495,139 +651,19 @@ export const PAGES: EditorialDoc[] = [
     kind: "page",
     slug: "assurance-deces",
     wpId: 3202,
-    title: "Assurance décès et 3e pilier",
-    metaTitle: "Assurance décès 3e pilier : compte 3a, police et 3b",
+    title: "Assurance décès",
+    metaTitle: `Assurance décès ${YEAR_SPAN} : risque pur, 3a et famille`,
     description:
-      "Assurance décès 3e pilier : le compte 3a verse l’avoir constitué, une police peut prévoir un capital défini. Risque pur, 3a et 3b ne se confondent pas. La prime n’est déductible que dans un 3a, dans les limites légales.",
+      `Capital décès ${YEAR_SPAN} : police temporaire, 3a mixte ou 3b. Dimensionner la couverture sans confondre épargne et risque.`,
     published: "2022-03-18",
-    updated: "2026-10-03",
+    updated: UPDATED,
     intro:
-      "Une assurance décès, dans le 3e pilier, est un contrat qui prévoit un capital si la personne assurée décède pendant la durée couverte. Un compte 3a bancaire ne transmet que l’avoir déjà constitué. Le capital, la durée et les bénéficiaires se lisent sur le contrat : il n’existe pas une seule règle pour tous les ménages.",
-    related: [
-      "3eme-pilier-banque-assurance",
-      "3eme-pilier-a-ou-b",
-      "assurance-vie-en-suisse",
-      "liberation-du-paiement-des-primes",
-      "risque-pur-deces",
-    ],
-    faqs: [
-      {
-        question: "Quelle différence entre un 3a en banque et une assurance décès ?",
-        answer:
-          "Un 3a bancaire est un compte d’épargne liée : au décès, les proches reçoivent l’avoir constitué, pas un capital fixé à l’avance. Une assurance décès est un contrat qui prévoit un capital si le décès survient pendant la couverture. Les deux peuvent coexister. Le montant et les conditions se lisent sur le contrat, pas dans une règle unique.",
-      },
-      {
-        question: "Qu’est-ce qu’un risque pur dans le 3e pilier ?",
-        answer:
-          "Le risque pur est une assurance temporaire : la prime paie le risque de décès, sans constituer une épargne comparable à un compte. S’il n’y a pas de décès pendant la durée, il n’y a en général pas de capital à récupérer. Ce n’est pas une police 3a qui mêle épargne et couverture. La durée, le capital et les exclusions dépendent du contrat.",
-      },
-      {
-        question: "Une police 3a avec capital décès est-elle un 3b ?",
-        answer:
-          "Non. La police 3a reste de la prévoyance liée : le cadre du 3a s’applique, et un capital décès peut s’y ajouter selon le contrat. Le 3b est de la prévoyance libre, hors de ce cadre lié. On ne les substitue pas l’un à l’autre sans distinguer déduction et blocage d’un côté, souplesse de l’autre.",
-      },
-      {
-        question: "Qui sont les bénéficiaires d’un 3a en cas de décès ?",
-        answer:
-          "Le 3a suit un ordre légal de bénéficiaires. Une désignation est possible, dans les limites de cet ordre : ce n’est pas une liberté totale. La clause signée dit ce qui est ouvert dans votre contrat. Le 3b laisse en général une marge de désignation plus large, toujours encadrée par le contrat et le droit successoral.",
-      },
-      {
-        question: "La libération des primes remplace-t-elle une assurance décès ?",
-        answer:
-          "Non. La libération des primes fait continuer le contrat en cas d’incapacité, selon les conditions prévues. Une rente d’incapacité vise un revenu de remplacement, pas un capital versé aux proches au décès. Aucune de ces garanties n’est un capital décès. Le fonctionnement de la libération est détaillé sur la page qui lui est consacrée.",
-      },
-      {
-        question: "La prime d’une assurance décès est-elle toujours déductible ?",
-        answer:
-          "Non. Dans un 3a reconnu, elle entre dans le plafond légal (art. 7 OPP 3). En 3b, il n’y a pas de déduction fédérale générale comparable au 3a. Une déduction plus étroite peut exister selon le produit et le canton.",
-      },
-      {
-        question: "Quand faut-il une assurance décès en plus d’un compte 3a ?",
-        answer:
-          "Elle est utile quand les proches auraient besoin d’un capital que l’avoir déjà sur le compte ne couvre pas, par exemple tant que des charges du ménage reposent sur un revenu. Elle l’est moins quand transmettre cet avoir suffit, et qu’un capital défini n’est pas le besoin. Le contrat fixe le capital, la durée et les exclusions : il n’y a pas de seuil unique.",
-      },
-    ],
+      "L’assurance décès verse un capital aux bénéficiaires si vous décédez pendant la durée du contrat. Elle peut être autonome (risque pur) ou intégrée à un 3e pilier. Ce n’est pas un substitut du 3a fiscal.",
+    related: ["risque-pur-deces", "choisir-les-beneficiaires", "3eme-pilier-mixte"],
     blocks: [
       {
-        type: "h2",
-        text: "Le compte 3a verse l’avoir, l’assurance décès un capital",
-      },
-      {
         type: "p",
-        text: "Un 3a bancaire ne verse que l’avoir constitué. Une assurance décès couvre un capital défini si le décès a lieu pendant la période assurée.",
-      },
-      {
-        type: "p",
-        text: "L’avoir du compte dépend de ce qui a été versé et de ce que le support a produit. Il peut être modeste au début, même si le projet familial est déjà lourd. Le capital d’assurance, lui, est celui que le contrat prévoit : il ne grandit pas tout seul comme un compte, et il n’est dû que si les conditions de la police sont remplies. Comparer les deux sans ce distinguo mélange une épargne et une couverture.",
-      },
-      {
-        type: "h2",
-        text: "Risque pur, capital décès en 3a, et 3b",
-      },
-      {
-        type: "p",
-        text: "Le risque pur paie un capital sans jouer le rôle d’un compte. Une police 3a peut ajouter un capital décès à une épargne liée. Le 3b est une prévoyance libre, dont le capital dépend du contrat.",
-      },
-      {
-        type: "ul",
-        items: [
-          "Risque pur : temporaire décès, en principe sans épargne à récupérer si le risque ne se réalise pas. Utile pour couvrir une période, à côté d’un compte.",
-          "Capital décès dans une police 3a : la police reste liée. L’épargne et la couverture cohabitent dans le même contrat, avec le blocage et la déduction du 3a. Ce que les proches touchent en plus de l’épargne se lit sur la police, pas sur une promesse générale.",
-          "3b : prévoyance libre. Le capital, la durée et la possibilité de racheter le contrat varient. Ce n’est pas un second 3a, et ce n’est pas non plus automatiquement un risque pur. La prime 3b n’est pas déductible comme un 3a : pas de déduction fédérale générale équivalente.",
-        ],
-      },
-      {
-        type: "p",
-        text: "La prime n’est pas déductible par le seul fait qu’il s’agit d’une assurance décès. Logée dans un 3a reconnu, elle entre dans le plafond de l’art. 7 OPP 3. En 3b, l’effet fiscal, s’il existe, dépend du produit et du canton.",
-      },
-      {
-        type: "p",
-        text: "Le choix entre [banque ou assurance](/3eme-pilier-banque-assurance/) et entre [3a ou 3b](/3eme-pilier-a-ou-b/) vient de ce tri. Le mot [assurance-vie en Suisse](/assurance-vie-en-suisse/) recouvre ces formes : il ne désigne pas un seul produit.",
-      },
-      {
-        type: "h2",
-        text: "Bénéficiaires : ordre du 3a, marge du 3b",
-      },
-      {
-        type: "p",
-        text: "En 3a, les bénéficiaires suivent un ordre légal, avec une marge de désignation limitée. En 3b, la désignation est en général plus large, mais le contrat et le droit successoral décident.",
-      },
-      {
-        type: "p",
-        text: "On ne rédige pas ici la liste des rangs comme si elle remplaçait la clause signée. Deux contrats 3a peuvent ne pas ouvrir la même marge. Deux contrats 3b non plus. Avant de compter sur un proche précis, il faut lire qui est désigné, dans quel ordre, et ce que le contrat interdit de changer.",
-      },
-      {
-        type: "h2",
-        text: "Rente d’incapacité et libération des primes",
-      },
-      {
-        type: "p",
-        text: "Une rente d’incapacité et la libération des primes ne sont pas un capital décès. L’une vise un revenu si le travail s’arrête, l’autre fait continuer le contrat sans que la personne paie les primes.",
-      },
-      {
-        type: "p",
-        text: "Ces garanties s’activent, quand elles existent, selon la définition d’incapacité écrite au contrat. Elles ne versent pas aux proches le capital prévu pour un décès. La [libération du paiement des primes](/liberation-du-paiement-des-primes/) se lit à part : délai, degré et exclusions y sont ceux de la police, pas une règle commune à toutes les offres.",
-      },
-      {
-        type: "h2",
-        text: "Quand l’assurance décès est utile, et quand le compte suffit",
-      },
-      {
-        type: "p",
-        text: "L’assurance décès est utile quand les proches auraient besoin d’un capital que l’avoir du compte ne couvre pas. Le compte suffit quand transmettre cette épargne répond au besoin, sans capital défini en plus.",
-      },
-      {
-        type: "ul",
-        items: [
-          "Utile : un revenu du ménage disparaîtrait, des charges courent encore, et l’avoir 3a déjà constitué ne les couvre pas. Une temporaire, ou un capital dans une police, peut viser ce trou. Le montant reste celui du contrat.",
-          "Le compte peut suffire : l’objectif est de transmettre l’épargne accumulée, pas de garantir un capital plus élevé. Ajouter une assurance parce que « le 3e pilier se fait en assurance » ne répond pas à ce cas.",
-          "Les deux ensemble : le compte pour l’épargne liée, une couverture décès séparée ou incluse pour le capital. Ce n’est pas obligatoire. C’est un arbitrage entre prime, souplesse et ce que la clause bénéficiaire permet vraiment.",
-        ],
-      },
-      {
-        type: "callout",
-        title: "Ce que le contrat décide",
-        text: "Capital, durée, exclusions, rente d’incapacité, libération des primes et clause bénéficiaire ne se déduisent pas du mot « 3e pilier ». Deux offres du même nom peuvent couvrir des choses différentes.",
+        text: "Dimensionnez le capital par rapport aux dettes (hypothèque), au niveau de vie du ménage et aux rentes de survivants AVS/LPP déjà acquises. Un 3a bancaire ne paie que l’avoir : si la famille a besoin d’un million et que le compte pèse 40’000 CHF, le trou n’est pas « de l’épargne mal choisie », c’est un manque de risque pur.",
       },
     ],
   },
@@ -1638,30 +674,16 @@ export const PAGES: EditorialDoc[] = [
     title: "Risque pur décès",
     metaTitle: `Risque pur décès ${YEAR_SPAN} : temporaire, capital, 3e pilier`,
     description:
-      `Le risque pur n’épargne pas : il paie un capital en cas de décès. La prime n’est déductible que dans un 3a, dans les limites légales (${YEAR_SPAN}).`,
+      `Le risque pur n’épargne pas : il paie un capital en cas de décès. Souvent moins cher qu’un mixte pour une grosse couverture (${YEAR_SPAN}).`,
     published: "2021-11-12",
-    updated: "2026-10-03",
+    updated: UPDATED,
     intro:
       "Une temporaire décès (risque pur) n’a pas de valeur de rachat, ou une valeur négligeable. Toute la prime paie le risque. C’est souvent la façon la plus efficace de couvrir une hypothèque ou des enfants en bas âge, à côté d’un 3a bancaire.",
-    related: ["assurance-deces", "3eme-pilier-mixte", "assurance-vie-en-suisse", "deductions-fiscales-3eme-pilier"],
-    faqs: [
-      {
-        question: "La prime d’un risque pur est-elle déductible ?",
-        answer: `Pas dans tous les cas. Dans un 3a reconnu, elle entre dans le plafond 2026 : ${chf(FIGURES.pillar3aWithLpp)} avec une institution du 2e pilier, ou ${FIGURES.pillar3aWithoutLppRate} du revenu de l’activité lucrative, au maximum ${chf(FIGURES.pillar3aWithoutLpp)}, sans (art. 7 OPP 3). En 3b, il n’y a pas de déduction fédérale générale comparable. Une déduction limitée dépend du produit et du canton.`,
-      },
-    ],
+    related: ["assurance-deces", "3eme-pilier-mixte"],
     blocks: [
       {
         type: "p",
         text: "Comparez le capital, la durée (constante ou dégressive), les exclusions, la clause d’invalidité éventuelle et le questionnaire de santé. Une police refusée ou surprime peut valoir mieux qu’un mixte « accepté » illisible.",
-      },
-      {
-        type: "h2",
-        text: "La prime n’est pas déductible dans tous les cas",
-      },
-      {
-        type: "p",
-        text: `Une temporaire décès peut être conclue en [3a](/3eme-pilier-a-ou-b/) ou en [3b](/3eme-pilier-b-prevoyance-libre/). Le cadre ne rend pas la prime déductible par principe. Dans un 3a reconnu, elle entre dans le plafond de l’art. 7 OPP 3 : en 2026, ${chf(FIGURES.pillar3aWithLpp)} si la personne est affiliée à une institution du 2e pilier, ou ${FIGURES.pillar3aWithoutLppRate} du revenu de l’activité lucrative, au maximum ${chf(FIGURES.pillar3aWithoutLpp)}, sinon. Source : OFAS — Le troisième pilier. En 3b, il n’existe pas de déduction fédérale générale comparable au 3a. Une déduction limitée, quand elle existe, dépend du produit et du canton. Cette prime 3a occupe le plafond : elle laisse moins de place à l’épargne liée de la même année. Voir [assurance-vie en Suisse](/assurance-vie-en-suisse/) et [déductions fiscales](/deductions-fiscales-3eme-pilier/).`,
       },
     ],
   },
@@ -1670,7 +692,7 @@ export const PAGES: EditorialDoc[] = [
     slug: "epargne-enfant",
     wpId: 1967,
     title: "Épargne enfant",
-    metaTitle: "Épargne enfant : 3b ou compte, pas de 3a sans AVS",
+    metaTitle: `Épargne enfant ${YEAR_SPAN} : 3b, assurance, compte — pas de 3a sans AVS`,
     description:
       "Épargne et protection pour un enfant : le 3a de l’enfant n’existe pas sans revenu AVS. Pistes 3b, compte, clause bénéficiaire.",
     published: "2021-11-04",
@@ -1694,20 +716,49 @@ export const PAGES: EditorialDoc[] = [
     description:
       `Lire un certificat LPP, estimer l’AVS ${YEAR_SPAN} (tableau OFAS 2026), mesurer le trou de retraite et le besoin décès avant de choisir un 3e pilier.`,
     published: "2021-11-12",
-    updated: UPDATED,
+    updated: "2026-10-03",
+    parents: [{ name: "3e pilier", href: "/3eme-pilier-suisse/" }],
     intro:
-      "Sans analyse, un comparatif 3e pilier compare des emballages. L’analyse aligne rentes AVS, avoir LPP, dettes, famille et capacité d’épargne.",
-    related: ["1er-pilier-avs-ai-apg", "2eme-pilier-lpp", "choisir-son-3eme-pilier"],
+      "Sans analyse, un comparatif 3e pilier compare des emballages. L’analyse aligne la rente AVS, l’avoir LPP, les dettes, la famille et ce que le budget peut verser. Le produit — banque ou assurance, 3a ou 3b — vient après ce trou, pas avant. Aucun rendement n’est calculé ici.",
+    brief: [
+      `Rente AVS complète 2026 : ${chf(FIGURES.avsMinMonthly)} à ${chf(FIGURES.avsMaxMonthly)} par mois. Couple : ${chf(FIGURES.avsCoupleMaxMonthly)}.`,
+      `Seuil d’entrée LPP 2026 : ${chf(FIGURES.lppEntry)}. Être affilié change le plafond 3a.`,
+      `Plafond 3a 2026 : ${chf(FIGURES.pillar3aWithLpp)} avec 2e pilier, ou 20 % jusqu’à ${chf(FIGURES.pillar3aWithoutLpp)} sans.`,
+      "Le besoin de décès se mesure net des rentes de survivants déjà acquises.",
+      NOTE_2027,
+    ],
+    related: ["1er-pilier-avs-ai-apg", "2eme-pilier-lpp", "choisir-son-3eme-pilier", "3eme-pilier-suisse", "libre-passage-lpp"],
+    faqs: [
+      {
+        question: "L’analyse remplace-t-elle le comparatif ?",
+        answer:
+          "Non. Elle dit quel trou combler. Le comparatif dit ensuite quels frais, quelle souplesse et quelles garanties correspondent à ce trou. L’un sans l’autre compare des emballages.",
+      },
+      {
+        question: "Faut-il un chiffre de rente 2027 pour commencer ?",
+        answer: `Non, pour commencer l’analyse. Cette page garde les rentes du tableau OFAS au 1er janvier 2026 et ne recopie pas d’autres montants 2027. ${NOTE_2027}.`,
+      },
+    ],
     blocks: [
+      { type: "h2", text: "Cinq lectures, dans l’ordre" },
       {
         type: "ol",
         items: [
-          `Estimer la rente AVS (2026 : ${chf(FIGURES.avsMinMonthly)} à ${chf(FIGURES.avsMaxMonthly)} par mois ; dès 2027 : ${chf(YEARS[2027].avsMinMonthly)} à ${chf(YEARS[2027].avsMaxMonthly)}, Conseil fédéral du 2 octobre 2026).`,
-          "Lire le certificat LPP : salaire assuré, avoir, projection à l’âge de référence, rentes d’invalidité et de survivants.",
-          "Lister les 3a déjà ouverts (plusieurs comptes sont possibles, le plafond est global).",
-          "Chiffrer le besoin décès / invalidité net des prestations sociales.",
-          `Ensuite seulement : banque ou assurance, 3a ou 3b, montant ${YEAR_SPAN}.`,
+          `Estimer la rente AVS. Tableau OFAS 2026 : ${chf(FIGURES.avsMinMonthly)} à ${chf(FIGURES.avsMaxMonthly)} par mois pour une rente complète. Couple marié : ${chf(FIGURES.avsCoupleMaxMonthly)}. 13e rente de vieillesse dès décembre 2026.`,
+          `Lire le certificat LPP : salaire assuré, avoir, projection, rentes d’invalidité et de survivants. Seuil d’entrée 2026 : ${chf(FIGURES.lppEntry)}.`,
+          `Lister les 3a déjà ouverts. Plusieurs relations sont possibles. Le plafond ${chf(FIGURES.pillar3aWithLpp)} ou ${chf(FIGURES.pillar3aWithoutLpp)} est global.`,
+          "Chiffrer le besoin décès ou invalidité, net des prestations sociales déjà acquises.",
+          "Ensuite seulement : banque ou assurance, 3a ou 3b, et un montant tenable.",
         ],
+      },
+      {
+        type: "p",
+        text: `${NOTE_2027}. L’analyse se fait avec les rentes du tableau OFAS au 1er janvier 2026.`,
+      },
+      { type: "h2", text: "Où continuer" },
+      {
+        type: "p",
+        text: "Les montants du [1er pilier](/1er-pilier-avs-ai-apg/) et du [2e pilier](/2eme-pilier-lpp/) se lisent avant le 3e. Le cadre individuel est le [3e pilier Suisse](/3eme-pilier-suisse/). La grille de questions est sur [comment choisir](/choisir-son-3eme-pilier/). Un avoir de caisse en attente n’est pas un 3a : c’est le [libre passage](/libre-passage-lpp/).",
       },
     ],
   },
@@ -1716,7 +767,7 @@ export const PAGES: EditorialDoc[] = [
     slug: "liberation-du-paiement-des-primes",
     wpId: 1929,
     title: "Libération du paiement des primes",
-    metaTitle: "Libération des primes : invalidité et 3e pilier",
+    metaTitle: `Libération des primes ${YEAR_SPAN} : invalidité et 3e pilier assurance`,
     description:
       "Si l’assureur prend en charge les primes en cas d’incapacité, le 3a/3b continue sans vous. Garantie à lire avant de signer.",
     published: "2021-10-31",
@@ -1736,21 +787,22 @@ export const PAGES: EditorialDoc[] = [
     slug: "1er-pilier-avs-ai-apg",
     wpId: 1986,
     title: "1er pilier AVS / AI / APG",
-    metaTitle: "1er pilier AVS 2026 : rentes, 13e rente, âge",
+    metaTitle: `1er pilier ${YEAR_SPAN} : rentes AVS, 13e rente, âge de référence`,
     description:
-      "AVS 2026 : 1’260 à 2’520 CHF par mois. Dès le 1er janvier 2027 : 1’280 à 2’560 CHF (Conseil fédéral, 2 octobre 2026). 13e rente dès décembre 2026.",
+      "AVS 2026 : rentes min./max. (tableau OFAS 1.1.2026). Cette page ne recopie pas d’autres montants 2027. 13e rente dès décembre 2026, âge de référence 65 ans.",
     published: "2021-11-12",
     updated: UPDATED,
-    intro: `Quelle est la rente AVS en ${YEAR_SPAN_WORDS} ? En 2026, une rente de vieillesse complète se situe entre ${chf(FIGURES.avsMinMonthly)} et ${chf(FIGURES.avsMaxMonthly)} par mois (tableau OFAS au 1.1.2026). Dès le 1er janvier 2027, le Conseil fédéral la porte de ${chf(YEARS[2027].avsMinMonthly)} à ${chf(YEARS[2027].avsMaxMonthly)} par mois (décision du 2 octobre 2026).`,
-    related: ["3eme-pilier-suisse", "2eme-pilier-lpp", "tableau-ofas-montants-avs-lpp-3a", "analyse-de-prevoyance"],
+    intro: `Quelle est la rente AVS en ${YEAR_SPAN_WORDS} ? Selon le tableau OFAS au 1er janvier 2026, une rente de vieillesse complète se situe entre ${chf(FIGURES.avsMinMonthly)} et ${chf(FIGURES.avsMaxMonthly)} par mois. La somme des deux rentes d’un couple marié est plafonnée à ${chf(FIGURES.avsCoupleMaxMonthly)}. Cette page cite ce tableau du 1er janvier 2026 et ne recopie pas d’autres montants 2027.`,
+    related: ["2eme-pilier-lpp", "tableau-ofas-montants-avs-lpp-3a", "analyse-de-prevoyance"],
     faqs: [
       {
         question: "La 13e rente AVS relève-t-elle le plafond 3a ?",
-        answer: `Non. La 13e rente (premier versement décembre 2026) est une prestation AVS. ${CEILING_NOTE}.`,
+        answer: `Non. La 13e rente (premier versement décembre 2026) est une prestation AVS. Elle ne fixe pas le plafond 3a. ${NOTE_2027}.`,
       },
       {
         question: "Les rentes AVS 2027 sont-elles déjà publiées ?",
-        answer: `Oui. Le 2 octobre 2026, le Conseil fédéral a fixé la rente minimale à ${chf(YEARS[2027].avsMinMonthly)} et la rente maximale à ${chf(YEARS[2027].avsMaxMonthly)} par mois dès le 1er janvier 2027. En 2026, le tableau OFAS reste ${chf(FIGURES.avsMinMonthly)} à ${chf(FIGURES.avsMaxMonthly)}.`,
+        answer:
+          "Cette page cite le tableau OFAS au 1er janvier 2026. Elle ne recopie pas d’autres montants 2027. Les plafonds 3a au 1er janvier 2027 sont ceux du communiqué du Conseil fédéral du 2 octobre 2026 : 7 373 CHF avec un 2e pilier et 36 864 CHF au maximum sans. https://www.admin.ch/fr/newnsb/BqB41FVYi5FB",
       },
     ],
     blocks: [
@@ -1773,7 +825,7 @@ export const PAGES: EditorialDoc[] = [
       {
         type: "callout",
         title: "Ancien slogan du site",
-        text: "L’âge de référence AVS est 65 ans. Les femmes de la génération transitoire AVS 21 suivent un relèvement progressif. L’ancienne mention « 64 ans pour les femmes », sans cette transition, ne décrit plus la règle.",
+        text: "Les textes WordPress citaient encore « 65 ans / 64 ans ». C’est périmé pour 2026–2027. Nous indiquons l’âge de référence et la transition AVS 21.",
       },
     ],
   },
@@ -1784,13 +836,12 @@ export const PAGES: EditorialDoc[] = [
     title: "2e pilier LPP",
     metaTitle: `2e pilier LPP ${YEAR_SPAN} : seuil 22’680, coordination 26’460`,
     description:
-      "LPP 2026 : seuil 22’680 CHF, coordination 26’460 CHF. Dès 2027 : seuil 23’040 CHF, coordination 26’880 CHF (Conseil fédéral, 2 octobre 2026). Lien avec le plafond 3a.",
+      "LPP 2026 (tableau OFAS 1.1.2026) : seuil d’entrée, déduction de coordination, salaire coordonné. Cette page ne recopie pas de seuils 2027. Le plafond 3a 2027 est celui du communiqué du Conseil fédéral.",
     published: "2021-11-12",
-    updated: UPDATED,
-    intro: `Quel est le seuil LPP en ${YEAR_SPAN_WORDS} ? En 2026, l’affiliation obligatoire commence à ${chf(FIGURES.lppEntry)} de salaire annuel et la déduction de coordination est ${chf(FIGURES.lppCoordination)} (tableau OFAS). Dès le 1er janvier 2027 : seuil ${chf(YEARS[2027].lppEntry)}, coordination ${chf(YEARS[2027].lppCoordination)} (Conseil fédéral, 2 octobre 2026).`,
+    updated: "2026-10-03",
+    intro: `Quel est le seuil LPP en ${YEAR_SPAN_WORDS} ? Selon le tableau OFAS au 1er janvier 2026, l’affiliation obligatoire commence à ${chf(FIGURES.lppEntry)} de salaire annuel, la déduction de coordination est ${chf(FIGURES.lppCoordination)}, la limite supérieure ${chf(FIGURES.lppSalaryCap)}. Cette page cite ce tableau du 1er janvier 2026 et ne recopie pas de seuils 2027.`,
     related: [
-      "3eme-pilier-suisse",
-      "3eme-pilier-independant",
+      "3eme-pilier-logement",
       "a-quoi-sert-le-deuxieme-pilier",
       "libre-passage-lpp",
       "tableau-ofas-montants-avs-lpp-3a",
@@ -1803,7 +854,8 @@ export const PAGES: EditorialDoc[] = [
       },
       {
         question: "Les montants LPP 2027 sont-ils déjà connus ?",
-        answer: `Oui pour le seuil d’entrée (${chf(YEARS[2027].lppEntry)}) et la déduction de coordination (${chf(YEARS[2027].lppCoordination)}), dès le 1er janvier 2027. Source : Conseil fédéral, 2 octobre 2026. En 2026 : ${chf(FIGURES.lppEntry)} et ${chf(FIGURES.lppCoordination)}.`,
+        answer:
+          "Cette page cite le tableau OFAS au 1er janvier 2026. Elle ne recopie pas de seuils LPP 2027. Les plafonds 3a 2027 sont 7 373 CHF avec un 2e pilier et 36 864 CHF au maximum sans. Communiqué du 2 octobre 2026 : https://www.admin.ch/fr/newnsb/BqB41FVYi5FB",
       },
     ],
     blocks: [
@@ -1813,7 +865,7 @@ export const PAGES: EditorialDoc[] = [
       },
       {
         type: "table",
-        headers: ["Paramètre LPP en 2026 (tableau OFAS)", "Montant"],
+        headers: ["Paramètre LPP (tableau OFAS au 1er janvier 2026)", "Montant"],
         rows: [
           ["Salaire minimal annuel (seuil)", chf(FIGURES.lppEntry)],
           ["Déduction de coordination", chf(FIGURES.lppCoordination)],
@@ -1824,7 +876,7 @@ export const PAGES: EditorialDoc[] = [
       },
       {
         type: "p",
-        text: "Les minimums, délais et remboursements du 2e pilier ne se transportent pas au versement logement du 3a : [ce qui vaut seulement pour le 2e pilier](/3eme-pilier-logement/).",
+        text: "Le versement anticipé du 2e pilier pour un logement suit la LPP, art. 30c et 30d, et l’OEPL, art. 5 : minimum de 20’000 francs, cadence de cinq ans à l’art. 5 al. 3, plafond après 50 ans, remboursement à la vente. Ces règles ne s’appliquent pas au 3a. [Ce qui distingue le 3a du versement anticipé LPP](/3eme-pilier-logement/).",
       },
     ],
   },
@@ -1833,18 +885,47 @@ export const PAGES: EditorialDoc[] = [
     slug: "libre-passage-lpp",
     wpId: 5018,
     title: "Libre passage LPP",
-    metaTitle: "Libre passage LPP : changement d’employeur, compte",
+    metaTitle: `Libre passage LPP ${YEAR_SPAN} : changement d’employeur, compte, police`,
     description:
-      "Quand l’avoir de 2e pilier quitte la caisse : compte ou police de libre passage, délais de transfert, et ce que cela change pour le 3e pilier.",
+      `Quand l’avoir de 2e pilier sort de la caisse : compte ou police de libre passage, délais, 3e pilier. Guide ${YEAR_SPAN}.`,
     published: "2023-11-05",
-    updated: UPDATED,
+    updated: "2026-10-03",
     intro:
-      "Un changement d’employeur, une interruption d’activité ou un départ vers l’indépendance déclenche un libre passage : l’avoir LPP doit quitter la caisse et rejoindre la nouvelle institution, un compte ou une police de libre passage.",
-    related: ["compte-de-libre-passage-lpp", "2eme-pilier-lpp"],
+      "Un changement d’employeur, une pause ou un passage à l’indépendance sort l’avoir LPP de la caisse. Il doit rejoindre la nouvelle institution, ou un compte ou une police de libre passage. Ce n’est pas un 3e pilier : autre enveloppe, autres règles de sortie. Le laisser sans instruction finit à l’institution supplétive.",
+    brief: [
+      "L’avoir suit le nouvel employeur, ou attend sur un compte ou une police de libre passage.",
+      "Ce n’est pas un 3a. Le plafond 3a ne s’applique pas à cette enveloppe.",
+      "Sans instruction, la caisse verse à l’institution supplétive après le délai légal. Le délai exact se lit auprès de la caisse, il n’est pas recopié ici.",
+      "Logement et départ de Suisse sont des motifs de versement, avec des règles propres au 2e pilier.",
+      "Retrouver un avoir oublié passe par la centrale du 2e pilier, pas par un nouveau 3a.",
+    ],
+    related: ["compte-de-libre-passage-lpp", "2eme-pilier-lpp", "analyse-de-prevoyance", "3eme-pilier-suisse"],
+    faqs: [
+      {
+        question: "Le libre passage est-il un 3e pilier ?",
+        answer:
+          "Non. C’est de l’avoir de prévoyance professionnelle en attente. Le verser sur un 3a n’est pas le geste par défaut. Les deux enveloppes ne se mélangent pas.",
+      },
+      {
+        question: "Faut-il une police plutôt qu’un compte ?",
+        answer:
+          "Pas automatiquement. Le compte et la police de libre passage n’ont pas les mêmes frais ni la même sortie. On compare la tenue, les titres et ce qui reste si l’on arrête. Aucun rendement n’est annoncé ici.",
+      },
+    ],
     blocks: [
+      { type: "h2", text: "Où va l’avoir" },
       {
         type: "p",
-        text: "Ne laissez pas l’avoir « orphelin » sans instruction : la caisse le verse à l’institution supplétive après le délai légal. Comparez frais, intérêts et titres. Le libre passage n’est pas un 3a : autre enveloppe, autres motifs de retrait (dont le logement et le départ de Suisse, avec des règles propres).",
+        text: "Trois issues : la caisse du nouvel employeur, un compte de libre passage, ou une police de libre passage. Ne laissez pas l’avoir sans instruction : la caisse le verse à l’institution supplétive après le délai qu’elle applique. Ce délai n’est pas chiffré ici, il se confirme auprès de la caisse. Le détail du compte est sur [compte de libre passage](/compte-de-libre-passage-lpp/).",
+      },
+      { type: "h2", text: "Ce que ce n’est pas" },
+      {
+        type: "p",
+        text: `Le libre passage n’est pas un 3a. Le plafond ${chf(FIGURES.pillar3aWithLpp)} ou ${chf(FIGURES.pillar3aWithoutLpp)} ne s’y applique pas. Les motifs de versement (logement, départ de Suisse) ont leurs propres règles. ${NOTE_2027} ne concerne que le 3a, pas cet avoir.`,
+      },
+      {
+        type: "p",
+        text: "Pour situer cet avoir dans l’ensemble : le [2e pilier LPP](/2eme-pilier-lpp/), une [analyse de prévoyance](/analyse-de-prevoyance/), puis le [3e pilier Suisse](/3eme-pilier-suisse/) si un versement individuel est encore la question. On ne recommande pas une police parce que l’avoir a quitté la caisse.",
       },
     ],
   },
@@ -1853,9 +934,9 @@ export const PAGES: EditorialDoc[] = [
     slug: "compte-de-libre-passage-lpp",
     wpId: 5981,
     title: "Compte de libre passage LPP",
-    metaTitle: "Compte de libre passage : fonctionnement et pièges",
+    metaTitle: `Compte de libre passage ${YEAR_SPAN} : fonctionnement et pièges`,
     description:
-      "Compte ou police de libre passage : frais, titres et regroupement d’avoirs LPP. Ce n’est pas un compte 3a, ni un livret.",
+      "Compte vs police de libre passage, frais, titres, regroupement d’avoirs. À ne pas confondre avec un 3a.",
     published: "2023-10-10",
     updated: UPDATED,
     intro:
@@ -1873,18 +954,18 @@ export const PAGES: EditorialDoc[] = [
     slug: "formulaire-3eme-pilier",
     wpId: 1248,
     title: "Formulaire comparatif 3e pilier",
-    metaTitle: "Comparatif 3e pilier : demander un comparatif gratuit",
+    metaTitle: `Comparatif 3e pilier ${YEAR_SPAN} : 5 champs, sans Typeform`,
     description:
-      "Demandez un comparatif 3a ou 3b, en banque ou en assurance. Un conseiller rappelle sous deux jours ouvrés. Sans honoraires, sans engagement.",
+      `Demandez un comparatif 3a/3b en HTML. Sans honoraires, plafonds OFAS ${YEAR_SPAN} (7’258 / 36’288), rappel sous deux jours ouvrés. Pas de Typeform.`,
     published: "2021-11-02",
     updated: UPDATED,
     intro:
-      "Comparez 3a ou 3b, en banque ou en assurance : frais, souplesse et garanties.",
+      "Un seul formulaire. Pas de Typeform. Un conseiller du service rappelle sous deux jours ouvrés, sans honoraires et sans engagement. Aucun diplôme ni registre n’est affiché : ces éléments ne sont pas établis ici. Pas de confirmation automatique dans votre boîte.",
     related: ["nous-contacter", "page-remerciement", "choisir-son-3eme-pilier"],
     blocks: [
       {
         type: "p",
-        text: "Champs : nom et prénom, date de naissance, épargne mensuelle, e-mail, téléphone. Valider le formulaire reconnaît la politique de confidentialité.",
+        text: "Champs : prénom, nom, e-mail, téléphone, canton, situation. Une précision facultative (frontalier, TOU, logement). Consentement pour le rappel et la transmission au partenaire.",
       },
     ],
   },
@@ -1899,7 +980,7 @@ export const PAGES: EditorialDoc[] = [
     published: "2021-11-02",
     updated: UPDATED,
     intro:
-      "Quatre champs et votre demande. Un conseiller vous rappelle sous deux jours ouvrés si la demande est enregistrée. Aucun e-mail de confirmation n’est envoyé.",
+      "Quatre champs et votre demande. Prochaine étape : un rappel sous deux jours ouvrés si le CRM a le dossier. Pas de confirmation dans votre boîte.",
     related: ["formulaire-3eme-pilier", "a-propos", "page-de-confidentialitee"],
     blocks: [
       {
@@ -1912,7 +993,7 @@ export const PAGES: EditorialDoc[] = [
       },
       {
         type: "p",
-        text: "Écrivez-nous aussi à info@comparateur-3eme-pilier.ch.",
+        text: `Écrivez-nous aussi à ${"info@comparateur-3eme-pilier.ch"}. Pas d’iframe obligatoire, pas de Typeform.`,
       },
     ],
   },
@@ -1923,45 +1004,62 @@ export const PAGES: EditorialDoc[] = [
     title: "Politique de confidentialité",
     metaTitle: "Confidentialité — comparateur-3eme-pilier.ch",
     description:
-      "Données des formulaires de comparatif et de contact : ce qui est enregistré, pourquoi, et comment écrire à info@comparateur-3eme-pilier.ch.",
+      "Politique de confidentialité (LPD). Le slug historique page-de-confidentialitee est conservé. Alias 301 depuis l’orthographe correcte.",
     published: "2021-10-30",
     updated: UPDATED,
     intro:
-      "Cette page décrit les données que les formulaires de comparateur-3eme-pilier.ch enregistrent vraiment. Contact : info@comparateur-3eme-pilier.ch.",
+      "Cette page reste à l’URL historique /page-de-confidentialitee/ (faute d’orthographe conservée pour les backlinks). L’orthographe correcte /page-de-confidentialite/ redirige ici en 301.",
     related: ["mentions-legales", "nous-contacter"],
     blocks: [
-      { type: "h2", text: "1. Contact" },
+      { type: "h2", text: "1. Responsable" },
       {
         type: "p",
-        text: "Site : comparateur-3eme-pilier.ch. Nom d’usage : Comparateur 3ème pilier. Contact : info@comparateur-3eme-pilier.ch.",
+        text: "Le site comparateur-3eme-pilier.ch collecte des données de contact lorsque vous utilisez les formulaires. Contact : info@comparateur-3eme-pilier.ch. L’éditeur historique du WordPress n’est pas un titre de propriété SWITCH : voir mentions légales.",
       },
       { type: "h2", text: "2. Données collectées" },
       {
         type: "p",
-        text: "Formulaire de comparatif : nom et prénom, date de naissance, montant d’épargne mensuelle visé, e-mail, téléphone, date et heure de la demande. La validation reconnaît la politique de confidentialité. La date de naissance et l’épargne mensuelle sont jointes à la remarque transmise.",
+        text: "Identité, civilité, e-mail, téléphone, canton, situation professionnelle, éléments de prévoyance que vous saisissez, message, date et heure, métadonnées techniques minimales (par exemple adresse IP dans les journaux serveur). Pas de champ carte bancaire.",
       },
+      { type: "h2", text: "3. Finalités" },
+      {
+        type: "ul",
+        items: [
+          "Répondre à une demande de contact ou de comparatif.",
+          "Transmettre le dossier à un partenaire conseil pour établir des offres (au plus quelques offres, pas une revente de fichier).",
+          "Tenir une preuve de consentement et un journal des leads.",
+          "Améliorer le site (statistiques agrégées, si un outil d’audience est activé).",
+        ],
+      },
+      { type: "h2", text: "4. Bases (LPD)" },
       {
         type: "p",
-        text: "Formulaire de contact : prénom, nom, e-mail, téléphone, message, case de consentement, date et heure de la demande.",
+        text: "Loi fédérale sur la protection des données. Traitement pour l’exécution de votre demande et notre intérêt à gérer le service. Le consentement est demandé pour la transmission au partenaire et pour un éventuel suivi commercial. Vous pouvez le refuser en n’envoyant pas le formulaire.",
       },
+      { type: "h2", text: "5. Destinataires" },
       {
         type: "p",
-        text: "Si l’adresse de la page contient ces paramètres, ils sont joints à la demande : page d’arrivée, utm_source, utm_medium, utm_campaign, utm_term, utm_content, gclid. Ils sont gardés dans le navigateur pour la session, puis envoyés avec le formulaire.",
+        text: "Équipe du site, hébergeur, et le partenaire chargé de produire le comparatif. Nous ne revendons pas les données. Les offres sont gratuites pour l’utilisateur : le partenaire ne doit pas exiger d’honoraires en échange de la remise des offres.",
       },
-      { type: "h2", text: "3. Finalité" },
+      { type: "h2", text: "6. Conservation" },
       {
         type: "p",
-        text: "Enregistrer la demande et permettre un rappel sous deux jours ouvrés. Le formulaire n’envoie pas d’e-mail de confirmation à la personne qui l’a rempli.",
+        text: "Les demandes sont conservées le temps du traitement puis archivées de façon limitée pour les obligations comptables et de preuve (en pratique jusqu’à 10 ans pour les pièces ayant une portée juridique, sinon suppression plus tôt).",
       },
-      { type: "h2", text: "4. Destinataire" },
+      { type: "h2", text: "7. Droits" },
       {
         type: "p",
-        text: "La demande est transmise à Christophe Bouin, qui la traite. Contact pour exercer un droit : info@comparateur-3eme-pilier.ch.",
+        text: "Accès, rectification, destruction, remise, opposition. Exercice : info@comparateur-3eme-pilier.ch ou le formulaire de contact. Autorité : Préposé fédéral à la protection des données (PFPDT).",
       },
-      { type: "h2", text: "5. Droits" },
+      { type: "h2", text: "8. Cookies et mesures" },
       {
         type: "p",
-        text: "Pour une demande d’accès, de rectification ou de suppression : info@comparateur-3eme-pilier.ch. Autorité : Préposé fédéral à la protection des données et à la transparence (PFPDT).",
+        text: "Le site reconstruit n’embarque pas Google Analytics ni GTM par défaut. Si un outil d’audience est ajouté plus tard, cette page sera mise à jour. Les cookies strictement nécessaires au fonctionnement (session) peuvent être posés.",
+      },
+      { type: "h2", text: "9. Sécurité" },
+      {
+        type: "p",
+        text: "Transport HTTPS, accès restreint aux journaux de leads, champs anti-robot. Aucune sécurité n’est absolue.",
       },
     ],
   },
@@ -1969,14 +1067,13 @@ export const PAGES: EditorialDoc[] = [
     kind: "page",
     slug: "page-remerciement",
     wpId: 1301,
-    title: "C'est fait ! Merci pour votre temps.",
+    title: "Merci pour votre demande",
     metaTitle: "Demande bien reçue — Comparateur 3ème pilier",
-    description:
-      "C'est fait ! Merci pour votre temps. Aucun e-mail de confirmation n’est envoyé.",
+    description: "Votre demande est enregistrée. Un conseiller rappelle sous deux jours ouvrés si le dossier a été transmis.",
     published: "2023-05-05",
     updated: UPDATED,
     intro:
-      "C'est fait ! Merci pour votre temps. Aucun e-mail de confirmation n’est envoyé.",
+      "Merci. Le texte ci-dessous dit seulement ce qui s’est vraiment passé (transmission ou journal local). En attendant : plafonds 2026–2027 ou la différence 3a / 3b.",
     related: ["deductions-fiscales-3eme-pilier", "3eme-pilier-a-ou-b"],
     blocks: [
       {
@@ -2010,18 +1107,18 @@ export const PAGES: EditorialDoc[] = [
     slug: "actualite-3eme-pilier",
     wpId: 2653,
     title: "Actualités du 3e pilier",
-    metaTitle: "Actualités du 3e pilier en Suisse",
+    metaTitle: "Actualités 3e pilier 2026–2027 — 3 articles par semaine, semaines 1–5",
     description:
-      "Articles du 3e pilier : plafonds OFAS 2026, rachat de lacunes, tableau des montants, retrait du 3a et lien avec le 2e pilier.",
+      "Série éditoriale : trois articles par semaine (plafonds OFAS, cantons, frontaliers, 3a/3b, versement, retraite). Semaines 1 à 5 publiées. Archives WordPress, mêmes slugs.",
     published: "2023-11-05",
     updated: UPDATED,
     intro:
-      "Cette liste montre les articles dont la date de publication est atteinte. Un texte daté plus tard n’apparaît pas avant ce jour.",
+      "Cadence confirmée : trois textes par semaine, pas un article par jour. Semaines 1 à 5 livrées (OFAS, cantons, frontaliers, supports, versement et retraite). Les guides historiques restent à leurs URL d’origine.",
     related: [
       "plafonds-3a-2026-2027",
-      "rachat-lacunes-3a-2026",
-      "tableau-ofas-montants-avs-lpp-3a",
-      "retrait-3a-vs-3b-2026",
+      "3a-impot-cantonal-geneve-2026",
+      "frontalier-avs-3a-conditions",
+      "methode-sources-ofas-afc",
     ],
     blocks: [],
   },
@@ -2029,24 +1126,34 @@ export const PAGES: EditorialDoc[] = [
     kind: "page",
     slug: "mentions-legales",
     title: "Mentions légales",
-    metaTitle: "Mentions légales — Comparateur 3ème pilier",
+    metaTitle: `Mentions légales ${YEAR_SPAN} — Comparateur 3ème pilier`,
     description:
-      "Éditeur du site comparateur-3eme-pilier.ch, responsable du comparatif et nature du service. Contact : info@comparateur-3eme-pilier.ch.",
+      "Mentions légales du site comparateur-3eme-pilier.ch. Page créée à la reconstruction (404 sur le WordPress live).",
     published: UPDATED,
-    updated: "2026-09-28",
+    updated: UPDATED,
     intro:
-      "Site : comparateur-3eme-pilier.ch. Nom d’usage : Comparateur 3ème pilier. Responsable du contenu et du comparatif : Christophe Bouin. Contact : info@comparateur-3eme-pilier.ch.",
+      "Cette page n’existait pas sur le WordPress (404). Elle est créée pour l’E-E-A-T et les obligations d’information. Les éléments d’identité SWITCH nominatifs ne sont pas publics : nous n’inventons pas un titulaire.",
     related: ["page-de-confidentialitee", "a-propos"],
     blocks: [
       { type: "h2", text: "Éditeur" },
       {
         type: "p",
-        text: "Site : comparateur-3eme-pilier.ch. Nom d’usage : Comparateur 3ème pilier. Responsable du contenu et du comparatif : Christophe Bouin. Contact : info@comparateur-3eme-pilier.ch.",
+        text: "Site : comparateur-3eme-pilier.ch. Nom d’usage : Comparateur 3ème pilier. Contact : info@comparateur-3eme-pilier.ch. Domaine enregistré le 4 octobre 2021 auprès d’Infomaniak Network SA (RDAP SWITCH, statut actif).",
+      },
+      { type: "h2", text: "Hébergement de cette version" },
+      {
+        type: "p",
+        text: "Application Next.js. L’origine WordPress historique reste en ligne tant que la bascule DNS n’est pas faite. Ne pas considérer cette instance de prévisualisation comme l’origine de production Infomaniak / Cloudflare.",
       },
       { type: "h2", text: "Nature du service" },
       {
         type: "p",
-        text: "Le site publie une information générale sur le 3e pilier et recueille une demande de comparatif. Un conseiller rappelle sous deux jours ouvrés pour examiner les solutions accessibles dans le cadre du service, leurs frais et leurs garanties. Le comparatif est gratuit et sans engagement.",
+        text: "Mise en relation et comparatif d’offres de prévoyance individuelle, sans honoraires et sans engagement. Information générale, pas un conseil en placement personnalisé au sens d’un mandat LSFin signé sur ce site. Un conseiller du service peut rappeler après le formulaire. Aucun diplôme ni registre n’est affiché : ces éléments ne sont pas établis ici.",
+      },
+      { type: "h2", text: "Propriété intellectuelle" },
+      {
+        type: "p",
+        text: "Les textes de cette reconstruction sont originaux (2026). Les URL et l’intention des landings WordPress sont reprises pour la continuité SEO.",
       },
     ],
   },
@@ -2054,44 +1161,42 @@ export const PAGES: EditorialDoc[] = [
     kind: "page",
     slug: "a-propos",
     title: "À propos",
-    metaTitle: "À propos — Comparateur 3ème pilier",
+    metaTitle: `À propos ${YEAR_SPAN} — méthode OFAS / AFC, pas un palmarès`,
     description:
-      "Le site comparateur-3eme-pilier.ch informe sur le 3e pilier et recueille des demandes de comparatif. Responsable : Christophe Bouin.",
+      `Qui édite le comparateur, méthode éditoriale OFAS/AFC, dates de revue ${YEAR_SPAN}, limites du service. Page E-E-A-T créée en 2026.`,
     published: UPDATED,
-    updated: "2026-09-28",
+    updated: UPDATED,
     intro:
-      "Le site comparateur-3eme-pilier.ch informe sur le 3e pilier à partir des textes OFAS et AFC, et recueille des demandes de comparatif. Christophe Bouin en est le responsable. Contact : info@comparateur-3eme-pilier.ch.",
-    related: ["deductions-fiscales-3eme-pilier", "analyse-de-prevoyance", "mentions-legales", "actualite-3eme-pilier"],
+      "Qui écrit les plafonds de ce site ? La rédaction du Comparateur 3ème pilier, à partir des textes OFAS et AFC — pas d’un palmarès. Le site informe et génère des demandes de comparatif pour la Suisse romande. Il n’est pas un agrégateur de tarifs en temps réel.",
+    related: ["methode-sources-ofas-afc", "analyse-de-prevoyance", "mentions-legales", "actualite-3eme-pilier"],
     blocks: [
-      { type: "h2", text: "Responsable" },
-      {
-        type: "p",
-        text: "Christophe Bouin rédige et revoit les pages du site. Il traite les demandes de comparatif. Contact : info@comparateur-3eme-pilier.ch.",
-      },
       { type: "h2", text: "Méthode" },
       {
         type: "p",
         text: METHOD_INLINE,
       },
-      { type: "h2", text: "Ce que le service examine" },
-      {
-        type: "p",
-        text: "Un conseiller examine les solutions accessibles dans le cadre du service : frais, souplesse des versements, valeur de rachat, garanties décès ou incapacité, horizon.",
-      },
-      { type: "h2", text: "Limites" },
+      { type: "h2", text: "Ce que nous ne faisons pas" },
       {
         type: "ul",
         items: [
-          "Le site ne remplace pas un fiduciaire ni une caisse de pension.",
-          "Le site ne garantit pas un rendement.",
-          "Plafonds 2026 : CHF 7’258 / 36’288. Plafonds 2027 : CHF 7’373 / 36’864 (Conseil fédéral, 2 octobre 2026).",
+          "Remplacer votre fiduciaire ou votre caisse de pension.",
+          "Garantir un rendement.",
+          "Prétendre être le titulaire SWITCH tant que le RDAP n’est pas nominatif public.",
         ],
       },
       { type: "h2", text: "Revue" },
       {
         type: "p",
-        text: "Dernière revue des plafonds 2026 : 19 septembre 2026. Plafonds 2026 : CHF 7’258 / 36’288. Plafonds 2027 : CHF 7’373 / 36’864 (Conseil fédéral, 2 octobre 2026).",
+        text: "Dernière revue des plafonds 3a : 6 octobre 2026, sur le communiqué du Conseil fédéral du 2 octobre 2026. Les rentes et seuils cités ici restent ceux du tableau OFAS au 1er janvier 2026.",
       },
     ],
   },
+];
+
+const socleSlugs = new Set([...SOCLE_PAGES, ...SUITE_PAGES].map((page) => page.slug));
+
+export const PAGES: EditorialDoc[] = [
+  ...BASE_PAGES.filter((page) => !socleSlugs.has(page.slug)),
+  ...SOCLE_PAGES,
+  ...SUITE_PAGES,
 ];

@@ -1,6 +1,10 @@
+"use client";
+
 import Link from "next/link";
-import { CTA_CALLBACK, SITE } from "@/lib/site";
+import { usePathname } from "next/navigation";
+import { SITE } from "@/lib/site";
 import { BrandLockup } from "@/components/site-header";
+import { isEnglishPath } from "@/components/locale-shell";
 
 const GROUPS = [
   {
@@ -18,12 +22,11 @@ const GROUPS = [
     links: [
       { href: "/3eme-pilier-suisse/", label: "3e pilier Suisse" },
       { href: "/3eme-pilier-a-ou-b/", label: "3a ou 3b" },
+      { href: "/exemple-de-comparatif/", label: "Exemple de comparatif" },
       { href: "/3eme-pilier-b-prevoyance-libre/", label: "Prévoyance libre 3b" },
       { href: "/3eme-pilier-banque-assurance/", label: "Banque ou assurance" },
-      { href: "/3eme-pilier-independant/", label: "Indépendant" },
-      { href: "/deductions-fiscales-3eme-pilier/", label: "Déductions 2026–2027" },
-      { href: "/montant-maximum-3e-pilier-2026-2027/", label: "Plafond 3a 2026–2027" },
       { href: "/3eme-pilier-logement/", label: "Logement" },
+      { href: "/deductions-fiscales-3eme-pilier/", label: "Déductions 2026" },
       { href: "/3eme-pilier-mixte/", label: "Pilier mixte" },
     ],
   },
@@ -32,14 +35,11 @@ const GROUPS = [
     links: [
       { href: "/frontalier-suisse/", label: "Frontaliers" },
       { href: "/3eme-pilier-geneve/", label: "Genève" },
-      { href: "/impot-retrait-3a-logement-geneve/", label: "Retrait 3a à Genève" },
-      { href: "/impot-retrait-3a-logement-vaud/", label: "Retrait 3a en Vaud" },
-      { href: "/impot-retrait-3a-logement-valais/", label: "Retrait 3a en Valais" },
-      { href: "/impot-retrait-3a-logement-fribourg/", label: "Retrait 3a à Fribourg" },
       { href: "/epargne-enfant/", label: "Épargne enfant" },
       { href: "/assurance-vie-en-suisse/", label: "Assurance-vie" },
       { href: "/actualite-3eme-pilier/", label: "Actualités" },
-      { href: "/exemple-de-comparatif/", label: "Exemple de comparatif" },
+      { href: "/methodologie-comparatif/", label: "Voir notre méthodologie" },
+      { href: "/methode-sources-ofas-afc/", label: "Méthode OFAS / AFC" },
     ],
   },
   {
@@ -55,7 +55,58 @@ const GROUPS = [
   },
 ];
 
+const EN_GROUPS = [
+  {
+    title: "Compare",
+    links: [
+      { href: "/en/formulaire-3eme-pilier/", label: "Comparison form" },
+      { href: "/en/ouvrir-un-3eme-pilier/", label: "Open a third pillar" },
+      { href: "/en/nous-contacter/", label: "Contact" },
+      { href: "/en/choisir-son-3eme-pilier/", label: "How to choose" },
+      { href: "/en/analyse-de-prevoyance/", label: "Pension review" },
+    ],
+  },
+  {
+    title: "Third pillar",
+    links: [
+      { href: "/en/3eme-pilier-suisse/", label: "Swiss third pillar" },
+      { href: "/en/3eme-pilier-a-ou-b/", label: "Pillar 3a or 3b" },
+      { href: "/en/exemple-de-comparatif/", label: "Sample comparison" },
+      { href: "/en/3eme-pilier-b-prevoyance-libre/", label: "Flexible pillar 3b" },
+      { href: "/en/3eme-pilier-banque-assurance/", label: "Bank or insurance" },
+      { href: "/en/deductions-fiscales-3eme-pilier/", label: "2026 deductions" },
+      { href: "/en/3eme-pilier-logement/", label: "Home ownership" },
+      { href: "/en/3eme-pilier-mixte/", label: "Endowment policy" },
+    ],
+  },
+  {
+    title: "Readers",
+    links: [
+      { href: "/en/frontalier-suisse/", label: "Cross-border workers" },
+      { href: "/en/3eme-pilier-geneve/", label: "Geneva" },
+      { href: "/en/epargne-enfant/", label: "Saving for a child" },
+      { href: "/en/assurance-vie-en-suisse/", label: "Life insurance" },
+      { href: "/en/actualite-3eme-pilier/", label: "Guides" },
+      { href: "/en/methodologie-comparatif/", label: "See our methodology" },
+      { href: "/en/methode-sources-ofas-afc/", label: "FSIO / FTA sources" },
+    ],
+  },
+  {
+    title: "Swiss pillars",
+    links: [
+      { href: "/en/1er-pilier-avs-ai-apg/", label: "1st pillar, OASI" },
+      { href: "/en/2eme-pilier-lpp/", label: "2nd pillar, BVG" },
+      { href: "/en/libre-passage-lpp/", label: "Vested benefits" },
+      { href: "/en/a-propos/", label: "About" },
+      { href: "/en/mentions-legales/", label: "Legal notice" },
+      { href: "/en/page-de-confidentialitee/", label: "Privacy" },
+    ],
+  },
+];
+
 export function SiteFooter() {
+  const english = isEnglishPath(usePathname() || "/");
+  const groups = english ? EN_GROUPS : GROUPS;
   return (
     <footer className="relative overflow-hidden bg-gradient-to-b from-[#174462] to-[#0E3A57] text-white">
       <svg className="pointer-events-none absolute inset-0 h-full w-full" viewBox="0 0 1440 900" preserveAspectRatio="none" aria-hidden="true">
@@ -66,35 +117,39 @@ export function SiteFooter() {
         <div className="flex items-center justify-between gap-16 pb-16 max-[1100px]:flex-col max-[1100px]:items-stretch max-[1100px]:gap-6 max-[1100px]:pb-8">
           <div className="on-navy max-w-xl">
             <p className="mb-6 inline-flex rounded-full border border-white/60 px-4 py-2 text-[15px]">
-              3a et 3b · banque ou assurance
+              {english ? "French-speaking Switzerland · pillar 3a and 3b" : "Suisse romande · 3a et 3b"}
             </p>
-            <p className="font-heading mb-5 text-5xl leading-[1.04] text-white max-[1100px]:text-[42px]">
-              Comparez avant de <em>vous engager</em>
-            </p>
+            <h2 className="font-heading mb-5 text-5xl leading-[1.04] text-white uppercase max-[1100px]:text-[42px]">
+              {english ? <>Request a <em>comparison</em></> : <>Recevoir un <em>comparatif</em></>}
+            </h2>
             <p className="mb-7 text-[19px] leading-relaxed text-white/85">
-              Comparez 3a ou 3b, en banque ou en assurance : frais, souplesse et garanties.
+              {english
+                ? "Free, and without commitment. A service adviser calls back. No diploma or register is displayed: those facts are not established here."
+                : "Sans honoraires, sans engagement. Un conseiller du service rappelle. Aucun diplôme ni registre n’est affiché : ces éléments ne sont pas établis ici."}
             </p>
           </div>
-          <Link href="/formulaire-3eme-pilier/" className="btn-pill shrink-0 whitespace-normal text-center leading-snug max-[1100px]:w-full">
-            {CTA_CALLBACK}
+          <Link href={english ? "/en/formulaire-3eme-pilier/" : "/formulaire-3eme-pilier/"} className="btn-pill shrink-0 max-[1100px]:w-full">
+            {english ? "Open the form" : "Demander un comparatif"}
             <Arrow />
           </Link>
         </div>
         <div className="h-px bg-white/16" />
         <div className="flex justify-between gap-16 pt-10 max-[1100px]:flex-col max-[1100px]:gap-8">
           <div className="flex max-w-md flex-col gap-4">
-            <Link href="/" className="flex items-center gap-2.5 text-xl font-semibold text-white">
+            <Link href={english ? "/en/" : "/"} className="flex items-center gap-2.5 text-xl font-semibold text-white">
               <BrandLockup size={28} />
             </Link>
             <p className="text-base leading-relaxed text-white/75">
-              Information générale sur le 3e pilier en Suisse. Revue éditoriale du {SITE.updated}.
+              {english
+                ? `General information for French-speaking Switzerland. Not a FinSA mandate. Editorial review on ${SITE.updated}.`
+                : `Information générale pour la Suisse romande. Pas un mandat LSFin. Revue éditoriale du ${SITE.updated}.`}
             </p>
             <span className="self-start rounded-full bg-[#3FD9C4] px-3 py-1.5 text-[13px] font-semibold text-[#062B40]">
-              Comparatif gratuit · Plafonds OFAS
+              {english ? "Free comparison · FSIO ceilings" : "Comparatif gratuit · Plafonds OFAS"}
             </span>
           </div>
           <div className="grid grid-cols-2 gap-x-16 gap-y-8 lg:grid-cols-4 max-[1100px]:gap-x-6">
-            {GROUPS.map((group) => (
+            {groups.map((group) => (
               <div key={group.title} className="flex flex-col gap-3">
                 <strong className="text-[13px] font-semibold tracking-[0.12em] text-[#7FE3D3] uppercase">
                   {group.title}
@@ -114,7 +169,9 @@ export function SiteFooter() {
         <div className="flex justify-between pt-8 text-sm text-white/60 max-[1100px]:flex-col max-[1100px]:gap-1.5 max-[1100px]:text-[13px]">
           <p>© {new Date().getFullYear()} {SITE.name}</p>
           <p>
-            <Link href="/page-de-confidentialitee/" className="hover:text-[#BFF3EA]">Confidentialité</Link>
+            <Link href={english ? "/en/page-de-confidentialitee/" : "/page-de-confidentialitee/"} className="hover:text-[#BFF3EA]">
+              {english ? "Privacy" : "Confidentialité"}
+            </Link>
             {" · "}
             <a href="/llms.txt" className="hover:text-[#BFF3EA]">llms.txt</a>
             {" · "}

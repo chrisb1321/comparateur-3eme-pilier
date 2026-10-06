@@ -1,0 +1,14 @@
+---
+description: Image mise en avant propre à chaque article
+alwaysApply: true
+---
+
+# Images mises en avant
+
+- Chaque article a une image mise en avant qui lui est propre, visuellement différente des autres.
+- Ne jamais réutiliser un fichier déjà attribué à un autre article.
+- Ne jamais réutiliser la même photo sous un autre nom : deux fichiers au contenu identique (même hash) comptent comme un doublon.
+- L’image reste cohérente avec le sujet (prévoyance, fiscalité, 3e pilier suisse).
+- À l’ajout d’un article, choisir un nouveau fichier, au contenu inédit.
+
+Le contrôle `npm run covers:check` échoue si deux articles pointent vers le même fichier, ou si deux fichiers image ont le même contenu. Il s’exécute aussi avant `npm run build`.

@@ -1,7 +1,4 @@
 import { Amount } from "@/components/amount";
-import { CeilingSimulator } from "@/components/ceiling-simulator";
-import { CtaBand } from "@/components/cta-band";
-import Link from "next/link";
 import type { ComponentPropsWithoutRef, ReactNode } from "react";
 
 function Callout({ title, children }: { title: string; children: ReactNode }) {
@@ -13,41 +10,9 @@ function Callout({ title, children }: { title: string; children: ReactNode }) {
   );
 }
 
-function Action({
-  href,
-  children,
-  variant = "primary",
-}: {
-  href: string;
-  children: ReactNode;
-  variant?: "primary" | "line";
-}) {
-  const className = variant === "line" ? "btn-line whitespace-normal text-center leading-snug" : "btn-pill whitespace-normal text-center leading-snug";
-  if (href.startsWith("http")) {
-    return (
-      <a className={className} href={href}>
-        {children}
-      </a>
-    );
-  }
-  return (
-    <Link className={className} href={href}>
-      {children}
-    </Link>
-  );
-}
-
-function ActionRow({ children }: { children: ReactNode }) {
-  return <div className="flex flex-wrap gap-3">{children}</div>;
-}
-
 export const mdxComponents = {
   Amount,
   Callout,
-  Action,
-  ActionRow,
-  CeilingSimulator,
-  CtaBand,
   h2: (props: ComponentPropsWithoutRef<"h2">) => (
     <h2 className="font-heading mt-12 text-3xl leading-tight text-[#10324A] md:text-4xl" {...props} />
   ),

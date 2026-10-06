@@ -2,11 +2,20 @@
   "name": "comparateur-3eme-pilier",
   "version": "1.0.0",
   "private": true,
+  "browserslist": [
+    "chrome >= 111",
+    "edge >= 111",
+    "firefox >= 111",
+    "safari >= 16.4"
+  ],
   "scripts": {
     "dev": "next dev --hostname 127.0.0.1 --port 43127",
-    "build": "next build",
+    "prebuild": "node scripts/check-unique-covers.mjs",
+    "build": "node scripts/qa-seo.mjs && next build",
+    "qa:seo": "node scripts/qa-seo.mjs",
     "start": "next start --hostname 127.0.0.1 --port 43127",
     "lint": "eslint",
+    "covers:check": "node scripts/check-unique-covers.mjs",
     "seo:week": "node scripts/prepare-seo-week.mjs"
   },
   "dependencies": {

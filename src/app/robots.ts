@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 import { SITE } from "@/lib/site";
 
 const AI_CRAWLERS = [
+  "OAI-SearchBot",
   "GPTBot",
   "ChatGPT-User",
   "Google-Extended",

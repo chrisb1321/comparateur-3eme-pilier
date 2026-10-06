@@ -1,12 +1,13 @@
 import Link from "next/link";
-import { CTA_CALLBACK } from "@/lib/site";
 
 export function CtaBand({
-  title = "Un échange clair avant toute décision",
-  text = "Comparez 3a ou 3b, en banque ou en assurance : frais, souplesse et garanties.",
+  title = "Recevoir un comparatif 3e pilier",
+  text = "Sans honoraires, sans engagement, plafonds OFAS 2026. Un seul formulaire — plus de Typeform.",
+  cta = "Demander un comparatif",
 }: {
   title?: string;
   text?: string;
+  cta?: string;
 }) {
   return (
     <section className="navy-band on-navy mt-16 rounded-[28px]">
@@ -16,8 +17,8 @@ export function CtaBand({
           <h2 className="font-heading text-4xl leading-[1.05] text-white md:text-5xl">{title}</h2>
           <p className="mt-3 max-w-xl text-base text-white/85">{text}</p>
         </div>
-        <Link href="/formulaire-3eme-pilier/" className="btn-pill shrink-0 whitespace-normal text-center leading-snug">
-          {CTA_CALLBACK}
+        <Link href="/formulaire-3eme-pilier/" className="btn-pill shrink-0">
+          {cta}
         </Link>
       </div>
     </section>

@@ -42,7 +42,7 @@ Table 301 : voir `src/lib/redirects.ts` et `src/middleware.ts` (`?p=` / `?page_i
 Plafonds 3a (art. 7 OPP 3) : CHF 7’258 (avec 2e pilier) et CHF 36’288 (sans 2e pilier, 20 % du revenu).
 
 - **2026** : tableau officiel OFAS « Montants valables au 1er janvier 2026 » (PDF, 6.11.2025).
-- **2027** : Conseil fédéral, 2 octobre 2026. Petite cotisation 7’373 CHF, grande cotisation 36’864 CHF, dès le 1er janvier 2027. En 2026 : 7’258 / 36’288 CHF.
+- **2027** : 7 373 CHF avec un 2e pilier, 36 864 CHF au maximum sans, dès le 1er janvier 2027. Taux de 20 % inchangé. Communiqué du 2 octobre 2026 : https://www.admin.ch/fr/newnsb/BqB41FVYi5FB. Vérification : 6 octobre 2026.
 
 Sources citées en pied de page (OFAS, AFC, AVS/AI).
 

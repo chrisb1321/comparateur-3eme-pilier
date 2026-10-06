@@ -6,6 +6,9 @@ const nextConfig: NextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
   serverExternalPackages: ["gray-matter"],
+  images: {
+    formats: ["image/avif", "image/webp"],
+  },
   async redirects() {
     return PATH_REDIRECTS;
   },

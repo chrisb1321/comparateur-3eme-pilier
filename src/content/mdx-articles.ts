@@ -13,7 +13,9 @@ type Frontmatter = {
   published: string;
   updated?: string;
   intro: string;
+  brief?: string[];
   cover?: string;
+  author?: string;
   related?: string[];
   faqs?: FaqItem[];
   category?: string;
@@ -50,12 +52,14 @@ export function loadMdxArticles(options?: { includeDrafts?: boolean }): Editoria
       published: data.published,
       updated: data.updated ?? data.published,
       intro: data.intro,
+      brief: Array.isArray(data.brief) ? data.brief.filter((item) => typeof item === "string" && item.trim()) : undefined,
       blocks: [],
       body: parsed.content.trim(),
       faqs: data.faqs,
       related: data.related,
       category: data.category ?? "prevoyance",
       cover: data.cover,
+      author: data.author,
       series: kind === "page" ? false : (data.series ?? true),
       weekId: data.weekId,
       draft: data.draft ?? false,

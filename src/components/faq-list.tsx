@@ -1,14 +1,7 @@
 import type { FaqItem } from "@/content/types";
 import Link from "next/link";
-import { CTA_CALLBACK } from "@/lib/site";
 
-export function FaqList({
-  items,
-  ctaHref = "/formulaire-3eme-pilier/",
-}: {
-  items: FaqItem[];
-  ctaHref?: string;
-}) {
+export function FaqList({ items, locale = "fr" }: { items: FaqItem[]; locale?: "fr" | "en" }) {
   if (!items.length) return null;
   return (
     <section id="faq" className="mt-16 scroll-mt-36" aria-labelledby="faq-heading">
@@ -16,16 +9,22 @@ export function FaqList({
         <div className="lg:sticky lg:top-36">
           <p className="kicker">Questions</p>
           <h2 id="faq-heading" className="font-heading mb-5 text-[56px] leading-[1.05] text-[#10324A] max-[1100px]:text-[38px]">
-            Vos questions, <em>nos réponses</em>
+            {locale === "en" ? <>Your questions, <em>answered</em></> : <>Vos questions, <em>nos réponses</em></>}
           </h2>
           <p className="mb-8 text-lg leading-relaxed text-[#4A6275] max-[1100px]:hidden">
-            Tout ce qu’on nous demande avant de lancer un comparatif 3e pilier.
+            {locale === "en"
+              ? "The questions people ask before they request a comparison."
+              : "Tout ce qu’on nous demande avant de lancer un comparatif 3e pilier."}
           </p>
           <aside className="flex flex-col gap-4 rounded-[22px] bg-[#174462] p-7 text-white">
-            <p className="text-xl font-semibold">Une autre question ?</p>
-            <p className="text-[15px] text-white/80">Comparez 3a ou 3b, banque ou assurance.</p>
-            <Link href={ctaHref} className="btn-pill whitespace-normal px-5 text-center leading-snug">
-              {CTA_CALLBACK}
+            <p className="text-xl font-semibold">{locale === "en" ? "Another question?" : "Une autre question ?"}</p>
+            <p className="text-[15px] text-white/80">
+              {locale === "en"
+                ? "A service adviser answers on the call-back. No diploma or register is displayed."
+                : "Un conseiller du service vous répond au rappel. Aucun diplôme ni registre n’est affiché."}
+            </p>
+            <Link href={locale === "en" ? "/en/formulaire-3eme-pilier/" : "/formulaire-3eme-pilier/"} className="btn-pill">
+              {locale === "en" ? "Request a comparison" : "Recevoir un comparatif"}
             </Link>
           </aside>
         </div>

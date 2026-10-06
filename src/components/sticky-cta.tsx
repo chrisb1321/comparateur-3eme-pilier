@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { CTA_CALLBACK } from "@/lib/site";
+import { isEnglishPath } from "@/components/locale-shell";
 
 const HIDDEN = new Set([
   "/formulaire-3eme-pilier",
@@ -11,15 +11,13 @@ const HIDDEN = new Set([
   "/nous-contacter/",
   "/page-remerciement",
   "/page-remerciement/",
-  "/ouvrir-un-3eme-pilier",
-  "/ouvrir-un-3eme-pilier/",
-  "/3eme-pilier-logement",
-  "/3eme-pilier-logement/",
 ]);
 
 export function StickyCta() {
-  const pathname = usePathname();
-  if (HIDDEN.has(pathname)) return null;
+  const pathname = usePathname() || "/";
+  const english = isEnglishPath(pathname);
+  const bare = english ? pathname.replace(/^\/en/, "") || "/" : pathname;
+  if (HIDDEN.has(bare) || HIDDEN.has(pathname)) return null;
 
   return (
     <div
@@ -27,10 +25,10 @@ export function StickyCta() {
       className="fixed inset-x-0 bottom-0 z-40 border-t border-white/10 bg-[#174462] p-3 md:hidden"
     >
       <Link
-        href={pathname === "/" ? "/#comparatif" : "/formulaire-3eme-pilier/"}
-        className="btn-pill w-full whitespace-normal px-4 text-center leading-snug"
+        href={english ? "/en/formulaire-3eme-pilier/" : "/formulaire-3eme-pilier/"}
+        className="btn-pill w-full"
       >
-        {CTA_CALLBACK}
+        {english ? "Request a comparison" : "Demander un comparatif"}
       </Link>
     </div>
   );

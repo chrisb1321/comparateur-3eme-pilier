@@ -1,16 +1,17 @@
-import { isPublicPostDate } from "@/lib/publication";
 import { PAGES } from "./pages";
 import { POSTS } from "./posts";
 import { loadMdxArticles } from "./mdx-articles";
 import type { EditorialDoc } from "./types";
 
-function isListed(doc: EditorialDoc): boolean {
-  if (doc.kind !== "post") return true;
-  return isPublicPostDate(doc.published);
+/** Slugs qui ne sont plus des pages : une 301 les remplace. Ils ne doivent pas être dans le sitemap. */
+const RETIRED_SLUGS = new Set(["rachat-lpp-vers-3a-2026", "constituer-une-epargne-enfant"]);
+
+function visible(docs: EditorialDoc[]): EditorialDoc[] {
+  return docs.filter((doc) => !RETIRED_SLUGS.has(doc.slug));
 }
 
 function allDocs(): EditorialDoc[] {
-  return [...PAGES, ...POSTS, ...loadMdxArticles()];
+  return visible([...PAGES, ...POSTS, ...loadMdxArticles()]);
 }
 
 export function getBySlug(slug: string): EditorialDoc | undefined {
@@ -22,9 +23,9 @@ export function getAllSlugs(): string[] {
 }
 
 export function getPosts(): EditorialDoc[] {
-  return [...POSTS, ...loadMdxArticles().filter((doc) => doc.kind === "post")]
-    .filter(isListed)
-    .sort((a, b) => (a.published < b.published ? 1 : -1));
+  return visible([...POSTS, ...loadMdxArticles().filter((doc) => doc.kind === "post")]).sort((a, b) =>
+    a.published < b.published ? 1 : -1,
+  );
 }
 
 export function getSeriesPosts(): EditorialDoc[] {
@@ -32,7 +33,7 @@ export function getSeriesPosts(): EditorialDoc[] {
 }
 
 export function getPages(): EditorialDoc[] {
-  return [...PAGES, ...loadMdxArticles().filter((doc) => doc.kind === "page")];
+  return visible([...PAGES, ...loadMdxArticles().filter((doc) => doc.kind === "page")]);
 }
 
 export function getRelated(doc: EditorialDoc): EditorialDoc[] {
@@ -46,7 +47,7 @@ export function getRelated(doc: EditorialDoc): EditorialDoc[] {
     const slug = raw.split("/").filter(Boolean).pop() as string;
     if (!slug || slug === doc.slug || seen.has(slug)) continue;
     const item = getBySlug(slug);
-    if (!item || !isListed(item)) continue;
+    if (!item) continue;
     seen.add(slug);
     related.push(item);
   }

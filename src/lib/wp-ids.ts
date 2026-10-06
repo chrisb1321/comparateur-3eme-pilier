@@ -32,6 +32,6 @@ export const WP_IDS: Record<string, string> = {
   "2822": "/ouvrir-un-3eme-pilier-pour-un-frontalier/",
   "2782": "/quand-commencer-le-3eme-pilier/",
   "2758": "/pourquoi-souscrire-au-3eme-pilier/",
-  "2738": "/constituer-une-epargne-enfant/",
+  "2738": "/epargne-enfant/",
   "2719": "/choisir-les-beneficiaires/",
 };

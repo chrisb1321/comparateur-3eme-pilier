@@ -1,0 +1,47 @@
+# Sitemap public de https://comparateur-3eme-pilier.ch/ le 3 octobre 2026.
+# Chaque chemin doit répondre 200, ou par une seule 301 vers une page 200.
+# Une URL absente fait échouer scripts/qa-seo.mjs, donc le build.
+/
+/actualite-3eme-pilier/
+/exemple-de-comparatif/
+/montant-maximum-3e-pilier-2026-2027/
+/3eme-pilier-suisse/
+/3eme-pilier-a-ou-b/
+/3eme-pilier-b-prevoyance-libre/
+/3eme-pilier-banque-assurance/
+/3eme-pilier-mixte/
+/choisir-son-3eme-pilier/
+/ouvrir-un-3eme-pilier/
+/3eme-pilier-logement/
+/deductions-fiscales-3eme-pilier/
+/frontalier-suisse/
+/3eme-pilier-geneve/
+/assurance-vie-en-suisse/
+/assurance-deces/
+/risque-pur-deces/
+/epargne-enfant/
+/analyse-de-prevoyance/
+/liberation-du-paiement-des-primes/
+/1er-pilier-avs-ai-apg/
+/2eme-pilier-lpp/
+/libre-passage-lpp/
+/compte-de-libre-passage-lpp/
+/formulaire-3eme-pilier/
+/nous-contacter/
+/page-de-confidentialitee/
+/mentions-legales/
+/a-propos/
+/3eme-pilier-independant/
+/3eme-pilier-canton-vaud/
+/3b-deduction-fribourg/
+/3a-impot-cantonal-geneve-2026/
+/tableau-ofas-montants-avs-lpp-3a/
+/rachat-lacunes-3a-2026/
+/retrait-3a-vs-3b-2026/
+/rachat-2e-pilier-avec-3a/
+/plafonds-3a-2026-2027/
+/taxation-ordinaire-ulterieure/
+/3eme-pilier-a-impot-retrait/
+/choisir-les-beneficiaires/
+/pourquoi-souscrire-au-3eme-pilier/
+/quand-commencer-le-3eme-pilier/

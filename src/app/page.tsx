@@ -1,33 +1,37 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { CeilingSimulator } from "@/components/ceiling-simulator";
+import { CeilingsBlock } from "@/components/ceilings-block";
 import { FaqList } from "@/components/faq-list";
 import { Frame } from "@/components/frame";
 import { JsonLd } from "@/components/json-ld";
 import { LeadForm } from "@/components/lead-form";
-import { HOME_FAQS } from "@/content/faqs";
+import { SourcesList } from "@/components/sources-list";
+import { HOME_FAQS, METHOD_NOTE } from "@/content/faqs";
 import { ProcessSteps } from "@/components/trust-strip";
-import { CEILING_NOTE, chf, FIGURES, YEARS } from "@/lib/figures";
+import { chf, FIGURES, NOTE_2027, REVIEW_LABEL, YEAR_SPAN } from "@/lib/figures";
 import { IMAGES } from "@/lib/media";
-import { canonical, CTA_CALLBACK, SITE } from "@/lib/site";
-
-const PAGE_TITLE = "Comparateur 3e pilier suisse : 3a, 3b, banque";
-const PAGE_DESCRIPTION = SITE.description;
+import { canonical, SITE } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: { absolute: PAGE_TITLE },
-  description: PAGE_DESCRIPTION,
-  alternates: { canonical: canonical("/") },
-  openGraph: {
-    title: PAGE_TITLE,
-    description: PAGE_DESCRIPTION,
-    url: canonical("/"),
-    images: [{ url: IMAGES.hero.src, width: IMAGES.hero.width, height: IMAGES.hero.height, alt: IMAGES.hero.alt }],
+  title: {
+    absolute: "Comparateur 3e pilier Suisse 2026 | 3a, 3b, banque ou assurance",
   },
-  twitter: {
-    card: "summary_large_image",
-    title: PAGE_TITLE,
-    description: PAGE_DESCRIPTION,
-    images: [IMAGES.hero.src],
+  description:
+    "Comparez les solutions de 3e pilier en Suisse : 3a ou 3b, banque ou assurance, frais, souplesse et garanties. Comparatif sans honoraires.",
+  alternates: {
+    canonical: canonical("/"),
+    languages: {
+      "fr-CH": canonical("/"),
+      en: canonical("/en/"),
+      "x-default": canonical("/"),
+    },
+  },
+  openGraph: {
+    title: "Comparateur 3e pilier Suisse 2026 | 3a, 3b, banque ou assurance",
+    description:
+      "Comparez les solutions de 3e pilier en Suisse : 3a ou 3b, banque ou assurance, frais, souplesse et garanties. Comparatif sans honoraires.",
+    url: canonical("/"),
   },
 };
 
@@ -35,7 +39,7 @@ const PILLARS = [
   {
     href: "/1er-pilier-avs-ai-apg/",
     title: "1er pilier AVS",
-    image: IMAGES.avs,
+    image: IMAGES.renteAvs,
     text: `Répartition. Rente 2026 : ${chf(FIGURES.avsMinMonthly)} à ${chf(FIGURES.avsMaxMonthly)} / mois. 13e rente dès décembre 2026.`,
   },
   {
@@ -45,10 +49,34 @@ const PILLARS = [
     text: `Capitalisation. Seuil d’entrée ${chf(FIGURES.lppEntry)}. C’est ce seuil qui ouvre — ou non — la grande cotisation 3a.`,
   },
   {
-    href: "/3eme-pilier-a-ou-b/",
+    href: "/3eme-pilier-suisse/",
     title: "3e pilier 3a / 3b",
     image: IMAGES.mixte,
-    text: "Prévoyance individuelle, en banque ou en assurance. Le plafond 3a 2026 est dans la FAQ.",
+    text: `Prévoyance individuelle. Plafond 3a 2026 : ${chf(FIGURES.pillar3aWithLpp)} ou ${chf(FIGURES.pillar3aWithoutLpp)}.`,
+  },
+];
+
+const REASONS: {
+  n: string;
+  title: string;
+  text: string;
+  link?: { href: string; label: string };
+}[] = [
+  {
+    n: "01",
+    title: "Pourquoi un 3e pilier ?",
+    text: "Optimiser l’impôt de l’année, combler un trou de retraite, protéger conjoint et enfants.",
+  },
+  {
+    n: "02",
+    title: "Dans quels cas ?",
+    text: "Financer un logement selon les règles EPL, épargner pour un enfant via le 3b, ",
+    link: { href: "/3eme-pilier-independant/", label: "préparer une activité indépendante" },
+  },
+  {
+    n: "03",
+    title: "Quelle limite ?",
+    text: "La déduction fiscale encourage l’effort. Elle ne justifie pas de vider votre trésorerie.",
   },
 ];
 
@@ -74,22 +102,44 @@ export default function HomePage() {
         <div className="relative mx-auto flex w-full max-w-[1440px] items-start justify-between gap-16 px-12 pt-10 pb-16 max-[1100px]:flex-col max-[1100px]:gap-8 max-[1100px]:px-4 max-[1100px]:pt-6 max-[1100px]:pb-10">
           <div className="max-w-[700px] flex-1">
             <p className="mb-[18px] text-xl text-white/85 max-[1100px]:mb-3 max-[1100px]:text-base">
-              3a ou 3b · banque ou assurance
+              Suisse romande · Genève · frontaliers
             </p>
             <h1 className="font-heading mb-6 text-[64px] leading-[1.06] text-white max-[1100px]:mb-4 max-[1100px]:text-[42px]">
-              Quel <em>3e pilier</em> choisir ? Comparez vos options avant de vous engager.
+              Quel 3e pilier choisir ? Comparez vos options avant de vous engager.
             </h1>
             <p className="mb-9 max-w-[560px] text-xl leading-normal text-white/85 max-[1100px]:mb-6 max-[1100px]:text-[17px]">
               Comparez 3a ou 3b, en banque ou en assurance : frais, souplesse et garanties.
             </p>
-            <div className="mb-6 flex gap-3.5 max-[1100px]:flex-col">
-              <a href="#comparatif" className="btn-pill whitespace-normal text-center leading-snug max-[1100px]:w-full">
-                {CTA_CALLBACK}
+            <div className="mb-12 flex gap-3.5 max-[1100px]:mb-7 max-[1100px]:flex-col">
+              <a href="#comparatif" className="btn-pill">
+                Recevoir un comparatif
                 <Arrow />
               </a>
-              <a href="#parcours" className="btn-ghost whitespace-normal text-center leading-snug max-[1100px]:w-full">
-                Comment se passe le comparatif ?
+              <a href="#parcours" className="btn-ghost">
+                Comment ça marche
               </a>
+            </div>
+            <aside className="mb-8 rounded-[20px] border border-white/18 bg-white/6 px-6 py-5">
+              <h2 className="mb-3 text-sm font-semibold tracking-[0.14em] text-[#BFF3EA] uppercase">En bref</h2>
+              <ul className="space-y-2 text-[15px] leading-snug text-white/90">
+                <li>Plafond 3a 2026 avec 2e pilier : {chf(FIGURES.pillar3aWithLpp)}</li>
+                <li>Sans 2e pilier : 20 % du revenu d’activité, max. {chf(FIGURES.pillar3aWithoutLpp)}</li>
+                <li>3a : banque ou assurance</li>
+                <li>3b : prévoyance libre</li>
+                <li>Comparatif sans honoraires et sans engagement</li>
+                <li>Données vérifiées auprès de sources officielles</li>
+              </ul>
+              <p className="mt-4 text-sm">
+                <Link href="/methodologie-comparatif/" className="font-semibold text-[#BFF3EA] underline underline-offset-4">
+                  Voir notre méthodologie
+                </Link>
+              </p>
+              <p className="mt-2 text-xs text-white/70">Dernière vérification des chiffres : {REVIEW_LABEL}. {NOTE_2027}.</p>
+            </aside>
+            <div className="grid grid-cols-3 overflow-hidden rounded-[20px] border border-white/18 bg-white/6">
+              <Stat value={chf(FIGURES.pillar3aWithLpp)} label="Plafond 3a avec 2e pilier" />
+              <Stat value={chf(FIGURES.pillar3aWithoutLpp)} label="Plafond 3a sans 2e pilier" border />
+              <Stat value="Gratuit" label="Sans honoraires, sans engagement" border />
             </div>
           </div>
           <div id="comparatif" className="w-full max-w-[480px] shrink-0 scroll-mt-36 max-[1100px]:max-w-none">
@@ -100,82 +150,26 @@ export default function HomePage() {
 
       <section id="parcours" className="bg-[#F5F8FA] scroll-mt-36">
         <div className="mx-auto flex w-full max-w-[1440px] flex-col gap-14 px-12 py-24 max-[1100px]:gap-6 max-[1100px]:px-4 max-[1100px]:py-14">
-          <div className="max-w-3xl">
-            <p className="kicker">Parcours</p>
-            <h2 className="font-heading text-[56px] leading-[1.05] text-[#10324A] max-[1100px]:text-[40px]">
-              Trois étapes pour <em>comparer</em>
-            </h2>
+          <div className="flex items-end justify-between gap-16 max-[1100px]:flex-col max-[1100px]:items-start max-[1100px]:gap-4">
+            <div>
+              <p className="kicker">Parcours</p>
+              <h2 className="font-heading text-[56px] leading-[1.05] text-[#10324A] max-[1100px]:text-[40px]">
+                Lire, estimer, puis <em>demander</em>
+              </h2>
+            </div>
+            <p className="m-0 max-w-[420px] text-lg leading-relaxed text-[#4A6275]">
+              Trois étapes : comprendre votre plafond 3a, remplir le formulaire, recevoir un rappel sous deux jours ouvrés. Pas d’e-mail automatique, pas de Typeform.
+            </p>
           </div>
           <ProcessSteps />
-          <a href="#comparatif" className="btn-pill self-center whitespace-normal text-center leading-snug max-[1100px]:w-full">
-            {CTA_CALLBACK}
-            <Arrow />
-          </a>
-        </div>
-      </section>
-
-      <div className="mx-auto w-full max-w-[1440px] px-12 max-[1100px]:px-4">
-        <FaqList items={HOME_FAQS} ctaHref="#comparatif" />
-      </div>
-
-      <section id="rappel" className="navy-band on-navy scroll-mt-36">
-        <div className="relative mx-auto flex w-full max-w-[1440px] flex-col items-start gap-6 px-12 py-24 max-[1100px]:px-4 max-[1100px]:py-14">
-          <p className="kicker">Dernier appel</p>
-          <h2 className="font-heading max-w-3xl text-[56px] leading-[1.05] text-white max-[1100px]:text-[40px]">
-            Un échange clair avant <em>toute décision</em>
-          </h2>
-          <p className="max-w-xl text-lg leading-relaxed text-white/85">
-            Comparez 3a ou 3b, en banque ou en assurance : frais, souplesse et garanties.
-          </p>
-          <a href="#comparatif" className="btn-pill whitespace-normal text-center leading-snug max-[1100px]:w-full">
-            {CTA_CALLBACK}
-            <Arrow />
-          </a>
-        </div>
-      </section>
-
-      <section id="qui" className="bg-[#F5F8FA] scroll-mt-36">
-        <div className="mx-auto flex w-full max-w-[1440px] flex-col gap-12 px-12 py-24 max-[1100px]:gap-4 max-[1100px]:px-4 max-[1100px]:py-14">
-          <div className="flex items-center gap-20 max-[1100px]:flex-col-reverse max-[1100px]:items-stretch max-[1100px]:gap-4">
-            <div className="relative h-[600px] w-[540px] shrink-0 overflow-hidden rounded-[28px] shadow-[0_30px_60px_-30px_rgba(16,50,74,0.45)] max-[1100px]:h-[420px] max-[1100px]:w-full max-[1100px]:rounded-[22px]">
-              <Frame image={IMAGES.conseiller} fill className="absolute inset-0 rounded-none" rounded={false} sizes="540px" />
-              <div className="absolute right-5 bottom-5 left-5 rounded-[18px] bg-[#174462]/90 p-5 text-white">
-                <b className="mb-1 block text-[17px] font-semibold">Comparatif</b>
-                <span className="text-[15px] leading-snug text-white/85">Frais, souplesse et garanties, en banque ou en assurance.</span>
-              </div>
-            </div>
-            <div className="flex-1">
-              <p className="kicker">Méthode</p>
-              <h2 className="font-heading mb-7 text-[56px] leading-[1.05] text-[#10324A] max-[1100px]:mb-3 max-[1100px]:text-[38px]">
-                Un conseil pour <em>votre situation</em>
-              </h2>
-              <p className="mb-7 text-[19px] leading-relaxed text-[#4A6275]">
-                Le comparatif examine les solutions accessibles dans le cadre du service, leurs frais et leurs garanties.
-              </p>
-              <div className="flex flex-wrap gap-2.5">
-                {["Sans honoraires"].map((badge) => (
-                  <span key={badge} className="rounded-full border border-[#DCE6ED] bg-white px-4 py-2.5 text-[15px] font-semibold text-[#174462]">
-                    {badge}
-                  </span>
-                ))}
-              </div>
-            </div>
+          <div className="grid items-start gap-6 lg:grid-cols-[1.1fr_0.9fr]">
+            <CeilingSimulator />
+            <CeilingsBlock tone="paper" />
           </div>
-          <div className="grid gap-4 md:max-w-xl">
-            {[
-              { title: "Transparent", text: "Le plafond 2026 cité vient de l’OFAS. Pas d’honoraires." },
-            ].map((item) => (
-              <article key={item.title} className="flex items-center gap-4 rounded-[18px] border border-[#DCE6ED] bg-white p-6 max-[1100px]:p-4">
-                <span className="flex size-12 shrink-0 items-center justify-center rounded-xl bg-[#EAF4F8] text-lg font-semibold text-[#174462]">
-                  {item.title.slice(0, 1)}
-                </span>
-                <div>
-                  <b className="mb-1 block text-lg">{item.title}</b>
-                  <span className="text-[15px] text-[#4A6275]">{item.text}</span>
-                </div>
-              </article>
-            ))}
-          </div>
+          <Link href="/deductions-fiscales-3eme-pilier/" className="btn-pill self-center max-[1100px]:w-full">
+            Détail des plafonds {YEAR_SPAN}
+            <Arrow />
+          </Link>
         </div>
       </section>
 
@@ -194,10 +188,10 @@ export default function HomePage() {
                 <p className="text-[13px] font-semibold tracking-[0.12em] text-[#23597C] uppercase">3a lié · OPP 3</p>
                 <span className="rounded-full bg-[#E8F7F4] px-3 py-1 text-[13px] font-semibold text-[#1F5E55]">Déductible</span>
               </div>
-              <p className="text-[28px] leading-tight font-semibold">Même plafond OFAS en 2026</p>
-              <p className="text-sm text-[#4A6275]">Le montant, avec ou sans 2e pilier, est dans la FAQ.</p>
+              <p className="text-[40px] leading-none font-semibold max-[1100px]:text-[32px]">{chf(FIGURES.pillar3aWithLpp)}</p>
+              <p className="text-sm text-[#4A6275]">Plafond 2026 avec 2e pilier. Sans 2e pilier : {chf(FIGURES.pillar3aWithoutLpp)}. {NOTE_2027}.</p>
               <ul className="flex flex-col gap-2.5 text-base leading-snug">
-                <li>Déductible dans tous les cantons, dans la limite publiée pour 2026.</li>
+                <li>Déductible dans tous les cantons, jusqu’au plafond 2026.</li>
                 <li>Capital bloqué sauf motifs légaux. Ordre des bénéficiaires fixé.</li>
                 <li>Existe en banque et en assurance.</li>
               </ul>
@@ -210,8 +204,8 @@ export default function HomePage() {
                 <p className="text-[13px] font-semibold tracking-[0.12em] text-[#7FE3D3] uppercase">3b libre</p>
                 <span className="rounded-full bg-[rgba(191,243,234,0.16)] px-3 py-1 text-[13px] font-semibold text-[#BFF3EA]">Souple</span>
               </div>
-              <p className="text-[28px] leading-tight font-semibold">Pas de plafond OFAS</p>
-              <p className="text-sm text-white/80">Déduction possible, à Genève et Fribourg.</p>
+              <p className="text-[40px] leading-none font-semibold max-[1100px]:text-[32px]">Libre</p>
+              <p className="text-sm text-white/80">Pas de plafond OFAS. Déduction limitée, surtout Genève et Fribourg.</p>
               <ul className="flex flex-col gap-2.5 text-base leading-snug text-white/90">
                 <li>Retrait et bénéficiaires plus souples.</li>
                 <li>Déduction surtout pour certaines polices d’assurance-vie.</li>
@@ -222,10 +216,113 @@ export default function HomePage() {
               </Link>
             </article>
           </div>
-          <p className="flex items-start gap-3.5 rounded-[14px] border border-dashed border-[#BFF3EA]/50 px-[22px] py-[18px] text-base leading-snug text-white/90">
+          <p className="mb-8 flex items-start gap-3.5 rounded-[14px] border border-dashed border-[#BFF3EA]/50 px-[22px] py-[18px] text-base leading-snug text-white/90">
             <strong className="text-white">Rachat 3a dès 2026.</strong>
-            Les lacunes depuis 2025 peuvent être rachetées, dans la limite de la petite cotisation de l’année du rachat (7’258 CHF en 2026, 7’373 CHF en 2027), en plus de la cotisation ordinaire, sous conditions OFAS.
+            Les lacunes depuis 2025 peuvent être rachetées, dans la limite de {chf(FIGURES.buybackMax)}, en plus de la cotisation ordinaire, sous conditions OFAS.
           </p>
+        </div>
+      </section>
+
+      <section id="plafonds" className="bg-white scroll-mt-36">
+        <div className="mx-auto flex w-full max-w-[1440px] items-start justify-between gap-20 px-12 py-24 max-[1100px]:flex-col max-[1100px]:gap-4 max-[1100px]:px-4 max-[1100px]:py-14">
+          <div className="w-full max-w-[600px] shrink-0">
+            <p className="kicker">Plafonds 3a</p>
+            <p className="text-[128px] leading-[0.95] font-semibold tracking-[-0.03em] text-[#174462] max-[1100px]:text-[88px]">
+              {FIGURES.pillar3aWithLpp.toLocaleString("fr-CH")}
+            </p>
+            <p className="mt-2 mb-5 text-[44px] leading-none text-[#1F7F72] italic max-[1100px]:text-[30px]">francs par an</p>
+            <p className="mb-8 max-w-[520px] text-[22px] leading-snug text-[#10324A] max-[1100px]:text-lg">
+              Petite cotisation 2026 avec 2e pilier, art. 7 OPP 3. La grande cotisation monte à {chf(FIGURES.pillar3aWithoutLpp)}. {NOTE_2027}.
+            </p>
+            <div className="mb-4 flex items-center gap-4 rounded-2xl border border-[#DCE6ED] bg-[#F5F8FA] px-[22px] py-[18px]">
+              <b className="text-[32px] font-semibold whitespace-nowrap text-[#174462] max-[1100px]:text-[26px]">{chf(FIGURES.pillar3aWithoutLpp)}</b>
+              <span className="text-base leading-snug text-[#4A6275]">sans 2e pilier, 20 % du revenu d’activité, dans cette limite.</span>
+            </div>
+            <p className="mb-8 text-[13px] text-[#6B8293]">Source : tableau OFAS au 1er janvier 2026. Dernière vérification : {REVIEW_LABEL}. {NOTE_2027}.</p>
+          </div>
+          <div className="flex flex-1 flex-col gap-4">
+            {REASONS.map((item, index) => (
+              <article
+                key={item.n}
+                className={`flex gap-[18px] rounded-[20px] border p-7 max-[1100px]:flex-col max-[1100px]:gap-2 max-[1100px]:p-5 ${
+                  index === 2 ? "border-[#174462] bg-[#174462] text-white" : "border-[#DCE6ED] bg-[#F5F8FA] text-[#10324A]"
+                }`}
+              >
+                <span
+                  className={`flex size-10 shrink-0 items-center justify-center rounded-full text-base font-semibold ${
+                    index === 2 ? "bg-[#BFF3EA] text-[#062B40]" : "bg-[#174462] text-[#BFF3EA]"
+                  }`}
+                >
+                  {index + 1}
+                </span>
+                <div>
+                  <h3 className={`mb-2 text-[22px] font-semibold max-[1100px]:text-xl ${index === 2 ? "text-white" : "text-[#10324A]"}`}>{item.title}</h3>
+                  <p className={`text-base leading-relaxed ${index === 2 ? "text-white/85" : "text-[#4A6275]"}`}>
+                    {item.text}
+                    {item.link ? (
+                      <Link href={item.link.href} className="font-semibold text-[#23597C] underline underline-offset-4">
+                        {item.link.label}
+                      </Link>
+                    ) : null}
+                    {item.link ? "." : null}
+                  </p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="qui" className="bg-[#F5F8FA] scroll-mt-36">
+        <div className="mx-auto flex w-full max-w-[1440px] flex-col gap-12 px-12 py-24 max-[1100px]:gap-4 max-[1100px]:px-4 max-[1100px]:py-14">
+          <div className="flex items-center gap-20 max-[1100px]:flex-col-reverse max-[1100px]:items-stretch max-[1100px]:gap-4">
+            <div className="relative h-[600px] w-[540px] shrink-0 overflow-hidden rounded-[28px] shadow-[0_30px_60px_-30px_rgba(16,50,74,0.45)] max-[1100px]:h-[420px] max-[1100px]:w-full max-[1100px]:rounded-[22px]">
+              <Frame image={IMAGES.conseiller} fill className="absolute inset-0 rounded-none" rounded={false} sizes="540px" />
+              <p className="absolute top-5 left-5 flex items-center gap-2 rounded-full bg-[#174462]/80 px-3.5 py-2 text-sm font-semibold text-white">
+                Genève · Léman
+              </p>
+              <div className="absolute right-5 bottom-5 left-5 rounded-[18px] bg-[#174462]/90 p-5 text-white">
+                <b className="mb-1 block text-[17px] font-semibold">Un comparatif, pas un mandat</b>
+                <span className="text-[15px] leading-snug text-white/85">30 minutes pour lire vos certificats LPP et vos 3a déjà ouverts, sans engagement.</span>
+              </div>
+            </div>
+            <div className="flex-1">
+              <p className="kicker">Méthode</p>
+              <h2 className="font-heading mb-7 text-[56px] leading-[1.05] text-[#10324A] max-[1100px]:mb-3 max-[1100px]:text-[38px]">
+                Un conseiller du service <em>rappelle</em>
+              </h2>
+              <p className="mb-4 text-[19px] leading-relaxed text-[#10324A]">
+                « Un rachat 3a dès 2026 n’efface pas les années perdues avant 2025. On verse d’abord le maximum de l’année, ensuite seulement la lacune. »
+              </p>
+              <p className="mb-7 text-[19px] leading-relaxed text-[#4A6275]">
+                Un conseiller du service rappelle, sans diplôme ni registre affiché, parce que ces éléments ne sont pas établis ici. Lecture calée sur l’OFAS — pas un palmarès, pas un Typeform. Le comparatif reste sans honoraires et sans engagement.
+              </p>
+              <div className="flex flex-wrap gap-2.5">
+                {["Sans engagement", "Sans honoraires", "Suisse romande"].map((badge) => (
+                  <span key={badge} className="rounded-full border border-[#DCE6ED] bg-white px-4 py-2.5 text-[15px] font-semibold text-[#174462]">
+                    {badge}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+          <div className="grid gap-4 md:grid-cols-3">
+            {[
+              { title: "Humain", text: "Un rappel téléphonique, pas un e-mail automatique." },
+              { title: "Indépendant", text: "Banque ou assurance : les deux supports sont lus." },
+              { title: "Transparent", text: "Plafonds OFAS affichés, frais de conseil à zéro." },
+            ].map((item) => (
+              <article key={item.title} className="flex items-center gap-4 rounded-[18px] border border-[#DCE6ED] bg-white p-6 max-[1100px]:p-4">
+                <span className="flex size-12 shrink-0 items-center justify-center rounded-xl bg-[#EAF4F8] text-lg font-semibold text-[#174462]">
+                  {item.title.slice(0, 1)}
+                </span>
+                <div>
+                  <b className="mb-1 block text-lg">{item.title}</b>
+                  <span className="text-[15px] text-[#4A6275]">{item.text}</span>
+                </div>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -236,14 +333,7 @@ export default function HomePage() {
             Les trois <em>piliers</em> suisses
           </h2>
           <p className="mt-5 max-w-3xl text-lg leading-relaxed text-[#4A6275]">
-            Le système de retraite suisse combine répartition (AVS), capitalisation (LPP) et prévoyance individuelle (3e pilier). L’âge de référence AVS est 65 ans ; les femmes de la génération transitoire AVS 21 suivent un relèvement progressif.
-          </p>
-          <p className="mt-4 max-w-3xl text-lg leading-relaxed text-[#4A6275]">
-            Le{" "}
-            <Link href="/3eme-pilier-suisse/" className="font-semibold text-[#174462] underline underline-offset-4">
-              3e pilier Suisse
-            </Link>{" "}
-            est cette prévoyance individuelle : 3a lié et 3b libre, en banque ou en assurance.
+            Le système de retraite suisse combine répartition (AVS), capitalisation (LPP) et prévoyance individuelle (3e pilier). L’âge de référence AVS est 65 ans ; les femmes de la génération transitoire AVS 21 suivent un relèvement progressif. D’anciens textes du site citaient encore « 64 ans pour les femmes » : ce n’est plus l’âge à utiliser.
           </p>
           <div className="mt-12 grid gap-4 md:grid-cols-3">
             {PILLARS.map((pillar) => (
@@ -258,11 +348,11 @@ export default function HomePage() {
           </div>
           <div className="mt-6 grid gap-4 md:grid-cols-3">
             {[
-              { href: "/ouvrir-un-3eme-pilier/", image: IMAGES.pillar3a, title: "Ouvrir un 3e pilier", text: "Conditions AVS, plafond, délai au 31 décembre." },
-              { href: "/3eme-pilier-logement/", image: IMAGES.alpes, title: "Logement", text: "Retrait ou nantissement du 3a." },
               { href: "/3eme-pilier-geneve/", image: IMAGES.geneve, title: "Genève", text: "ICC, LIPP, frontaliers." },
               { href: "/frontalier-suisse/", image: IMAGES.frontalier, title: "Frontaliers", text: "AVS, source, TOU." },
               { href: "/epargne-enfant/", image: IMAGES.enfant, title: "Épargne enfant", text: "Pas de 3a sans revenu." },
+              { href: "/ouvrir-un-3eme-pilier/", image: IMAGES.pillar3a, title: "Ouvrir un 3e pilier", text: "Conditions, plafond 2026, délai." },
+              { href: "/3eme-pilier-logement/", image: IMAGES.banque, title: "Logement", text: "Retrait ou nantissement." },
             ].map((item) => (
               <Link key={item.href} href={item.href} className="surface-card group block overflow-hidden">
                 <Frame image={item.image} className="aspect-[16/10] rounded-none" rounded={false} />
@@ -273,17 +363,21 @@ export default function HomePage() {
               </Link>
             ))}
           </div>
-          <div className="mt-10">
-            <p className="text-sm leading-relaxed text-[#4A6275]">
-              Service : {SITE.name}. Contact :{" "}
-              <a className="font-semibold text-[#174462] underline underline-offset-4" href={`mailto:${SITE.email}`}>
-                {SITE.email}
-              </a>
-              .
-            </p>
-          </div>
         </div>
       </section>
+
+      <div className="mx-auto w-full max-w-[1440px] px-12 max-[1100px]:px-4">
+        <FaqList items={HOME_FAQS} />
+        <p className="mt-10 text-sm leading-relaxed text-[#4A6275]">{METHOD_NOTE}</p>
+        <p className="mt-4 text-sm">
+          Service : {SITE.name}. Contact :{" "}
+          <a className="font-semibold text-[#174462] underline underline-offset-4" href={`mailto:${SITE.email}`}>
+            {SITE.email}
+          </a>
+          . Un conseiller du service rappelle. Aucun diplôme ni registre n’est affiché : ces éléments ne sont pas établis ici. Le comparatif reste sans honoraires et sans engagement.
+        </p>
+        <SourcesList />
+      </div>
       <JsonLd
         data={[
           {
@@ -298,10 +392,11 @@ export default function HomePage() {
           {
             "@context": "https://schema.org",
             "@type": "Dataset",
-            name: "Plafonds 3e pilier 3a 2026 et 2027 (Suisse)",
-            description: CEILING_NOTE,
+            name: `Plafonds 3e pilier 3a ${YEAR_SPAN} (Suisse)`,
+            description: `Déductions maximales du pilier 3a en 2026 selon l’art. 7 OPP 3 et le tableau OFAS. ${NOTE_2027}.`,
             creator: { "@type": "Organization", name: SITE.name },
-            temporalCoverage: "2026/2027",
+            license: "https://www.bsv.admin.ch/fr/le-troisieme-pilier",
+            temporalCoverage: "2026",
             variableMeasured: [
               {
                 "@type": "PropertyValue",
@@ -315,22 +410,19 @@ export default function HomePage() {
                 value: FIGURES.pillar3aWithoutLpp,
                 unitText: "CHF",
               },
-              {
-                "@type": "PropertyValue",
-                name: "Petite cotisation 3a 2027 (avec 2e pilier)",
-                value: YEARS[2027].pillar3aWithLpp,
-                unitText: "CHF",
-              },
-              {
-                "@type": "PropertyValue",
-                name: "Grande cotisation 3a 2027 (sans 2e pilier, max.)",
-                value: YEARS[2027].pillar3aWithoutLpp,
-                unitText: "CHF",
-              },
             ],
           },
         ]}
       />
+    </div>
+  );
+}
+
+function Stat({ value, label, border = false }: { value: string; label: string; border?: boolean }) {
+  return (
+    <div className={`flex flex-col gap-1.5 px-6 py-6 max-[1100px]:px-2.5 max-[1100px]:py-4 ${border ? "border-l border-white/15" : ""}`}>
+      <b className="text-[40px] leading-none font-semibold max-[1100px]:text-2xl">{value}</b>
+      <span className="text-[15px] leading-snug text-white/80 max-[1100px]:text-xs">{label}</span>
     </div>
   );
 }

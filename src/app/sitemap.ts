@@ -1,10 +1,8 @@
 import type { MetadataRoute } from "next";
 import { getPages, getPosts } from "@/content";
-import { CANONICAL_ALIASES, NOINDEX_SLUGS } from "@/lib/indexing";
 import { SITE, canonical } from "@/lib/site";
 
 const MONEY_PAGES = new Set([
-  "3eme-pilier-suisse",
   "deductions-fiscales-3eme-pilier",
   "3eme-pilier-a-ou-b",
   "3eme-pilier-b-prevoyance-libre",
@@ -14,14 +12,9 @@ const MONEY_PAGES = new Set([
   "3eme-pilier-independant",
   "1er-pilier-avs-ai-apg",
   "2eme-pilier-lpp",
+  "3eme-pilier-logement",
   "formulaire-3eme-pilier",
   "choisir-son-3eme-pilier",
-  "ouvrir-un-3eme-pilier",
-  "3eme-pilier-logement",
-  "impot-retrait-3a-logement-geneve",
-  "impot-retrait-3a-logement-vaud",
-  "impot-retrait-3a-logement-valais",
-  "impot-retrait-3a-logement-fribourg",
 ]);
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -43,9 +36,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.9,
   };
 
+  const category: MetadataRoute.Sitemap[number] = {
+    url: canonical("/category/prevoyance/"),
+    lastModified: newestPost,
+    changeFrequency: "weekly",
+    priority: 0.6,
+  };
+
   const pageEntries = pages
     .filter((page) => page.slug !== "actualite-3eme-pilier")
-    .filter((page) => !NOINDEX_SLUGS.has(page.slug) && !CANONICAL_ALIASES[page.slug])
     .map((page) => ({
       url: canonical(`/${page.slug}/`),
       lastModified: page.updated,
@@ -55,28 +54,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: MONEY_PAGES.has(page.slug) ? 0.9 : 0.7,
     }));
 
-  const postEntries = posts
-    .filter((post) => !CANONICAL_ALIASES[post.slug])
-    .map((post) => ({
+  const postEntries = posts.map((post) => ({
     url: canonical(`/${post.slug}/`),
     lastModified: post.updated,
     changeFrequency: (post.series ? "weekly" : "monthly") as "weekly" | "monthly",
     priority: post.series ? 0.85 : 0.65,
   }));
 
-  const example: MetadataRoute.Sitemap[number] = {
-    url: canonical("/exemple-de-comparatif/"),
-    lastModified: "2026-09-26",
-    changeFrequency: "monthly",
-    priority: 0.7,
-  };
+  const french = [home, hub, category, ...pageEntries, ...postEntries];
+  const english = french.map((entry) => ({
+    ...entry,
+    url: canonical(englishPath(entry.url)),
+  }));
 
-  const plafond: MetadataRoute.Sitemap[number] = {
-    url: canonical("/montant-maximum-3e-pilier-2026-2027/"),
-    lastModified: "2026-09-28",
-    changeFrequency: "weekly",
-    priority: 0.9,
-  };
+  return [...french, ...english];
+}
 
-  return [home, hub, example, plafond, ...pageEntries, ...postEntries];
+function englishPath(url: string): string {
+  const path = new URL(url).pathname;
+  if (path === "/") return "/en/";
+  return `/en${path}`;
 }

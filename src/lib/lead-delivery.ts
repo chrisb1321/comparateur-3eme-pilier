@@ -20,7 +20,6 @@ export type LeadPayload = {
   canton: string;
   situation: string;
   message: string;
-  consent: "oui";
   attribution?: AttributionSnapshot;
 };
 
@@ -105,10 +104,7 @@ export function toLeadIntakeBody(lead: LeadPayload): Record<string, unknown> {
     canton: lead.canton || undefined,
     situation: lead.situation || undefined,
     situation_professionnelle: situationLabel,
-    remarque: [lead.message, "Consentement accepté : rappel et transmission à Christophe Bouin."]
-      .filter(Boolean)
-      .join("\n\n"),
-    consentement: lead.consent,
+    remarque: lead.message || undefined,
     ...attributionToIntakeFields(attr),
   };
 }
@@ -248,7 +244,6 @@ function dossierText(lead: LeadPayload): string {
     `Canton : ${lead.canton || "—"}`,
     `Situation : ${lead.situation || "—"}`,
     `Message : ${lead.message || "—"}`,
-    `Consentement : ${lead.consent} — rappel et transmission à Christophe Bouin`,
     `Reçu : ${lead.receivedAt}`,
   ].join("\n");
 }

@@ -23,11 +23,6 @@ export const PATH_REDIRECTS: Redirect[] = [
     statusCode: 301,
   },
   {
-    source: "/category/prevoyance",
-    destination: "/actualite-3eme-pilier/",
-    statusCode: 301,
-  },
-  {
     source: "/frontaliers-suisse",
     destination: "/frontalier-suisse/",
     statusCode: 301,
@@ -53,6 +48,11 @@ export const PATH_REDIRECTS: Redirect[] = [
     statusCode: 301,
   },
   {
+    source: "/depart-de-suisse",
+    destination: "/frontalier-suisse/",
+    statusCode: 301,
+  },
+  {
     source: "/changement-employeur-libre-passage-lpp",
     destination: "/libre-passage-lpp/",
     statusCode: 301,
@@ -73,6 +73,11 @@ export const PATH_REDIRECTS: Redirect[] = [
     statusCode: 301,
   },
   {
+    source: "/canton-vaud",
+    destination: "/",
+    statusCode: 301,
+  },
+  {
     source: "/category/impots",
     destination: "/deductions-fiscales-3eme-pilier/",
     statusCode: 301,
@@ -83,8 +88,28 @@ export const PATH_REDIRECTS: Redirect[] = [
     statusCode: 301,
   },
   {
+    source: "/rachat-lpp-vers-3a-2026",
+    destination: "/rachat-2e-pilier-avec-3a/",
+    statusCode: 301,
+  },
+  {
+    source: "/constituer-une-epargne-enfant",
+    destination: "/epargne-enfant/",
+    statusCode: 301,
+  },
+  {
+    source: "/montant-maximum-3e-pilier-2026-2027",
+    destination: "/plafonds-3a-2026-2027/",
+    statusCode: 301,
+  },
+  {
     source: "/blog",
     destination: "/actualite-3eme-pilier/",
+    statusCode: 301,
+  },
+  {
+    source: "/author/christophe-bouin",
+    destination: "/christophe-bouin/",
     statusCode: 301,
   },
   {
