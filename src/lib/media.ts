@@ -126,6 +126,12 @@ export const IMAGES = {
     width: 1280,
     height: 720,
   },
+  deductionSource: {
+    src: "/images/cover-deduction-source.jpg",
+    alt: "Enveloppe crème, balance de laiton et dossier vert sur chêne : déduction du 3e pilier à l’impôt à la source.",
+    width: 1152,
+    height: 864,
+  },
 } as const satisfies Record<string, SiteImage>;
 
 const SLUG_COVER: Record<string, keyof typeof IMAGES> = {
@@ -180,6 +186,7 @@ const SLUG_COVER: Record<string, keyof typeof IMAGES> = {
   "3eme-pilier-canton-vaud": "vaud",
   "frontalier-avs-3a-conditions": "frontalier",
   "tou-impot-source-3a": "frontalier",
+  "deduction-3e-pilier-impot-a-la-source": "deductionSource",
   "depart-suisse-retrait-3a": "alpes",
   "combiner-3a-et-3b-2026": "mixte",
   "frais-3a-banque-assurance": "banque",
