@@ -11,13 +11,16 @@ Sitemap: https://comparateur-3eme-pilier.ch/sitemap.xml
 
 ## Chiffres officiels (ne pas inventer)
 
-Plafonds 2026 : CHF 7’258 / 36’288. Montants 2027 à confirmer par l’OFAS.
+Plafonds 2026 : CHF 7’258 / 36’288 (tableau OFAS au 1.1.2026). Plafonds 2027 : CHF 7’373 / 36’864 (Conseil fédéral, 2 octobre 2026, dès le 1er janvier 2027).
 
 - Petite cotisation 2026 (affilié à une institution du 2e pilier) : CHF 7’258 par an.
 - Grande cotisation 2026 (sans 2e pilier) : 20 % du revenu d’activité lucrative, max. CHF 36’288.
+- Petite cotisation 2027 : CHF 7’373 par an.
+- Grande cotisation 2027 : 20 % du revenu d’activité lucrative, max. CHF 36’864.
 - Source 2026 : tableau OFAS « Montants valables au 1er janvier 2026 ».
+- Source 2027 : Conseil fédéral / OFAS, 2 octobre 2026 ; AFC, 5 octobre 2026.
 
-Rachat 3a : lacunes depuis 2025 seulement. Premier rachat possible : année fiscale 2026, dans la limite de la petite cotisation 2026, en plus du versement ordinaire de l’année, sous conditions OFAS. Le montant de rachat applicable en 2027 est à confirmer par l’OFAS.
+Rachat 3a : lacunes depuis 2025 seulement. Premier rachat possible : année fiscale 2026, dans la limite de la petite cotisation de l’année du rachat (CHF 7’258 en 2026, CHF 7’373 en 2027), en plus du versement ordinaire, sous conditions OFAS.
 
 Le 3b n’a pas de plafond OFAS. Une déduction cantonale, quand elle existe, se vérifie sur la notice fiscale de l’année.
 

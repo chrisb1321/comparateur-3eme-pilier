@@ -109,7 +109,7 @@ export default function ExempleComparatifPage() {
           </section>
         </div>
         <p className="mt-8 text-sm leading-relaxed text-[#4A6275]">
-          Plafonds 2026 : CHF 7’258 / 36’288. Montants 2027 à confirmer par l’OFAS. Comparatif gratuit et sans engagement.
+          Plafonds 2026 : CHF 7’258 / 36’288. Plafonds 2027 : CHF 7’373 / 36’864 (Conseil fédéral, 2 octobre 2026). Comparatif gratuit et sans engagement.
           Aucun e-mail de confirmation n’est envoyé après le formulaire.
         </p>
         <div className="mt-8 flex flex-col gap-3 sm:flex-row">

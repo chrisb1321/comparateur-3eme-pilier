@@ -1,10 +1,10 @@
-import { chf, FIGURES, pillar3aTableRows, YEAR_SPAN, YEAR_SPAN_WORDS, CEILING_NOTE } from "@/lib/figures";
+import { chf, FIGURES, pillar3aTableRows, YEAR_SPAN, YEAR_SPAN_WORDS, CEILING_NOTE, YEARS } from "@/lib/figures";
 import type { EditorialDoc } from "./types";
 
 const UPDATED = "2026-09-20";
 const PUBLISHED_CONVERSION = "2026-10-03";
 const METHOD_INLINE =
-  "Méthode : textes officiels OFAS (tableau 2026) et AFC, notices cantonales pour le 3b. Plafonds 2026 : CHF 7’258 / 36’288. Montants 2027 à confirmer par l’OFAS. Dernière revue : 19 septembre 2026.";
+  "Méthode : textes officiels OFAS (tableau 2026), Conseil fédéral du 2 octobre 2026 pour 2027, et AFC. Notices cantonales pour le 3b. Plafonds 2026 : CHF 7’258 / 36’288. Plafonds 2027 : CHF 7’373 / 36’864. Dernière revue : 6 octobre 2026.";
 
 export const PAGES: EditorialDoc[] = [
   {
@@ -296,7 +296,7 @@ export const PAGES: EditorialDoc[] = [
     published: "2021-10-31",
     updated: UPDATED,
     intro:
-      "La déduction 3a 2026 est identique que l’argent soit versé à une fondation bancaire ou à un assureur. Plafonds 2026 : CHF 7’258 / 36’288. Montants 2027 à confirmer par l’OFAS. Ce qui change : les frais, les garanties, la discipline d’épargne et ce qui reste si vous arrêtez au bout de trois ans.",
+      "La déduction 3a 2026 est identique que l’argent soit versé à une fondation bancaire ou à un assureur. Plafonds 2026 : CHF 7’258 / 36’288. Plafonds 2027 : CHF 7’373 / 36’864 (Conseil fédéral, 2 octobre 2026). Ce qui change : les frais, les garanties, la discipline d’épargne et ce qui reste si vous arrêtez au bout de trois ans.",
     related: [
       "choisir-entre-3eme-pilier-bancaire-ou-en-assurance",
       "liberation-du-paiement-des-primes",
@@ -314,7 +314,7 @@ export const PAGES: EditorialDoc[] = [
       {
         question: "L’assurance 3a déduit-elle davantage que la banque ?",
         answer:
-          "Non. Plafonds 2026 : CHF 7’258 / 36’288. Montants 2027 à confirmer par l’OFAS. Le plafond 2026 ne dépend pas du prestataire.",
+          "Non. Plafonds 2026 : CHF 7’258 / 36’288. Plafonds 2027 : CHF 7’373 / 36’864 (Conseil fédéral, 2 octobre 2026). Le plafond 2026 ne dépend pas du prestataire.",
       },
     ],
     blocks: [
@@ -747,7 +747,7 @@ export const PAGES: EditorialDoc[] = [
     title: `Déductions fiscales du 3e pilier en ${YEAR_SPAN}`,
     metaTitle: "Déductions 3e pilier 2026 : plafonds 7’258 / 36’288",
     description:
-      "Plafonds 3a 2026 : CHF 7’258 / 36’288. Montants 2027 à confirmer par l’OFAS. Rachat dès 2026, 3b Genève/Fribourg, imposition au retrait. Sources AFC et OFAS.",
+      "Plafonds 3a 2026 : CHF 7’258 / 36’288. Plafonds 2027 : CHF 7’373 / 36’864 (Conseil fédéral, 2 octobre 2026). Rachat dès 2026, 3b Genève/Fribourg, imposition au retrait. Sources AFC et OFAS.",
     published: "2021-11-12",
     updated: UPDATED,
     intro: `Quel est le plafond 3a déductible en 2026 ? ${chf(FIGURES.pillar3aWithLpp)} si vous êtes affilié au 2e pilier, ${chf(FIGURES.pillar3aWithoutLpp)} (20 % du revenu d’activité, max.) sinon. Source : tableau OFAS du 1.1.2026. ${CEILING_NOTE}.`,
@@ -770,7 +770,8 @@ export const PAGES: EditorialDoc[] = [
       },
       {
         question: `Les plafonds 3a 2027 sont-ils déjà connus ?`,
-        answer: "Non. Plafonds 2026 : CHF 7’258 / 36’288. Montants 2027 à confirmer par l’OFAS.",
+        answer:
+          "Oui. Dès le 1er janvier 2027 : CHF 7’373 avec un 2e pilier, et 20 % du revenu d’activité jusqu’à CHF 36’864 sans. En 2026 : CHF 7’258 / 36’288. Source : Conseil fédéral, 2 octobre 2026.",
       },
       {
         question: "Le 3b double-t-il cette déduction ?",
@@ -792,7 +793,7 @@ export const PAGES: EditorialDoc[] = [
       },
       {
         type: "p",
-        text: `Les lacunes depuis 2025 peuvent être rachetées à partir de 2026, dans la limite de la petite cotisation 2026 (${chf(FIGURES.buybackMax)}), en plus du versement ordinaire de l’année, si vous aviez un revenu AVS l’année de la lacune et l’année du rachat, et que le maximum ordinaire de l’année en cours est déjà versé. Le montant de rachat applicable en 2027 est à confirmer par l’OFAS. Source OFAS, « Rachats dans le pilier 3a ».`,
+        text: `Les lacunes depuis 2025 peuvent être rachetées à partir de 2026, dans la limite de la petite cotisation 2026 (${chf(FIGURES.buybackMax)}), en plus du versement ordinaire de l’année, si vous aviez un revenu AVS l’année de la lacune et l’année du rachat, et que le maximum ordinaire de l’année en cours est déjà versé. Pour un rachat effectué en 2027, la limite est la petite cotisation 2027 (CHF 7’373), en plus du versement ordinaire. Source OFAS, « Rachats dans le pilier 3a ».`,
       },
       {
         type: "h2",
@@ -874,7 +875,7 @@ export const PAGES: EditorialDoc[] = [
     title: "3e pilier à Genève",
     metaTitle: `3e pilier Genève ${YEAR_SPAN} : 3a, 3b, ICC et frontaliers`,
     description:
-      "Landing Genève : plafonds 3a 2026, enveloppe LIPP des primes d’assurance-vie, frontaliers. Plafonds 2026 : CHF 7’258 / 36’288. Montants 2027 à confirmer par l’OFAS.",
+      "Landing Genève : plafonds 3a 2026, enveloppe LIPP des primes d’assurance-vie, frontaliers. Plafonds 2026 : CHF 7’258 / 36’288. Plafonds 2027 : CHF 7’373 / 36’864 (Conseil fédéral, 2 octobre 2026).",
     published: "2022-07-01",
     updated: UPDATED,
     intro: `Le plafond 3a à Genève est-il plus élevé qu’ailleurs ? Non. En 2026 c’est le maximum fédéral OFAS / OPP 3 : ${chf(FIGURES.pillar3aWithLpp)} avec 2e pilier, ${chf(FIGURES.pillar3aWithoutLpp)} sans. ${CEILING_NOTE}. L’ICC change l’économie d’impôt, pas le droit de verser. La LIPP vise des primes d’assurance-vie, pas un « bonus 3b ».`,
@@ -1388,7 +1389,7 @@ export const PAGES: EditorialDoc[] = [
       {
         type: "ol",
         items: [
-          `Estimer la rente AVS (tableau OFAS 2026 : ${chf(FIGURES.avsMinMonthly)} à ${chf(FIGURES.avsMaxMonthly)} par mois pour une rente complète ; 13e rente dès décembre 2026. Tableau 2027 non publié au 19.09.2026).`,
+          `Estimer la rente AVS (2026 : ${chf(FIGURES.avsMinMonthly)} à ${chf(FIGURES.avsMaxMonthly)} par mois ; dès 2027 : ${chf(YEARS[2027].avsMinMonthly)} à ${chf(YEARS[2027].avsMaxMonthly)}, Conseil fédéral du 2 octobre 2026).`,
           "Lire le certificat LPP : salaire assuré, avoir, projection à l’âge de référence, rentes d’invalidité et de survivants.",
           "Lister les 3a déjà ouverts (plusieurs comptes sont possibles, le plafond est global).",
           "Chiffrer le besoin décès / invalidité net des prestations sociales.",
@@ -1424,10 +1425,10 @@ export const PAGES: EditorialDoc[] = [
     title: "1er pilier AVS / AI / APG",
     metaTitle: "1er pilier AVS 2026 : rentes, 13e rente, âge",
     description:
-      "AVS 2026 : rentes min./max. (tableau OFAS 1.1.2026). 2027 : tableau non publié au 19.09.2026. 13e rente dès décembre 2026, âge de référence 65 ans.",
+      "AVS 2026 : 1’260 à 2’520 CHF par mois. Dès le 1er janvier 2027 : 1’280 à 2’560 CHF (Conseil fédéral, 2 octobre 2026). 13e rente dès décembre 2026.",
     published: "2021-11-12",
     updated: UPDATED,
-    intro: `Quelle est la rente AVS en ${YEAR_SPAN_WORDS} ? Selon le tableau OFAS au 1er janvier 2026, une rente de vieillesse complète se situe entre ${chf(FIGURES.avsMinMonthly)} et ${chf(FIGURES.avsMaxMonthly)} par mois. La somme des deux rentes d’un couple marié est plafonnée à ${chf(FIGURES.avsCoupleMaxMonthly)}. Au 19 septembre 2026, le tableau OFAS 2027 n’est pas publié : ces montants restent ceux en vigueur jusqu’à une éventuelle décision du Conseil fédéral (annonce usuelle en octobre).`,
+    intro: `Quelle est la rente AVS en ${YEAR_SPAN_WORDS} ? En 2026, une rente de vieillesse complète se situe entre ${chf(FIGURES.avsMinMonthly)} et ${chf(FIGURES.avsMaxMonthly)} par mois (tableau OFAS au 1.1.2026). Dès le 1er janvier 2027, le Conseil fédéral la porte de ${chf(YEARS[2027].avsMinMonthly)} à ${chf(YEARS[2027].avsMaxMonthly)} par mois (décision du 2 octobre 2026).`,
     related: ["3eme-pilier-suisse", "2eme-pilier-lpp", "tableau-ofas-montants-avs-lpp-3a", "analyse-de-prevoyance"],
     faqs: [
       {
@@ -1436,8 +1437,7 @@ export const PAGES: EditorialDoc[] = [
       },
       {
         question: "Les rentes AVS 2027 sont-elles déjà publiées ?",
-        answer:
-          "Non, au 19 septembre 2026. Nous citons le tableau OFAS du 1.1.2026. L’annonce usuelle des montants de l’année suivante tombe en octobre. Pas de chiffre inventé.",
+        answer: `Oui. Le 2 octobre 2026, le Conseil fédéral a fixé la rente minimale à ${chf(YEARS[2027].avsMinMonthly)} et la rente maximale à ${chf(YEARS[2027].avsMaxMonthly)} par mois dès le 1er janvier 2027. En 2026, le tableau OFAS reste ${chf(FIGURES.avsMinMonthly)} à ${chf(FIGURES.avsMaxMonthly)}.`,
       },
     ],
     blocks: [
@@ -1471,10 +1471,10 @@ export const PAGES: EditorialDoc[] = [
     title: "2e pilier LPP",
     metaTitle: `2e pilier LPP ${YEAR_SPAN} : seuil 22’680, coordination 26’460`,
     description:
-      "LPP 2026 (OFAS) : seuil d’entrée, déduction de coordination et salaire coordonné. Le tableau 2027 n’est pas publié. Lien avec le plafond 3a.",
+      "LPP 2026 : seuil 22’680 CHF, coordination 26’460 CHF. Dès 2027 : seuil 23’040 CHF, coordination 26’880 CHF (Conseil fédéral, 2 octobre 2026). Lien avec le plafond 3a.",
     published: "2021-11-12",
     updated: UPDATED,
-    intro: `Quel est le seuil LPP en ${YEAR_SPAN_WORDS} ? Selon le tableau OFAS au 1er janvier 2026, l’affiliation obligatoire commence à ${chf(FIGURES.lppEntry)} de salaire annuel, la déduction de coordination est ${chf(FIGURES.lppCoordination)}, la limite supérieure ${chf(FIGURES.lppSalaryCap)}. Au 19 septembre 2026, le tableau 2027 n’est pas publié : ces montants restent ceux en vigueur.`,
+    intro: `Quel est le seuil LPP en ${YEAR_SPAN_WORDS} ? En 2026, l’affiliation obligatoire commence à ${chf(FIGURES.lppEntry)} de salaire annuel et la déduction de coordination est ${chf(FIGURES.lppCoordination)} (tableau OFAS). Dès le 1er janvier 2027 : seuil ${chf(YEARS[2027].lppEntry)}, coordination ${chf(YEARS[2027].lppCoordination)} (Conseil fédéral, 2 octobre 2026).`,
     related: [
       "3eme-pilier-suisse",
       "3eme-pilier-independant",
@@ -1490,8 +1490,7 @@ export const PAGES: EditorialDoc[] = [
       },
       {
         question: "Les montants LPP 2027 sont-ils déjà connus ?",
-        answer:
-          "Non, au 19 septembre 2026. Nous citons le tableau OFAS du 1.1.2026. Pas de hausse inventée pour 2027.",
+        answer: `Oui pour le seuil d’entrée (${chf(YEARS[2027].lppEntry)}) et la déduction de coordination (${chf(YEARS[2027].lppCoordination)}), dès le 1er janvier 2027. Source : Conseil fédéral, 2 octobre 2026. En 2026 : ${chf(FIGURES.lppEntry)} et ${chf(FIGURES.lppCoordination)}.`,
       },
     ],
     blocks: [
@@ -1501,7 +1500,7 @@ export const PAGES: EditorialDoc[] = [
       },
       {
         type: "table",
-        headers: ["Paramètre LPP (tableau OFAS 2026 ; 2027 non publié)", "Montant"],
+        headers: ["Paramètre LPP en 2026 (tableau OFAS)", "Montant"],
         rows: [
           ["Salaire minimal annuel (seuil)", chf(FIGURES.lppEntry)],
           ["Déduction de coordination", chf(FIGURES.lppCoordination)],
@@ -1772,13 +1771,13 @@ export const PAGES: EditorialDoc[] = [
         items: [
           "Le site ne remplace pas un fiduciaire ni une caisse de pension.",
           "Le site ne garantit pas un rendement.",
-          "Plafonds 2026 : CHF 7’258 / 36’288. Montants 2027 à confirmer par l’OFAS.",
+          "Plafonds 2026 : CHF 7’258 / 36’288. Plafonds 2027 : CHF 7’373 / 36’864 (Conseil fédéral, 2 octobre 2026).",
         ],
       },
       { type: "h2", text: "Revue" },
       {
         type: "p",
-        text: "Dernière revue des plafonds 2026 : 19 septembre 2026. Plafonds 2026 : CHF 7’258 / 36’288. Montants 2027 à confirmer par l’OFAS.",
+        text: "Dernière revue des plafonds 2026 : 19 septembre 2026. Plafonds 2026 : CHF 7’258 / 36’288. Plafonds 2027 : CHF 7’373 / 36’864 (Conseil fédéral, 2 octobre 2026).",
       },
     ],
   },

@@ -21,7 +21,7 @@ const sans = Instrument_Sans({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.canonicalHost),
   title: {
-    default: "Comparateur 3ème pilier — plafonds 2026 : CHF 7’258 / 36’288",
+    default: "Comparateur 3ème pilier — plafond 3a 2027 : CHF 7’373 / 36’864",
     template: "%s",
   },
   description: SITE.description,

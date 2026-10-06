@@ -17,6 +17,11 @@ export const HOME_FAQS: FaqItem[] = [
       "La souplesse des versements, les frais, les conditions, l’horizon, et les prestations en cas de décès ou d’incapacité.",
   },
   {
+    question: "Quel est le montant maximum du 3e pilier en 2027 ?",
+    answer:
+      "7’373 CHF avec un 2e pilier. Sans affiliation au 2e pilier, 20 % du revenu d’activité jusqu’à 36’864 CHF. Ces montants s’appliquent aux versements crédités en 2027 (Conseil fédéral, 2 octobre 2026).",
+  },
+  {
     question: "Quel est le plafond 3a en 2026 ?",
     answer:
       "7’258 CHF avec un 2e pilier. Sans affiliation au 2e pilier, 20 % du revenu d’activité jusqu’à 36’288 CHF.",
@@ -34,4 +39,4 @@ export const HOME_FAQS: FaqItem[] = [
 ];
 
 export const METHOD_NOTE =
-  "Méthode : nous recoupons les textes officiels (OFAS, OPP 3, AFC) et les notices cantonales. Plafonds 2026 : CHF 7’258 / 36’288. Montants 2027 à confirmer par l’OFAS. Les déductions 3b sont cantonales et partagent souvent l’enveloppe des primes d’assurance : un chiffre « maximum » n’est pas un crédit d’impôt automatique. Dernière revue éditoriale : 19 septembre 2026. Ceci n’est pas un conseil personnalisé.";
+  "Méthode : nous recoupons les textes officiels (OFAS, OPP 3, AFC, Conseil fédéral) et les notices cantonales. Plafonds 2026 : CHF 7’258 / 36’288. Plafonds 2027 : CHF 7’373 / 36’864 (Conseil fédéral, 2 octobre 2026). Les déductions 3b sont cantonales et partagent souvent l’enveloppe des primes d’assurance : un chiffre « maximum » n’est pas un crédit d’impôt automatique. Dernière revue éditoriale : 6 octobre 2026. Ceci n’est pas un conseil personnalisé.";

@@ -6,7 +6,7 @@ import { JsonLd } from "@/components/json-ld";
 import { LeadForm } from "@/components/lead-form";
 import { HOME_FAQS } from "@/content/faqs";
 import { ProcessSteps } from "@/components/trust-strip";
-import { CEILING_NOTE, chf, FIGURES } from "@/lib/figures";
+import { CEILING_NOTE, chf, FIGURES, YEARS } from "@/lib/figures";
 import { IMAGES } from "@/lib/media";
 import { canonical, CTA_CALLBACK, SITE } from "@/lib/site";
 
@@ -224,7 +224,7 @@ export default function HomePage() {
           </div>
           <p className="flex items-start gap-3.5 rounded-[14px] border border-dashed border-[#BFF3EA]/50 px-[22px] py-[18px] text-base leading-snug text-white/90">
             <strong className="text-white">Rachat 3a dès 2026.</strong>
-            Les lacunes depuis 2025 peuvent être rachetées, dans la limite de la petite cotisation 2026, en plus de la cotisation ordinaire, sous conditions OFAS. Aucun montant 2027 n’est présenté comme officiel.
+            Les lacunes depuis 2025 peuvent être rachetées, dans la limite de la petite cotisation de l’année du rachat (7’258 CHF en 2026, 7’373 CHF en 2027), en plus de la cotisation ordinaire, sous conditions OFAS.
           </p>
         </div>
       </section>
@@ -298,10 +298,10 @@ export default function HomePage() {
           {
             "@context": "https://schema.org",
             "@type": "Dataset",
-            name: "Plafonds 3e pilier 3a 2026 (Suisse)",
+            name: "Plafonds 3e pilier 3a 2026 et 2027 (Suisse)",
             description: CEILING_NOTE,
             creator: { "@type": "Organization", name: SITE.name },
-            temporalCoverage: "2026",
+            temporalCoverage: "2026/2027",
             variableMeasured: [
               {
                 "@type": "PropertyValue",
@@ -313,6 +313,18 @@ export default function HomePage() {
                 "@type": "PropertyValue",
                 name: "Grande cotisation 3a 2026 (sans 2e pilier, max.)",
                 value: FIGURES.pillar3aWithoutLpp,
+                unitText: "CHF",
+              },
+              {
+                "@type": "PropertyValue",
+                name: "Petite cotisation 3a 2027 (avec 2e pilier)",
+                value: YEARS[2027].pillar3aWithLpp,
+                unitText: "CHF",
+              },
+              {
+                "@type": "PropertyValue",
+                name: "Grande cotisation 3a 2027 (sans 2e pilier, max.)",
+                value: YEARS[2027].pillar3aWithoutLpp,
                 unitText: "CHF",
               },
             ],
