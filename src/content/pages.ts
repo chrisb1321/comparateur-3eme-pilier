@@ -620,10 +620,10 @@ export const PAGES: EditorialDoc[] = [
     description:
       "Versement anticipé ou mise en gage d’un 3a pour un logement à propres besoins (OPP 3, art. 3 et 4). Les règles du 2e pilier ne s’y appliquent pas.",
     published: "2026-10-03",
-    updated: "2026-10-03",
+    updated: "2026-10-06",
     lead: "comparateur",
     intro:
-      "L’OPP 3, art. 3 al. 3, permet de verser par anticipation la prestation de vieillesse du 3a pour acquérir ou construire un logement en propriété pour ses propres besoins, pour acquérir des participations à un tel logement, ou pour rembourser des prêts hypothécaires. Un tel versement ne peut être demandé que tous les cinq ans (art. 3 al. 4). La mise en gage, pour la propriété du logement de l’assuré, relève de l’art. 4 al. 2 : l’impôt sur le capital ne porte que sur la somme versée.",
+      "Peut-on financer un logement avec un 3a ? L’OPP 3, art. 3 al. 3, permet de verser par anticipation la prestation de vieillesse pour acquérir ou construire un logement en propriété pour ses propres besoins, pour acquérir des participations à un tel logement, ou pour rembourser des prêts hypothécaires. Un tel versement ne peut être demandé que tous les cinq ans (art. 3 al. 4). La mise en gage, pour la propriété du logement de l’assuré, relève de l’art. 4 al. 2 : l’impôt sur le capital ne porte que sur la somme versée.",
     related: [
       "2eme-pilier-lpp",
       "3eme-pilier-banque-assurance",
@@ -666,13 +666,9 @@ export const PAGES: EditorialDoc[] = [
     ],
     blocks: [
       {
-        type: "p",
-        text: "Textes de Christophe Bouin. Relecture des textes le 3 octobre 2026 sur Fedlex — OPP 3 (état au 1er janvier 2025), LPP, OEPL, LIFD — et sur la directive ASB de décembre 2023, en vigueur le 1er janvier 2025. Le comparatif est sans honoraires et sans obligation de souscrire.",
-      },
-      {
         type: "callout",
-        title: "Ce qui vaut seulement pour le 2e pilier :",
-        text: "minimum de 20’000 francs (OEPL, art. 5 al. 1) ; plafond après 50 ans (LPP, art. 30c al. 2, et OEPL, art. 5 al. 4) ; délai de trois ans (LPP, art. 30c al. 1) ; remboursement en cas de vente (LPP, art. 30d) ; cadence de cinq ans du 2e pilier (OEPL, art. 5 al. 3) — pour le 3a, la cadence du logement est l’OPP 3, art. 3 al. 4 ; un seul objet à la fois pour les fonds de la prévoyance professionnelle (OEPL, art. 1 al. 2). Ces règles ne se transportent pas au 3a. Lien vers [/2eme-pilier-lpp/](/2eme-pilier-lpp/).",
+        title: "Ce qui vaut seulement pour le 2e pilier",
+        text: "Ces règles ne se transportent pas au 3a : minimum de 20’000 francs (OEPL, art. 5 al. 1) ; plafond après 50 ans (LPP, art. 30c al. 2, et OEPL, art. 5 al. 4) ; délai de trois ans (LPP, art. 30c al. 1) ; remboursement en cas de vente (LPP, art. 30d) ; cadence de cinq ans du 2e pilier (OEPL, art. 5 al. 3). Pour le 3a, la cadence du logement est l’OPP 3, art. 3 al. 4. Un seul objet à la fois vise les fonds de la prévoyance professionnelle (OEPL, art. 1 al. 2). Le cadre du 2e pilier se lit sur [2e pilier LPP](/2eme-pilier-lpp/).",
       },
       { type: "h2", text: "Versement anticipé et mise en gage" },
       {
@@ -681,46 +677,65 @@ export const PAGES: EditorialDoc[] = [
       },
       {
         type: "p",
-        text: "Le versement de l’art. 3 al. 3 sert à acquérir ou construire le logement, à acquérir des participations, ou à rembourser des prêts hypothécaires. L’art. 3 al. 4 : « Un tel versement ne peut être demandé que tous les cinq ans. » Cette phrase qualifie le versement logement, pas le versement de vieillesse ordinaire de l’art. 3 al. 1.",
+        text: "Le versement de l’art. 3 al. 3 sert à acquérir ou construire le logement, à acquérir des participations, ou à rembourser des prêts hypothécaires. L’art. 3 al. 4 dit : « Un tel versement ne peut être demandé que tous les cinq ans. » Cette phrase qualifie le versement logement, pas le versement de vieillesse ordinaire de l’art. 3 al. 1.",
       },
       {
         type: "p",
-        text: "Consentement écrit du conjoint ou du partenaire enregistré (art. 3 al. 6). L’ordonnance ne dit pas qu’un versement logement doit porter sur la totalité d’une relation. Le transfert partiel de l’art. 3a al. 2 est réservé au rachat d’une lacune LPP.",
+        text: "Le consentement écrit du conjoint ou du partenaire enregistré est exigé (art. 3 al. 6). L’ordonnance ne dit pas qu’un versement logement doit porter sur la totalité d’une relation. Le transfert partiel de l’art. 3a al. 2 est réservé au rachat d’une lacune LPP.",
       },
       {
         type: "table",
-        caption: "Impôt seulement sur la somme versée (LIFD, art. 38), plus l’impôt cantonal.",
-        headers: [
-          "Versement anticipé (OPP 3, art. 3 al. 3 et 4)",
-          "Mise en gage (OPP 3, art. 4 al. 2)",
-          "Amortissement indirect (directive ASB, ch. 2.2)",
+        caption: "Impôt seulement sur la somme versée (LIFD, art. 38), plus l’impôt cantonal. L’amortissement indirect n’est pas une troisième voie de l’OPP 3.",
+        headers: ["Critère", "Versement anticipé", "Mise en gage", "Amortissement indirect"],
+        rows: [
+          ["Base", "OPP 3, art. 3 al. 3 et 4", "OPP 3, art. 4 al. 2", "Directive ASB, ch. 2.2"],
+          [
+            "Objet",
+            "Acquérir ou construire, acquérir des participations, rembourser des prêts hypothécaires",
+            "Propriété du logement de l’assuré",
+            "Apport et nantissement d’avoirs du pilier 3a",
+          ],
+          [
+            "Cadence",
+            "Tous les cinq ans (art. 3 al. 4)",
+            "Distincte du versement de l’art. 3 al. 3",
+            "Modalité de la directive ASB, pas de l’art. 3",
+          ],
         ],
-        rows: [],
       },
       { type: "h2", text: "Propres besoins" },
       {
         type: "p",
-        text: "Art. 3 al. 5 renvoie aux art. 2 à 4 OEPL. L’art. 4 al. 1 : domicile ou séjour habituel. Une résidence de vacances qui n’est ni l’un ni l’autre en sort. L’article n’exige pas que le logement soit en Suisse. La mise en gage sert à la propriété du logement de l’assuré (art. 4 al. 2) ; le renvoi analogique ne reprend pas le plafond après 50 ans, le délai de trois ans ni le remboursement à la vente.",
+        text: "L’art. 3 al. 5 renvoie aux art. 2 à 4 OEPL. L’art. 4 al. 1 vise le domicile ou le séjour habituel. Une résidence de vacances qui n’est ni l’un ni l’autre en sort. L’article n’exige pas que le logement soit en Suisse. La mise en gage sert à la propriété du logement de l’assuré (art. 4 al. 2). Le renvoi analogique ne reprend pas le plafond après 50 ans, le délai de trois ans ni le remboursement à la vente.",
       },
       { type: "h2", text: "Compte ou police" },
       {
         type: "p",
-        text: "OPP 3, art. 1 : contrat d’assurance ou convention avec une fondation bancaire. La valeur de rachat n’est pas chiffrée dans l’OPP 3 ; au ch. 2.1 ASB une police compte au plus à hauteur de cette valeur. Lien [/3eme-pilier-banque-assurance/](/3eme-pilier-banque-assurance/).",
+        text: "L’OPP 3, art. 1, reconnaît deux formes : un contrat d’assurance, ou une convention avec une fondation bancaire. La valeur de rachat n’est pas chiffrée dans l’OPP 3. Au ch. 2.1 de la directive ASB, une police compte au plus à hauteur de cette valeur. Le départage des supports est sur [banque ou assurance](/3eme-pilier-banque-assurance/).",
       },
       { type: "h2", text: "Les 10 % de fonds propres" },
       {
         type: "p",
-        text: "Directive ASB ch. 2.1, décembre 2023, en vigueur le 1er janvier 2025, standard minimal reconnu par la FINMA (LFINMA, art. 7 al. 3). La FINMA ne fixe pas le taux. 10 % de la valeur de nantissement hors avoir du 2e pilier. Le 3a gagé et la valeur de rachat « peuvent » compter. Une banque peut demander plus. Le champ d’application de cette directive vise les immeubles en Suisse : un achat à l’étranger ne se règle pas avec ce chiffre de 10 %, ce qui n’est pas la même chose qu’exclure l’étranger du motif logement de l’OPP 3. Ch. 2.2 : dette ramenée aux deux tiers en quinze ans ; amortissement indirect possible. Pas d’apport minimal de 20 % du prix dans cette directive.",
+        text: "La directive ASB, ch. 2.1, de décembre 2023, en vigueur le 1er janvier 2025, est un standard minimal reconnu par la FINMA (LFINMA, art. 7 al. 3). La FINMA ne fixe pas le taux. Le chiffre cité est 10 % de la valeur de nantissement, hors avoir du 2e pilier. Le 3a gagé et la valeur de rachat « peuvent » compter. Une banque peut demander plus.",
+      },
+      {
+        type: "p",
+        text: "Le champ d’application de cette directive vise les immeubles en Suisse. Un achat à l’étranger ne se règle pas avec ce chiffre de 10 %. Ce n’est pas la même chose qu’exclure l’étranger du motif logement de l’OPP 3. Le ch. 2.2 ramène la dette aux deux tiers en quinze ans, et l’amortissement indirect y est possible. Cette directive ne fixe pas d’apport minimal de 20 % du prix.",
       },
       { type: "h2", text: "Illustration de trésorerie" },
       {
         type: "p",
-        text: "800’000 francs, avance de 80 % souvent pratiquée : apport 160’000, dette 640’000. Illustration de trésorerie, pas une preuve de conformité ASB ou LFINMA. Pas de montant d’impôt inventé. Liens [/deductions-fiscales-3eme-pilier/](/deductions-fiscales-3eme-pilier/) et [/3eme-pilier-a-ou-b/](/3eme-pilier-a-ou-b/).",
+        text: "Pour un prix de 800’000 francs, une avance de 80 % souvent pratiquée donne un apport de 160’000 francs et une dette de 640’000 francs. C’est une illustration de trésorerie, pas une preuve de conformité à la directive ASB ou à la LFINMA. Aucun montant d’impôt n’est calculé ici. L’impôt sur la somme versée se lit sur [déductions fiscales du 3e pilier](/deductions-fiscales-3eme-pilier/). Le cadre 3a ou 3b est sur [3e pilier A ou B](/3eme-pilier-a-ou-b/).",
       },
       { type: "h2", text: "Impôt à Genève" },
       {
         type: "p",
-        text: "LIFD, art. 22 et 38 (cinquième du barème de l’art. 36), plus l’impôt cantonal. Genève : https://www.ge.ch/impot-prevoyance-retraite-du-2e-3e-pilier/impot-cas-retrait-anticipe-acheter-son-logement (8 juillet 2025). Mise en gage non déclarée tant que rien n’est versé. Un retrait 3a ne se rembourse pas. Simulateur : https://www.ge.ch/impot-prestations-capital/calculer-impot-prestation-capital. Pas d’autres cantons sur cette page.",
+        text: "La somme versée est imposée selon la LIFD, art. 22 et 38 : séparément, au cinquième du barème de l’art. 36, plus l’impôt cantonal. À Genève, la page du retrait anticipé pour acheter son logement, mise à jour le 8 juillet 2025, est [impôt en cas de retrait anticipé (ge.ch)](https://www.ge.ch/impot-prevoyance-retraite-du-2e-3e-pilier/impot-cas-retrait-anticipe-acheter-son-logement). La mise en gage n’est pas déclarée tant que rien n’est versé. Un retrait 3a ne se rembourse pas. Le simulateur cantonal est [calcul de l’impôt sur une prestation en capital (ge.ch)](https://www.ge.ch/impot-prestations-capital/calculer-impot-prestation-capital). Pas d’autres cantons sur cette page.",
+      },
+      {
+        type: "callout",
+        title: "Relecture du 3 octobre 2026",
+        text: "Textes de Christophe Bouin. Relecture sur Fedlex — OPP 3 (état au 1er janvier 2025), LPP, OEPL, LIFD — et sur la directive ASB de décembre 2023, en vigueur le 1er janvier 2025. Le comparatif est sans honoraires et sans obligation de souscrire.",
       },
     ],
   },
