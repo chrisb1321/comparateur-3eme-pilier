@@ -190,6 +190,29 @@
     outline: 2px solid #174462;
     outline-offset: 3px;
   }
+  .btn-line {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-height: 56px;
+    padding: 0 28px;
+    border-radius: 999px;
+    border: 1.5px solid #174462;
+    background: #fff;
+    font-size: 17px;
+    font-weight: 600;
+    color: #174462;
+    text-decoration: none;
+  }
+  .btn-line:hover {
+    background: #e8f7f4;
+    color: #174462;
+  }
+  .btn-line:focus-visible {
+    outline: 2px solid #174462;
+    outline-offset: 3px;
+  }
   .btn-ghost {
     display: inline-flex;
     align-items: center;
@@ -262,6 +285,7 @@
     font-size: 38px;
   }
   .btn-pill,
+  .btn-line,
   .btn-ghost {
     min-height: 54px;
   }

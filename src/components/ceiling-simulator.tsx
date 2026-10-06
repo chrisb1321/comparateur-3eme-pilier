@@ -3,17 +3,18 @@
 import { useState } from "react";
 import Link from "next/link";
 import { Amount } from "@/components/amount";
-import { FIGURES, chf, CEILING_NOTE } from "@/lib/figures";
+import { CEILING_NOTE, YEARS, chf } from "@/lib/figures";
 import { CTA_CALLBACK } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
 type Situation = "salarie-lpp" | "sans-lpp" | "independant" | "frontalier" | "autre";
+type Year = 2026 | 2027;
 
 const OPTIONS: { value: Situation; label: string; hint: string }[] = [
   {
     value: "salarie-lpp",
     label: "Salarié·e avec 2e pilier",
-    hint: "Petite cotisation — plafond fixe OFAS.",
+    hint: "Petite cotisation — plafond fixe.",
   },
   {
     value: "sans-lpp",
@@ -23,12 +24,12 @@ const OPTIONS: { value: Situation; label: string; hint: string }[] = [
   {
     value: "independant",
     label: "Indépendant·e",
-    hint: "Souvent sans LPP : vérifier l’affiliation avant de viser le plafond.",
+    hint: "Le plafond dépend de l’affiliation LPP, pas du statut.",
   },
   {
     value: "frontalier",
     label: "Frontalier·ère",
-    hint: "3a possible si revenu soumis à l’AVS suisse.",
+    hint: "3a possible si le revenu est soumis à l’AVS suisse.",
   },
   {
     value: "autre",
@@ -37,44 +38,92 @@ const OPTIONS: { value: Situation; label: string; hint: string }[] = [
   },
 ];
 
-function ceilingFor(situation: Situation): { amount: number; label: string; detail: string } {
-  if (situation === "sans-lpp" || situation === "independant") {
+function parseIncome(raw: string): number | null {
+  const digits = raw.replace(/[^\d]/g, "");
+  if (!digits) return null;
+  return Number(digits);
+}
+
+function ceilingFor(situation: Situation, year: Year, incomeRaw: string) {
+  const figures = YEARS[year];
+  const grande = situation === "sans-lpp" || situation === "independant";
+  if (!grande) {
     return {
-      amount: FIGURES.pillar3aWithoutLpp,
-      label: "Grande cotisation (max.)",
-      detail: `20 % du revenu d’activité, plafonné en 2026 à ${chf(FIGURES.pillar3aWithoutLpp)}. ${CEILING_NOTE}.`,
+      amount: figures.pillar3aWithLpp,
+      label: "Petite cotisation",
+      detail: `Plafond fixe ${year} : ${chf(figures.pillar3aWithLpp)} si vous êtes affilié à une institution du 2e pilier (art. 7 OPP 3).`,
+      showIncome: false,
     };
   }
+  const income = parseIncome(incomeRaw);
+  const cap = figures.pillar3aWithoutLpp;
+  const fromIncome = income == null ? null : Math.min(Math.floor(income * 0.2), cap);
   return {
-    amount: FIGURES.pillar3aWithLpp,
-    label: "Petite cotisation",
-    detail: `Plafond fixe OFAS 2026 : ${chf(FIGURES.pillar3aWithLpp)} (art. 7 OPP 3). ${CEILING_NOTE}.`,
+    amount: fromIncome ?? cap,
+    label: fromIncome == null ? "Grande cotisation (max.)" : "Grande cotisation estimée",
+    detail:
+      fromIncome == null
+        ? `Sans 2e pilier : 20 % du revenu d’activité, plafonné en ${year} à ${chf(cap)}.`
+        : `20 % de ${chf(income!)} = ${chf(Math.floor(income! * 0.2))}, dans la limite ${year} de ${chf(cap)}.`,
+    showIncome: true,
   };
 }
 
-export function CeilingSimulator({ tone = "paper" }: { tone?: "paper" | "hero" }) {
+export function CeilingSimulator({
+  tone = "paper",
+  defaultYear = 2026,
+  year: yearProp,
+}: {
+  tone?: "paper" | "hero";
+  defaultYear?: 2026 | 2027 | "2026" | "2027";
+  year?: 2026 | 2027 | "2026" | "2027";
+}) {
+  const initial: Year = Number(yearProp ?? defaultYear) === 2027 ? 2027 : 2026;
+  const [year, setYear] = useState<Year>(initial);
   const [situation, setSituation] = useState<Situation>("salarie-lpp");
-  const result = ceilingFor(situation);
+  const [income, setIncome] = useState("");
+  const result = ceilingFor(situation, year, income);
   const hero = tone === "hero";
 
   return (
     <section
+      id="simulateur"
       data-testid="simulateur-plafonds"
+      data-year={year}
       className={cn(
-        "overflow-hidden rounded-[22px]",
+        "scroll-mt-28 overflow-hidden rounded-[22px]",
         hero ? "border border-white/18 bg-white/6" : "border border-[#DCE6ED] bg-white",
       )}
     >
       <div className="px-4 pt-4">
         <p className={cn("text-[0.62rem] uppercase tracking-[0.2em]", hero ? "text-accent" : "text-muted-foreground")}>
-          Simulateur · plafond 3a
+          Simulateur · montant maximum 3a
         </p>
         <h2 className={cn("font-heading mt-2 text-2xl", hero ? "text-primary-foreground" : "text-primary")}>
-          Quel plafond pour votre situation ?
+          Quel montant maximum pour votre situation ?
         </h2>
         <p className={cn("mt-2 text-sm leading-relaxed", hero ? "text-primary-foreground/80" : "text-muted-foreground")}>
-          Estimation indicative — pas un conseil fiscal. {CEILING_NOTE}.
+          Estimation indicative, pas un conseil fiscal. {CEILING_NOTE}.
         </p>
+      </div>
+      <div className="mt-4 flex gap-2 px-4">
+        {([2026, 2027] as const).map((value) => (
+          <button
+            key={value}
+            type="button"
+            onClick={() => setYear(value)}
+            className={cn(
+              "rounded-full px-4 py-2 text-sm font-semibold",
+              year === value
+                ? "bg-[#174462] text-white"
+                : hero
+                  ? "border border-white/30 text-primary-foreground"
+                  : "border border-[#DCE6ED] text-[#174462]",
+            )}
+          >
+            {value}
+          </button>
+        ))}
       </div>
       <div className="mt-4 grid gap-2 px-4 sm:grid-cols-2">
         {OPTIONS.map((opt) => (
@@ -100,14 +149,23 @@ export function CeilingSimulator({ tone = "paper" }: { tone?: "paper" | "hero" }
           </button>
         ))}
       </div>
-      <div
-        className={cn(
-          "mt-4 border-t px-4 py-5",
-          hero ? "border-accent/25 bg-primary/40" : "border-border bg-muted/30",
-        )}
-      >
+      {result.showIncome ? (
+        <label className="mt-4 block px-4">
+          <span className={cn("text-sm font-medium", hero ? "text-primary-foreground" : "text-foreground")}>
+            Revenu d’activité annuel (CHF)
+          </span>
+          <input
+            inputMode="numeric"
+            value={income}
+            onChange={(event) => setIncome(event.target.value)}
+            placeholder="Par exemple 90000"
+            className="mt-2 w-full rounded-xl border border-[#DCE6ED] bg-white px-4 py-3 text-base text-[#10324A]"
+          />
+        </label>
+      ) : null}
+      <div className={cn("mt-4 border-t px-4 py-5", hero ? "border-accent/25 bg-primary/40" : "border-border bg-muted/30")}>
         <p className={cn("text-[0.62rem] uppercase tracking-[0.16em]", hero ? "text-accent" : "text-muted-foreground")}>
-          {result.label}
+          {result.label} · {year}
         </p>
         <p className={cn("mt-2 font-figures text-4xl tabular-nums lining-nums", hero ? "text-primary-foreground" : "text-foreground")}>
           <Amount value={result.amount} />
@@ -115,9 +173,6 @@ export function CeilingSimulator({ tone = "paper" }: { tone?: "paper" | "hero" }
         </p>
         <p className={cn("mt-3 text-sm leading-relaxed", hero ? "text-primary-foreground/80" : "text-muted-foreground")}>
           {result.detail}
-        </p>
-        <p className={cn("mt-3 text-xs leading-relaxed", hero ? "text-primary-foreground/65" : "text-muted-foreground")}>
-          {CEILING_NOTE}
         </p>
         <Link
           href="/formulaire-3eme-pilier/"

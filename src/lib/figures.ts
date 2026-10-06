@@ -1,19 +1,30 @@
-/** Chiffres officiels OFAS / AFC. Ne pas anticiper une hausse 2027 non publiée. */
+/** Chiffres officiels OFAS / AFC / Conseil fédéral. */
 
-export const REVIEW_DATE = "2026-09-19";
-export const REVIEW_LABEL = "19 septembre 2026";
+export const REVIEW_DATE = "2026-10-06";
+export const REVIEW_LABEL = "6 octobre 2026";
 export const YEAR_SPAN = "2026–2027";
 export const YEAR_SPAN_WORDS = "2026 et 2027";
 
-/** Art. 7 OPP 3, « dès 2025 » — encore le droit en vigueur au 19.09.2026. */
-const OPP3_IN_FORCE = {
+/** Art. 7 OPP 3, tableau OFAS au 1.1.2026. Inchangés vs 1.1.2025. */
+const PILLAR_3A_2026 = {
   pillar3aWithLpp: 7258,
   pillar3aWithoutLpp: 36288,
   pillar3aWithoutLppRate: "20 %",
   buybackMax: 7258,
 } as const;
 
-/** Tableau OFAS « Montants valables au 1er janvier 2026 » (PDF 06.11.2025). Inchangés vs 1.1.2025. */
+/**
+ * Conseil fédéral, 2 octobre 2026 (OFAS) ; AFC, 5 octobre 2026.
+ * En vigueur pour les versements crédités dès le 1er janvier 2027.
+ */
+const PILLAR_3A_2027 = {
+  pillar3aWithLpp: 7373,
+  pillar3aWithoutLpp: 36864,
+  pillar3aWithoutLppRate: "20 %",
+  buybackMax: 7373,
+} as const;
+
+/** Tableau OFAS « Montants valables au 1er janvier 2026 » (PDF 06.11.2025). */
 const AVS_LPP_2026 = {
   avsMinMonthly: 1260,
   avsMaxMonthly: 2520,
@@ -25,34 +36,49 @@ const AVS_LPP_2026 = {
   lppCoordinatedMax: 64260,
 } as const;
 
+/**
+ * Adaptation des rentes AVS/AI au 1.1.2027 (Conseil fédéral, 2 octobre 2026).
+ * Couple : 150 % de la rente maximale. Plafond LPP : 3 × rente AVS maximale annuelle.
+ */
+const AVS_LPP_2027 = {
+  avsMinMonthly: 1280,
+  avsMaxMonthly: 2560,
+  avsCoupleMaxMonthly: 3840,
+  lppEntry: 23040,
+  lppCoordination: 26880,
+  lppSalaryCap: 92160,
+  lppCoordinatedMin: 3840,
+  lppCoordinatedMax: 65280,
+} as const;
+
 export const YEARS = {
   2026: {
     year: 2026,
     ofasTablePublished: true as const,
-    status:
-      "Tableau OFAS « Montants valables au 1er janvier 2026 » (PDF, 6 novembre 2025).",
-    ...OPP3_IN_FORCE,
+    status: "Tableau OFAS « Montants valables au 1er janvier 2026 » (PDF, 6 novembre 2025).",
+    ...PILLAR_3A_2026,
     ...AVS_LPP_2026,
     buybackFirstYear: 2026,
     buybackGapFrom: 2025,
   },
   2027: {
     year: 2027,
-    ofasTablePublished: false as const,
+    ofasTablePublished: true as const,
     status:
-      "Pas de tableau OFAS au 1.1.2027 au 19 septembre 2026. Plafonds 3a encore ceux de l’art. 7 OPP 3 (« dès 2025 »), identiques à 2026. Annonce usuelle en octobre, avec l’éventuelle adaptation des rentes AVS.",
-    ...OPP3_IN_FORCE,
-    ...AVS_LPP_2026,
+      "Conseil fédéral, 2 octobre 2026 : plafonds 3a 7’373 / 36’864 dès le 1er janvier 2027. Communication AFC du 5 octobre 2026.",
+    ...PILLAR_3A_2027,
+    ...AVS_LPP_2027,
     buybackFirstYear: 2026,
     buybackGapFrom: 2025,
   },
 } as const;
 
+/** Année fiscale en cours au 6 octobre 2026 : les versements crédités en 2026 suivent encore 2026. */
 export const FIGURES = {
   year: 2026,
   currentYear: 2026,
   nextYear: 2027,
-  ...OPP3_IN_FORCE,
+  ...PILLAR_3A_2026,
   ...AVS_LPP_2026,
   buybackFirstYear: 2026,
   buybackGapFrom: 2025,
@@ -67,25 +93,25 @@ export const FIGURES = {
 } as const;
 
 export const CEILING_NOTE =
-  "Plafonds 2026 : CHF 7’258 / 36’288. Montants 2027 à confirmer par l’OFAS";
+  "Plafonds 2026 : CHF 7’258 / 36’288 (tableau OFAS au 1.1.2026). Plafonds 2027 : CHF 7’373 / 36’864 (Conseil fédéral, 2 octobre 2026, dès le 1er janvier 2027)";
 
 export const PILLAR_3A_HISTORY = [
   {
     period: "2027",
-    withLpp: OPP3_IN_FORCE.pillar3aWithLpp,
-    withoutLpp: OPP3_IN_FORCE.pillar3aWithoutLpp,
-    note: "OPP 3 en vigueur ; tableau OFAS 2027 non publié au 19.09.2026",
+    withLpp: PILLAR_3A_2027.pillar3aWithLpp,
+    withoutLpp: PILLAR_3A_2027.pillar3aWithoutLpp,
+    note: "Conseil fédéral, 2 octobre 2026, dès le 1.1.2027",
   },
   {
     period: "2026",
-    withLpp: OPP3_IN_FORCE.pillar3aWithLpp,
-    withoutLpp: OPP3_IN_FORCE.pillar3aWithoutLpp,
+    withLpp: PILLAR_3A_2026.pillar3aWithLpp,
+    withoutLpp: PILLAR_3A_2026.pillar3aWithoutLpp,
     note: "OFAS, montants au 1.1.2026",
   },
   {
     period: "2025",
-    withLpp: OPP3_IN_FORCE.pillar3aWithLpp,
-    withoutLpp: OPP3_IN_FORCE.pillar3aWithoutLpp,
+    withLpp: PILLAR_3A_2026.pillar3aWithLpp,
+    withoutLpp: PILLAR_3A_2026.pillar3aWithoutLpp,
     note: "OFAS, dès 2025",
   },
   { period: "2023–2024", withLpp: 7056, withoutLpp: 35280, note: "OFAS / OPP 3" },
@@ -94,10 +120,22 @@ export const PILLAR_3A_HISTORY = [
 
 export const SOURCES = [
   {
+    id: "cf-avs-2027",
+    label: "Conseil fédéral / OFAS — Adaptation des rentes AVS/AI au 1er janvier 2027",
+    href: "https://www.bsv.admin.ch/fr/newnsb/BqB41FVYi5FB",
+    note: "Séance du 2 octobre 2026. 3a : 7’373 francs avec 2e pilier, 36’864 francs sans, dès le 1.1.2027. Rente AVS min. 1’280 / max. 2’560. Seuil LPP 23’040, déduction de coordination 26’880.",
+  },
+  {
+    id: "afc-3a-2027",
+    label: "AFC — Déductions maximales pilier 3a pour l’année fiscale 2027",
+    href: "https://www.estv.admin.ch/fr/newnsb/6ck3kzVxBNQ4",
+    note: "Communication du 5 octobre 2026 : 7’373 francs avec 2e pilier, 36’864 francs sans, en vigueur le 1er janvier 2027.",
+  },
+  {
     id: "ofas-3a",
     label: "OFAS — Le troisième pilier (art. 7 OPP 3)",
     href: "https://www.bsv.admin.ch/fr/le-troisieme-pilier",
-    note: "Petite cotisation CHF 7’258 et grande cotisation CHF 36’288, tableau OFAS au 1.1.2026. Montants 2027 à confirmer par l’OFAS. Rachats 3a dès l’année fiscale 2026 (lacune 2025).",
+    note: "Petite et grande cotisation, crédit au 31 décembre, rachats 3a dès l’année fiscale 2026 (lacune 2025). Plafonds 2027 : décision du Conseil fédéral du 2 octobre 2026.",
   },
   {
     id: "ofas-amounts-2026",
@@ -109,7 +147,7 @@ export const SOURCES = [
     id: "ofas-cotisation",
     label: "OFAS — Votre cotisation au 3e pilier",
     href: "https://www.bsv.admin.ch/fr/votre-cotisation-au-3e-pilier",
-    note: "Maximum 7’258 francs (affilié 2e pilier) ou 20 % du revenu, max. 36’288 francs (sans 2e pilier). Crédit au 31 décembre pour l’année fiscale.",
+    note: "Maximum selon l’affiliation au 2e pilier, ou 20 % du revenu dans une limite absolue. Crédit au 31 décembre pour l’année fiscale.",
   },
   {
     id: "afc-circ-18a",
@@ -140,9 +178,5 @@ export function chf(n: number): string {
 }
 
 export function pillar3aTableRows(): string[][] {
-  return PILLAR_3A_HISTORY.map((row) =>
-    row.period === "2027"
-      ? ["2027", "À confirmer par l’OFAS", "À confirmer par l’OFAS"]
-      : [row.period, chf(row.withLpp), chf(row.withoutLpp)],
-  );
+  return PILLAR_3A_HISTORY.map((row) => [row.period, chf(row.withLpp), chf(row.withoutLpp)]);
 }

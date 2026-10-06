@@ -72,7 +72,7 @@ export function CeilingsBlock({
           hero ? "border-accent/25 text-primary-foreground/70" : "border-border text-muted-foreground",
         )}
       >
-        {CEILING_NOTE}. Grande cotisation 2026 : 20 % du revenu d’activité, dans la limite de CHF 36’288.
+        {CEILING_NOTE}. Grande cotisation : 20 % du revenu d’activité, dans la limite de l’année.
       </p>
     </figure>
   );
