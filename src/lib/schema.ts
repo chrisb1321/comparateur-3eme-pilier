@@ -18,7 +18,6 @@ export const ORGANIZATION_LD = {
   email: SITE.email,
   foundingDate: SITE.foundingDate,
   areaServed: { "@type": "Country", name: "Switzerland" },
-  availableLanguage: ["fr", "fr-CH"],
   knowsAbout: [
     "Pilier 3a",
     "Pilier 3b",
