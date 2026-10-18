@@ -348,6 +348,18 @@ export const IMAGES = {
     width: 1152,
     height: 864,
   },
+  valais: {
+    src: "/images/cover-valais.jpg",
+    alt: "Vallée du Rhône en Valais : vignes, fleuve et sommets au matin.",
+    width: 1152,
+    height: 864,
+  },
+  titres3a: {
+    src: "/images/cover-titres-3a.jpg",
+    alt: "Livret de fonds et carnet d’épargne sur un bureau : 3a titres ou compte.",
+    width: 1152,
+    height: 864,
+  },
 } as const satisfies Record<string, SiteImage>;
 
 const SLUG_COVER: Record<string, keyof typeof IMAGES> = {
@@ -410,6 +422,8 @@ const SLUG_COVER: Record<string, keyof typeof IMAGES> = {
   "retrait-3a-vs-3b-2026": "retraitCompare",
   "rachat-2e-pilier-avec-3a": "rachat2e",
   "rachat-lpp-vers-3a-2026": "transfertLpp",
+  "3eme-pilier-canton-valais": "valais",
+  "3a-titres-ou-compte-2026": "titres3a",
 };
 
 export function coverFor(slug: string, cover?: string): SiteImage {

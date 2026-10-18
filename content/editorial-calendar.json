@@ -169,6 +169,27 @@
           "brief": "Transfert 3a → LPP (pas l’inverse). Circulaire AFC 18a §6.3. Distinction rachat lacune 3a."
         }
       ]
+    },
+    {
+      "id": "2026-w44b",
+      "label": "Semaine 7 — Valais et supports d’épargne",
+      "status": "shipped",
+      "slots": [
+        {
+          "date": "2026-10-27",
+          "slug": "3eme-pilier-canton-valais",
+          "title": "3e pilier dans le canton du Valais",
+          "cover": "valais",
+          "brief": "3a national OFAS. Pas de second barème valaisan. Frontaliers : revenu AVS."
+        },
+        {
+          "date": "2026-10-29",
+          "slug": "3a-titres-ou-compte-2026",
+          "title": "3a en titres ou en compte : même plafond, risque différent",
+          "cover": "titres3a",
+          "brief": "Compte ou fonds : même plafond OFAS. Risque, frais, horizon. Pas banque vs assurance."
+        }
+      ]
     }
   ]
 }

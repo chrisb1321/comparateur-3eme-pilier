@@ -1275,17 +1275,17 @@ const BASE_PAGES: EditorialDoc[] = [
     slug: "actualite-3eme-pilier",
     wpId: 2653,
     title: "Actualités du 3e pilier",
-    metaTitle: "Actualités 3e pilier 2026–2027 — 3 articles par semaine, semaines 1–5",
+    metaTitle: "Actualités 3e pilier 2026–2027 — série éditoriale, cantons et supports",
     description:
-      "Série éditoriale : trois articles par semaine (plafonds OFAS, cantons, frontaliers, 3a/3b, versement, retraite). Semaines 1 à 5 publiées. Archives WordPress, mêmes slugs.",
+      "Série éditoriale 3e pilier : plafonds OFAS, cantons (Genève, Fribourg, Vaud, Valais), frontaliers, 3a/3b, titres ou compte, versement et retraite. Archives WordPress, mêmes slugs.",
     published: "2023-11-05",
     updated: UPDATED,
     intro:
-      "Cadence confirmée : trois textes par semaine, pas un article par jour. Semaines 1 à 5 livrées (OFAS, cantons, frontaliers, supports, versement et retraite). Les guides historiques restent à leurs URL d’origine.",
+      "Cadence confirmée : trois textes par semaine, pas un article par jour. Semaines livrées (OFAS, cantons y compris Valais, frontaliers, supports, versement, retraite, titres ou compte). Les guides historiques restent à leurs URL d’origine.",
     related: [
       "plafonds-3a-2026-2027",
-      "3a-impot-cantonal-geneve-2026",
-      "frontalier-avs-3a-conditions",
+      "3eme-pilier-canton-valais",
+      "3a-titres-ou-compte-2026",
       "methode-sources-ofas-afc",
     ],
     blocks: [],

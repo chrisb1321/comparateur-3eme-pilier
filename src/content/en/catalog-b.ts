@@ -613,4 +613,28 @@ export const EN_B: Record<string, EnCopy> = {
     faqs: [{ question: "Does the order date save the year?", answer: "No. If the money arrives in January, it counts for the following year, under that year’s ceiling." }],
     blocks: [p(HUB)],
   },
+  "3eme-pilier-canton-valais": {
+    title: "Third pillar in Valais",
+    metaTitle: "Valais: the federal pillar 3a ceiling, no extra 3a scale",
+    description: "Valais applies article 7 OPP 3. It does not publish a second pillar 3a scale.",
+    intro: `Does Valais have its own pillar 3a ceiling? Not for pillar 3a: Valais applies article 7 OPP 3. In 2026 the FSIO table gives ${petit} with a 2nd pillar and ${grand} at most without. ${PENDING}. Pillar 3b is not deducted like a federal 3a.`,
+    brief: ["No second 3a scale.", "The federal ceiling is the one that counts.", "Cantonal and communal tax change the saving, not the right to pay in.", PENDING],
+    faqs: [
+      { question: "Is Valais’s ceiling higher?", answer: "No. It is the federal ceiling: 7,258 CHF with a 2nd pillar, 36,288 CHF at most without in 2026." },
+      { question: "Can a cross-border worker in Valais open a 3a?", answer: "Yes if Swiss earned income is subject to OASI (FTA circular no. 18). A G permit alone is not enough." },
+    ],
+    blocks: [p("Nearby cantons: [Vaud](/en/3eme-pilier-canton-vaud/), [Geneva](/en/3eme-pilier-geneve/)."), p(HUB)],
+  },
+  "3a-titres-ou-compte-2026": {
+    title: "Pillar 3a in securities or in a savings account",
+    metaTitle: "3a funds or account: same ceiling, different risk",
+    description: "A 3a account or a securities deposit shares the 2026 FSIO ceiling. Risk, fees and horizon change — not the deduction maximum.",
+    intro: `Should pillar 3a sit in an account or in securities? The ceiling does not decide: foundation account or funds, it is the same 2026 amount, ${petit} or ${grand}. What changes: market risk, custody and fund fees, and time horizon. ${PENDING}.`,
+    brief: ["Same federal deduction.", "No return is promised.", "Not the same question as bank versus insurance."],
+    faqs: [
+      { question: "Do securities raise the deductible ceiling?", answer: "No. The 2026 maximum is federal. Account or funds share the same annual quota." },
+      { question: "Is this the same as bank versus insurance?", answer: "No. Bank versus insurance is about the contract. Securities versus account is about how savings are invested inside a banking foundation." },
+    ],
+    blocks: [p("Contract axis: [choosing the support](/en/choisir-support-3a-2026/)."), p(HUB)],
+  },
 };
