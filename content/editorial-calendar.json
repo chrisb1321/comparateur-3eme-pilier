@@ -190,6 +190,27 @@
           "brief": "Compte ou fonds : même plafond OFAS. Risque, frais, horizon. Pas banque vs assurance."
         }
       ]
+    },
+    {
+      "id": "2026-w45",
+      "label": "Semaine 8 — finpension et VIAC",
+      "status": "shipped",
+      "slots": [
+        {
+          "date": "2026-10-29",
+          "slug": "finpension-3a-2026",
+          "title": "Finpension 3a : le forfait, la fondation, le plafond",
+          "cover": "finpension3a",
+          "brief": "Fondation à Schwyz. Forfait 0,39 % du barème du 1er juillet 2026, compte compris. Pas un palmarès."
+        },
+        {
+          "date": "2026-10-29",
+          "slug": "viac-3a-2026",
+          "title": "VIAC 3a : la fondation Terzo et les frais sur la part investie",
+          "cover": "viac3a",
+          "brief": "Client de la fondation Terzo. 0,52 % sur la part investie, rien sur le numéraire. Cinq portefeuilles sans transfert interne."
+        }
+      ]
     }
   ]
 }

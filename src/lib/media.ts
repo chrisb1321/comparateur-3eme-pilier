@@ -360,6 +360,18 @@ export const IMAGES = {
     width: 1152,
     height: 864,
   },
+  finpension3a: {
+    src: "/images/cover-finpension-3a.jpg",
+    alt: "Livret fermé et stylo sur un bureau face au lac : lire le barème finpension 3a.",
+    width: 1152,
+    height: 864,
+  },
+  viac3a: {
+    src: "/images/cover-viac-3a.jpg",
+    alt: "Téléphone retourné et carnet d’épargne sur noyer : le 3a VIAC, application et fondation.",
+    width: 1152,
+    height: 864,
+  },
 } as const satisfies Record<string, SiteImage>;
 
 const SLUG_COVER: Record<string, keyof typeof IMAGES> = {
@@ -424,6 +436,8 @@ const SLUG_COVER: Record<string, keyof typeof IMAGES> = {
   "rachat-lpp-vers-3a-2026": "transfertLpp",
   "3eme-pilier-canton-valais": "valais",
   "3a-titres-ou-compte-2026": "titres3a",
+  "finpension-3a-2026": "finpension3a",
+  "viac-3a-2026": "viac3a",
 };
 
 export function coverFor(slug: string, cover?: string): SiteImage {

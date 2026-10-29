@@ -637,4 +637,66 @@ export const EN_B: Record<string, EnCopy> = {
     ],
     blocks: [p("Contract axis: [choosing the support](/en/choisir-support-3a-2026/)."), p(HUB)],
   },
+  "finpension-3a-2026": {
+    title: "finpension pillar 3a: the flat fee and the foundation",
+    metaTitle: "finpension 3a: 0.39% flat fee, same federal ceiling",
+    description: "finpension 3a is a Schwyz foundation. The 1 July 2026 fee schedule states 0.39% a year on the assets, including cash. Not a ranking.",
+    intro: `finpension does not raise the federal pillar 3a ceiling. In 2026 that ceiling is ${petit} with a 2nd pillar or ${grand} at most without. What is specific: a foundation in Schwyz, a 0.39% flat administration fee on the assets, and up to five portfolios. Figures were read on finpension’s pages on 29 October 2026. They can change. ${PENDING}`,
+    brief: [
+      "The ceiling is federal. finpension does not multiply it.",
+      "Fee schedule in force on 1 July 2026: 0.39% a year, including on the cash account.",
+      "Up to five pillar 3a portfolios. The annual total is still the FSIO ceiling.",
+      "No return is promised here.",
+    ],
+    faqs: [
+      {
+        question: "Does finpension raise the deductible amount?",
+        answer: "No. The 2026 ceiling is federal: 7,258 CHF with a 2nd pillar, 36,288 CHF at most without. A payment at finpension uses that quota.",
+      },
+      {
+        question: "Does the 0.39% fee apply if the money stays in cash?",
+        answer: "Yes, according to finpension’s 3a account page. With the SNB rate they display at 0.00%, they show a net interest credit of −0.39%. Reread the page: the rate moves.",
+      },
+      {
+        question: "Is finpension 3a an insurance policy?",
+        answer: "No. It is the finpension 3a Retirement Savings Foundation. There is no surrender value of a policy on this page.",
+      },
+    ],
+    blocks: [
+      p("Foundation seat: Schwyz. Supervision: ZBSA. Management: finpension AG, Lucerne. Custodians named by finpension: Swisscanto by Zürcher Kantonalbank and UBS Switzerland AG. Source: [finpension structure](https://finpension.ch/fr/3a/structure/)."),
+      p("The other digital 3a on this site, with a different fee base: [VIAC](/en/viac-3a-2026/). Securities or account, without a brand: [3a funds or account](/en/3a-titres-ou-compte-2026/)."),
+      p(HUB),
+    ],
+  },
+  "viac-3a-2026": {
+    title: "VIAC pillar 3a: Terzo foundation, fee on the invested share",
+    metaTitle: "VIAC 3a: fee on invested assets, Terzo foundation",
+    description: "VIAC 3a is a contract with the Terzo foundation of Bank WIR. 0.52% on invested assets, capped at 0.40%. No VIAC fee on cash.",
+    intro: `VIAC does not create a second pillar 3a ceiling. In 2026 the deduction is still ${petit} with a 2nd pillar or ${grand} at most without. The contract is with the Terzo Pension Foundation of Bank WIR, not with VIAC AG. VIAC charges 0.52% a year on the invested share, capped at 0.40%, and nothing on cash. Read on VIAC’s pages on 29 October 2026. Figures can change. ${PENDING}`,
+    brief: [
+      "Client of the Terzo foundation (Bank WIR), not of VIAC AG.",
+      "0.52% on invested assets, capped at 0.40%. No fee on cash.",
+      "Up to five portfolios, with no transfer from one to another.",
+      "No return is promised here.",
+    ],
+    faqs: [
+      {
+        question: "Am I a client of VIAC AG?",
+        answer: "No. VIAC’s FAQ says the app creates a contract with the Terzo Pension Foundation or the vested-benefits foundation of Bank WIR.",
+      },
+      {
+        question: "Does VIAC charge fees on cash left in the account?",
+        answer: "No, according to its FAQ. The 0.52% fee (capped at 0.40% a year) is calculated on the invested portion. The strategies page showed a 3a account at 0.20% interest on 29 October 2026. That rate is not frozen here.",
+      },
+      {
+        question: "Can I move money from one VIAC portfolio to another?",
+        answer: "No, as a rule. VIAC says each portfolio is a separate 3a relationship and that partial transfers are not allowed, except for home ownership and divorce.",
+      },
+    ],
+    blocks: [
+      p("Uninvested cash sits at Bank WIR. VIAC describes a bankruptcy privilege of up to 100,000 CHF on that cash and points to esisuisse. Securities are held at UBS or Zürcher Kantonalbank and described as segregated assets. They can fall in value. Source: [VIAC FAQ](https://viac.ch/fr/savoir-faire/faq/pilier-3a/)."),
+      p("The other fee base: [finpension](/en/finpension-3a-2026/). Staggered withdrawal: [several 3a accounts](/en/retrait-echelonne-3a/)."),
+      p(HUB),
+    ],
+  },
 };
