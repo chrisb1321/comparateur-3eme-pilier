@@ -1,4 +1,5 @@
 import { Amount } from "@/components/amount";
+import Link from "next/link";
 import type { ComponentPropsWithoutRef, ReactNode } from "react";
 
 function Callout({ title, children }: { title: string; children: ReactNode }) {
@@ -10,9 +11,20 @@ function Callout({ title, children }: { title: string; children: ReactNode }) {
   );
 }
 
+function Demande({ children }: { children?: ReactNode }) {
+  return (
+    <p className="my-8">
+      <Link href="/formulaire-3eme-pilier/" className="btn-pill">
+        {children ?? "Faire une demande"}
+      </Link>
+    </p>
+  );
+}
+
 export const mdxComponents = {
   Amount,
   Callout,
+  Demande,
   h2: (props: ComponentPropsWithoutRef<"h2">) => (
     <h2 className="font-heading mt-12 text-3xl leading-tight text-[#10324A] md:text-4xl" {...props} />
   ),
