@@ -60,12 +60,12 @@ export function SourcesList({ locale = "fr" }: { locale?: "fr" | "en" }) {
       <p className="mt-4 text-xs text-muted-foreground">
         {locale === "en" ? (
           <>
-            Editorial review on {REVIEW_LABEL}. Pillar 3a ceilings cited for 2026, from the FSIO table. {NOTE_2027_EN}.
+            FSIO ceiling review: {REVIEW_LABEL}. Pillar 3a ceilings cited for 2026, from the FSIO table. {NOTE_2027_EN}.
             Cantonal pillar 3b amounts can change from one tax notice to the next. This is not personal advice.
           </>
         ) : (
           <>
-            Revue éditoriale du {REVIEW_LABEL}. Plafonds 3a cités pour 2026, d’après le tableau OFAS. {NOTE_2027}. Les
+            Revue des plafonds OFAS : {REVIEW_LABEL}. Plafonds 3a cités pour 2026, d’après le tableau OFAS. {NOTE_2027}. Les
             montants cantonaux 3b peuvent changer d’une notice fiscale à l’autre. Ceci n’est pas un conseil
             personnalisé.
           </>

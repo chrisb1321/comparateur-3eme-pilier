@@ -6,6 +6,14 @@ import { SITE } from "@/lib/site";
 import { BrandLockup } from "@/components/site-header";
 import { isEnglishPath } from "@/components/locale-shell";
 
+function formatSiteDate(iso: string, locale: "fr" | "en"): string {
+  return new Intl.DateTimeFormat(locale === "en" ? "en-CH" : "fr-CH", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  }).format(new Date(`${iso}T00:00:00`));
+}
+
 const GROUPS = [
   {
     title: "Comparer",
@@ -141,8 +149,8 @@ export function SiteFooter() {
             </Link>
             <p className="text-base leading-relaxed text-white/75">
               {english
-                ? `General information for French-speaking Switzerland. Not a FinSA mandate. Editorial review on ${SITE.updated}.`
-                : `Information générale pour la Suisse romande. Pas un mandat LSFin. Revue éditoriale du ${SITE.updated}.`}
+                ? `General information for French-speaking Switzerland. Not a FinSA mandate. Site-wide review: ${formatSiteDate(SITE.updated, "en")}. Each article shows its update date at the top.`
+                : `Information générale pour la Suisse romande. Pas un mandat LSFin. Revue générale du site : ${formatSiteDate(SITE.updated, "fr")}. La date de mise à jour de l’article est indiquée en tête de page.`}
             </p>
             <span className="self-start rounded-full bg-[#3FD9C4] px-3 py-1.5 text-[13px] font-semibold text-[#062B40]">
               {english ? "Free comparison · FSIO ceilings" : "Comparatif gratuit · Plafonds OFAS"}
