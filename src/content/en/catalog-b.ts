@@ -712,10 +712,10 @@ export const EN_B: Record<string, EnCopy> = {
   },
   "couple-plafond-3a-chacun-2026": {
     title: "A couple’s pillar 3a: one ceiling each, not one for the household",
-    metaTitle: "Couple’s 3a ceiling in 2026: one deduction per person",
+    metaTitle: "Couple’s pillar 3a ceiling in 2026: one deduction each",
     description:
-      "Spouses or registered partners who both work each deduct their own pillar 3a (OPP 3, art. 7 para. 2). No shared household ceiling.",
-    intro: `The pillar 3a ceiling is individual. Article 7 paragraph 2 OPP 3 gives the deduction to each spouse, or each registered partner, when both are gainfully employed and both pay in. In 2026 one person’s maximum is ${petit} with a 2nd pillar, or 20% of their own earned income up to ${grand} without. Unused room does not move to the other person. ${PENDING}`,
+      "In 2026 each working spouse has their own pillar 3a ceiling: 7,258 francs with a 2nd pillar, or 20% up to 36,288 francs. See who can pay in before opening a contract.",
+    intro: `In 2026 each spouse or registered partner who works and pays in has their own pillar 3a deduction. With a 2nd pillar the FSIO maximum is ${petit}. Without one it is 20% of their earned income, up to ${grand}. One person’s unused room stays on their own contract.`,
     brief: [
       "Two working spouses or registered partners: two deductions, not one household pot.",
       "A person with no earned income subject to OASI does not open a 3a in their own name.",
@@ -738,9 +738,14 @@ export const EN_B: Record<string, EnCopy> = {
         answer:
           "No. Each deduction stays with the person who pays, within article 7 paragraph 1. A payment above your own maximum does not use the other person’s room.",
       },
+      {
+        question: "Is the pillar 3a ceiling the same for both spouses?",
+        answer:
+          "Only when they are in the same situation. Each person uses article 7 paragraph 1 OPP 3. In 2026 two people affiliated to a 2nd pillar each have a maximum of 7,258 francs. A person who is not affiliated deducts 20% of their own earned income, up to 36,288 francs.",
+      },
     ],
     blocks: [
-      p("Ordinance: [OPP 3 on Fedlex](https://www.fedlex.admin.ch/eli/cc/1985/1778_1778_1778/fr), article 7 paragraphs 1 and 2. Franc amounts: the FSIO table of 1 January 2026."),
+      p("Ordinance: [OPP 3 on Fedlex](https://www.fedlex.admin.ch/eli/cc/1985/1778_1778_1778/fr), article 7 paragraphs 1 and 2. Franc amounts: the FSIO table of 1 January 2026. Illustration, not a real file: one employee affiliated to a pension fund can pay up to 7,258 francs; a registered partner who is self-employed and has no 2nd pillar can pay 20% of their earned income, up to 36,288 francs. The two amounts stay on two contracts."),
       p("One person affiliated to a 2nd pillar and the other not: the first uses the small contribution, the second uses 20% of their own earned income, capped at the large contribution. Self-employed: [without a 2nd pillar](/en/3eme-pilier-independant/)."),
       p("Several contracts in one name still share one ceiling. Closing them in different years: [staggered withdrawal](/en/retrait-echelonne-3a/). When the capital can be paid: [the five-year window](/en/fenetre-retrait-3a-cinq-ans/)."),
       p(HUB),
@@ -748,11 +753,11 @@ export const EN_B: Record<string, EnCopy> = {
   },
   "fenetre-retrait-3a-cinq-ans": {
     title: "Taking pillar 3a: the five-year window around the reference age",
-    metaTitle: "Pillar 3a withdrawal: five years before and after the reference age",
+    metaTitle: "Pillar 3 withdrawal (3a): the five-year window (2026)",
     description:
-      "Old-age benefits from pillar 3a can be paid at the earliest five years before the OASI reference age, and deferred for at most five years if work continues (OPP 3, art. 3 and 7).",
+      "Five years before the reference age, and five years after if you are still working: the 2026 pillar 3a window. FSIO markers for comparing a contract.",
     intro:
-      "Pillar 3a old-age benefits can be paid at the earliest five years before the reference age in article 13 paragraph 1 of the occupational-pension act. They fall due at that age. If the holder proves they are still gainfully employed, payment can be deferred for at most five years (OPP 3, art. 3 para. 1). Contributions can still be paid for up to five years after that age (art. 7 para. 3).",
+      "In 2026 a pillar 3a old-age payment can start five years before the reference age and can wait five years after it if work continues. The benefit falls due at that age. For the ordinary age of 65, the FSIO places this window between 60 and 70.",
     brief: [
       "The window opens five years before the reference age.",
       "At the reference age the benefit is due, unless work is proved and payment is deferred.",
@@ -761,6 +766,11 @@ export const EN_B: Record<string, EnCopy> = {
       PENDING,
     ],
     faqs: [
+      {
+        question: "What is the current reference age for withdrawing pillar 3a?",
+        answer:
+          "For the ordinary age, 65. OPP 3 article 3 paragraph 1 counts five years around the reference age in article 13 paragraph 1 of the occupational-pension act, the same age as OASI. The FSIO page of 27 November 2025 illustrates that age as 65: payment from 60, and until 70 at the latest if work continues. Women in the AVS 21 transitional generation move toward 65 in steps. This guide does not publish the birth-year table.",
+      },
       {
         question: "From what age can pillar 3a be withdrawn?",
         answer:
@@ -778,7 +788,7 @@ export const EN_B: Record<string, EnCopy> = {
       },
     ],
     blocks: [
-      p("Legal text: [OPP 3, articles 3 and 7](https://www.fedlex.admin.ch/eli/cc/1985/1778_1778_1778/fr). The FSIO page of 27 November 2025 uses 60, 65 and 70 for the ordinary reference age of 65. Women in the AVS 21 transitional generation count the five years from their own reference age: [AVS 21 and pillar 3a](/en/retraite-avs-21-femmes-3a/)."),
+      p("Legal text: [OPP 3, articles 3 and 7](https://www.fedlex.admin.ch/eli/cc/1985/1778_1778_1778/fr). The FSIO page of 27 November 2025 uses 60, 65 and 70 for the ordinary reference age of 65. Women in the AVS 21 transitional generation count the five years from their own reference age: [AVS 21 and pillar 3a](/en/retraite-avs-21-femmes-3a/). Illustration, not a real person: someone whose reference age is 65 and who turns 63 in 2026 already has the window open, and can defer payment until 70 only if they prove they are still working."),
       p("Home ownership, leaving Switzerland and self-employment are earlier exits, not this window: [housing](/en/3eme-pilier-logement/), [leaving Switzerland](/en/depart-suisse-retrait-3a/). Each person in a couple keeps their own ceiling: [one ceiling each](/en/couple-plafond-3a-chacun-2026/)."),
       p("Article 3a paragraph 4: a transfer, or a buy-in to a pension institution, is no longer possible if an insurance policy falls due in the five years before the reference age. Read the contract: [bank or insurance](/en/3eme-pilier-banque-assurance/)."),
       p(HUB),
