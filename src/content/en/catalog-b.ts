@@ -664,7 +664,20 @@ export const EN_B: Record<string, EnCopy> = {
     ],
     blocks: [
       p("Foundation seat: Schwyz. Supervision: ZBSA. Management: finpension AG, Lucerne. Custodians named by finpension: Swisscanto by Zürcher Kantonalbank and UBS Switzerland AG. Source: [finpension structure](https://finpension.ch/fr/3a/structure/)."),
-      p("The other digital 3a on this site, with a different fee base: [VIAC](/en/viac-3a-2026/). Securities or account, without a brand: [3a funds or account](/en/3a-titres-ou-compte-2026/)."),
+      h2("What fees does finpension 3a charge?"),
+      p("The 1 July 2026 fee schedule states a 0.39% flat administration fee on the assets, including cash. Custody, transactions and strategy changes are listed as free. Standard-strategy fund TER is given as 0.00% to 0.02%."),
+      h2("finpension or VIAC, with no winner"),
+      {
+        type: "table",
+        headers: ["", "finpension 3a", "VIAC 3a"],
+        rows: [
+          ["Contract", "finpension 3a foundation, Schwyz", "Terzo foundation, Bank WIR"],
+          ["Admin fee", "0.39% flat fee on the assets", "0.52% on the invested share, capped at 0.40%"],
+          ["Cash left in the account", "The flat fee applies", "No VIAC fee"],
+          ["Portfolios", "Up to 5", "Up to 5, with no transfer between them"],
+        ],
+      },
+      p("If most of the money is invested, both schedules are tenths of a percent, fund costs included. If a large share stays in cash, VIAC does not charge that share and finpension does. This is not a ranking. The other page: [VIAC](/en/viac-3a-2026/)."),
       p(HUB),
     ],
   },
