@@ -372,6 +372,18 @@ export const IMAGES = {
     width: 1152,
     height: 864,
   },
+  couplePlafond: {
+    src: "/images/cover-couple-plafond.jpg",
+    alt: "Deux enveloppes cachetées, sceaux distincts, coupe-papier de laiton : chacun son plafond 3a.",
+    width: 1152,
+    height: 864,
+  },
+  fenetreRetrait: {
+    src: "/images/cover-fenetre-retrait.jpg",
+    alt: "Clé de laiton sur l’appui d’une fenêtre de pierre : la fenêtre de retrait du 3a.",
+    width: 1152,
+    height: 864,
+  },
 } as const satisfies Record<string, SiteImage>;
 
 const SLUG_COVER: Record<string, keyof typeof IMAGES> = {
@@ -438,6 +450,8 @@ const SLUG_COVER: Record<string, keyof typeof IMAGES> = {
   "3a-titres-ou-compte-2026": "titres3a",
   "finpension-3a-2026": "finpension3a",
   "viac-3a-2026": "viac3a",
+  "couple-plafond-3a-chacun-2026": "couplePlafond",
+  "fenetre-retrait-3a-cinq-ans": "fenetreRetrait",
 };
 
 export function coverFor(slug: string, cover?: string): SiteImage {

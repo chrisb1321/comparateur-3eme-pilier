@@ -699,4 +699,78 @@ export const EN_B: Record<string, EnCopy> = {
       p(HUB),
     ],
   },
+  "couple-plafond-3a-chacun-2026": {
+    title: "A couple’s pillar 3a: one ceiling each, not one for the household",
+    metaTitle: "Couple’s 3a ceiling in 2026: one deduction per person",
+    description:
+      "Spouses or registered partners who both work each deduct their own pillar 3a (OPP 3, art. 7 para. 2). No shared household ceiling.",
+    intro: `The pillar 3a ceiling is individual. Article 7 paragraph 2 OPP 3 gives the deduction to each spouse, or each registered partner, when both are gainfully employed and both pay in. In 2026 one person’s maximum is ${petit} with a 2nd pillar, or 20% of their own earned income up to ${grand} without. Unused room does not move to the other person. ${PENDING}`,
+    brief: [
+      "Two working spouses or registered partners: two deductions, not one household pot.",
+      "A person with no earned income subject to OASI does not open a 3a in their own name.",
+      "Several accounts in one name do not multiply that person’s ceiling.",
+      PENDING,
+    ],
+    faqs: [
+      {
+        question: "Do married couples share one pillar 3a ceiling?",
+        answer:
+          "No. Article 7 paragraph 2 OPP 3 gives the deduction to each spouse who works and pays in. Marriage does not create a household ceiling one person can fill alone.",
+      },
+      {
+        question: "Can a spouse with no job open a 3a?",
+        answer:
+          "No, if they have no earned income subject to OASI. The FSIO reserves pillar 3a for people in employment or self-employment in that case, and for people who receive Swiss unemployment daily allowances. Free pension provision (pillar 3b) is the other form.",
+      },
+      {
+        question: "Can I pay my spouse’s unused 3a room into my own account?",
+        answer:
+          "No. Each deduction stays with the person who pays, within article 7 paragraph 1. A payment above your own maximum does not use the other person’s room.",
+      },
+    ],
+    blocks: [
+      p("Ordinance: [OPP 3 on Fedlex](https://www.fedlex.admin.ch/eli/cc/1985/1778_1778_1778/fr), article 7 paragraphs 1 and 2. Franc amounts: the FSIO table of 1 January 2026."),
+      p("One person affiliated to a 2nd pillar and the other not: the first uses the small contribution, the second uses 20% of their own earned income, capped at the large contribution. Self-employed: [without a 2nd pillar](/en/3eme-pilier-independant/)."),
+      p("Several contracts in one name still share one ceiling. Closing them in different years: [staggered withdrawal](/en/retrait-echelonne-3a/). When the capital can be paid: [the five-year window](/en/fenetre-retrait-3a-cinq-ans/)."),
+      p(HUB),
+    ],
+  },
+  "fenetre-retrait-3a-cinq-ans": {
+    title: "Taking pillar 3a: the five-year window around the reference age",
+    metaTitle: "Pillar 3a withdrawal: five years before and after the reference age",
+    description:
+      "Old-age benefits from pillar 3a can be paid at the earliest five years before the OASI reference age, and deferred for at most five years if work continues (OPP 3, art. 3 and 7).",
+    intro:
+      "Pillar 3a old-age benefits can be paid at the earliest five years before the reference age in article 13 paragraph 1 of the occupational-pension act. They fall due at that age. If the holder proves they are still gainfully employed, payment can be deferred for at most five years (OPP 3, art. 3 para. 1). Contributions can still be paid for up to five years after that age (art. 7 para. 3).",
+    brief: [
+      "The window opens five years before the reference age.",
+      "At the reference age the benefit is due, unless work is proved and payment is deferred.",
+      "The FSIO page of 27 November 2025 illustrates the ordinary age of 65 with the ages 60, 65 and 70.",
+      "The annual ceiling does not move with the window.",
+      PENDING,
+    ],
+    faqs: [
+      {
+        question: "From what age can pillar 3a be withdrawn?",
+        answer:
+          "At the earliest five years before the OASI reference age (OPP 3, art. 3 para. 1). The FSIO page “Your contribution to the 3rd pillar”, published on 27 November 2025, illustrates the ordinary age of 65 with a payment possible from 60.",
+      },
+      {
+        question: "Can pillar 3a stay open after 65?",
+        answer:
+          "Yes if gainful employment continues. Payment can be deferred for at most five years after the reference age, and contributions can continue for the same span. For the ordinary age of 65, the FSIO page writes “until 70 at the latest”.",
+      },
+      {
+        question: "Does a spouse have to agree to a retirement withdrawal?",
+        answer:
+          "Article 3 paragraph 6 OPP 3 requires the written consent of the spouse or registered partner for some early payments: a change of self-employed activity, a cash payment under the vested-benefits act, and home ownership. That paragraph does not cover the old-age benefit in paragraph 1.",
+      },
+    ],
+    blocks: [
+      p("Legal text: [OPP 3, articles 3 and 7](https://www.fedlex.admin.ch/eli/cc/1985/1778_1778_1778/fr). The FSIO page of 27 November 2025 uses 60, 65 and 70 for the ordinary reference age of 65. Women in the AVS 21 transitional generation count the five years from their own reference age: [AVS 21 and pillar 3a](/en/retraite-avs-21-femmes-3a/)."),
+      p("Home ownership, leaving Switzerland and self-employment are earlier exits, not this window: [housing](/en/3eme-pilier-logement/), [leaving Switzerland](/en/depart-suisse-retrait-3a/). Each person in a couple keeps their own ceiling: [one ceiling each](/en/couple-plafond-3a-chacun-2026/)."),
+      p("Article 3a paragraph 4: a transfer, or a buy-in to a pension institution, is no longer possible if an insurance policy falls due in the five years before the reference age. Read the contract: [bank or insurance](/en/3eme-pilier-banque-assurance/)."),
+      p(HUB),
+    ],
+  },
 };
