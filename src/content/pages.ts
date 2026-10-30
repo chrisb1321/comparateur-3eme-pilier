@@ -1,4 +1,4 @@
-import { chf, FIGURES, pillar3aTableRows, YEAR_SPAN, YEAR_SPAN_WORDS, CEILING_NOTE, NOTE_2027, YEARS } from "@/lib/figures";
+import { chf, FIGURES, pillar3aTableRows, sourceMd, YEAR_SPAN, YEAR_SPAN_WORDS, CEILING_NOTE, NOTE_2027, YEARS } from "@/lib/figures";
 import type { EditorialDoc } from "./types";
 import { SOCLE_PAGES } from "./socle-pages";
 import { SUITE_PAGES } from "./suite-pages";
@@ -17,7 +17,7 @@ const BASE_PAGES: EditorialDoc[] = [
     description:
       `Différences 3a / 3b en ${YEAR_SPAN_WORDS} : plafonds OFAS / OPP 3, retraits, bénéficiaires, Genève et Fribourg. Comparatif gratuit, sans honoraires.`,
     published: "2021-11-04",
-    updated: "2026-10-03",
+    updated: "2026-10-30",
     intro:
       "Faut-il choisir 3a ou 3b ? Le plus souvent, les deux s’emboîtent. Le 3a (prévoyance liée) est encouragé fiscalement dans toute la Suisse. Le 3b (prévoyance libre) sert surtout la souplesse : bénéficiaires, durée, accès à l’épargne. Ce n’est pas un classement, c’est un emboîtement avec vos 1er et 2e piliers.",
     brief: [
@@ -48,13 +48,42 @@ const BASE_PAGES: EditorialDoc[] = [
     ],
     blocks: [
       {
+        type: "p",
+        text: `On sature d’abord le 3a tant que le revenu est soumis à l’AVS : la déduction est fédérale (${sourceMd("ofas-3a", "OFAS, art. 7 OPP 3")}). On ouvre un 3b ensuite s’il faut accéder à l’épargne hors des motifs de retrait du 3a, désigner un bénéficiaire hors de l’ordre légal, ou utiliser une enveloppe cantonale de primes. Le 3b n’ajoute pas un second plafond 3a.`,
+      },
+      {
+        type: "h2",
+        text: "Ce que le 3a fait et que le 3b ne fait pas",
+      },
+      {
+        type: "ul",
+        items: [
+          `Déduction propre, jusqu’à ${chf(FIGURES.pillar3aWithLpp)} avec un 2e pilier ou 20 % du revenu jusqu’à ${chf(FIGURES.pillar3aWithoutLpp)} sans (${sourceMd("ofas-amounts-2026", "tableau OFAS au 1er janvier 2026")}).`,
+          "Avoir lié, en principe exonéré de l’impôt sur la fortune pendant la détention.",
+          "Retrait ordinaire cadré par l’âge de référence AVS, et versement anticipé seulement dans les cas listés par l’OFAS.",
+        ],
+      },
+      {
+        type: "h2",
+        text: "Ce que le 3b fait et que le 3a ne fait pas",
+      },
+      {
+        type: "ul",
+        items: [
+          "Pas de condition de revenu AVS : conjoint sans activité, épargne enfant, personne sans accès au 3a.",
+          "Retrait selon le produit et le contrat, y compris avant les motifs du 3a. Une assurance peut toutefois appliquer des frais de rachat.",
+          "Désignation de bénéficiaires plus libre que l’ordre légal du 3a, sous réserve du droit successoral.",
+          "À Genève et à Fribourg, certaines primes d’assurance-vie entrent dans une enveloppe cantonale. Un compte 3b n’ouvre pas cette déduction. Ce n’est pas un second plafond fédéral.",
+        ],
+      },
+      {
         type: "h2",
         text: "Qui peut souscrire ?",
       },
       {
         type: "ul",
         items: [
-          "3a : personne exerçant une activité lucrative dont le revenu est soumis à l’AVS en Suisse — salariés, indépendants, certains chômeurs (indemnités journalières) et frontaliers dans ce cas. Source : OFAS / circulaire AFC n° 18.",
+          `3a : personne exerçant une activité lucrative dont le revenu est soumis à l’AVS en Suisse — salariés, indépendants, certains chômeurs (indemnités journalières) et frontaliers dans ce cas. Source : ${sourceMd("ofas-3a", "OFAS — Le troisième pilier")} et ${sourceMd("afc-circ-18a", "circulaire AFC n° 18a")}.`,
           "3b : pas de condition AVS comparable. Utile pour un conjoint sans activité, un enfant (épargne / protection) ou un non-résident qui n’a pas accès au 3a.",
         ],
       },
@@ -64,7 +93,7 @@ const BASE_PAGES: EditorialDoc[] = [
       },
       {
         type: "table",
-        caption: `Plafonds 3a ${YEAR_SPAN_WORDS} (OFAS / art. 7 OPP 3) — valables Confédération, cantons et communes. ${CEILING_NOTE}`,
+        caption: `Plafonds 3a ${YEAR_SPAN_WORDS} — ${sourceMd("ofas-amounts-2026", "tableau OFAS au 1er janvier 2026")}, art. 7 OPP 3. Valables Confédération, cantons et communes. ${CEILING_NOTE}`,
         headers: ["Situation", `Maximum ${YEAR_SPAN}`],
         rows: [
           [`Salarié ou indépendant affilié au 2e pilier (« petite cotisation »)`, chf(FIGURES.pillar3aWithLpp)],
@@ -185,7 +214,7 @@ const BASE_PAGES: EditorialDoc[] = [
     description:
       "Même déduction 3a, supports différents. Banque : flexibilité. Assurance : garanties, décès, libération des primes. Comment départager.",
     published: "2021-10-31",
-    updated: "2026-10-03",
+    updated: "2026-10-30",
     intro:
       `La déduction 3a ${YEAR_SPAN_WORDS} est identique que l’argent soit versé à une fondation bancaire ou à un assureur. Ce qui change : les frais, les garanties, la discipline d’épargne et ce qui reste si vous arrêtez au bout de trois ans. Ni la banque ni l’assurance n’est le bon support pour tout le monde.`,
     brief: [
@@ -214,15 +243,35 @@ const BASE_PAGES: EditorialDoc[] = [
       },
     ],
     blocks: [
-      { type: "h2", text: "Banque" },
       {
         type: "p",
-        text: "Vous versez quand vous le pouvez, jusqu’au plafond. Idéal si votre capacité d’épargne varie, si l’horizon est inférieur à une dizaine d’années, ou si vous voulez arbitrer entre compte et titres. Pas de capital décès intégré, pas de libération des primes : la famille n’est protégée que par l’avoir accumulé (et d’éventuelles polices séparées).",
+        text: `La fondation bancaire est plus lisible si les versements varient ou si l’horizon est inférieur à une dizaine d’années. La police se justifie pour un capital décès, une libération de primes, ou un rythme de primes tenu longtemps. Le plafond fiscal est le même : ${chf(FIGURES.pillar3aWithLpp)} avec un 2e pilier, ${chf(FIGURES.pillar3aWithoutLpp)} au maximum sans (${sourceMd("ofas-amounts-2026", "tableau OFAS au 1er janvier 2026")}).`,
       },
-      { type: "h2", text: "Assurance" },
+      { type: "h2", text: "Quand la fondation bancaire est plus lisible" },
+      {
+        type: "ul",
+        items: [
+          "Versements irréguliers, jusqu’au plafond de l’année.",
+          "Horizon inférieur à une dizaine d’années : pas de frais d’acquisition qui réduisent la valeur des premières années.",
+          "Besoin d’un solde lisible, ou d’arbitrer entre compte et titres.",
+        ],
+      },
       {
         type: "p",
-        text: "La police fixe souvent un rythme de primes, un capital à l’échéance, un capital décès, parfois une rente d’invalidité et la libération du paiement des primes. Ces garanties ont un coût, surtout les premières années : une résiliation précoce laisse une valeur de rachat inférieure aux primes versées. Un horizon long est le filtre le plus honnête. Pour un achat, lisez [le 3e pilier et le logement](/3eme-pilier-logement/) avant de signer. Pour les conditions d’ouverture : [ouvrir un 3e pilier](/ouvrir-un-3eme-pilier/).",
+        text: "Limite : pas de capital décès intégré, pas de libération des primes. La famille n’est protégée que par l’avoir accumulé, et par d’éventuelles polices séparées. Les titres 3a ne sont pas un dépôt à vue.",
+      },
+      { type: "h2", text: "Quand la police couvre un risque que la banque ne couvre pas" },
+      {
+        type: "ul",
+        items: [
+          "Capital décès prévu au contrat, au-delà de l’avoir déjà accumulé.",
+          "Libération du paiement des primes si l’invalidité doit continuer à alimenter le contrat.",
+          "Rythme de primes, si vous voulez cette discipline et que l’horizon est long.",
+        ],
+      },
+      {
+        type: "p",
+        text: "Limite : ces garanties ont un coût, surtout les premières années. Une résiliation précoce laisse souvent une valeur de rachat inférieure aux primes versées. Pour un achat, lisez [le 3e pilier et le logement](/3eme-pilier-logement/) avant de signer. Pour les conditions d’ouverture : [ouvrir un 3e pilier](/ouvrir-un-3eme-pilier/).",
       },
       {
         type: "h2",
@@ -1333,7 +1382,7 @@ const BASE_PAGES: EditorialDoc[] = [
     description:
       `Qui édite le comparateur, méthode éditoriale OFAS/AFC, dates de revue ${YEAR_SPAN}, limites du service. Page E-E-A-T créée en 2026.`,
     published: UPDATED,
-    updated: UPDATED,
+    updated: "2026-10-30",
     intro:
       "Qui écrit les plafonds de ce site ? La rédaction du Comparateur 3ème pilier, à partir des textes OFAS et AFC — pas d’un palmarès. Le site informe et génère des demandes de comparatif pour la Suisse romande. Il n’est pas un agrégateur de tarifs en temps réel.",
     related: ["methode-sources-ofas-afc", "analyse-de-prevoyance", "mentions-legales", "actualite-3eme-pilier"],
@@ -1341,21 +1390,22 @@ const BASE_PAGES: EditorialDoc[] = [
       { type: "h2", text: "Méthode" },
       {
         type: "p",
-        text: METHOD_INLINE,
+        text: `Les plafonds 3a 2026 viennent du ${sourceMd("ofas-amounts-2026", "tableau OFAS des montants au 1er janvier 2026")}. Ceux de 2027 viennent du ${sourceMd("cf-3a-2027", "communiqué du Conseil fédéral du 2 octobre 2026")} : 7 373 CHF avec un 2e pilier, 36 864 CHF au maximum sans. Le cadre légal est ${sourceMd("ofas-3a", "OFAS « Le troisième pilier »")} (art. 7 OPP 3). Le 3b renvoie à la notice cantonale de l’année. Détail : [méthode et sources](/methode-sources-ofas-afc/).`,
       },
       { type: "h2", text: "Ce que nous ne faisons pas" },
       {
         type: "ul",
         items: [
-          "Remplacer votre fiduciaire ou votre caisse de pension.",
-          "Garantir un rendement.",
+          "Aucun diplôme ni inscription à un registre de conseillers n’est affiché. Le site ne remplace pas un fiduciaire, une caisse de pension ni une décision de l’autorité fiscale.",
+          "Garantir un rendement ou classer les produits.",
+          "La revue des plafonds ne couvre pas les barèmes de frais des fondations et des assureurs, ni l’ensemble du marché suisse.",
           "Prétendre être le titulaire SWITCH tant que le RDAP n’est pas nominatif public.",
         ],
       },
       { type: "h2", text: "Revue" },
       {
         type: "p",
-        text: "Dernière revue des plafonds 3a : 6 octobre 2026, sur le communiqué du Conseil fédéral du 2 octobre 2026. Les rentes et seuils cités ici restent ceux du tableau OFAS au 1er janvier 2026.",
+        text: `Dernière revue des plafonds : 6 octobre 2026, sur le ${sourceMd("ofas-amounts-2026", "PDF OFAS au 1er janvier 2026")} et le ${sourceMd("cf-3a-2027", "communiqué du Conseil fédéral du 2 octobre 2026")}. Les rentes et seuils cités ici restent ceux du tableau 2026.`,
       },
     ],
   },

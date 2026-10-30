@@ -157,6 +157,20 @@ export const SOURCES = [
   },
 ] as const;
 
+export type OfficialSourceId = (typeof SOURCES)[number]["id"];
+
+export function officialSource(id: OfficialSourceId) {
+  const item = SOURCES.find((source) => source.id === id);
+  if (!item) throw new Error(`Source inconnue : ${id}`);
+  return item;
+}
+
+/** Lien markdown `[libellé](url)` vers un texte officiel. */
+export function sourceMd(id: OfficialSourceId, label: string) {
+  const item = officialSource(id);
+  return `[${label}](${item.href})`;
+}
+
 /** 20 % déjà décrit par pillar3aWithoutLppRate. Pas un nouveau barème. */
 export const PILLAR_3A_WITHOUT_LPP_RATE = 0.2;
 

@@ -20,7 +20,7 @@ export function RichText({ text }: { text: string }) {
           {label}
         </Link>
       ) : (
-        <a key={index} href={href} className={className} rel="noopener noreferrer">
+        <a key={index} href={href} className={className} target="_blank" rel="noopener noreferrer">
           {label}
         </a>
       ),
@@ -106,7 +106,9 @@ export function Blocks({ blocks }: { blocks: Block[] }) {
                   </tbody>
                 </table>
                 {block.caption ? (
-                  <figcaption className="mt-2 text-xs text-muted-foreground">{block.caption}</figcaption>
+                  <figcaption className="mt-2 text-xs text-muted-foreground">
+                    <RichText text={block.caption} />
+                  </figcaption>
                 ) : null}
               </figure>
             );

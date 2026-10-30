@@ -1,4 +1,5 @@
 import { Amount } from "@/components/amount";
+import { Cite } from "@/components/cite";
 import Link from "next/link";
 import type { ComponentPropsWithoutRef, ReactNode } from "react";
 
@@ -23,6 +24,7 @@ function Demande({ children }: { children?: ReactNode }) {
 
 export const mdxComponents = {
   Amount,
+  Cite,
   Callout,
   Demande,
   h2: (props: ComponentPropsWithoutRef<"h2">) => (
