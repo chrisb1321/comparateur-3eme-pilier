@@ -374,13 +374,13 @@ export const IMAGES = {
   },
   couplePlafond: {
     src: "/images/cover-couple-plafond.jpg",
-    alt: "Deux enveloppes cachetées, sceaux distincts, coupe-papier de laiton : chacun son plafond 3a.",
+    alt: "Plafond 3a d’un couple : deux déductions distinctes, une par personne, suggérées par deux enveloppes cachetées.",
     width: 1152,
     height: 864,
   },
   fenetreRetrait: {
     src: "/images/cover-fenetre-retrait.jpg",
-    alt: "Clé de laiton sur l’appui d’une fenêtre de pierre : la fenêtre de retrait du 3a.",
+    alt: "Fenêtre de retrait du 3e pilier 3a, cinq ans autour de l’âge de référence, suggérée par une clé sur une fenêtre de pierre.",
     width: 1152,
     height: 864,
   },
