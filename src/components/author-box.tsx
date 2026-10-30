@@ -9,7 +9,7 @@ export function AuthorBox({
   variant?: "compact" | "page";
   locale?: "fr" | "en";
 }) {
-  const href = locale === "en" ? "/en/christophe-bouin/" : AUTHOR.href;
+  const href = locale === "en" ? "/en/a-propos/" : AUTHOR.href;
   const role = locale === "en" ? "head of content and of the comparison" : AUTHOR.role.toLowerCase();
   return (
     <aside className="mt-10 rounded-[18px] border border-[#DCE6ED] bg-white px-5 py-4">

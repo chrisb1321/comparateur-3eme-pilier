@@ -1,5 +1,5 @@
 import type { EditorialDoc } from "./types";
-import { AUTHOR, LEGAL } from "@/lib/editorial";
+import { LEGAL } from "@/lib/editorial";
 import { CEILING_NOTE, FIGURES, NOTE_2027, chf } from "@/lib/figures";
 
 const UPDATED = "2026-10-03";
@@ -9,56 +9,6 @@ const PILIER = { name: "3e pilier", href: "/3eme-pilier-suisse/" };
 const FISCALITE = { name: "Fiscalité", href: "/deductions-fiscales-3eme-pilier/" };
 
 export const SUITE_PAGES: EditorialDoc[] = [
-  {
-    kind: "page",
-    slug: "christophe-bouin",
-    title: "Christophe Bouin",
-    metaTitle: "Christophe Bouin, responsable du contenu et du comparatif",
-    description:
-      "Nom et fonction déjà établis. Portrait, bio, années d’expérience, qualifications et inscriptions ne sont pas établis.",
-    published: UPDATED,
-    updated: UPDATED,
-    parents: [],
-    label: "Auteur",
-    intro:
-      `${AUTHOR.name} est le ${AUTHOR.role.toLowerCase()} du site. C’est le seul fait d’identité publié. Le contact est ${AUTHOR.email}. Cette page ne contient pas de biographie, de portrait, d’années d’expérience ni de qualification : ces éléments ne sont pas dans le dépôt.`,
-    brief: [
-      `${AUTHOR.name}, ${AUTHOR.role.toLowerCase()}.`,
-      `Contact : ${AUTHOR.email}.`,
-      "Portrait, bio, expérience, qualifications et inscriptions : non établis.",
-      "Aucun diplôme n’est affiché.",
-    ],
-    related: ["a-propos", "mentions-legales", "methodologie-comparatif"],
-    blocks: [
-      { type: "h2", text: "Ce qui est établi" },
-      {
-        type: "ul",
-        items: [
-          `Nom : ${AUTHOR.name}.`,
-          `Fonction : ${AUTHOR.role}.`,
-          `Contact : ${AUTHOR.email}.`,
-          "Page du service : [à propos](/a-propos/).",
-        ],
-      },
-      { type: "h2", text: "Ce qui n’est pas établi" },
-      {
-        type: "p",
-        text: "Les lignes suivantes sont des manques, pas des titres. Rien n’est inventé pour les remplir.",
-      },
-      {
-        type: "ul",
-        items: [
-          "Portrait : non établi.",
-          "Bio détaillée : non établie.",
-          "Années d’expérience : non établies.",
-          "Qualifications : non établies.",
-          "Inscription d’intermédiaire : non établie.",
-          LEGAL.LEGAL_INTERMEDIARY_STATUS,
-          "TODO — Diplôme AFA annoncé sur le site historique — non vérifié. Ne plus l’afficher tant qu’une preuve n’est pas au dossier.",
-        ],
-      },
-    ],
-  },
   {
     kind: "page",
     slug: "methodologie-comparatif",
@@ -139,7 +89,7 @@ export const SUITE_PAGES: EditorialDoc[] = [
       },
       {
         type: "p",
-        text: "D’où viennent les chiffres officiels : [méthode des sources OFAS et AFC](/methode-sources-ofas-afc/). Le cadre du produit est le [3e pilier Suisse](/3eme-pilier-suisse/). La personne responsable du contenu est [Christophe Bouin](/christophe-bouin/).",
+        text: "D’où viennent les chiffres officiels : [méthode des sources OFAS et AFC](/methode-sources-ofas-afc/). Le cadre du produit est le [3e pilier Suisse](/3eme-pilier-suisse/). La personne responsable du contenu est Christophe Bouin.",
       },
     ],
   },

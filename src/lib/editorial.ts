@@ -8,7 +8,7 @@ import { canonical, SITE } from "@/lib/site";
 export const AUTHOR = {
   name: "Christophe Bouin",
   role: "Responsable du contenu et du comparatif",
-  href: "/christophe-bouin/",
+  href: "/a-propos/",
   email: SITE.email,
 } as const;
 

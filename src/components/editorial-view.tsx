@@ -34,7 +34,7 @@ export function docMetadata(doc: EditorialDoc, locale: "fr" | "en" = "fr"): Meta
   const enUrl = canonical(`/en/${doc.slug}/`);
   const url = locale === "en" ? enUrl : frUrl;
   const cover = coverFor(doc.slug, doc.cover);
-  const authorUrl = locale === "en" ? canonical("/en/christophe-bouin/") : canonical(AUTHOR.href);
+  const authorUrl = locale === "en" ? canonical("/en/a-propos/") : canonical(AUTHOR.href);
   return {
     title: locale === "en" || doc.absoluteTitle ? { absolute: doc.metaTitle } : doc.metaTitle,
     description: doc.description,
@@ -208,7 +208,7 @@ export async function EditorialView({
             {locale === "en" ? "Published" : "Publié le"} {formatDate(doc.published, locale)} · {locale === "en" ? "updated" : "mis à jour le"} {formatDate(doc.updated, locale)}
             {" · "}
             {locale === "en" ? "Written or reviewed by" : "Rédigé ou vérifié par"}{" "}
-            <Link href={locale === "en" ? "/en/christophe-bouin/" : AUTHOR.href} className="underline decoration-white/40 underline-offset-4">
+            <Link href={locale === "en" ? "/en/a-propos/" : AUTHOR.href} className="underline decoration-white/40 underline-offset-4">
               {AUTHOR.name}
             </Link>
           </p>
@@ -296,7 +296,7 @@ export async function EditorialView({
             cta={locale === "en" ? "Open the French form" : undefined}
           />
         ) : null}
-        <AuthorBox variant={doc.slug === "christophe-bouin" ? "page" : "compact"} locale={locale} />
+        <AuthorBox variant="compact" locale={locale} />
         {doc.omitSources ? null : <SourcesList locale={locale} />}
         <ArticleJsonLd doc={doc} locale={locale} />
       </div>
@@ -311,19 +311,14 @@ function ArticleJsonLd({ doc, locale }: { doc: EditorialDoc; locale: "fr" | "en"
       ? {
           ...AUTHOR_PERSON_LD,
           jobTitle: "Head of content and of the comparison",
-          url: canonical("/en/christophe-bouin/"),
+          url: canonical("/en/a-propos/"),
         }
       : AUTHOR_PERSON_LD;
   const graph: Record<string, unknown>[] = [
     stripContext(ORGANIZATION_LD),
     doc.slug === "3eme-pilier-logement" && locale !== "en" ? logementBreadcrumb() : breadcrumbLd(doc),
   ];
-  if (doc.slug === "christophe-bouin") {
-    const page = webPageLd(doc, cover, locale);
-    delete page.image;
-    page.author = { "@id": person["@id"] };
-    graph.push(page, person);
-  } else if (doc.slug === "3eme-pilier-logement") {
+  if (doc.slug === "3eme-pilier-logement") {
     const article = articleLd(doc, cover, locale);
     article.headline = doc.title;
     article.description = doc.intro;
