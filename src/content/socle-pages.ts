@@ -1,6 +1,6 @@
 import type { EditorialDoc } from "./types";
 import { LEGAL } from "@/lib/editorial";
-import { CEILING_NOTE, FIGURES, NOTE_2027, REVIEW_LABEL, chf } from "@/lib/figures";
+import { CEILING_NOTE, FIGURES, NOTE_2027, REVIEW_LABEL, chf, sourceMd } from "@/lib/figures";
 
 const UPDATED = "2026-10-03";
 const petit = chf(FIGURES.pillar3aWithLpp);
@@ -1006,7 +1006,7 @@ export const SOCLE_PAGES: EditorialDoc[] = [
     description:
       "Qui publie le comparatif, comment les chiffres sont vérifiés, et ce que le site ne fait pas. Information générale, pas un conseil personnalisé.",
     published: "2026-09-20",
-    updated: UPDATED,
+    updated: "2026-10-30",
     parents: [],
     intro:
       "Le site comparateur-3eme-pilier.ch explique le 3e pilier à partir des textes de l’OFAS et de l’AFC, et recueille des demandes de comparatif. Christophe Bouin en est le responsable du contenu et du comparatif. Le site ne classe pas des produits et ne promet pas un rendement.",
@@ -1043,7 +1043,7 @@ export const SOCLE_PAGES: EditorialDoc[] = [
       { type: "h2", text: "Comment les pages sont-elles mises à jour ?" },
       {
         type: "p",
-        text: `Les plafonds 3a 2026 viennent du tableau OFAS (PDF du 6 novembre 2025). ${NOTE_2027}. Dernière vérification le ${REVIEW_LABEL}. Une date de build ne vaut pas une vérification.`,
+        text: `Les plafonds 3a 2026 viennent du ${sourceMd("ofas-amounts-2026", "tableau OFAS au 1er janvier 2026")} (PDF du 6 novembre 2025). Ceux de 2027 viennent du ${sourceMd("cf-3a-2027", "communiqué du Conseil fédéral du 2 octobre 2026")}. Dernière vérification le ${REVIEW_LABEL}. Une date de build ne vaut pas une vérification. Cette revue ne couvre pas les barèmes de frais des fondations et des assureurs.`,
       },
       { type: "h2", text: "Que compare le service, et que ne compare-t-il pas ?" },
       {
@@ -1056,7 +1056,8 @@ export const SOCLE_PAGES: EditorialDoc[] = [
         items: [
           "Pas un remplacement de votre fiduciaire ou de votre caisse de pension.",
           "Pas un rendement garanti.",
-          "Pas une inscription FINMA affichée : aucune n’est documentée dans le projet.",
+          "Pas une inscription FINMA affichée : aucune n’est documentée dans le projet. Aucun diplôme ni registre n’est affiché.",
+          "Les barèmes de frais des fondations et des assureurs, et l’ensemble du marché suisse, ne sont pas vérifiés sur cette page.",
           `${LEGAL.LEGAL_COMPENSATION_DISCLOSURE}`,
         ],
       },
