@@ -108,8 +108,18 @@ export const PATH_REDIRECTS: Redirect[] = [
     statusCode: 301,
   },
   {
+    source: "/christophe-bouin",
+    destination: "/a-propos/",
+    statusCode: 301,
+  },
+  {
+    source: "/en/christophe-bouin",
+    destination: "/en/a-propos/",
+    statusCode: 301,
+  },
+  {
     source: "/author/christophe-bouin",
-    destination: "/christophe-bouin/",
+    destination: "/a-propos/",
     statusCode: 301,
   },
   {

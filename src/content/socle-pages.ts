@@ -1048,7 +1048,7 @@ export const SOCLE_PAGES: EditorialDoc[] = [
       { type: "h2", text: "Que compare le service, et que ne compare-t-il pas ?" },
       {
         type: "p",
-        text: "Le retour porte sur les solutions accessibles dans le cadre du service : frais, souplesse des versements, valeur de rachat, garanties décès ou incapacité, horizon. Le site ne prétend pas lister tous les établissements de Suisse. La [méthodologie du comparatif](/methodologie-comparatif/) dit ce qui est lu. La [méthode des sources](/methode-sources-ofas-afc/) dit d’où viennent les chiffres. La personne responsable est [Christophe Bouin](/christophe-bouin/).",
+        text: "Le retour porte sur les solutions accessibles dans le cadre du service : frais, souplesse des versements, valeur de rachat, garanties décès ou incapacité, horizon. Le site ne prétend pas lister tous les établissements de Suisse. La [méthodologie du comparatif](/methodologie-comparatif/) dit ce qui est lu. La [méthode des sources](/methode-sources-ofas-afc/) dit d’où viennent les chiffres. La personne responsable est Christophe Bouin.",
       },
       { type: "h2", text: "Quelles sont les limites ?" },
       {
