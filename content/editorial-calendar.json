@@ -211,6 +211,27 @@
           "brief": "Client de la fondation Terzo. 0,52 % sur la part investie, rien sur le numéraire. Cinq portefeuilles sans transfert interne."
         }
       ]
+    },
+    {
+      "id": "2026-w46",
+      "label": "Semaine 9 — couple et fenêtre de retrait",
+      "status": "shipped",
+      "slots": [
+        {
+          "date": "2026-10-30",
+          "slug": "couple-plafond-3a-chacun-2026",
+          "title": "Couple et 3a : chacun son plafond, pas celui du ménage",
+          "cover": "couplePlafond",
+          "brief": "Art. 7 al. 2 OPP 3 : deux époux ou partenaires actifs déduisent chacun. Pas de report du plafond inutilisé."
+        },
+        {
+          "date": "2026-10-30",
+          "slug": "fenetre-retrait-3a-cinq-ans",
+          "title": "Retirer le 3a : la fenêtre de cinq ans autour de l’âge de référence",
+          "cover": "fenetreRetrait",
+          "brief": "OPP 3, art. 3 al. 1 et art. 7 al. 3 : cinq ans avant l’âge de référence, cinq ans après si l’activité continue."
+        }
+      ]
     }
   ]
 }

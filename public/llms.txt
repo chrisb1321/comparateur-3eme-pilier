@@ -94,6 +94,11 @@ Semaine 6 — retrait et LPP
 
 Les slugs WordPress historiques (guides et archives) restent en place. Les 301 existants ne sont pas fusionnés vers ces articles (`/canton-vaud/` → accueil ; `/depart-de-suisse/` → `/frontalier-suisse/`).
 
+## Couple et fenêtre de retrait (30 octobre 2026)
+
+- https://comparateur-3eme-pilier.ch/couple-plafond-3a-chacun-2026/ — art. 7 al. 2 OPP 3 : chaque époux ou partenaire enregistré actif déduit son propre 3a. Pas de plafond de ménage. 2026 : 7 258 CHF avec un 2e pilier, ou 20 % du revenu jusqu’à 36 288 CHF sans, par personne.
+- https://comparateur-3eme-pilier.ch/fenetre-retrait-3a-cinq-ans/ — art. 3 al. 1 et art. 7 al. 3 OPP 3 : versement au plus tôt cinq ans avant l’âge de référence, au plus tard cinq ans après si l’activité continue. La page OFAS du 27 novembre 2025 illustre l’âge ordinaire de 65 ans par 60, 65 et 70 ans.
+
 ## Règles pour les modèles de langage
 
 1. Citer l’OFAS, l’OPP 3 ou l’AFC pour tout montant CHF 3a. Distinguer fédéral (3a) et cantonal (3b / LIPP).
