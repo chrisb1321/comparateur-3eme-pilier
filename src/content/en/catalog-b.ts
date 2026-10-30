@@ -669,7 +669,7 @@ export const EN_B: Record<string, EnCopy> = {
   "viac-3a-2026": {
     title: "VIAC pillar 3a: Terzo foundation, fee on the invested share",
     metaTitle: "VIAC 3a: fee on invested assets, Terzo foundation",
-    description: "VIAC 3a is a contract with the Terzo foundation of Bank WIR. 0.52% on invested assets, capped at 0.40%. No VIAC fee on cash.",
+    description: "VIAC 3a is a contract with the Terzo foundation. 0.52% on invested assets, capped at 0.40%. No fee on cash. Compared with finpension, with no ranking.",
     intro: `VIAC does not create a second pillar 3a ceiling. In 2026 the deduction is still ${petit} with a 2nd pillar or ${grand} at most without. The contract is with the Terzo Pension Foundation of Bank WIR, not with VIAC AG. VIAC charges 0.52% a year on the invested share, capped at 0.40%, and nothing on cash. Read on VIAC’s pages on 29 October 2026. Figures can change. ${PENDING}`,
     brief: [
       "Client of the Terzo foundation (Bank WIR), not of VIAC AG.",
@@ -690,8 +690,21 @@ export const EN_B: Record<string, EnCopy> = {
         question: "Can I move money from one VIAC portfolio to another?",
         answer: "No, as a rule. VIAC says each portfolio is a separate 3a relationship and that partial transfers are not allowed, except for home ownership and divorce.",
       },
+      {
+        question: "Can a VIAC 3a lose money?",
+        answer: "Yes, on the share held in securities. Those securities are deposited at UBS or Zürcher Kantonalbank. VIAC describes them as assets separate from the custodian bank. Their value follows the markets and can fall. The bankruptcy privilege VIAC describes on cash, up to 100,000 francs, does not guarantee the fund capital. Cash left uninvested is not a securities investment.",
+      },
+      {
+        question: "What does VIAC Life cover?",
+        answer: "VIAC describes cover on the securities share: 2,500 francs for 10,000 francs invested, up to 250,000 francs, in case of death or disability at 70%. That is the text in the app, read on 29 October 2026. It is not a pure-risk policy with a capital you choose.",
+      },
+      {
+        question: "Can a VIAC 3a be withdrawn before retirement?",
+        answer: "Withdrawal does not follow a rule of VIAC’s own. Pillar 3a old-age benefits can be paid at the earliest five years before the OASI reference age (OPP 3, art. 3 para. 1). Earlier exits in the ordinance include home ownership, leaving Switzerland and self-employment. A transfer to another foundation does not create a new deduction.",
+      },
     ],
     blocks: [
+      p("The 0.40% cap and a total under 0.44% are not two prices to choose from. 0.40% caps the VIAC fee, charged only on the invested share. VIAC writes that a strategy invested at 100% stays under 0.44%, capped fee and fund costs included. Cash left in the account is outside that fee, so the total is no longer the fully invested figure. Read on the strategies page on 29 October 2026."),
       p("Uninvested cash sits at Bank WIR. VIAC describes a bankruptcy privilege of up to 100,000 CHF on that cash and points to esisuisse. Securities are held at UBS or Zürcher Kantonalbank and described as segregated assets. They can fall in value. Source: [VIAC FAQ](https://viac.ch/fr/savoir-faire/faq/pilier-3a/)."),
       p("The other fee base: [finpension](/en/finpension-3a-2026/). Staggered withdrawal: [several 3a accounts](/en/retrait-echelonne-3a/)."),
       p(HUB),
